@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/item_setting_height"
+              android:minHeight="@dimen/item_setting_height">
+    <ImageView
+            android:id="@+id/item_setting_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/item_setting_image_start"
+            android:layout_centerVertical="true"/>
+
+    <TextView
+            android:id="@+id/item_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_setting_image"
+            android:layout_marginStart="@dimen/item_setting_image_margin_text"
+            android:textSize="@dimen/item_setting_text_size"
+            android:text="2333333"
+            android:layout_centerVertical="true"/>
+
+    <ImageView
+            android:id="@+id/ic_red"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:src="@mipmap/ic_my_messager_red"
+            android:layout_alignTop="@id/item_setting_text"
+            android:layout_alignEnd="@id/item_setting_text"
+            android:visibility="invisible"/>
+
+    <ImageButton
+            android:id="@+id/item_setting_imgbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="#00000000"
+            android:layout_marginEnd="@dimen/item_setting_arrow_padding"/>
+
+</RelativeLayout>

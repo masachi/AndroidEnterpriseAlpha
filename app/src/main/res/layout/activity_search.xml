@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        tools:context="org.example.androidenterprise.activity.SearchActivity">
+
+    <RelativeLayout
+            android:id="@+id/search_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_height"
+            android:background="#FF97C8CD">
+
+        <ImageButton
+                android:id="@+id/search_return_ib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_return"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/action_bar_image_margin_end"
+                android:background="@color/transparent"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+
+
+        <TextView
+                android:id="@+id/search_ib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/action_bar_image_margin_end"
+                android:text="搜索"
+                android:background="@null"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/search_btn_text_size"
+                android:layout_centerVertical="true"/>
+
+        <EditText
+                android:id="@+id/search_et"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/search_et_height"
+                android:hint="@string/search_hint"
+                android:textColorHint="@color/search_hint_clolor"
+                android:layout_toRightOf="@id/search_return_ib"
+                android:layout_centerVertical="true"
+                android:background="@drawable/search_et_shape"
+                android:layout_marginRight="@dimen/search_margin_right"
+                android:drawableStart="@mipmap/ic_search_hinticon"
+                android:layout_toLeftOf="@id/search_ib"
+                android:paddingStart="5dp"
+                android:layout_marginLeft="@dimen/search_margin_left"
+                android:drawablePadding="5dp"
+                android:cursorVisible="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/search_selector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_selector_height"
+            android:layout_below="@id/search_top"
+            android:background="@drawable/activity_search_child">
+        <RadioGroup
+                android:id="@+id/search_radioGp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            <RadioButton
+                    android:id="@+id/course_rbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableTop="@drawable/search_radio_course_selector"
+                    android:drawablePadding="10dp"
+                    android:text="@string/search_course_text"
+                    android:textColor="@drawable/search_text_selector"
+                    android:textSize="@dimen/search_selector_text_size"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
+                    android:layout_marginLeft="@dimen/search_selector_margin_sides"
+                    android:layout_marginRight="@dimen/search_selector_margin_each"/>
+
+            <RadioButton
+                    android:id="@+id/instru_rbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableTop="@drawable/search_radio_instru_selector"
+                    android:drawablePadding="10dp"
+                    android:text="@string/search_instru_text"
+                    android:textColor="@drawable/search_text_selector"
+                    android:textSize="@dimen/search_selector_text_size"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
+                    android:layout_marginLeft="@dimen/search_selector_margin_each"
+                    android:layout_marginRight="@dimen/search_selector_margin_each"/>
+
+            <RadioButton
+                    android:id="@+id/order_rbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableTop="@drawable/search_radio_order_selector"
+                    android:drawablePadding="10dp"
+                    android:text="@string/search_order_text"
+                    android:textColor="@drawable/search_text_selector"
+                    android:textSize="@dimen/search_selector_text_size"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
+                    android:layout_marginLeft="@dimen/search_selector_margin_each"
+                    android:layout_marginRight="@dimen/search_selector_margin_each"/>
+
+            <RadioButton
+                    android:id="@+id/record_rbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableTop="@drawable/search_radio_record_selector"
+                    android:drawablePadding="10dp"
+                    android:text="@string/search_record_text"
+                    android:textColor="@drawable/search_text_selector"
+                    android:textSize="@dimen/search_selector_text_size"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
+                    android:layout_marginLeft="@dimen/search_selector_margin_each"
+                    android:layout_marginRight="@dimen/search_selector_margin_sides"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+    <org.example.androidenterprise.utils.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/search_selector">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:id="@+id/search_course_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/activity_search_child"
+                    android:layout_marginTop="@dimen/search_margin_each"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/search_info_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_course_text"
+                        android:layout_marginStart="@dimen/search_margin_sides"
+                        android:textColor="@color/search_text_color"
+                        android:textSize="@dimen/search_info_text_size"
+                        android:layout_marginTop="@dimen/search_text_margin_top_end"
+                        android:layout_marginBottom="@dimen/search_text_margin_top_end"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/search_line_color"/>
+
+                <org.example.androidenterprise.utils.CustomListView
+                        android:id="@+id/search_info_course_lv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:dividerHeight="1dp"
+                        android:divider="@drawable/search_course_list_divider">
+
+                </org.example.androidenterprise.utils.CustomListView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/search_order_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/search_course_info"
+                    android:layout_marginTop="@dimen/search_margin_each"
+                    android:background="@drawable/activity_search_child">
+
+                <TextView
+                        android:id="@+id/search_info_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/search_margin_sides"
+                        android:textColor="@color/search_text_color"
+                        android:textSize="@dimen/search_info_text_size"
+                        android:layout_marginTop="@dimen/search_text_margin_top_end"
+                        android:layout_marginBottom="@dimen/search_text_margin_top_end"
+                        android:text="@string/search_order_text"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/search_line_color"/>
+
+                <!--<org.example.androidenterprise.utils.CustomListView-->
+                <!--android:id="@+id/search_info_order_time_lv"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:dividerHeight="1dp"-->
+                <!--android:divider="#FFD1D1D1">-->
+
+                <!--</org.example.androidenterprise.utils.CustomListView>-->
+                <org.example.androidenterprise.utils.CustomExpandableListView
+                        android:id="@+id/search_info_order_time_lv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:groupIndicator="@null"
+                        android:dividerHeight="1dp"
+                        android:divider="#FFD1D1D1"
+                        android:childDivider="#FFD1D1D1">
+
+                </org.example.androidenterprise.utils.CustomExpandableListView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/search_record_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/search_order_info"
+                    android:layout_marginTop="@dimen/search_margin_each"
+                    android:background="@drawable/activity_search_child">
+
+                <TextView
+                        android:id="@+id/search_info_record"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/search_margin_sides"
+                        android:textColor="@color/search_text_color"
+                        android:textSize="@dimen/search_info_text_size"
+                        android:layout_marginTop="@dimen/search_text_margin_top_end"
+                        android:layout_marginBottom="@dimen/search_text_margin_top_end"
+                        android:text="@string/search_record_text"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/search_line_color"/>
+
+                <org.example.androidenterprise.utils.CustomListView
+                        android:id="@+id/search_info_record_lv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:dividerHeight="1dp"
+                        android:divider="#FFD1D1D1">
+
+                </org.example.androidenterprise.utils.CustomListView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/search_instru_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/search_record_info"
+                    android:layout_marginTop="@dimen/search_margin_each"
+                    android:background="@drawable/activity_search_child">
+
+                <TextView
+                        android:id="@+id/search_info_instru"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/search_margin_sides"
+                        android:textColor="@color/search_text_color"
+                        android:textSize="@dimen/search_info_text_size"
+                        android:layout_marginTop="@dimen/search_text_margin_top_end"
+                        android:layout_marginBottom="@dimen/search_text_margin_top_end"
+                        android:text="@string/search_instru_text"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/search_line_color"/>
+
+                <org.example.androidenterprise.utils.MyGridView
+                        android:id="@+id/search_gv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/search_text_margin_top_end"
+                        android:numColumns="2">
+
+                </org.example.androidenterprise.utils.MyGridView>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </org.example.androidenterprise.utils.MyScrollView>
+
+</RelativeLayout>

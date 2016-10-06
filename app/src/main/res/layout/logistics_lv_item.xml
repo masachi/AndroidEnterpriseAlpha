@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/logistics_lv_img"
+            android:layout_width="@dimen/logistics_info_circle_img_selected"
+            android:layout_height="@dimen/logistics_info_circle_img_selected"
+            android:src="@mipmap/ic_log_selected"/>
+
+    <TextView
+            android:id="@+id/logistics_lv_line"
+            android:layout_width="3dp"
+            android:layout_height="@dimen/logistics_info_line"
+            android:background="@color/logistics_line_color"
+            android:layout_below="@+id/logistics_lv_img"
+            android:layout_marginStart="7dp"/>
+
+    <TextView
+            android:id="@+id/logistics_tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logistics_lv_img"
+            android:text="233333333333333333333333333333333333333333333333333333333333333333333"
+            android:layout_marginLeft="@dimen/logistics_info_img_margin_info"
+            android:textSize="@dimen/logistics_info_info_size"
+            android:textColor="@color/logistics_info_color"/>
+
+    <TextView
+            android:id="@+id/logistics_tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logistics_tv_info"
+            android:layout_toRightOf="@id/logistics_lv_img"
+            android:layout_marginLeft="@dimen/logistics_info_img_margin_info"
+            android:layout_marginTop="@dimen/logistics_info_info_margin_date"
+            android:textSize="@dimen/logistics_info_date_size"
+            android:textColor="@color/logistics_date_clolor"
+            android:text="233333"/>
+
+</RelativeLayout>

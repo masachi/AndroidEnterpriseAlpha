@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/background_white"/>
+
+    <stroke android:color="@color/fragment_music_bg"
+            android:width="1px"/>
+</shape>

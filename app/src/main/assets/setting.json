@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"src":"R.mipmap.ic_order",
+		"text":"预约订单",
+		"arrow":"R.mipmap.ic_right_arrow"
+	},
+	{
+		"id": 2,
+		"src":"R.mipmap.ic_record",
+		"text":"交易记录",
+		"arrow":"R.mipmap.ic_right_arrow"
+	},
+	{
+		"id": 3,
+		"src":"R.mipmap.ic_message",
+		"text":"我的留言",
+		"arrow":"R.mipmap.ic_right_arrow"
+	},
+	{
+		"id": 4,
+		"src":"R.mipmap.ic_works",
+		"text":"我的作品",
+		"arrow":"R.mipmap.ic_right_arrow"
+	},
+	{
+		"id": 5,
+		"src":"R.mipmap.ic_recommand",
+		"text":"投诉建议",
+		"arrow":"R.mipmap.ic_right_arrow"
+	},
+	{
+		"id": 6,
+		"src":"R.mipmap.ic_contact",
+		"text":"联系我们",
+		"arrow":"R.mipmap.ic_right_arrow"
+	},
+	{
+		"id": 7,
+		"src":"R.mipmap.ic_help",
+		"text":"帮助中心",
+		"arrow":"R.mipmap.ic_right_arrow"
+	}
+]

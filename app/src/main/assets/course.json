@@ -1,0 +1,98 @@
+[
+	{
+		"id": 1,
+		"course":"C_1",
+		"level":"A",
+		"teacher":"T_1",
+		"pos":"P_1",
+		"state":"已开通",
+		"duration":1,
+		"other":"1",
+		"price":1,
+		"sign":"¥"
+	},
+	{
+		"id": 2,
+		"course":"C_2",
+		"level":"C",
+		"teacher":"T_2",
+		"pos":"P_2",
+		"state":"未开通",
+		"duration":2,
+		"other":"2",
+		"price":2,
+		"sign":"¥"
+	},
+	{
+		"id": 3,
+		"course":"C_3",
+		"level":"A",
+		"teacher":"T_3",
+		"pos":"P_3",
+		"state":"已开通",
+		"duration":3,
+		"other":"3",
+		"price":3,
+		"sign":"¥"
+	},
+	{
+		"id": 4,
+		"course":"C_4",
+		"level":"C",
+		"teacher":"T_4",
+		"pos":"P_4",
+		"state":"已开通",
+		"duration":4,
+		"other":"4",
+		"price":4,
+		"sign":"¥"
+	},
+	{
+		"id": 5,
+		"course":"C_5",
+		"level":"A",
+		"teacher":"T_5",
+		"pos":"P_5",
+		"state":"未开通",
+		"duration":5,
+		"other":"5",
+		"price":5,
+		"sign":"¥"
+	},
+	{
+		"id": 6,
+		"course":"C_6",
+		"level":"A",
+		"teacher":"T_6",
+		"pos":"P_6",
+		"state":"未开通",
+		"duration":6,
+		"other":"6",
+		"price":6,
+		"sign":"¥"
+	},
+	{
+		"id": 7,
+		"course":"C_7",
+		"level":"C",
+		"teacher":"T_7",
+		"pos":"P_7",
+		"state":"已开通",
+		"duration":7,
+		"other":"7",
+		"price":7,
+		"sign":"¥"
+	},
+	{
+		"id": 8,
+		"course":"C_8",
+		"level":"C",
+		"teacher":"T_8",
+		"pos":"P_8",
+		"state":"已开通",
+		"duration":8,
+		"other":"8",
+		"price":8,
+		"sign":"¥"
+	}
+]

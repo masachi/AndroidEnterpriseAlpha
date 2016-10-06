@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="org.example.androidenterprise.activity.LogisticsInfoActivity">
+
+    <RelativeLayout
+            android:id="@+id/logistics_info_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_height"
+            android:background="#FF97C8CD">
+
+        <ImageButton
+                android:id="@+id/instrument_return_ib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_return"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/action_bar_image_margin_end"
+                android:background="@color/transparent"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logistics_info_title"
+                android:textSize="@dimen/action_bar_text_size"
+                android:textColor="@color/text_color"
+                android:layout_centerInParent="true"/>
+
+
+    </RelativeLayout>
+
+    <ListView
+            android:id="@+id/logistics_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/logistics_info_top"
+            android:layout_marginTop="@dimen/logistics_info_margin_top"
+            android:layout_marginLeft="@dimen/logistics_info_margin_left"
+            android:layout_marginBottom="@dimen/logistics_info_margin_end"
+            android:layout_marginRight="@dimen/logistics_info_margin_right">
+
+    </ListView>
+
+</RelativeLayout>

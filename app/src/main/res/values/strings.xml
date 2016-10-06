@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">AndroidEnterprise</string>
+    <string name="login_text">登陆</string>
+    <string name="register_text">注册</string>
+    <string name="password_hint">密码</string>
+    <string name="verify_hint">验证码</string>
+    <string name="get_verify_text">获取验证码</string>
+    <string name="action_bar_course">课程</string>
+    <string name="action_bar_mine">个人中心</string>
+    <string name="action_bar_music">乐器</string>
+    <string name="schedule_text">设置上课时间</string>
+    <string name="schedule_acc">接受上课时间</string>
+    <string name="schedule_rej">拒绝上课时间</string>
+    <string name="course_info_title">课程详情</string>
+    <string name="price_sign">¥</string>
+    <string name="logistics_info_title">课程详情</string>
+    <string name="search_hint">关键词</string>
+    <string name="search_course_text">课程</string>
+    <string name="search_instru_text">乐器</string>
+    <string name="search_order_text">预约订单</string>
+    <string name="search_record_text">交易记录</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_release_label">松开后刷新</string>
+    <string name="pull_to_refresh_refreshing_label">正在刷新\u2026</string>
+
+    <string name="pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">正在加载中\u2026</string>
+    <string name="text">http://miloisbadboy.com/</string>
+
+</resources>

@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/bottom_height"
+             android:layout_gravity="bottom"
+             android:background="@drawable/bottom_line"
+             tools:context="org.example.androidenterprise.fragment.BottomFragment"
+             android:weightSum="1">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:layout_weight="0.33333">
+        <RadioButton
+                android:id="@+id/bottom_image_1"
+                android:layout_width="@dimen/bottom_image_width"
+                android:layout_height="@dimen/bottom_image_height"
+                android:button="@null"
+                android:checked="true"
+                android:background="@drawable/bottom_selector"
+                android:layout_centerHorizontal="true"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bottom_image_1"
+                android:layout_marginTop="@dimen/bottom_image_margin_text"
+                android:textSize="15sp"
+                android:text="课程"
+                android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.33333">
+        <RadioButton
+                android:id="@+id/bottom_image_2"
+                android:layout_width="@dimen/bottom_image_width"
+                android:layout_height="@dimen/bottom_image_height"
+                android:button="@null"
+                android:background="@drawable/bottom_selector"
+                android:layout_centerHorizontal="true"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bottom_image_2"
+                android:layout_marginTop="@dimen/bottom_image_margin_text"
+                android:textSize="15sp"
+                android:text="我"
+                android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:layout_weight="0.33333">
+        <RadioButton
+                android:id="@+id/bottom_image_3"
+                android:layout_width="@dimen/bottom_image_width"
+                android:layout_height="@dimen/bottom_image_height"
+                android:button="@null"
+                android:background="@drawable/bottom_selector"
+                android:layout_centerHorizontal="true"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bottom_image_3"
+                android:layout_marginTop="@dimen/bottom_image_margin_text"
+                android:textSize="15sp"
+                android:text="乐器"
+                android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/search_order_info_lv_margin_left_right">
+        <TextView
+                android:id="@+id/search_order_info_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="23333"
+                android:textSize="@dimen/search_order_info_time_size"
+                android:textColor="@color/search_order_info_time_color"/>
+
+        <TextView
+                android:id="@+id/search_order_info_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/search_order_info_margin_top_end"
+                android:text="23333"
+                android:layout_toRightOf="@id/search_order_info_time"
+                android:layout_marginLeft="@dimen/search_order_info_margin_left"
+                android:textSize="@dimen/search_order_info_course_size"
+                android:textColor="@color/search_order_info_course_color"/>
+
+        <TextView
+                android:id="@+id/search_order_info_pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/search_order_info_margin_top_end"
+                android:text="23333"
+                android:layout_toRightOf="@id/search_order_info_time"
+                android:layout_below="@id/search_order_info_course"
+                android:layout_marginLeft="@dimen/search_order_info_margin_left"
+                android:textSize="@dimen/search_order_info_pos_size"
+                android:textColor="@color/search_order_info_pos_color"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/search_order_info_margin_top_end"
+                android:layout_toRightOf="@id/search_order_info_time"
+                android:layout_below="@id/search_order_info_pos"
+                android:layout_marginLeft="@dimen/search_order_info_margin_left"
+                android:background="@color/search_line_color"/>
+
+    </RelativeLayout>
+</RelativeLayout>

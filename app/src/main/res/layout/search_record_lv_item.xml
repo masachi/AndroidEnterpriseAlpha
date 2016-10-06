@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <TextView
+            android:id="@+id/search_info_record_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23333"
+            android:layout_marginTop="@dimen/search_record_lv_margin_top_end"
+            android:layout_marginBottom="@dimen/search_record_lv_margin_top_end"
+            android:layout_marginStart="@dimen/search_record_lv_margin_top_end"
+            android:textSize="@dimen/search_record_date_size"
+            android:textColor="@color/search_record_date_color"/>
+
+    <TextView
+            android:id="@+id/search_info_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/search_line_color"
+            android:layout_below="@id/search_info_record_date"
+            android:layout_marginStart="@dimen/search_margin_sides"
+            android:layout_marginEnd="@dimen/search_margin_sides"/>
+
+    <TextView
+            android:id="@+id/search_info_record_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/search_record_lv_margin_top_end"
+            android:layout_marginBottom="@dimen/search_record_lv_margin_top_end"
+            android:layout_marginEnd="@dimen/search_record_lv_margin_top_end"
+            android:layout_alignParentEnd="true"
+            android:text="233333"
+            android:textSize="@dimen/search_record_state_size"
+            android:textColor="@color/search_record_state_color"/>
+
+    <org.example.androidenterprise.utils.CustomListView
+            android:id="@+id/search_info_record_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#FFD1D1D1"
+            android:layout_marginLeft="@dimen/search_record_lv_margin_left_right"
+            android:layout_marginRight="@dimen/search_record_lv_margin_left_right"
+            android:dividerHeight="1dp">
+
+    </org.example.androidenterprise.utils.CustomListView>
+
+</RelativeLayout>
