@@ -9,11 +9,11 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.ItemList;
-import org.example.androidenterprise.Model.CatagoryEntity;
-import org.example.androidenterprise.Model.ItemEntity;
+import org.example.androidenterprise.model.CatagoryEntity;
+import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
-import org.example.androidenterprise.utils.PullToRefreshView;
+import org.example.androidenterprise.view.PullToRefreshView;
 
 import java.util.List;
 

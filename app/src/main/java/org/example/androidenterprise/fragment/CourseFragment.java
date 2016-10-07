@@ -17,7 +17,7 @@ import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.utils.AutoPlayInfo;
-import org.example.androidenterprise.utils.AutoPlayingViewPager;
+import org.example.androidenterprise.view.AutoPlayingViewPager;
 
 import java.util.ArrayList;
 import java.util.List;

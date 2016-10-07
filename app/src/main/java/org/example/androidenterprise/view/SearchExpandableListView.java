@@ -1,4 +1,4 @@
-package org.example.androidenterprise.utils;
+package org.example.androidenterprise.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,20 +7,20 @@ import android.widget.ExpandableListView;
 /**
  * Created by sdlds on 2016/10/5.
  */
-public class CustomExpandableListView extends ExpandableListView {
-    public CustomExpandableListView(Context context) {
+public class SearchExpandableListView extends ExpandableListView {
+    public SearchExpandableListView(Context context) {
         super(context);
     }
 
-    public CustomExpandableListView(Context context, AttributeSet attrs) {
+    public SearchExpandableListView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomExpandableListView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SearchExpandableListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public CustomExpandableListView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SearchExpandableListView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

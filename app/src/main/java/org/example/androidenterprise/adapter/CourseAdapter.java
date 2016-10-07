@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.example.androidenterprise.List.CourseList;
-import org.example.androidenterprise.Model.CourseEntity;
+import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.R;
 
 import java.util.List;

@@ -6,10 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-import org.example.androidenterprise.Model.OrderInfoEntity;
 import org.example.androidenterprise.R;
-
-import java.util.List;
 
 import static org.example.androidenterprise.utils.InitData.olist;
 

@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import org.example.androidenterprise.Model.OrderInfoEntity;
+import org.example.androidenterprise.model.OrderInfoEntity;
 
 import java.util.List;
 

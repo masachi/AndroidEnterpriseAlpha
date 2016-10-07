@@ -59,7 +59,7 @@
 
     </android.support.design.widget.TabLayout>
 
-    <org.example.androidenterprise.utils.PullToRefreshView
+    <org.example.androidenterprise.view.PullToRefreshView
             android:id="@+id/instrument_pull_refresh_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -75,6 +75,6 @@
                 android:background="@drawable/fragment_music_child"
                 android:numColumns="2"/>
 
-    </org.example.androidenterprise.utils.PullToRefreshView>
+    </org.example.androidenterprise.view.PullToRefreshView>
 
 </RelativeLayout>

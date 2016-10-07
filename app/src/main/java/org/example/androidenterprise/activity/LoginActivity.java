@@ -11,9 +11,8 @@ import android.view.View;
 import android.widget.*;
 import org.example.androidenterprise.List.UserInfoList;
 import org.example.androidenterprise.MainActivity;
-import org.example.androidenterprise.Model.UserInfoEntity;
+import org.example.androidenterprise.model.UserInfoEntity;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.utils.Base64Encrypt;
 import org.example.androidenterprise.utils.InitData;
 
 import java.util.List;
@@ -87,54 +86,55 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
                 break;
             case R.id.btn_register_big:
                 String btnText = l_registerBtn.getText().toString();
-                if(btnText.equals("注册")){
-                    String username = usernameEt.getText().toString();
-                    String password = passwordEt.getText().toString();
-                    String verifyInfo = verifyEt.getText().toString();
-                    if(username.length() == 0 || password.length() == 0){
-                        Toast.makeText(this,"请输入用户名及密码",Toast.LENGTH_SHORT).show();
-                    }
-                    if(username.length() != 0 && password.length() !=0 &&verifyUsername(username)&&verifyPassword(password)&&verifyInfo.length() == 4){
-                        Toast.makeText(this,"注册成功\n请登陆",Toast.LENGTH_LONG);
-                        usernameEt.setText("");
-                        passwordEt.setText("");
-                        verifyEt.setVisibility(View.INVISIBLE);
-                        verifyBtn.setVisibility(View.INVISIBLE);
-                        l_registerBtn.setText("登陆");
-                        //TODO:把注册信息加入到文件或者数据库里面
-                    }
-                    else{
-                        if(verifyInfo.length() == 0){
-                            Toast.makeText(this,"请输入验证码",Toast.LENGTH_SHORT);
-                        }
-                        else{
-                            if(verifyInfo.length() != 4){
-                                Toast.makeText(this,"验证码错误",Toast.LENGTH_SHORT);
-                                verifyEt.setText("");
-                            }
-                            else{
-                                Toast.makeText(this,"密码或者手机号不符合要求，请重新填写",Toast.LENGTH_SHORT);
-                                verifyEt.setText("");
-                                usernameEt.setText("");
-                                passwordEt.setText("");
-                            }
-                        }
-                    }
-                }
-                else{
-                    if(btnText.equals("登陆")){
-                        if(usernameEt.getText().toString().length() == 0 || passwordEt.getText().toString().length() == 0){
-                            Toast.makeText(this,"请输入用户名及密码",Toast.LENGTH_SHORT).show();
-                        }
-                        if(usernameEt.getText().toString().length() != 0 && passwordEt.getText().toString().length() != 0 && verifyUserInfo(usernameEt.getText().toString(),passwordEt.getText().toString())){
-                            Toast.makeText(this,"登陆成功",Toast.LENGTH_LONG).show();
-                            startActivity(new Intent().setClass(this,InsideActivity.class));
-                        }
-                        else{
-                            Toast.makeText(this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
+                startActivity(new Intent().setClass(this,InsideActivity.class));
+//                if(btnText.equals("注册")){
+//                    String username = usernameEt.getText().toString();
+//                    String password = passwordEt.getText().toString();
+//                    String verifyInfo = verifyEt.getText().toString();
+//                    if(username.length() == 0 || password.length() == 0){
+//                        Toast.makeText(this,"请输入用户名及密码",Toast.LENGTH_SHORT).show();
+//                    }
+//                    if(username.length() != 0 && password.length() !=0 &&verifyUsername(username)&&verifyPassword(password)&&verifyInfo.length() == 4){
+//                        Toast.makeText(this,"注册成功\n请登陆",Toast.LENGTH_LONG);
+//                        usernameEt.setText("");
+//                        passwordEt.setText("");
+//                        verifyEt.setVisibility(View.INVISIBLE);
+//                        verifyBtn.setVisibility(View.INVISIBLE);
+//                        l_registerBtn.setText("登陆");
+//                        //TODO:把注册信息加入到文件或者数据库里面
+//                    }
+//                    else{
+//                        if(verifyInfo.length() == 0){
+//                            Toast.makeText(this,"请输入验证码",Toast.LENGTH_SHORT);
+//                        }
+//                        else{
+//                            if(verifyInfo.length() != 4){
+//                                Toast.makeText(this,"验证码错误",Toast.LENGTH_SHORT);
+//                                verifyEt.setText("");
+//                            }
+//                            else{
+//                                Toast.makeText(this,"密码或者手机号不符合要求，请重新填写",Toast.LENGTH_SHORT);
+//                                verifyEt.setText("");
+//                                usernameEt.setText("");
+//                                passwordEt.setText("");
+//                            }
+//                        }
+//                    }
+//                }
+//                else{
+//                    if(btnText.equals("登陆")){
+//                        if(usernameEt.getText().toString().length() == 0 || passwordEt.getText().toString().length() == 0){
+//                            Toast.makeText(this,"请输入用户名及密码",Toast.LENGTH_SHORT).show();
+//                        }
+//                        if(usernameEt.getText().toString().length() != 0 && passwordEt.getText().toString().length() != 0 && verifyUserInfo(usernameEt.getText().toString(),passwordEt.getText().toString())){
+//                            Toast.makeText(this,"登陆成功",Toast.LENGTH_LONG).show();
+//                            startActivity(new Intent().setClass(this,InsideActivity.class));
+//                        }
+//                        else{
+//                            Toast.makeText(this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                }
                 break;
             case R.id.verify_btn:
                 Toast.makeText(this,"验证码已发送，注意查收",Toast.LENGTH_SHORT).show();

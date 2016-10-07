@@ -7,16 +7,16 @@ import android.widget.GridView;
 /**
  * Created by sdlds on 2016/9/21.
  */
-public class MyGridView extends GridView {
-    public MyGridView(Context context, AttributeSet attrs) {
+public class CustomMeasureGridView extends GridView {
+    public CustomMeasureGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyGridView(Context context) {
+    public CustomMeasureGridView(Context context) {
         super(context);
     }
 
-    public MyGridView(Context context, AttributeSet attrs, int defStyle) {
+    public CustomMeasureGridView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

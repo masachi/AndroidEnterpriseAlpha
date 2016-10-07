@@ -5,10 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.GridView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import org.example.androidenterprise.List.IntroductionList;
-import org.example.androidenterprise.Model.IntroductionEntity;
+import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.R;
 
 import java.util.List;
@@ -48,10 +49,12 @@ public class IntroAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.music_intro_lv_item,null);
             holder = new ViewHolder_Intro();
+            holder.introGv = (GridView) convertView.findViewById(R.id.music_intro_gv);
             holder.titleTv = (TextView) convertView.findViewById(R.id.mucic_intro_title);
             holder.signTv = (TextView) convertView.findViewById(R.id.music_intro_price_sign);
             holder.priceTv = (TextView) convertView.findViewById(R.id.music_intro_price);
             holder.infoTv = (TextView) convertView.findViewById(R.id.music_intro_info);
+            
             convertView.setTag(holder);
         }
         else{
@@ -69,4 +72,6 @@ final class ViewHolder_Intro{
     TextView signTv;
     TextView priceTv;
     TextView infoTv;
+    GridView introGv;
+    SimpleAdapter introgvAdapter;
 }

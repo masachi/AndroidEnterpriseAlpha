@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.example.androidenterprise.Model.ItemEntity;
+import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.R;
 
 import java.util.List;
