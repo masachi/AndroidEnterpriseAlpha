@@ -1,4 +1,4 @@
-package org.example.androidenterprise.utils;
+package org.example.androidenterprise.view;
 
 /*
  * Copyright 2014 - 2016 Henning Dodenhof

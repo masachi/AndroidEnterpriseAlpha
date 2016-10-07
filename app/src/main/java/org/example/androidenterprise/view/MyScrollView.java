@@ -1,4 +1,4 @@
-package org.example.androidenterprise.utils;
+package org.example.androidenterprise.view;
 
 import android.content.Context;
 import android.graphics.Rect;
