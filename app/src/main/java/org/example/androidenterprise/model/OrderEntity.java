@@ -1,15 +1,20 @@
 package org.example.androidenterprise.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by sdlds on 2016/10/5.
  */
-public class OrderEntity {
-    private int id;
-    private String order_date;
-    private List<OrderInfoEntity> order_info;
+
+/**
+ * 订单
+ */
+public class OrderEntity implements Serializable {
+    private int id;  //唯一标识符
+    private String order_date;  //订单日期
+    private List<OrderInfoEntity> order_info;  //订单详情
 
     public OrderEntity(){
         order_info = new ArrayList<>();

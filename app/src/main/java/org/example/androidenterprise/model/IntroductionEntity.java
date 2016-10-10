@@ -1,14 +1,27 @@
 package org.example.androidenterprise.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by sdlds on 2016/9/21.
  */
-public class IntroductionEntity {
-    private int id;
-    private String title;
-    private String sign;
-    private int price;
-    private String info;
+
+/**
+ * 乐器简介
+ */
+public class IntroductionEntity implements Serializable {
+    private int id;  //唯一标识符
+    private String title;  //简介标题
+    private String sign;  //乐器价格单位
+    private int price;  //乐器价格
+    private String info;  //乐器简介
+    private List<String> imageUrl;  //乐器缩略图
+
+    public IntroductionEntity(){
+        imageUrl = new ArrayList<>();
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -48,5 +61,13 @@ public class IntroductionEntity {
 
     public String getInfo() {
         return info;
+    }
+
+    public void setImageUrl(List<String> imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public List<String> getImageUrl() {
+        return imageUrl;
     }
 }

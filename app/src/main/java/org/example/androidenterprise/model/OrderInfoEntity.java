@@ -1,13 +1,19 @@
 package org.example.androidenterprise.model;
 
+import java.io.Serializable;
+
 /**
  * Created by sdlds on 2016/10/5.
  */
-public class OrderInfoEntity {
-    private int id;
-    private String time;
-    private String course;
-    private String position;
+
+/**
+ * 订单详情
+ */
+public class OrderInfoEntity implements Serializable {
+    private int id;  //唯一标识符
+    private String time;  //上课时间
+    private String course; //课程名字
+    private String position;  //课程位置
 
     public int getId() {
         return id;

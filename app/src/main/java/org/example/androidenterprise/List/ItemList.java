@@ -19,7 +19,6 @@ public class ItemList {
     public static List<ItemEntity> getData(Context context){
         try{
             ilist = new Gson().fromJson(new JsonReader(new InputStreamReader(context.getAssets().open("AllItem.json"))),new TypeToken<List<ItemEntity>>(){}.getType());
-            Log.e("233333","23333333");
         }
         catch (Exception e){
             Log.e("FK","FUCK");

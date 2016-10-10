@@ -1,15 +1,23 @@
 package org.example.androidenterprise.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by sdlds on 2016/9/21.
  */
-public class ItemEntity {
-    private int id;
-    private int type;
-    private int fresh;
-    private String title;
-    private String price;
-    private int price_line;
+
+/**
+ * 所有乐器
+ */
+public class ItemEntity implements Serializable {
+    private int id; //唯一标识符
+    private int type;  //乐器种类
+    private String imageUrl;  //乐器缩略图
+    private int fresh;  //是否为刷新项
+    private String title;  //乐器名称
+    private String price;  //乐器价格
+    private int price_line;  //乐器之前价格
 
     public void setId(int id) {
         this.id = id;
@@ -25,6 +33,14 @@ public class ItemEntity {
 
     public int getType() {
         return type;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setFresh(int fresh) {

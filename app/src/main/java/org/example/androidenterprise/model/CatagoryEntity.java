@@ -1,12 +1,17 @@
 package org.example.androidenterprise.model;
 
+import java.io.Serializable;
+
 /**
  * Created by sdlds on 2016/9/21.
  */
-public class CatagoryEntity {
-    private int id;
-    private String type;
 
+/**
+ * 乐器上的TabLayout数据
+ */
+public class CatagoryEntity implements Serializable{
+    private int id;  //唯一标识符
+    private String type;  //乐器的种类
     public void setId(int id) {
         this.id = id;
     }
