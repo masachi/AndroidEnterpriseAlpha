@@ -14,7 +14,7 @@
             android:background="#FF97C8CD">
 
         <ImageButton
-                android:id="@+id/instrument_return_ib"
+                android:id="@+id/course_info_return_ib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -44,7 +44,7 @@
 
     </RelativeLayout>
 
-    <org.example.androidenterprise.utils.MyScrollView
+    <org.example.androidenterprise.view.CustomScrollView
             android:layout_below="@id/course_info_top"
             android:background="@color/grey_bg"
             android:layout_width="match_parent"
@@ -207,7 +207,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/while_bg">
 
-                    <org.example.androidenterprise.utils.CircleImageView
+                    <org.example.androidenterprise.view.CircleImageView
                             android:id="@+id/course_info_person_image"
                             android:layout_width="43dp"
                             android:layout_height="43dp"
@@ -474,6 +474,6 @@
 
         </RelativeLayout>
 
-    </org.example.androidenterprise.utils.MyScrollView>
+    </org.example.androidenterprise.view.CustomScrollView>
 
 </RelativeLayout>

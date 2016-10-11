@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import org.example.androidenterprise.List.SettingList;
-import org.example.androidenterprise.Model.SettingEntity;
+import org.example.androidenterprise.model.SettingEntity;
 import org.example.androidenterprise.R;
 
 import java.util.List;

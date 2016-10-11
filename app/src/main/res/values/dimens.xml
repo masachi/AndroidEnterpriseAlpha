@@ -32,11 +32,12 @@
     <dimen name="item_margin_right">20dp</dimen>
     <dimen name="item_margin_image_right">10dp</dimen>
     <dimen name="item_margin_image_top">5dp</dimen>
-    <dimen name="item_title_size">17sp</dimen>
-    <dimen name="item_others_size">15sp</dimen>
-    <dimen name="item_text_margn_text">4dp</dimen>
-    <dimen name="item_image_width">172px</dimen>
-    <dimen name="item_image_height">172px</dimen>
+    <dimen name="item_title_size">15sp</dimen>
+    <dimen name="item_others_size">13sp</dimen>
+    <dimen name="course_lv_btn_size">13sp</dimen>
+    <dimen name="item_text_margn_text">8dp</dimen>
+    <dimen name="item_image_width">86dp</dimen>
+    <dimen name="item_image_height">86dp</dimen>
     <dimen name="viewpage_height">32dp</dimen>
     <dimen name="viewpage_text_size">13sp</dimen>
     <dimen name="bottom_height">50dp</dimen>
@@ -50,7 +51,7 @@
     <dimen name="item_setting_arrow_padding">10dp</dimen>
     <dimen name="action_bar_height">44dp</dimen>
     <dimen name="action_bar_image_padding_start">10dp</dimen>
-    <dimen name="action_bar_text_size">22sp</dimen>
+    <dimen name="action_bar_text_size">17sp</dimen>
     <dimen name="action_bar_image_margin_end">10dp</dimen>
     <dimen name="action_bar_image_margin_image">15dp</dimen>
     <dimen name="fragment_mine_top">92dp</dimen>

@@ -28,21 +28,19 @@ public class CourseInfoActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_info);
-        returnIb = (ImageButton) findViewById(R.id.schedule_return_ib);
+        returnIb = (ImageButton) findViewById(R.id.course_info_return_ib);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = Integer.parseInt(bundle.getString("course_selected"));
-
-
+        returnIb.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.schedule_return_ib:
+            case R.id.course_info_return_ib:
                 finish();
                 break;
-
         }
     }
 

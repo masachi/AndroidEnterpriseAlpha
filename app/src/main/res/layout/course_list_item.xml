@@ -14,47 +14,49 @@
             android:layout_height="@dimen/item_image_height"
             android:scaleType="fitXY"/>
 
-        <TextView
-                android:id="@+id/item_course"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/item_image"
-                android:layout_marginLeft="@dimen/item_margin_image_right"
-                android:layout_alignTop="@id/item_image"
-                android:layout_marginTop="@dimen/item_margin_image_top"
-                android:textColor="@color/item_title_color"
-                android:textSize="@dimen/item_title_size"/>
+    <TextView
+            android:id="@+id/item_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_image"
+            android:layout_marginLeft="@dimen/item_margin_image_right"
+            android:layout_alignTop="@id/item_image"
+            android:layout_marginTop="@dimen/item_margin_image_top"
+            android:textColor="@color/item_title_color"
+            android:textSize="@dimen/item_title_size"
+            android:text="23333333333333"/>
 
-        <TextView
-                android:id="@+id/item_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/item_course"
-                android:layout_below="@id/item_course"
-                android:layout_marginTop="@dimen/item_text_margn_text"
-                android:textColor="@color/item_others_color"
-                android:textSize="@dimen/item_others_size"/>
+    <TextView
+            android:id="@+id/item_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/item_course"
+            android:layout_below="@id/item_course"
+            android:layout_marginTop="@dimen/item_text_margn_text"
+            android:textColor="@color/item_others_color"
+            android:textSize="@dimen/item_others_size"
+            android:text="23333333333333"/>
 
-        <TextView
-                android:id="@+id/item_teacher"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/item_course"
-                android:layout_below="@id/item_level"
-                android:layout_marginTop="@dimen/item_text_margn_text"
-                android:textColor="@color/item_others_color"
-                android:textSize="@dimen/item_others_size"/>
+    <TextView
+            android:id="@+id/item_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/item_course"
+            android:layout_below="@id/item_level"
+            android:layout_marginTop="@dimen/item_text_margn_text"
+            android:textColor="@color/item_others_color"
+            android:textSize="@dimen/item_others_size"
+            android:text="23333333333333"/>
 
-        <TextView
-                android:id="@+id/item_pos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/item_course"
-                android:layout_alignStart="@id/item_course"
-                android:layout_alignParentBottom="true"
-                android:textColor="@color/item_others_color"
-                android:text="23333333333333"
-                android:textSize="@dimen/item_others_size"/>
+    <TextView
+            android:id="@+id/item_pos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/item_course"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/item_others_color"
+            android:text="23333333333333"
+            android:textSize="@dimen/item_others_size"/>
 
 
     <Button
@@ -64,5 +66,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:textColor="@color/item_btn_color"
-            android:background="@drawable/item_btn"/>
+            android:background="@drawable/item_btn"
+            android:textSize="@dimen/course_lv_btn_size"/>
 </RelativeLayout>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/music_introduction"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/album_lv"
-                android:layout_marginTop="@dimen/music_ang_margin_any"
-                android:background="@drawable/fragment_music_child">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/music_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/album_lv"
+        android:layout_marginTop="@dimen/music_ang_margin_any"
+        android:background="@drawable/fragment_music_child">
 
     <TextView
             android:id="@+id/mucic_intro_title"
@@ -54,7 +55,8 @@
             android:paddingStart="@dimen/music_intro_info_padding"
             android:paddingEnd="@dimen/music_intro_info_padding"/>
 
-    <org.example.androidenterprise.utils.MyGridView
+    <org.example.androidenterprise.view.CustomMeasureGridView
+            android:id="@+id/music_intro_gv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/music_intro_img_ll_height"
             android:layout_below="@id/music_intro_info"
@@ -64,6 +66,6 @@
             android:orientation="horizontal"
             android:numColumns="3">
 
-    </org.example.androidenterprise.utils.MyGridView>
+    </org.example.androidenterprise.view.CustomMeasureGridView>
 
 </RelativeLayout>

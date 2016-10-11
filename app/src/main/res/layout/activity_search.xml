@@ -132,7 +132,7 @@
         </RadioGroup>
 
     </RelativeLayout>
-    <org.example.androidenterprise.utils.MyScrollView
+    <org.example.androidenterprise.view.CustomScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/search_selector">
@@ -163,14 +163,14 @@
                         android:layout_height="1dp"
                         android:background="@color/search_line_color"/>
 
-                <org.example.androidenterprise.utils.CustomListView
+                <org.example.androidenterprise.view.CustomMeasureListView
                         android:id="@+id/search_info_course_lv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:dividerHeight="1dp"
                         android:divider="@drawable/search_course_list_divider">
 
-                </org.example.androidenterprise.utils.CustomListView>
+                </org.example.androidenterprise.view.CustomMeasureListView>
 
             </LinearLayout>
 
@@ -198,16 +198,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/search_line_color"/>
-
-                <!--<org.example.androidenterprise.utils.CustomListView-->
-                <!--android:id="@+id/search_info_order_time_lv"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:dividerHeight="1dp"-->
-                <!--android:divider="#FFD1D1D1">-->
-
-                <!--</org.example.androidenterprise.utils.CustomListView>-->
-                <org.example.androidenterprise.utils.CustomExpandableListView
+                
+                <org.example.androidenterprise.view.SearchExpandableListView
                         android:id="@+id/search_info_order_time_lv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -216,7 +208,7 @@
                         android:divider="#FFD1D1D1"
                         android:childDivider="#FFD1D1D1">
 
-                </org.example.androidenterprise.utils.CustomExpandableListView>
+                </org.example.androidenterprise.view.SearchExpandableListView>
 
             </LinearLayout>
 
@@ -245,14 +237,14 @@
                         android:layout_height="1dp"
                         android:background="@color/search_line_color"/>
 
-                <org.example.androidenterprise.utils.CustomListView
+                <org.example.androidenterprise.view.CustomMeasureListView
                         android:id="@+id/search_info_record_lv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:dividerHeight="1dp"
                         android:divider="#FFD1D1D1">
 
-                </org.example.androidenterprise.utils.CustomListView>
+                </org.example.androidenterprise.view.CustomMeasureListView>
 
             </LinearLayout>
 
@@ -281,7 +273,7 @@
                         android:layout_height="1dp"
                         android:background="@color/search_line_color"/>
 
-                <org.example.androidenterprise.utils.MyGridView
+                <org.example.androidenterprise.view.CustomMeasureGridView
                         android:id="@+id/search_gv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -289,10 +281,10 @@
                         android:layout_marginTop="@dimen/search_text_margin_top_end"
                         android:numColumns="2">
 
-                </org.example.androidenterprise.utils.MyGridView>
+                </org.example.androidenterprise.view.CustomMeasureGridView>
 
             </LinearLayout>
         </RelativeLayout>
-    </org.example.androidenterprise.utils.MyScrollView>
+    </org.example.androidenterprise.view.CustomScrollView>
 
 </RelativeLayout>

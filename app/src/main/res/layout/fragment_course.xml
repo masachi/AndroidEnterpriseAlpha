@@ -48,12 +48,12 @@
 
     </RelativeLayout>
 
-    <org.example.androidenterprise.utils.AutoPlayingViewPager
+    <org.example.androidenterprise.view.AutoPlayingViewPager
             android:id="@+id/course_viewpager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/viewpager_main_height">
 
-    </org.example.androidenterprise.utils.AutoPlayingViewPager>
+    </org.example.androidenterprise.view.AutoPlayingViewPager>
 
     <ListView
             android:id="@+id/course"

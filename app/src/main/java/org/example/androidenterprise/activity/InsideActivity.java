@@ -1,53 +1,59 @@
 package org.example.androidenterprise.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.fragment.CourseFragment;
-import org.example.androidenterprise.fragment.MineFragment;
 import org.example.androidenterprise.fragment.InstrumentFragment;
+import org.example.androidenterprise.fragment.MineFragment;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsideActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
-    private ViewPager inside;
+@ContentView(R.layout.activity_inside)
+
+public class InsideActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
+
+    @ViewInject(R.id.main_viewpager)
+    ViewPager inside;
+    @ViewInject(R.id.bottom_image_1)
+    ImageView imgIv_1;
+    @ViewInject(R.id.bottom_text_1)
+    TextView text_1;
+    @ViewInject(R.id.rl1)
+    RelativeLayout rl1;
+    @ViewInject(R.id.bottom_image_2)
+    ImageView imgIv_2;
+    @ViewInject(R.id.bottom_text_2)
+    TextView text_2;
+    @ViewInject(R.id.rl2)
+    RelativeLayout rl2;
+    @ViewInject(R.id.bottom_image_3)
+    ImageView imgIv_3;
+    @ViewInject(R.id.bottom_text_3)
+    TextView text_3;
+    @ViewInject(R.id.rl3)
+    RelativeLayout rl3;
+
     private List<Fragment> flist;
     private CourseFragment courseFragment;
     private MineFragment mineFragment;
     private InstrumentFragment instrumentFragment;
-    private ImageView imgIv_1;
-    private ImageView imgIv_2;
-    private ImageView imgIv_3;
-    private TextView text_1;
-    private TextView text_2;
-    private TextView text_3;
     private FragmentPagerAdapter adapter;
-    private RelativeLayout rl1;
-    private RelativeLayout rl2;
-    private RelativeLayout rl3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inside);
-        inside = (ViewPager) findViewById(R.id.main_viewpager);
-        imgIv_1 = (ImageView) findViewById(R.id.bottom_image_1);
-        imgIv_2 = (ImageView) findViewById(R.id.bottom_image_2);
-        imgIv_3 = (ImageView) findViewById(R.id.bottom_image_3);
-        text_1 = (TextView) findViewById(R.id.bottom_text_1);
-        text_2 = (TextView) findViewById(R.id.bottom_text_2);
-        text_3 = (TextView) findViewById(R.id.bottom_text_3);
-        rl1 = (RelativeLayout) findViewById(R.id.rl1);
-        rl2 = (RelativeLayout) findViewById(R.id.rl2);
-        rl3 = (RelativeLayout) findViewById(R.id.rl3);
-
 
         flist = new ArrayList<>();
         courseFragment = new CourseFragment();
@@ -59,11 +65,8 @@ public class InsideActivity extends AppCompatActivity implements View.OnClickLis
         adapter = new FragmentAdapter(getSupportFragmentManager(), flist);
         inside.setAdapter(adapter);
 
-
         inside.setOnPageChangeListener(this);
-        rl1.setOnClickListener(this);
-        rl2.setOnClickListener(this);
-        rl3.setOnClickListener(this);
+
         inside.setOffscreenPageLimit(3);
         change(0);
     }
@@ -93,25 +96,8 @@ public class InsideActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl1:
-                inside.setCurrentItem(0);
-                change(0);
-                break;
-            case R.id.rl2:
-                inside.setCurrentItem(1);
-                change(1);
-                break;
-            case R.id.rl3:
-                inside.setCurrentItem(2);
-                change(2);
-                break;
-        }
-    }
 
-    private void change(int pos){
+    private void change(int pos) {
         switch (pos) {
             case 0:
                 imgIv_1.setImageResource(R.mipmap.bottom_selected);
@@ -136,6 +122,24 @@ public class InsideActivity extends AppCompatActivity implements View.OnClickLis
                 text_1.setTextColor(getResources().getColor(R.color.bottom_color_normal));
                 text_2.setTextColor(getResources().getColor(R.color.bottom_color_normal));
                 text_3.setTextColor(getResources().getColor(R.color.bottom_color_selected));
+                break;
+        }
+    }
+
+    @Event(value = {R.id.rl1, R.id.rl2, R.id.rl3})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.rl1:
+                inside.setCurrentItem(0);
+                change(0);
+                break;
+            case R.id.rl2:
+                inside.setCurrentItem(1);
+                change(1);
+                break;
+            case R.id.rl3:
+                inside.setCurrentItem(2);
+                change(2);
                 break;
         }
     }

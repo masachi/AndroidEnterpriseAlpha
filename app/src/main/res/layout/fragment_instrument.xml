@@ -30,7 +30,7 @@
                 android:background="@color/transparent"/>
 
     </RelativeLayout>
-    <org.example.androidenterprise.utils.MyScrollView
+    <org.example.androidenterprise.view.CustomScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
@@ -40,12 +40,12 @@
                 android:layout_height="match_parent">
             <!-- TODO: Update blank fragment layout -->
 
-            <org.example.androidenterprise.utils.AutoPlayingViewPager
+            <org.example.androidenterprise.view.AutoPlayingViewPager
                     android:id="@+id/instrument_viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/viewpager_main_height">
 
-            </org.example.androidenterprise.utils.AutoPlayingViewPager>
+            </org.example.androidenterprise.view.AutoPlayingViewPager>
 
             <!--TODO: replace HorizontalScrollView to HorizontalListView-->
 
@@ -66,7 +66,7 @@
 
             </android.support.design.widget.TabLayout>
 
-            <org.example.androidenterprise.utils.CustomListView
+            <org.example.androidenterprise.view.CustomMeasureListView
                     android:id="@+id/album_lv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -74,11 +74,11 @@
                     android:background="@drawable/fragment_music_child"
                     android:layout_marginTop="@dimen/music_ang_margin_any">
 
-            </org.example.androidenterprise.utils.CustomListView>
+            </org.example.androidenterprise.view.CustomMeasureListView>
 
 
-            <org.example.androidenterprise.utils.CustomListView
-                    android:id="@+id/intro_viewpager"
+            <org.example.androidenterprise.view.CustomMeasureListView
+                    android:id="@+id/intro_info_lv"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_below="@id/album_lv"
@@ -86,23 +86,23 @@
                     android:background="@drawable/fragment_music_child"
                     android:layout_marginTop="@dimen/music_ang_margin_any">
 
-            </org.example.androidenterprise.utils.CustomListView>
+            </org.example.androidenterprise.view.CustomMeasureListView>
 
-            <org.example.androidenterprise.utils.MyGridView
+            <org.example.androidenterprise.view.CustomMeasureGridView
                     android:id="@+id/instrument_gv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/intro_viewpager"
+                    android:layout_below="@id/intro_info_lv"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/music_ang_margin_any"
                     android:background="@drawable/fragment_music_child"
                     android:numColumns="2">
 
-            </org.example.androidenterprise.utils.MyGridView>
+            </org.example.androidenterprise.view.CustomMeasureGridView>
 
         </RelativeLayout>
 
-    </org.example.androidenterprise.utils.MyScrollView>
+    </org.example.androidenterprise.view.CustomScrollView>
 
 </RelativeLayout>
 

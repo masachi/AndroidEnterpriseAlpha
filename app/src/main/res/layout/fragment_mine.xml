@@ -36,7 +36,7 @@
             android:layout_height="@dimen/fragment_mine_top"
             android:background="#FF97C8CD">
 
-        <org.example.androidenterprise.utils.CircleImageView
+        <org.example.androidenterprise.view.CircleImageView
                 android:id="@+id/mine_image"
                 android:layout_width="@dimen/mine_image_side"
                 android:layout_height="@dimen/mine_image_side"

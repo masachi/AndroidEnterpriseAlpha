@@ -1,13 +1,19 @@
-package org.example.androidenterprise.Model;
+package org.example.androidenterprise.model;
+
+import java.io.Serializable;
 
 /**
  * Created by sdlds on 2016/9/18.
  */
-public class SettingEntity {
-    private int id;
-    private String src;
-    private String text;
-    private String arrow;
+
+/**
+ * 设定
+ */
+public class SettingEntity implements Serializable {
+    private int id;  //唯一标识符
+    private String src; //图片资源
+    private String text; //设定名称
+    private String arrow; //箭头
 
     public void setId(int id) {
         this.id = id;

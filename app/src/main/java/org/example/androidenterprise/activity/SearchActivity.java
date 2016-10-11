@@ -9,6 +9,7 @@ import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
 import org.example.androidenterprise.adapter.OrderAdapter;
+import org.example.androidenterprise.fragment.CourseFragment;
 
 import static org.example.androidenterprise.utils.InitData.olist;
 
@@ -28,7 +29,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        CourseAdapter courseAdapter = new CourseAdapter(this);
+        CourseAdapter courseAdapter = new CourseAdapter(this, CourseFragment.course.getCourse_list());
         ItemAdapter itemAdapter = new ItemAdapter(this);
         OrderAdapter orderAdapter = new OrderAdapter(this);
 

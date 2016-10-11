@@ -4,7 +4,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import org.example.androidenterprise.Model.IntroductionEntity;
+import org.example.androidenterprise.model.IntroductionEntity;
 
 import java.io.InputStreamReader;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.example.androidenterprise.utils;
+package org.example.androidenterprise.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,22 +8,22 @@ import android.widget.ListView;
 /**
  * Created by sdlds on 2016/9/23.
  */
-public class CustomListView extends ListView {
+public class CustomMeasureListView extends ListView {
     private float mCurX,mCurY,mDownX,mDownY;
 
-    public CustomListView(Context context) {
+    public CustomMeasureListView(Context context) {
         super(context);
     }
 
-    public CustomListView(Context context, AttributeSet attrs) {
+    public CustomMeasureListView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomListView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomMeasureListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public CustomListView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomMeasureListView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

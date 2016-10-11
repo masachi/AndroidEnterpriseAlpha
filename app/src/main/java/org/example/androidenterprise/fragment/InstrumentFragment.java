@@ -15,8 +15,8 @@ import android.widget.*;
 
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.IntroductionList;
-import org.example.androidenterprise.Model.CatagoryEntity;
-import org.example.androidenterprise.Model.IntroductionEntity;
+import org.example.androidenterprise.model.CatagoryEntity;
+import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.InstrumentInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
@@ -24,7 +24,7 @@ import org.example.androidenterprise.adapter.AlbumAdapter;
 import org.example.androidenterprise.adapter.IntroAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
 import org.example.androidenterprise.utils.AutoPlayInfo;
-import org.example.androidenterprise.utils.AutoPlayingViewPager;
+import org.example.androidenterprise.view.AutoPlayingViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +100,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         View view = inflater.inflate(R.layout.fragment_instrument,container,false);
 
         albumLv = (ListView) view.findViewById(R.id.album_lv);
-        introLv = (ListView) view.findViewById(R.id.intro_viewpager);
+        introLv = (ListView) view.findViewById(R.id.intro_info_lv);
         itemGv = (GridView) view.findViewById(R.id.instrument_gv);
         typeTl = (TabLayout) view.findViewById(R.id.instrument_tab);
         instrumentAutoVP = (AutoPlayingViewPager) view.findViewById(R.id.instrument_viewpager);

@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.example.androidenterprise.List.CourseList;
-import org.example.androidenterprise.Model.CourseEntity;
+import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.CourseInfoEntity;
 
 import java.util.List;
 
@@ -20,11 +21,12 @@ import java.util.List;
 public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
     private LayoutInflater mLayoutInflate;
     private Context context;
-    private List<CourseEntity> clist;
+    private List<CourseInfoEntity> clist;
 
-    public CourseAdapter(Context context){
+    public CourseAdapter(Context context, List<CourseInfoEntity> course_list){
         this.mLayoutInflate = LayoutInflater.from(context);
         this.context = context;
+        this.clist = course_list;
     }
 
     @Override
@@ -44,7 +46,6 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        clist = CourseList.getData(context);
         ViewHolder_C holder;
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.course_list_item,null);
@@ -61,11 +62,16 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
             holder = (ViewHolder_C)convertView.getTag();
         }
         holder.img.setImageResource(R.drawable.img_example);
-        holder.course.setText(clist.get(position).getCourse());
-        holder.level.setText("难度等级："+ clist.get(position).getLevel());
-        holder.teacher.setText("老师：" + clist.get(position).getTeacher());
-        holder.pos.setText(clist.get(position).getPos());
-        holder.state.setText(clist.get(position).getState());
+        holder.course.setText(clist.get(position).getTitle());
+        holder.level.setText("难度等级："+ clist.get(position).getCourse_level());
+        holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());
+        holder.pos.setText(clist.get(position).getCourse_address());
+        if(clist.get(position).getState() == 0){
+            holder.state.setText("未开通");
+        }
+        else{
+            holder.state.setText("已开通");
+        }
         holder.state.setOnClickListener(this);
         return convertView;
     }

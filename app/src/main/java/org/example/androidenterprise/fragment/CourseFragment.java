@@ -6,18 +6,28 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
+import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
-import org.example.androidenterprise.utils.AutoPlayingViewPager;
+import org.example.androidenterprise.view.AutoPlayingViewPager;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,27 +36,37 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CourseFragment.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link CourseFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CourseFragment extends Fragment implements AdapterView.OnItemClickListener,View.OnClickListener{
+
+@ContentView(R.layout.fragment_course)
+
+public class CourseFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    @ViewInject(R.id.action_bar_btn_table)
+    ImageButton scheduleBtn;
+    @ViewInject(R.id.action_bar_btn_clock)
+    ImageButton clockBtn;
+    @ViewInject(R.id.course_search_ib)
+    ImageButton searchBtn;
+    @ViewInject(R.id.course_viewpager)
+    AutoPlayingViewPager courseAutoVP;
+    @ViewInject(R.id.course)
+    ListView course_list;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private ListView course_list;
-    private int[] imagesCourse;
-    private AutoPlayingViewPager courseAutoVP;
-    private String[] imageTitle;
     private List<AutoPlayInfo> mAutoPlayInfoList;
-    private ImageButton searchBtn;
+    public static CourseEntity course;
 
 
     private OnFragmentInteractionListener mListener;
@@ -83,27 +103,43 @@ public class CourseFragment extends Fragment implements AdapterView.OnItemClickL
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_course,container,false);
-        course_list = (ListView) view.findViewById(R.id.course);
-        courseAutoVP = (AutoPlayingViewPager) view.findViewById(R.id.course_viewpager);
-        searchBtn = (ImageButton) view.findViewById(R.id.course_search_ib);
+        course = new CourseEntity();
+        RequestParams params = new RequestParams("http://112.124.38.1:12345/index");
+        Log.e("FK","234234123423534534534523");
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("FK",result);
+                course = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
+            }
 
-        imagesCourse = new int[] {R.drawable.viewpage_1,R.drawable.viewpage_2,R.drawable.viewpage_3,R.drawable.viewpage_4};
-        imageTitle = new String[] {"1","2","3","4"};
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e("FK","FK!!!!");
+            }
 
-        CourseAdapter courseAdapter = new CourseAdapter(getContext());
+            @Override
+            public void onCancelled(CancelledException cex) {
+                Log.e("FK","FK!()()!!!");
+            }
+
+            @Override
+            public void onFinished() {
+                Log.e("FK","2323232323232323");
+            }
+        });
+
+        CourseAdapter courseAdapter = new CourseAdapter(getContext(),course.getCourse_list());
         course_list.setAdapter(courseAdapter);
 
         course_list.setOnItemClickListener(this);
-        searchBtn.setOnClickListener(this);
 
         MyAsyncTask myAsyncTask = new MyAsyncTask();
         myAsyncTask.execute();
 
-        return view;
+        x.view().inject(this, view);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -128,14 +164,17 @@ public class CourseFragment extends Fragment implements AdapterView.OnItemClickL
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getContext(), CourseInfoActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("course_selected",String.valueOf(position));
+        bundle.putString("course_selected", String.valueOf(position));
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
+
+    @Event(value = {R.id.action_bar_btn_clock, R.id.course_search_ib})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.action_bar_btn_clock:
+                break;
             case R.id.course_search_ib:
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;
@@ -184,13 +223,15 @@ public class CourseFragment extends Fragment implements AdapterView.OnItemClickL
     /**
      * 将数据转换为AutoPlayInfo形式
      */
-    private List<AutoPlayInfo> changeAutoPlayInfoList(){
+    private List<AutoPlayInfo> changeAutoPlayInfoList() {
         List<AutoPlayInfo> autoPlayInfoList = new ArrayList<AutoPlayInfo>();
-        for(int i = 0 ; i < imagesCourse.length ; i ++){
+        for (int i = 0; i < course.getAdv().size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
-            autoPlayInfo.setImageId(imagesCourse[i]);
+            //autoPlayInfo.setImageId(imagesCourse[i]);
             //autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setTitle(imageTitle[i]);
+            autoPlayInfo.setImageUrl(course.getAdv().get(i).getImage_url());
+            autoPlayInfo.setAdLinks("");//无数据时不跳转
+            autoPlayInfo.setTitle(course.getAdv().get(i).getTitle());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;
@@ -199,7 +240,7 @@ public class CourseFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onResume() {
         //没有数据时不执行startPlaying,避免执行几次导致轮播混乱
-        if(mAutoPlayInfoList != null && !mAutoPlayInfoList.isEmpty()){
+        if (mAutoPlayInfoList != null && !mAutoPlayInfoList.isEmpty()) {
             courseAutoVP.startPlaying();
         }
         super.onResume();

@@ -1,4 +1,4 @@
-package org.example.androidenterprise.utils;
+package org.example.androidenterprise.view;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.utils.AutoPlayInfo;
 
 
 /**
@@ -184,7 +185,7 @@ public class AutoPlayingViewPager extends FrameLayout {
 	/**
 	 * 初始化
 	 *
-	 * @param imageUrls 需要加载的图片地址，根据传入数量动态创建容器。
+	 *  imageUrls 需要加载的图片地址，根据传入数量动态创建容器。
 	 * @return
 	 */
 	public AutoPlayingViewPager initialize(List<AutoPlayInfo> autoPlayInfoList) {
