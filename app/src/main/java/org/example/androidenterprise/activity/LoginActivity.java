@@ -32,7 +32,7 @@ import java.util.List;
 
 @ContentView(R.layout.activity_login)
 
-public class LoginActivity extends AppCompatActivity implements View.OnTouchListener {
+public class LoginActivity extends BaseActivity implements View.OnTouchListener {
     private String LOGIN_URL = "http://112.124.38.1:12345/login";
 
     @ViewInject(R.id.btn_login)

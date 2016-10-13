@@ -62,16 +62,16 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
             holder = (ViewHolder_C)convertView.getTag();
         }
         holder.img.setImageResource(R.drawable.img_example);
-        holder.course.setText(clist.get(position).getTitle());
-        holder.level.setText("难度等级："+ clist.get(position).getCourse_level());
-        holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());
-        holder.pos.setText(clist.get(position).getCourse_address());
-        if(clist.get(position).getState() == 0){
-            holder.state.setText("未开通");
-        }
-        else{
-            holder.state.setText("已开通");
-        }
+//        holder.course.setText(clist.get(position).getTitle());
+//        holder.level.setText("难度等级："+ clist.get(position).getCourse_level());
+//        holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());
+//        holder.pos.setText(clist.get(position).getCourse_address());
+//        if(clist.get(position).getState() == 0){
+//            holder.state.setText("未开通");
+//        }
+//        else{
+//            holder.state.setText("已开通");
+//        }
         holder.state.setOnClickListener(this);
         return convertView;
     }

@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
@@ -49,6 +51,8 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private String COURSE_URL = "";
 
     @ViewInject(R.id.action_bar_btn_table)
     ImageButton scheduleBtn;
@@ -105,34 +109,37 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ImageLoader imageLoader = ImageLoader.getInstance();
+        imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
+
         course = new CourseEntity();
-        RequestParams params = new RequestParams("http://112.124.38.1:12345/index");
-        Log.e("FK","234234123423534534534523");
-        x.http().get(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.e("FK",result);
-                course = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
-            }
+        RequestParams params = new RequestParams(COURSE_URL);
+//        params.setAsJsonContent(true);
+//        params.setBodyContent();
+//        x.http().post(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
 
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e("FK","FK!!!!");
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-                Log.e("FK","FK!()()!!!");
-            }
-
-            @Override
-            public void onFinished() {
-                Log.e("FK","2323232323232323");
-            }
-        });
-
-        CourseAdapter courseAdapter = new CourseAdapter(getContext(),course.getCourse_list());
-        course_list.setAdapter(courseAdapter);
+//        CourseAdapter courseAdapter = new CourseAdapter(getContext(),course.getCourse_list());
+//        course_list.setAdapter(courseAdapter);
 
         course_list.setOnItemClickListener(this);
 
@@ -229,9 +236,9 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             //autoPlayInfo.setImageId(imagesCourse[i]);
             //autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setImageUrl(course.getAdv().get(i).getImage_url());
-            autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setTitle(course.getAdv().get(i).getTitle());
+//            autoPlayInfo.setImageUrl(course.getAdv().get(i).getImage_url());
+//            autoPlayInfo.setAdLinks("");//无数据时不跳转
+//            autoPlayInfo.setTitle(course.getAdv().get(i).getTitle());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;
