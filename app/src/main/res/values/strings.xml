@@ -33,4 +33,17 @@
     <string name="pull_to_refresh_footer_refreshing_label">正在加载中\u2026</string>
     <string name="text">http://miloisbadboy.com/</string>
 
+    <!--activity_suggest_complain-->
+    <string name="complain_suggest_str">投诉建议</string>
+    <!--activity_center_help-->
+    <string name="help_center_str">帮助中心</string>
+    <string name="use_article_str">使用文章</string>
+    <string name="about_str">关于XXX</string>
+    <!--activity_us_contact-->
+    <string name="contact_us_str">联系我们</string>
+    <string name="telephone_str">电话</string>
+    <string name="telephone_number_str">400000000</string>
+    <string name="dial_str">拨   打</string>
+    <string name="service_str">客服</string>
+    <string name="service_01_str">客服1</string>
 </resources>

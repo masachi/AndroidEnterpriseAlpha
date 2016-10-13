@@ -52,13 +52,13 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
     @ViewInject(R.id.btn_register_big)
     Button l_registerBtn;
 
+    //TODO: data sourse under this line
     private List<UserInfoEntity> ulist;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
         x.view().inject(this);
 
         InitData.initData(this);
