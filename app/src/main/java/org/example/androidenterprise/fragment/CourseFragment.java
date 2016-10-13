@@ -108,28 +108,28 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         course = new CourseEntity();
         RequestParams params = new RequestParams("http://112.124.38.1:12345/index");
         Log.e("FK","234234123423534534534523");
-        x.http().get(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.e("FK",result);
-                course = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e("FK","FK!!!!");
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-                Log.e("FK","FK!()()!!!");
-            }
-
-            @Override
-            public void onFinished() {
-                Log.e("FK","2323232323232323");
-            }
-        });
+//        x.http().get(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                Log.e("FK",result);
+//                course = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                Log.e("FK","FK!!!!");
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//                Log.e("FK","FK!()()!!!");
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//                Log.e("FK","2323232323232323");
+//            }
+//        });
 
         CourseAdapter courseAdapter = new CourseAdapter(getContext(),course.getCourse_list());
         course_list.setAdapter(courseAdapter);

@@ -56,4 +56,11 @@
     <color name="search_order_info_pos_color">#FFCCCCCC</color>
     <color name="search_record_date_color">#FFCCCCCC</color>
     <color name="search_record_state_color">#FFF49C14</color>
+
+    <color name="color_97c8cd">#97c8cd</color>
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_d1d1d1">#d1d1d1</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_666666">#666666</color>
 </resources>
