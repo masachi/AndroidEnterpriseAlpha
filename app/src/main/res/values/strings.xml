@@ -54,14 +54,16 @@
     <string name="qq_str">QQ</string>
     <string name="service_01_str">客服1</string>
     <string name="activity_confirm_order_title_str">确认订单</string>
-    <string name="confirm_order_receiver_name_str">收货人：XXX</string>
+    <string name="confirm_order_receiver_name_str">收货人：</string>
     <string name="confirm_order_receiver_tele_str">134285797846</string>
+    <string name="confirm_order_address_str">地点：</string>
     <string name="confirm_order_details_address_str">地点：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
     <string name="confirm_order_buyer_message_str">买家留言：</string>
     <string name="confirm_order_buyer_message_input_str">点击留言</string>
     <string name="confirm_order_freight_str">运费</string>
-    <string name="confirm_order_freight_money_str">¥0.00</string>
+    <string name="confirm_order_freight_money_symbol_str">¥</string>
     <string name="confirm_order_real_pay_str">实付（含运费）</string>
+
     <string name="confirm_order_real_pay_money_str">¥6000.00</string>
     <string name="confirm_order_payment_method_str">支付方式</string>
     <string name="confirm_order_payment_alipay_str">支付宝支付</string>
@@ -70,12 +72,44 @@
     <string name="confirm_order_amount_money_str">¥6000.00</string>
     <string name="confirm_order_submit_order_str">提交订单</string>
     <string name="confirm_order_message_board_str">留言</string>
+    <string name="confirm_order_receiver_str">收货人：</string>
     <string name="confirm_order_buyer_message_board_str">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     </string>
     <string name="confirm_order_leave_message_resolve_str">取消</string>
     <string name="confirm_order_leave_message_affirm_str">确定</string>
-
     <string name="select_add">选择地址</string>
     <string name="select_add_increase">增加新地址</string>
+
+    <string name="students_head_list_title_str">学员列表</string>
+    <string name="students_head_list_title_right_bracket_str">（</string>
+    <string name="students_head_list_title_left_bracket_str">）</string>
+    <string name="students_list_title_str">学员列表</string>
+
+
+    <!--activity_course_calendar-->
+    <string name="course_calendar_title">课程日历</string>
+    <string-array name="custom_weekdays">
+        <item>S</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
+    <string-array name="custom_months">
+        <item>Janurary</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 
 </resources>
