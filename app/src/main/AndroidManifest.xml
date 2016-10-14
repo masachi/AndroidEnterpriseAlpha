@@ -34,15 +34,17 @@
         </activity>
         <activity android:name=".activity.SearchActivity">
         </activity>
-        <activity android:name=".activity.Complain_SuggestActivity">
+        <activity android:name=".activity.ComplainSuggestActivity">
         </activity>
-        <activity android:name=".activity.Help_CenterActivity">
+        <activity android:name=".activity.HelpCenterActivity">
         </activity>
-        <activity android:name=".activity.Contact_UsActivity">
+        <activity android:name=".activity.ContactUsActivity">
         </activity>
         <activity android:name=".activity.ConfirmOrderActivity">
         </activity>
         <activity android:name=".activity.StudentsHeadListActivity">
+        </activity>
+        <activity android:name=".activity.CourseCalendarActivity">
         </activity>
     </application>
 
