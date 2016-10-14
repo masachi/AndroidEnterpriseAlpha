@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/record_info_margin"
+                android:paddingBottom="@dimen/record_info_margin">
+
+    <ImageView
+            android:src="@drawable/img_example"
+            android:id="@+id/record_info_img"
+            android:layout_width="@dimen/record_info_img"
+            android:layout_height="@dimen/record_info_img"/>
+    <TextView
+            android:text="乐器xxx乐器xxx乐器xxx乐器xxx乐器xxx乐器xxx"
+            android:id="@+id/record_info_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/record_info_img"
+            android:layout_toRightOf="@id/record_info_img"
+            android:layout_marginLeft="@dimen/record_lv_margin_many"
+            android:textColor="@color/record_info_name_price_color"
+            android:textSize="@dimen/record_info_text_size"/>
+    <TextView
+            android:text="XXX属性"
+            android:id="@+id/record_info_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/record_info_name"
+            android:layout_marginTop="@dimen/record_lv_margin_many"
+            android:layout_alignLeft="@id/record_info_name"
+            android:textColor="@color/record_date_property_color"
+            android:textSize="@dimen/record_info_text_size"/>
+    <TextView
+            android:text="¥6000.00"
+            android:id="@+id/record_info_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/record_info_img"
+            android:textColor="@color/record_info_name_price_color"
+            android:textSize="@dimen/record_info_text_size"/>
+
+</RelativeLayout>

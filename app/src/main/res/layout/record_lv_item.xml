@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_bg">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/record_margin_top"
+            android:paddingTop="@dimen/record_lv_margin_many"
+            android:paddingBottom="@dimen/record_lv_margin_many"
+            android:paddingLeft="@dimen/record_lv_margin_many"
+            android:paddingRight="@dimen/record_lv_margin_many"
+            android:background="@drawable/record">
+        <TextView
+                android:text="订单时间 2016-05-06 14:00"
+                android:id="@+id/record_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/record_date_property_color"
+                android:textSize="@dimen/record_date_size"/>
+        <TextView
+                android:text="已完成"
+                android:id="@+id/record_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/record_state_color"
+                android:textSize="@dimen/record_state_size"/>
+        <TextView
+                android:id="@+id/record_line1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/storke_all"
+                android:layout_below="@id/record_date"
+                android:layout_marginTop="@dimen/record_lv_margin_many"
+                android:background="@color/record_line_color"/>
+
+        <org.example.androidenterprise.view.CustomMeasureListView
+                android:id="@+id/record_info_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/record_line1"
+                android:paddingTop="@dimen/record_info_margin"
+                android:paddingBottom="@dimen/record_info_margin">
+
+        </org.example.androidenterprise.view.CustomMeasureListView>
+
+        <TextView
+                android:id="@+id/record_line2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/storke_all"
+                android:layout_below="@id/record_info_lv"
+                android:background="@color/record_line_color"/>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/record_line2"
+                android:layout_marginTop="@dimen/record_lv_margin_many">
+            <TextView
+                    android:text="¥6000.00"
+                    android:id="@+id/record_count_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/record_count_color"
+                    android:textSize="@dimen/record_count_size"/>
+            <TextView
+                    android:text="共n件商品（含运费0.0）实付 "
+                    android:id="@+id/record_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/record_count_price"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/record_count_color"
+                    android:textSize="@dimen/record_state_size"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

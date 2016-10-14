@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_bg">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/system_message_margin_top"
+            android:paddingTop="@dimen/system_message_lv_margin_many"
+            android:paddingBottom="@dimen/system_message_lv_margin_many"
+            android:paddingLeft="@dimen/system_message_lv_margin_many"
+            android:paddingRight="@dimen/system_message_lv_margin_many"
+            android:background="@drawable/system_message">
+        <TextView
+                android:text="可删除测试数据"
+                android:id="@+id/system_message_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/system_message_title_color"
+                android:textSize="@dimen/system_message_title_size"/>
+        <TextView
+                android:text="内容可删除测试数据内容可删除测试数据内容可删除测试数据内容可删除测试数据内容可删除测试数据内容可删除测试数据内容可删除测试数据内容可删除测试数据"
+                android:id="@+id/system_message_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/system_message_title"
+                android:layout_marginTop="@dimen/system_message_lv_margin_many"
+                android:textColor="@color/system_message_content_color"
+                android:textSize="@dimen/system_message_content_size"/>
+        <TextView
+                android:text="2016-05-06 10:15"
+                android:id="@+id/system_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/system_message_content"
+                android:layout_marginTop="@dimen/system_message_lv_margin_many"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/system_message_time_color"
+                android:textSize="@dimen/system_message_time_size"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

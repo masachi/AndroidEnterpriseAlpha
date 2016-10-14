@@ -4,106 +4,72 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
 
-import static org.example.androidenterprise.utils.InitData.olist;
-
 /**
- * Created by sdlds on 2016/10/5.
+ * Created by xiaohua on 2016/10/13.
  */
-public class OrderAdapter extends BaseExpandableListAdapter {
-    private Context context;
+public class OrderAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
+    private Context context;
+    // TODO:private List<___> ___list;
 
-    public OrderAdapter(Context context){
+    public OrderAdapter(Context context) {
         this.context = context;
-        mLayoutInflate = LayoutInflater.from(context);
-    }
-
-
-    @Override
-    public int getGroupCount() {
-        return olist.size();
+        this.mLayoutInflate = LayoutInflater.from(context);
     }
 
     @Override
-    public int getChildrenCount(int groupPosition) {
-        return olist.get(groupPosition).getOrder_info().size();
+    public int getCount() {
+        //TODO:return ___List.getData(context).size();
+        return 0;
     }
 
     @Override
-    public Object getGroup(int groupPosition) {
-        return olist.get(groupPosition);
+    public Object getItem(int position) {
+        return null;
     }
 
     @Override
-    public Object getChild(int groupPosition, int childPosition) {
-        return olist.get(groupPosition).getOrder_info().get(childPosition);
+    public long getItemId(int position) {
+        return 0;
     }
 
     @Override
-    public long getGroupId(int groupPosition) {
-        return groupPosition;
-    }
-
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-
-    @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        ViewHolderGroup holderGroup;
-        if(convertView == null){
-            convertView  = mLayoutInflate.inflate(R.layout.search_order_lv_item,parent,false);
-            holderGroup = new ViewHolderGroup();
-            holderGroup.dateTv = (TextView) convertView.findViewById(R.id.search_info_order_date);
-            convertView.setTag(holderGroup);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder_Order holder;
+        if (convertView == null) {
+            convertView = mLayoutInflate.inflate(R.layout.order_lv_item, null);
+            holder = new ViewHolder_Order();
+            holder.date = (TextView) convertView.findViewById(R.id.order_date);
+            holder.state = (TextView) convertView.findViewById(R.id.order_state);
+            holder.img = (ImageView) convertView.findViewById(R.id.order_img);
+            holder.coursename = (TextView) convertView.findViewById(R.id.order_coursename);
+            holder.classhour = (TextView) convertView.findViewById(R.id.order_classhour);
+            holder.teacher = (TextView) convertView.findViewById(R.id.order_teacher);
+            holder.price = (TextView) convertView.findViewById(R.id.order_price);
+            holder.count_price = (TextView) convertView.findViewById(R.id.order_count_price);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder_Order) convertView.getTag();
         }
-        else{
-            holderGroup = (ViewHolderGroup) convertView.getTag();
-        }
-        holderGroup.dateTv.setText(olist.get(groupPosition).getOrder_date());
+        //TODO:___list.get(position).get___
+        holder.date.setText("___list.get(position).get___");
+        holder.state.setText("___list.get(position).get___");
+        holder.img.setImageResource(R.drawable.img_example);//将R.drawable.img_example换成___list.get(position).get___
+        holder.coursename.setText("___list.get(position).get___");
+        holder.classhour.setText("___list.get(position).get___");
+        holder.teacher.setText("___list.get(position).get___");
+        holder.price.setText("___list.get(position).get___");
+        holder.count_price.setText("___list.get(position).get___");
         return convertView;
     }
-
-    @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        ViewHolderChild holderChild;
-        if(convertView == null){
-            convertView = mLayoutInflate.inflate(R.layout.search_order_info_lv_item,parent,false);
-            holderChild = new ViewHolderChild();
-            holderChild.timeTv = (TextView) convertView.findViewById(R.id.search_order_info_time);
-            holderChild.courseTv = (TextView) convertView.findViewById(R.id.search_order_info_course);
-            holderChild.posTv = (TextView) convertView.findViewById(R.id.search_order_info_pos);
-            convertView.setTag(holderChild);
-        }
-        else{
-            holderChild = (ViewHolderChild) convertView.getTag();
-        }
-        holderChild.timeTv.setText(olist.get(groupPosition).getOrder_info().get(childPosition).getTime());
-        holderChild.courseTv.setText(olist.get(groupPosition).getOrder_info().get(childPosition).getCourse());
-        holderChild.posTv.setText(olist.get(groupPosition).getOrder_info().get(childPosition).getPosition());
-        return convertView;
-    }
-
-    @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
-    }
 }
-final class ViewHolderGroup{
-    TextView dateTv;
-}
-final class ViewHolderChild{
-    TextView timeTv;
-    TextView courseTv;
-    TextView posTv;
+
+final class ViewHolder_Order {
+    TextView date, state, coursename, classhour, teacher, price, count_price;
+    ImageView img;
 }

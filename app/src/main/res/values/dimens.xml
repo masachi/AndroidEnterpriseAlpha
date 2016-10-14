@@ -152,6 +152,27 @@
     <dimen name="search_record_date_size">11sp</dimen>
     <dimen name="search_record_state_size">12sp</dimen>
     <dimen name="search_record_lv_margin_left_right">10dp</dimen>
+    <dimen name="system_message_lv_margin_many">10dp</dimen>
+    <dimen name="system_message_margin_top">5dp</dimen>
+    <dimen name="system_message_title_size">14sp</dimen>
+    <dimen name="system_message_content_size">13sp</dimen>
+    <dimen name="system_message_time_size">11sp</dimen>
+    <dimen name="record_lv_margin_many">10dp</dimen>
+    <dimen name="record_margin_top">5dp</dimen>
+    <dimen name="record_date_size">11sp</dimen>
+    <dimen name="record_state_size">12sp</dimen>
+    <dimen name="record_count_size">15sp</dimen>
+    <dimen name="record_info_margin">8dp</dimen>
+    <dimen name="record_info_img">62dp</dimen>
+    <dimen name="record_info_text_size">13sp</dimen>
+    <dimen name="order_margin_top">5dp</dimen>
+    <dimen name="order_lv_margin_many">10dp</dimen>
+    <dimen name="order_line_margin_img">15dp</dimen>
+    <dimen name="order_date_size">11sp</dimen>
+    <dimen name="order_state_size">12sp</dimen>
+    <dimen name="order_text_size">13sp</dimen>
+    <dimen name="order_price_size">15sp</dimen>
+    <dimen name="order_img">62dp</dimen>
 
     <dimen name="dimen_1px">1px</dimen>
     <dimen name="dimen_2px">2px</dimen>

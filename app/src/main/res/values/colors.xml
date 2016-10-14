@@ -56,6 +56,20 @@
     <color name="search_order_info_pos_color">#FFCCCCCC</color>
     <color name="search_record_date_color">#FFCCCCCC</color>
     <color name="search_record_state_color">#FFF49C14</color>
+    <color name="system_message_bg">#FFD1D1D1</color>
+    <color name="system_message_title_color">#FF333333</color>
+    <color name="system_message_content_color">#FF999999</color>
+    <color name="system_message_time_color">#FFCCCCCC</color>
+    <color name="record_line_color">#FFD1D1D1</color>
+    <color name="record_date_property_color">#FFCCCCCC</color>
+    <color name="record_state_color">#FFF49C14</color>
+    <color name="record_count_color">#FF666666</color>
+    <color name="record_info_name_price_color">#FF666666</color>
+    <color name="order_line_color">#FFD1D1D1</color>
+    <color name="order_date_color">#FFCCCCCC</color>
+    <color name="order_state_color">#FFF49C14</color>
+    <color name="order_text_color">#FF666666</color>
+    <color name="order_price_color">#FF666666</color>
 
     <color name="color_97c8cd">#97c8cd</color>
     <color name="color_ffffff">#ffffff</color>

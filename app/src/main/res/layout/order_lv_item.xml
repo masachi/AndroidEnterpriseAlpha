@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_bg">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/order_margin_top"
+            android:paddingTop="@dimen/order_lv_margin_many"
+            android:paddingBottom="@dimen/order_lv_margin_many"
+            android:paddingLeft="@dimen/order_lv_margin_many"
+            android:paddingRight="@dimen/order_lv_margin_many"
+            android:background="@drawable/order">
+        <TextView
+                android:text="订单时间 2016-05-06 14:00"
+                android:id="@+id/order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/order_date_color"
+                android:textSize="@dimen/order_date_size"/>
+        <TextView
+                android:text="已完成"
+                android:id="@+id/order_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/order_state_color"
+                android:textSize="@dimen/order_state_size"/>
+        <TextView
+                android:id="@+id/order_line1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/storke_all"
+                android:layout_below="@id/order_date"
+                android:layout_marginTop="@dimen/order_lv_margin_many"
+                android:background="@color/order_line_color"/>
+
+        <RelativeLayout
+                android:id="@+id/order_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/order_line1">
+            <ImageView
+                    android:src="@drawable/img_example"
+                    android:id="@+id/order_img"
+                    android:layout_width="@dimen/order_img"
+                    android:layout_height="@dimen/order_img"
+                    android:layout_marginTop="@dimen/order_line_margin_img"
+                    android:layout_marginBottom="@dimen/order_line_margin_img"/>
+            <TextView
+                    android:text="课程XXXXXXXXXXXXXXXXX"
+                    android:id="@+id/order_coursename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/order_img"
+                    android:layout_toRightOf="@id/order_img"
+                    android:layout_marginLeft="@dimen/order_lv_margin_many"
+                    android:textColor="@color/order_text_color"
+                    android:textSize="@dimen/order_text_size"/>
+            <TextView
+                    android:text="6课时"
+                    android:id="@+id/order_classhour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/order_coursename"
+                    android:layout_marginTop="@dimen/order_lv_margin_many"
+                    android:layout_alignLeft="@id/order_coursename"
+                    android:textColor="@color/order_text_color"
+                    android:textSize="@dimen/order_text_size"/>
+            <TextView
+                    android:text="老师：XXX"
+                    android:id="@+id/order_teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/order_classhour"
+                    android:layout_marginTop="@dimen/order_lv_margin_many"
+                    android:layout_alignLeft="@id/order_coursename"
+                    android:textColor="@color/order_text_color"
+                    android:textSize="@dimen/order_text_size"/>
+            <TextView
+                    android:text="¥6000.00"
+                    android:id="@+id/order_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBottom="@id/order_img"
+                    android:textColor="@color/order_text_color"
+                    android:textSize="@dimen/order_text_size"/>
+
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/order_line2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/storke_all"
+                android:layout_below="@id/order_rl"
+                android:background="@color/order_line_color"/>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/order_lv_margin_many"
+                android:layout_below="@id/order_line2">
+            <TextView
+                    android:text="¥6000.00"
+                    android:id="@+id/order_count_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/order_price_color"
+                    android:textSize="@dimen/order_price_size"/>
+            <TextView
+                    android:id="@+id/order_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/order_count_price"
+                    android:layout_centerVertical="true"
+                    android:text="实付 "
+                    android:textColor="@color/order_price_color"
+                    android:textSize="@dimen/order_state_size"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

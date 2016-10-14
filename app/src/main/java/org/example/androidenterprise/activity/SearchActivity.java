@@ -1,6 +1,5 @@
 package org.example.androidenterprise.activity;
 
-import android.opengl.ETC1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,7 @@ import android.widget.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
-import org.example.androidenterprise.adapter.OrderAdapter;
+import org.example.androidenterprise.adapter.SearchOrderAdapter;
 import org.example.androidenterprise.fragment.CourseFragment;
 
 import static org.example.androidenterprise.utils.InitData.olist;
@@ -31,7 +30,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_search);
         CourseAdapter courseAdapter = new CourseAdapter(this, CourseFragment.course.getCourse_list());
         ItemAdapter itemAdapter = new ItemAdapter(this);
-        OrderAdapter orderAdapter = new OrderAdapter(this);
+        SearchOrderAdapter searchOrderAdapter = new SearchOrderAdapter(this);
 
 
         returnIb = (ImageButton) findViewById(R.id.search_return_ib);
@@ -49,7 +48,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
         courseLv.setAdapter(courseAdapter);
         instruGv.setAdapter(itemAdapter);
-        orderLv.setAdapter(orderAdapter);
+        orderLv.setAdapter(searchOrderAdapter);
 
         for(int i=0;i<olist.size();i++){
             orderLv.expandGroup(i);
