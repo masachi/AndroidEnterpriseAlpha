@@ -9,13 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.activity.Complain_SuggestActivity;
-import org.example.androidenterprise.activity.Help_CenterActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.SettingAdapter;
 

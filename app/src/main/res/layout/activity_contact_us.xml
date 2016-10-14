@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="org.example.androidenterprise.activity.Contact_UsActivity">
+        tools:context=".activity.ContactUsActivity">
     <RelativeLayout
             android:id="@+id/contact_us_top"
             android:layout_width="match_parent"
@@ -99,13 +99,17 @@
             android:layout_marginLeft="@dimen/dimen_10dp"
             android:layout_marginTop="@dimen/dimen_15dp"
     />
-    <org.example.androidenterprise.view.CustomMeasureGridView
+    <GridView
             android:id="@+id/service_gv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/fragment_music_child"
-            android:numColumns="4">
-    </org.example.androidenterprise.view.CustomMeasureGridView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="4"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:verticalSpacing="@dimen/dimen_15dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:listSelector="@android:color/transparent">
+    </GridView>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_1px"
@@ -117,18 +121,23 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/service_str"
+            android:text="@string/qq_str"
             android:textSize="@dimen/dimen_13sp"
             android:textColor="@color/color_999999"
             android:layout_marginLeft="@dimen/dimen_10dp"
             android:layout_marginTop="@dimen/dimen_15dp"
     />
-    <org.example.androidenterprise.view.CustomMeasureGridView
+    <GridView
             android:id="@+id/qq_gv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/fragment_music_child"
-            android:numColumns="3">
-    </org.example.androidenterprise.view.CustomMeasureGridView>
+            android:numColumns="3"
+            android:verticalSpacing="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+           android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+
+            >
+    </GridView>
 
 </LinearLayout>

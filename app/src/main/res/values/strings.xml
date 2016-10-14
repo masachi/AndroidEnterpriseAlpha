@@ -35,6 +35,11 @@
 
     <!--activity_suggest_complain-->
     <string name="complain_suggest_str">投诉建议</string>
+    <string name="commit_str">提交</string>
+    <string name="input_context_str">输入内容</string>
+    <string name="complain_telephone_str">投诉电话</string>
+    <string name="complain_telephone_number_str">40000000000</string>
+
     <!--activity_center_help-->
     <string name="help_center_str">帮助中心</string>
     <string name="use_article_str">使用文章</string>
@@ -45,6 +50,7 @@
     <string name="telephone_number_str">400000000</string>
     <string name="dial_str">拨   打</string>
     <string name="service_str">客服</string>
+    <string name="qq_str">QQ</string>
     <string name="service_01_str">客服1</string>
     <string name="activity_confirm_order_title_str">确认订单</string>
     <string name="confirm_order_receiver_name_str">收货人：XXX</string>

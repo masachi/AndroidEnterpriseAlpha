@@ -8,9 +8,9 @@ import org.example.androidenterprise.R;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-@ContentView(R.layout.activity_help__center)
+@ContentView(R.layout.activity_help_center)
 
-public class Help_CenterActivity extends AppCompatActivity {
+public class HelpCenterActivity extends AppCompatActivity {
 
 
     @ViewInject(R.id.help_center_return_ib)
@@ -24,4 +24,5 @@ public class Help_CenterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+//    TODO get use_article about
 }

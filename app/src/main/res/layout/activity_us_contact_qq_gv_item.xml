@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RadioButton
+            android:id="@+id/qq_rb"
+            android:layout_width="@dimen/dimen_102dp"
+            android:layout_height="@dimen/dimen_29dp"
+            android:button="@null"
+            android:background="@drawable/activity_us_contact_qq_gv_item_online_bg"
+            android:paddingLeft="@dimen/dimen_5dp"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dimen_13sp"
+            android:drawablePadding="@dimen/dimen_5dp"/>
+
+</LinearLayout>
