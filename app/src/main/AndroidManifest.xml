@@ -41,6 +41,9 @@
         </activity>
         <activity android:name=".activity.Contact_UsActivity">
         </activity>
+        <activity android:name=".activity.ConfirmOrderActivity">
+        </activity>
     </application>
+
 
 </manifest>
