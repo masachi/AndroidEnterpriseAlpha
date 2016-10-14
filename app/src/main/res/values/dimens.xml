@@ -240,4 +240,13 @@
     <dimen name="dimen_13sp">13sp</dimen>
     <dimen name="dimen_14sp">14sp</dimen>
     <dimen name="dimen_17sp">17sp</dimen>
+    
+    <dimen name="select_add_margin_many">10dp</dimen>
+    <dimen name="select_add_person_margin_phone">15dp</dimen>
+    <dimen name="select_add_person_margin_add">8dp</dimen>
+    <dimen name="select_add_img_margin_textview">5dp</dimen>
+    <dimen name="select_add_btn_margin_left_right">21dp</dimen>
+    <dimen name="select_add_btn_margin_bottom">50dp</dimen>
+    <dimen name="select_add_text_size">12sp</dimen>
+    <dimen name="select_add_btn_size">14sp</dimen>
 </resources>

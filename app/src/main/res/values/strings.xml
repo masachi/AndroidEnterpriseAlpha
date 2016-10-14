@@ -48,7 +48,7 @@
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>
     <string name="telephone_number_str">400000000</string>
-    <string name="dial_str">拨   打</string>
+    <string name="dial_str">拨 打</string>
     <string name="service_str">客服</string>
     <string name="qq_str">QQ</string>
     <string name="service_01_str">客服1</string>
@@ -69,8 +69,12 @@
     <string name="confirm_order_amount_money_str">¥6000.00</string>
     <string name="confirm_order_submit_order_str">提交订单</string>
     <string name="confirm_order_message_board_str">留言</string>
-    <string name="confirm_order_buyer_message_board_str">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="confirm_order_buyer_message_board_str">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    </string>
     <string name="confirm_order_leave_message_resolve_str">取消</string>
     <string name="confirm_order_leave_message_affirm_str">确定</string>
+
+    <string name="select_add">选择地址</string>
+    <string name="select_add_increase">增加新地址</string>
 
 </resources>
