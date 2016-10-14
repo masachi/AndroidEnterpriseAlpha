@@ -12,6 +12,7 @@
     <string name="schedule_acc">接受上课时间</string>
     <string name="schedule_rej">拒绝上课时间</string>
     <string name="course_info_title">课程详情</string>
+
     <string name="price_sign">¥</string>
     <string name="logistics_info_title">物流详情</string>
     <string name="search_hint">关键词</string>
@@ -76,5 +77,31 @@
 
     <string name="select_add">选择地址</string>
     <string name="select_add_increase">增加新地址</string>
+    <!--activity_course_calendar-->
+    <string name="course_calendar_title">课程日历</string>
+    <string-array name="custom_weekdays">
+        <item>S</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
+
+    <string-array name="custom_months">
+        <item>Janurary</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 
 </resources>
