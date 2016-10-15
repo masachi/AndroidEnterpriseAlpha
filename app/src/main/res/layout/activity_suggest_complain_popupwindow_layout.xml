@@ -2,70 +2,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:layout_marginTop="@dimen/dimen_5dp"
-              android:background="@drawable/activity_suggest_complain_et_bg"
-              android:layout_marginLeft="@dimen/dimen_10dp"
-              android:layout_marginRight="@dimen/dimen_10dp">
-    <RadioButton
-            android:id="@+id/complain_ib"
+              android:background="@drawable/activity_suggest_complain_popuwindow_bg">
+    <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:button="@null"
-            android:text="投诉"
-            android:textColor="@color/color_666666"
-            android:textSize="@dimen/dimen_13sp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_12dp"
-            android:paddingEnd="@dimen/dimen_10dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/popupwindow_rg_left_dis"
+            android:layout_marginRight="@dimen/popupwindow_rg_right_dis">
+        <RadioButton
+                android:id="@+id/complain_ib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:text="@string/complain_str"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/popupwindow_rb_text_size"
+                android:layout_marginLeft="@dimen/popupwindow_rb_left_dis"
+                android:layout_marginTop="@dimen/popupwindow_rb_top_dis"
+                android:paddingEnd="@dimen/popupwindow_rb_padding_end"/>
 
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_1px"
+                android:layout_height="@dimen/popupwindow_tv_height"
                 android:layout_below="@+id/complain_tv"
                 android:background="@color/color_d1d1d1"
-                android:layout_marginTop="@dimen/dimen_12dp"
-                android:layout_marginLeft="@dimen/dimen_10dp"
-                android:layout_marginRight="@dimen/dimen_10dp"/>
+                android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
+                android:layout_marginLeft="@dimen/popupwindow_tv_left_dis"
+                android:layout_marginRight="@dimen/popupwindow_tv_right_dis"/>
 
-    <RadioButton
-            android:id="@+id/suggest_ib"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:button="@null"
-            android:text="操作建议"
-            android:textColor="@color/color_666666"
-            android:textSize="@dimen/dimen_13sp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_12dp"
-            android:paddingEnd="@dimen/dimen_10dp"/>
+        <RadioButton
+                android:id="@+id/suggest_ib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:text="@string/operation_suggest_str"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/popupwindow_rb_text_size"
+                android:layout_marginLeft="@dimen/popupwindow_rb_left_dis"
+                android:layout_marginTop="@dimen/popupwindow_rb_top_dis"
+                android:paddingEnd="@dimen/popupwindow_rb_padding_end"/>
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1px"
-            android:layout_below="@+id/complain_tv"
-            android:background="@color/color_d1d1d1"
-            android:layout_marginTop="@dimen/dimen_12dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"/>
-    <RadioButton
-            android:id="@+id/other_ib"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:button="@null"
-            android:text="其他"
-            android:textColor="@color/color_666666"
-            android:textSize="@dimen/dimen_13sp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_12dp"
-            android:paddingEnd="@dimen/dimen_10dp"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popupwindow_tv_height"
+                android:layout_below="@+id/complain_tv"
+                android:background="@color/color_d1d1d1"
+                android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
+                android:layout_marginLeft="@dimen/popupwindow_tv_left_dis"
+                android:layout_marginRight="@dimen/popupwindow_tv_right_dis"/>
+        <RadioButton
+                android:id="@+id/other_ib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:text="@string/other_str"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/popupwindow_rb_text_size"
+                android:layout_marginLeft="@dimen/popupwindow_rb_left_dis"
+                android:layout_marginTop="@dimen/popupwindow_rb_top_dis"
+                android:paddingEnd="@dimen/popupwindow_rb_padding_end"/>
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1px"
-            android:layout_below="@+id/complain_tv"
-            android:background="@color/color_d1d1d1"
-            android:layout_marginTop="@dimen/dimen_12dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popupwindow_tv_height"
+                android:layout_below="@+id/complain_tv"
+                android:background="@color/color_d1d1d1"
+                android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
+                android:layout_marginLeft="@dimen/popupwindow_tv_left_dis"
+                android:layout_marginRight="@dimen/popupwindow_tv_right_dis"/>
+    </RadioGroup>
 </LinearLayout>
