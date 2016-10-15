@@ -33,7 +33,7 @@
 
     </RelativeLayout>
 
-    <com.cs.myapplication.CustomScrollView
+    <org.example.androidenterprise.view.CustomScrollView
             android:layout_below="@id/instrument_info_top"
             android:background="@color/grey_bg"
             android:layout_width="match_parent"
@@ -171,7 +171,7 @@
 
 
         </RelativeLayout>
-    </com.cs.myapplication.CustomScrollView>
+    </org.example.androidenterprise.view.CustomScrollView>
 
     <RelativeLayout
             android:id="@+id/bottom_fragment"
