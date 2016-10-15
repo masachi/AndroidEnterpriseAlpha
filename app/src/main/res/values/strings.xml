@@ -55,7 +55,9 @@
     <string name="instrument_XXXX">乐器XXXXXXXXX</string>
     <string name="select_property">选择属性</string>
     <string name="right_now_buy">立即购买</string>
-    <string name="student_tickling">学员反馈</string>
+    <!--activity_students_feed_back-->
+    <string name="students_feed_back">学员反馈</string>
+    <string name="students_feed_back_time">课时3</string>
     <!--activity_us_contact-->
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>

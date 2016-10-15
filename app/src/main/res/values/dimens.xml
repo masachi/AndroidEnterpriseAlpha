@@ -260,6 +260,8 @@
     <dimen name="right_now_buy_rectangle">38dp</dimen>
     <dimen name="instrument_info_teacher_margin">5dp</dimen>
 
+    <dimen name="student_feed_back_height">45dp</dimen>
+
     <dimen name="order_payment_text_size">12sp</dimen>
     <dimen name="order_payment_btn_text_size">16sp</dimen>
     <dimen name="order_payment_btn_height">49dp</dimen>
