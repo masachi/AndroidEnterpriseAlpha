@@ -34,7 +34,7 @@
             android:id="@+id/select_add_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+        <!--TODO: select_add_rg_item-->
     </RadioGroup>
 
     <Button
