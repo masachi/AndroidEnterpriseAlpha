@@ -45,6 +45,23 @@
     <string name="help_center_str">帮助中心</string>
     <string name="use_article_str">使用文章</string>
     <string name="about_str">关于XXX</string>
+
+
+    <!-- activity_instrument_detail -->
+    <string name="instrument_info_title">乐器详情</string>
+    <string name="instrument_info_canshu">产品参数</string>>
+    <string name="instrument_info_detail">商品描述</string>
+    <string name="instrument_info_info">内容内容内容内容内容内容内容内容内容内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容</string>
+    <string name="bottom_total">总计(含运费0.00)</string>
+    <string name="bottom_money">￥5000.00</string>
+    <string name="buy">购买</string>
+    <string name="place">上海</string>
+    <string name="transfer_fee">运费0.00</string>
+    <string name="price_flute">￥5000.00</string>
+    <string name="instrument_XXXX">乐器XXXXXXXXX</string>
+    <string name="select_property">选择属性</string>
+    <string name="right_now_buy">立即购买</string>
+    <string name="student_tickling">学员反馈</string>
     <!--activity_us_contact-->
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>

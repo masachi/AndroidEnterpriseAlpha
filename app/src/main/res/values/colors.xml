@@ -83,4 +83,13 @@
 
     <color name="color_97c8cd">#97c8cd</color>
     <color name="color_ffffff">#ffffff</color>
+    <color name="transparent_white">#00FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_course_time">#666666</color>
+    <color name="blue">#97c8cd</color>
+    <color name="property_black">#333333</color>
+    <color name="yellow_price">#f49c14</color>
+    <color name="grey">#999999</color>
+    <color name="instrument_info_teacher_line">#FF999999</color>
 </resources>
