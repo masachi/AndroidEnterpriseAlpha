@@ -260,4 +260,16 @@
     <dimen name="right_now_buy_rectangle">38dp</dimen>
     <dimen name="instrument_info_teacher_margin">5dp</dimen>
 
+    <dimen name="order_payment_text_size">12sp</dimen>
+    <dimen name="order_payment_btn_text_size">16sp</dimen>
+    <dimen name="order_payment_btn_height">49dp</dimen>
+    <dimen name="order_payment_pay_tv_height">40dp</dimen>
+    <dimen name="order_payment_pay_margin">10dp</dimen>
+    <dimen name="order_payment_margin_many">12dp</dimen>
+    <dimen name="order_payment_tv_tv">25dp</dimen>
+    <dimen name="order_payment_nametv_phonenumtv">15dp</dimen>
+    <dimen name="order_payment_line_height">1px</dimen>
+    <dimen name="order_payment_title_height">44dp</dimen>
+    <dimen name="order_payment_title_text_size">17sp</dimen>
+
 </resources>

@@ -118,4 +118,36 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <!--activity_order_payment-->
+    <string name="activity_orderpayment_title_str">
+        订单支付
+    </string>
+    <string name="activity_orderpayment_courseInfo_title_str">
+        课程信息
+    </string>
+    <string name="activity_orderpayment_account_title_str">
+        账户
+    </string>
+    <string name="activity_orderpayment_Attn_title_str">
+        联系人
+    </string>
+    <string name="activity_orderpayment_OrderNo_title_str">
+        订单号
+    </string>
+    <string name="activity_orderpayment_sum_title_str">
+        金额
+    </string>
+    <string name="activity_orderpayment_payment_title_str">
+        支付方式
+    </string>
+    <string name="activity_orderpayment_alipay_title_str">
+        支付宝支付
+    </string>
+    <string name="activity_orderpayment_wechatpay_title_str">
+        微信钱包支付
+    </string>
+    <string name="activity_orderpayment_payment_btn_str">
+        去支付
+    </string>
+
 </resources>
