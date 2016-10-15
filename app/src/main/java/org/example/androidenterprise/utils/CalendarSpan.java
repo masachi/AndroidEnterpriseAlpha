@@ -76,6 +76,9 @@ public class CalendarSpan implements LineBackgroundSpan {
         }
         //canvas.drawCircle((left + right) / 2, bottom + radius, radius, paint);
         canvas.drawLine((left + right)/3,bottom,(left + right)/3*2,bottom,paint);
+        canvas.drawLine((left + right)/3+1,bottom,(left + right)/3*2+1,bottom,paint);
+        canvas.drawLine((left + right)/3+2,bottom,(left + right)/3*2+2,bottom,paint);
+        canvas.drawLine((left + right)/3+3,bottom,(left + right)/3*2+3,bottom,paint);
         paint.setColor(oldColor);
     }
 }

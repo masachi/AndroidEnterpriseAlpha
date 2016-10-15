@@ -20,6 +20,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -41,12 +42,11 @@
         </activity>
         <activity android:name=".activity.ConfirmOrderActivity">
         </activity>
-        <activity android:name=".activity.SelectAddActivity">
-        </activity>
-        <activity android:name=".activity.EditAddActivity">
+        <activity android:name=".activity.StudentsHeadListActivity">
         </activity>
         <activity android:name=".activity.CourseCalendarActivity">
         </activity>
     </application>
+
 
 </manifest>

@@ -18,6 +18,7 @@ import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.activity.CourseCalendarActivity;
 import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
@@ -177,13 +178,16 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     }
 
 
-    @Event(value = {R.id.action_bar_btn_clock, R.id.course_search_ib})
+    @Event(value = {R.id.action_bar_btn_clock, R.id.course_search_ib,R.id.action_bar_btn_table})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.action_bar_btn_clock:
                 break;
             case R.id.course_search_ib:
                 startActivity(new Intent(getContext(), SearchActivity.class));
+                break;
+            case R.id.action_bar_btn_table:
+                startActivity(new Intent(getContext(), CourseCalendarActivity.class));
                 break;
         }
     }
