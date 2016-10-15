@@ -84,4 +84,38 @@
     <string name="students_head_list_title_left_bracket_str">）</string>
     <string name="students_list_title_str">学员列表</string>
 
+    <string name="select_add">选择地址</string>
+    <string name="select_add_increase">增加新地址</string>
+
+    <string name="commit_str">提交</string>
+    <string name="input_context_str">输入内容</string>
+    <string name="complain_telephone_str">投诉电话</string>
+    <string name="complain_telephone_number_str">40000000000</string>
+    <string name="qq_str">QQ</string>
+
+    <!--activity_course_calendar-->
+    <string name="course_calendar_title">课程日历</string>
+    <string-array name="custom_weekdays">
+        <item>S</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
+    <string-array name="custom_months">
+        <item>Janurary</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>
