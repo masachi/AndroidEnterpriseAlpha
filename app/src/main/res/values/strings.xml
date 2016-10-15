@@ -12,7 +12,6 @@
     <string name="schedule_acc">接受上课时间</string>
     <string name="schedule_rej">拒绝上课时间</string>
     <string name="course_info_title">课程详情</string>
-
     <string name="price_sign">¥</string>
     <string name="logistics_info_title">物流详情</string>
     <string name="search_hint">关键词</string>
@@ -36,11 +35,6 @@
 
     <!--activity_suggest_complain-->
     <string name="complain_suggest_str">投诉建议</string>
-    <string name="commit_str">提交</string>
-    <string name="input_context_str">输入内容</string>
-    <string name="complain_telephone_str">投诉电话</string>
-    <string name="complain_telephone_number_str">40000000000</string>
-
     <!--activity_center_help-->
     <string name="help_center_str">帮助中心</string>
     <string name="use_article_str">使用文章</string>
@@ -66,67 +60,28 @@
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>
     <string name="telephone_number_str">400000000</string>
-    <string name="dial_str">拨 打</string>
+    <string name="dial_str">拨   打</string>
     <string name="service_str">客服</string>
-    <string name="qq_str">QQ</string>
     <string name="service_01_str">客服1</string>
     <string name="activity_confirm_order_title_str">确认订单</string>
-    <string name="confirm_order_receiver_name_str">收货人：</string>
-    <string name="confirm_order_receiver_tele_str">134285797846</string>
-    <string name="confirm_order_address_str">地点：</string>
-    <string name="confirm_order_details_address_str">地点：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="confirm_order_consignee_str">收货人：</string>
+    <string name="confirm_order_consignee_address_str">地点：</string>
     <string name="confirm_order_buyer_message_str">买家留言：</string>
     <string name="confirm_order_buyer_message_input_str">点击留言</string>
     <string name="confirm_order_freight_str">运费</string>
     <string name="confirm_order_freight_money_symbol_str">¥</string>
     <string name="confirm_order_real_pay_str">实付（含运费）</string>
-
-    <string name="confirm_order_real_pay_money_str">¥6000.00</string>
     <string name="confirm_order_payment_method_str">支付方式</string>
     <string name="confirm_order_payment_alipay_str">支付宝支付</string>
     <string name="confirm_order_payment_wechat_str">微信钱包支付</string>
     <string name="confirm_order_amount_str">金额</string>
-    <string name="confirm_order_amount_money_str">¥6000.00</string>
     <string name="confirm_order_submit_order_str">提交订单</string>
     <string name="confirm_order_message_board_str">留言</string>
-    <string name="confirm_order_receiver_str">收货人：</string>
-    <string name="confirm_order_buyer_message_board_str">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    </string>
     <string name="confirm_order_leave_message_resolve_str">取消</string>
     <string name="confirm_order_leave_message_affirm_str">确定</string>
-    <string name="select_add">选择地址</string>
-    <string name="select_add_increase">增加新地址</string>
-
     <string name="students_head_list_title_str">学员列表</string>
     <string name="students_head_list_title_right_bracket_str">（</string>
     <string name="students_head_list_title_left_bracket_str">）</string>
     <string name="students_list_title_str">学员列表</string>
-
-
-    <!--activity_course_calendar-->
-    <string name="course_calendar_title">课程日历</string>
-    <string-array name="custom_weekdays">
-        <item>S</item>
-        <item>M</item>
-        <item>T</item>
-        <item>W</item>
-        <item>T</item>
-        <item>F</item>
-        <item>S</item>
-    </string-array>
-    <string-array name="custom_months">
-        <item>Janurary</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
-    </string-array>
 
 </resources>

@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:id="@+id/receiver_tv"
-                        android:text="@string/confirm_order_receiver_str"
+                        android:text="@string/confirm_order_consignee_str"
                         android:textSize="@dimen/confirm_order_receiver_name_size"
                         android:textColor="@color/color_666666"
                         android:layout_toRightOf="@id/ship_address_iv"
@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:id="@+id/address_tv"
-                        android:text="@string/confirm_order_address_str"
+                        android:text="@string/confirm_order_consignee_address_str"
                         android:layout_alignLeft="@id/receiver_tv"
                         android:layout_below="@id/receiver_tv"
                         android:layout_marginTop="@dimen/confirm_order_details_address_margin_top"
