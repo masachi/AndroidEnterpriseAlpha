@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.StudentFeedBack">
+        tools:context=".activity.StudentsFeedBack">
 
     <RelativeLayout
             android:id="@+id/student_feed_back_top"
@@ -26,30 +26,26 @@
         <TextView
                 android:text="@string/students_feed_back"
                 android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
                 android:textSize="19sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
     </RelativeLayout>
 
-
     <org.example.androidenterprise.view.CustomScrollView
-            android:layout_below="@id/instrument_info_top"
             android:background="@color/grey_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <RelativeLayout
                     android:id="@+id/student_feed_back_second"
                     android:background="@color/white"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/student_feed_back_height">
-
                 <ImageButton
                         android:id="@+id/instrument_info_back2"
                         android:src="@drawable/ic_left"
@@ -64,8 +60,7 @@
                 <TextView
                         android:text="@string/students_feed_back_time"
                         android:textColor="@color/black_course_time"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
+                        android:layout_centerInParent="true"
                         android:textSize="19sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -81,7 +76,6 @@
                         android:paddingRight="20dp"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"/>
-
             </RelativeLayout>
 
             <RelativeLayout
@@ -90,22 +84,18 @@
                     android:layout_marginTop="10dp"
                     android:background="@color/while_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <org.example.androidenterprise.view.CircleImageView
-                        android:id="@+id/mine_image"
-                        android:layout_width="@dimen/mine_image_side"
-                        android:layout_height="@dimen/mine_image_side"
-                        android:src="@color/grey"
-                        android:layout_centerVertical="true"
-                        android:paddingStart="@dimen/mine_image_padding"/>
+                    android:layout_height="match_parent">
                 <ListView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
+                        android:id="@+id/student_feed_back_th"
+                        android:background="@color/while_bg"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@color/list_course"
+                        android:dividerHeight="10dp">
                 </ListView>
-
-
             </RelativeLayout>
+
         </RelativeLayout>
     </org.example.androidenterprise.view.CustomScrollView>
 </LinearLayout>

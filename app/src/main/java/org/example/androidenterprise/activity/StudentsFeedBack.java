@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import org.example.androidenterprise.R;
 
-public class StudentFeedBack extends AppCompatActivity {
+public class StudentsFeedBack extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

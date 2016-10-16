@@ -51,7 +51,9 @@
         </activity>
         <activity android:name=".activity.InstrumentDetailActivity">
         </activity>
-        <activity android:name=".activity.StudentFeedBack">
+        <activity android:name=".activity.StudentsFeedBack">
+        </activity>
+        <activity android:name=".activity.ReleaseFeedBack">
         </activity>
         <activity android:name=".activity.RecordActivity">
         </activity>
