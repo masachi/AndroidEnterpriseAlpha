@@ -17,8 +17,8 @@
                 android:layout_centerVertical="true"
                 android:background="@color/transparent"
                 android:src="@mipmap/ic_return"
-                android:paddingTop="@dimen/dimen_5dp"
-                android:paddingBottom="@dimen/dimen_5dp"
+                android:paddingTop="@dimen/select_add_margin_many"
+                android:paddingBottom="@dimen/select_add_margin_many"
                 android:paddingRight="@dimen/select_add_margin_many"/>
         <TextView
                 android:layout_width="wrap_content"

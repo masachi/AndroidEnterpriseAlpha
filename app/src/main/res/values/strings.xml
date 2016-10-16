@@ -100,10 +100,6 @@
     <string name="select_add_increase">增加新地址</string>
     <string name="select_add_edit">编辑</string>
 
-    <string name="commit_str">提交</string>
-    <string name="input_context_str">输入内容</string>
-    <string name="complain_telephone_str">投诉电话</string>
-    <string name="complain_telephone_number_str">40000000000</string>
     <string name="qq_str">QQ</string>
 
     <!--activity_course_calendar-->

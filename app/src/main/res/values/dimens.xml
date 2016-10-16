@@ -322,6 +322,8 @@
     <dimen name="select_add_text_size">12sp</dimen>
     <dimen name="select_add_btn_size">14sp</dimen>
     <dimen name="order_lv_margin_top">10dp</dimen>
+    <dimen name="students_head_list_gv_padding">10dp</dimen>
+    <dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>
     <dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>
 
     <dimen name="instrument_info_title_margin">15dp</dimen>
@@ -346,5 +348,12 @@
     <dimen name="order_payment_title_text_size">17sp</dimen>
 
     <dimen name="record_expand_lv_margin_top">10dp</dimen>
+
+    <dimen name="dimen_5dp">5dp</dimen>
+    <dimen name="dimen_29dp">29dp</dimen>上
+    <dimen name="dimen_102dp">102dp</dimen>
+
+    <dimen name="dimen_11sp">11sp</dimen>
+    <dimen name="dimen_13sp">13sp</dimen>
 
 </resources>
