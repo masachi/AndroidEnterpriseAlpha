@@ -48,7 +48,7 @@ public class SettingAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.mine_image = (ImageView) convertView.findViewById(R.id.item_setting_image);
             holder.mine_text = (TextView) convertView.findViewById(R.id.item_setting_text);
-            holder.mine_imgbtn = (ImageButton) convertView.findViewById(R.id.item_setting_imgbtn);
+            holder.mine_imgbtn = (ImageView) convertView.findViewById(R.id.item_setting_imgbtn);
             holder.icon = (ImageView) convertView.findViewById(R.id.ic_red);
             convertView.setTag(holder);
         }
@@ -87,6 +87,6 @@ public class SettingAdapter extends BaseAdapter {
 final class ViewHolder{
     ImageView mine_image;
     TextView mine_text;
-    ImageButton mine_imgbtn;
+    ImageView mine_imgbtn;
     ImageView icon;
 }

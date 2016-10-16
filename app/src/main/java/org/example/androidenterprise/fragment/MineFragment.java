@@ -5,16 +5,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.activity.SearchActivity;
+import org.example.androidenterprise.activity.*;
 import org.example.androidenterprise.adapter.SettingAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +29,7 @@ import org.example.androidenterprise.adapter.SettingAdapter;
  * Use the {@link MineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MineFragment extends Fragment implements View.OnClickListener{
+public class MineFragment extends Fragment implements View.OnClickListener,AdapterView.OnItemClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,6 +42,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
     private ListView setting_list;
     private ImageButton mine_img_btn;
     private ImageButton searchIb;
+    private List<Class> jumpActivityList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -78,7 +84,18 @@ public class MineFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
         setting_list = (ListView) view.findViewById(R.id.list_mine);
         searchIb = (ImageButton) view.findViewById(R.id.mine_search_ib);
-        searchIb.setOnClickListener(this);
+
+        jumpActivityList = new ArrayList<Class>(){
+            {
+                add(OrderActivity.class);
+                add(RecordActivity.class);
+                add(null);// TODO: 2016/10/16 add MessageActivity to this line
+                add(null);// TODO: 2016/10/16 add WorkActivity to this line
+                add(ComplainSuggestActivity.class);
+                add(ContactUsActivity.class);
+                add(HelpCenterActivity.class);
+            }
+        };
 
         SettingAdapter settingAdapter = new SettingAdapter(getContext());
         setting_list.setAdapter(settingAdapter);
@@ -89,7 +106,11 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getContext(),"可惜并没有做\n2333333",Toast.LENGTH_LONG).show();
             }
         });
+
+
         searchIb.setOnClickListener(this);
+        setting_list.setOnItemClickListener(this);
+
         return view;
     }
 
@@ -118,6 +139,13 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent();
+        intent.setClass(getContext(),jumpActivityList.get(position));
+        startActivity(intent);
     }
 
     /**

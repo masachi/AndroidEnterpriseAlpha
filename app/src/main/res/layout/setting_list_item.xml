@@ -30,7 +30,7 @@
             android:layout_alignEnd="@id/item_setting_text"
             android:visibility="invisible"/>
 
-    <ImageButton
+    <ImageView
             android:id="@+id/item_setting_imgbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

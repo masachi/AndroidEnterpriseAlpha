@@ -59,7 +59,7 @@ public class OrderAdapter extends BaseAdapter {
         //TODO:___list.get(position).get___
         holder.date.setText("___list.get(position).get___");
         holder.state.setText("___list.get(position).get___");
-        holder.img.setImageResource(R.drawable.img_example);//将R.drawable.img_example换成___list.get(position).get___
+        holder.img.setImageResource(R.drawable.img_example2);//将R.drawable.img_example换成___list.get(position).get___
         holder.coursename.setText("___list.get(position).get___");
         holder.classhour.setText("___list.get(position).get___");
         holder.teacher.setText("___list.get(position).get___");

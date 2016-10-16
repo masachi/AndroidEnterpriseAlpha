@@ -86,7 +86,8 @@
             android:layout_height="wrap_content"
             android:minHeight="@dimen/item_setting_height"
             android:divider="@color/list_course"
-            android:dividerHeight="1px">
+            android:dividerHeight="1px"
+            android:descendantFocusability="blocksDescendants">
     </ListView>
 
 </LinearLayout>

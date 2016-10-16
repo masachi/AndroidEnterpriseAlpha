@@ -8,6 +8,8 @@
     <string name="action_bar_course">课程</string>
     <string name="action_bar_mine">个人中心</string>
     <string name="action_bar_music">乐器</string>
+    <string name="action_bar_order">预约订单</string>
+    <string name="action_bar_record">交易记录</string>
     <string name="schedule_text">设置上课时间</string>
     <string name="schedule_acc">接受上课时间</string>
     <string name="schedule_rej">拒绝上课时间</string>
@@ -62,7 +64,7 @@
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>
     <string name="telephone_number_str">400000000</string>
-    <string name="dial_str">拨   打</string>
+    <string name="dial_str">拨 打</string>
     <string name="service_str">客服</string>
     <string name="service_01_str">客服1</string>
     <string name="activity_confirm_order_title_str">确认订单</string>

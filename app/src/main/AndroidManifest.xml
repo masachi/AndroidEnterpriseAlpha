@@ -45,9 +45,13 @@
         </activity>
         <activity android:name=".activity.CourseCalendarActivity">
         </activity>
+        <activity android:name=".activity.OrderActivity">
+        </activity>
         <activity android:name=".activity.InstrumentDetailActivity">
         </activity>
         <activity android:name=".activity.StudentFeedBack">
+        </activity>
+        <activity android:name=".activity.RecordActivity">
         </activity>
     </application>
 

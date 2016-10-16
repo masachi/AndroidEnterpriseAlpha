@@ -194,6 +194,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         startActivity(intent);
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
