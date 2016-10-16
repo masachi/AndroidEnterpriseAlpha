@@ -9,7 +9,7 @@
     <RelativeLayout
             android:id="@+id/help_center_top"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_44dp"
+            android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
                 android:id="@+id/help_center_return_ib"
@@ -18,13 +18,13 @@
                 android:layout_centerVertical="true"
                 android:src="@mipmap/ic_return"
                 android:background="@color/transparent"
-                android:layout_marginLeft="@dimen/dimen_10dp"/>
+                android:layout_marginLeft="@dimen/top_ib_left"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/help_center_str"
-                android:textSize="@dimen/dimen_17sp"
+                android:textSize="@dimen/top_text_size"
                 android:textColor="@color/color_ffffff"/>
     </RelativeLayout>
     <TextView
@@ -32,55 +32,53 @@
             android:layout_height="wrap_content"
             android:text="@string/use_article_str"
             android:textColor="@color/color_333333"
-            android:textSize="@dimen/dimen_13sp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_10dp"/>
+            android:textSize="@dimen/use_article_text_size"
+            android:layout_marginLeft="@dimen/use_article_tv_left_dis"
+            android:layout_marginTop="@dimen/use_article_tv_top_dis"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1px"
+            android:layout_height="@dimen/tv_height"
             android:background="@color/color_d1d1d1"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"/>
+            android:layout_marginLeft="@dimen/tv_left_dis"
+            android:layout_marginTop="@dimen/tv_top_dis"
+            android:layout_marginRight="@dimen/tv_right_dis"/>
     <TextView
             android:id="@+id/use_article_context_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"
-            android:text="hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            android:textSize="@dimen/dimen_13sp"
+            android:layout_marginTop="@dimen/help_article_context_tv_top_dis"
+            android:layout_marginLeft="@dimen/help_article_context_tv_left_dis"
+            android:layout_marginRight="@dimen/help_article_context_tv_right_dis"
+            android:textSize="@dimen/help_article_context_size"
             android:textColor="@color/color_999999"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1px"
+            android:layout_height="@dimen/tv_height"
             android:background="@color/color_d1d1d1"
-            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/tv_top_dis"
             />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/about_str"
-            android:textSize="@dimen/dimen_13sp"
+            android:textSize="@dimen/about_text_size"
             android:textColor="@color/color_333333"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"/>
+            android:layout_marginTop="@dimen/about_tv_top_dis"
+            android:layout_marginLeft="@dimen/about_tv_left_dis"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_1px"
+            android:layout_height="@dimen/tv_height"
             android:background="@color/color_d1d1d1"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"/>
+            android:layout_marginLeft="@dimen/tv_left_dis"
+            android:layout_marginTop="@dimen/tv_top_dis"
+            android:layout_marginRight="@dimen/tv_right_dis"/>
     <TextView
             android:id="@+id/about_context_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"
-            android:text="hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            android:textSize="@dimen/dimen_13sp"
+            android:layout_marginTop="@dimen/about_context_tv_top_dis"
+            android:layout_marginLeft="@dimen/about_context_tv_left_dis"
+            android:layout_marginRight="@dimen/about_context_tv_right_dis"
+            android:textSize="@dimen/about_context_size"
             android:textColor="@color/color_999999"/>
 </LinearLayout>

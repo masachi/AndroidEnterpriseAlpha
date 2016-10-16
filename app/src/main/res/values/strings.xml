@@ -37,6 +37,14 @@
 
     <!--activity_suggest_complain-->
     <string name="complain_suggest_str">投诉建议</string>
+    <string name="commit_str">提交</string>
+    <string name="input_context_str">输入内容</string>
+    <string name="complain_telephone_str">投诉电话</string>
+    <string name="complain_telephone_number_str">40000000000</string>
+    <string name="complain_str">投诉</string>
+    <string name="operation_suggest_str">操作建议</string>
+    <string name="other_str">其他</string>
+
     <!--activity_center_help-->
     <string name="help_center_str">帮助中心</string>
     <string name="use_article_str">使用文章</string>
@@ -155,4 +163,11 @@
         去支付
     </string>
 
+    <!--activity_my_works-->
+    <string name="myworks_str">我的作品</string>
+    <!--activity_my_works_delete-->
+    <string name="myworks_delete_str">删除</string>
+    <!--activity_my_works_select-->
+    <string name="myworks_select_str">选择作品</string>
+    <string name="myworks_select_confirm_str">确定</string>
 </resources>

@@ -8,7 +8,7 @@
     <RelativeLayout
             android:id="@+id/complain_suggest_top"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_44dp"
+            android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
                 android:id="@+id/complain_suggest_return_ib"
@@ -17,13 +17,13 @@
                 android:layout_centerVertical="true"
                 android:src="@mipmap/ic_return"
                 android:background="@color/transparent"
-                android:layout_marginLeft="@dimen/dimen_10dp"/>
+                android:layout_marginLeft="@dimen/top_ib_left"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/complain_suggest_str"
-                android:textSize="@dimen/dimen_17sp"
+                android:textSize="@dimen/top_text_size"
                 android:textColor="@color/color_ffffff"/>
     </RelativeLayout>
     <!--<Spinner-->
@@ -38,28 +38,28 @@
     <RelativeLayout
             android:id="@+id/choose_kinds_rl"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_37dp"
+            android:layout_height="@dimen/choose_suggest_height"
             android:layout_below="@+id/complain_suggest_top"
             android:background="@drawable/activity_suggest_complain_et_bg"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp">
+            android:layout_marginTop="@dimen/choose_suggest_top_dis"
+            android:layout_marginLeft="@dimen/choose_suggest_left_dis"
+            android:layout_marginRight="@dimen/choose_suggest_right_dis">
         <TextView
                 android:id="@+id/choose_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="请选择意见类型"
-                android:textSize="@dimen/dimen_13sp"
+                android:textSize="@dimen/choose_suggest_text_size"
                 android:textColor="@color/color_666666"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimen_10dp"/>
+                android:layout_marginLeft="@dimen/choose_suggest_text_left_dis"/>
         <ImageButton
                 android:id="@+id/choose_ib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/choose_suggest_ib_right_dis"
                 android:background="@mipmap/ic_complain_suggest_normal"/>
     </RelativeLayout>
     <!--<ListView-->
@@ -75,52 +75,51 @@
     <EditText
             android:id="@+id/suggest_context_et"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/input_context_et_height"
             android:layout_below="@+id/choose_kinds_rl"
             android:background="@drawable/activity_suggest_complain_et_bg"
             android:hint="@string/input_context_str"
-            android:textSize="@dimen/dimen_13sp"
+            android:textSize="@dimen/input_context_hint_text_size"
             android:textColorHint="@color/color_666666"
-            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingLeft="@dimen/input_context_hint_left_dis"
             android:gravity="top"
-            android:paddingTop="@dimen/dimen_10dp"
-
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:layout_marginRight="@dimen/dimen_10dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:visibility="visible"/>
+            android:paddingTop="@dimen/input_context_hint_top_dis"
+            android:layout_marginLeft="@dimen/input_context_et_left_dis"
+            android:layout_marginRight="@dimen/input_context_et_right_dis"
+            android:layout_marginTop="@dimen/input_context_et_top_dis"
+            />
     <TextView
             android:id="@+id/complain_telephone_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/complain_telephone_str"
-            android:textSize="@dimen/dimen_13sp"
+            android:textSize="@dimen/choose_suggest_text_size"
             android:textColor="@color/color_999999"
             android:layout_below="@+id/suggest_context_et"
-            android:layout_marginTop="@dimen/dimen_15dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"/>
+            android:layout_marginTop="@dimen/complain_telephone_tv_top_dis"
+            android:layout_marginLeft="@dimen/complain_telephone_tv_left_dis"/>
     <TextView
             android:id="@+id/complain_telephone_number_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/complain_telephone_number_str"
-            android:textSize="@dimen/dimen_13sp"
+            android:textSize="@dimen/choose_suggest_text_size"
             android:textColor="@color/color_666666"
             android:layout_below="@+id/suggest_context_et"
             android:layout_toRightOf="@+id/complain_telephone_tv"
-            android:layout_marginTop="@dimen/dimen_15dp"
-            android:layout_marginLeft="@dimen/dimen_15dp"/>
+            android:layout_marginTop="@dimen/complain_telephone_num_tv_top_dis"
+            android:layout_marginLeft="@dimen/complain_telephone_num_tv_left_dis"/>
     <Button
             android:id="@+id/commit_btn"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_34dp"
-            android:layout_marginLeft="@dimen/dimen_21dp"
-            android:layout_marginRight="@dimen/dimen_21dp"
+            android:layout_height="@dimen/commit_btn_height"
+            android:layout_marginLeft="@dimen/commit_btn_left_dis"
+            android:layout_marginRight="@dimen/commit_btn_right_dis"
             android:text="@string/commit_str"
             android:textColor="@color/color_97c8cd"
-            android:textSize="@dimen/dimen_14sp"
+            android:textSize="@dimen/commit_text_size"
             android:background="@drawable/activity_suggest_complain_commit_btn_bg"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dimen_50dp"/>
+            android:layout_marginBottom="@dimen/commit_btn_bottom_dis"/>
     
 </RelativeLayout>

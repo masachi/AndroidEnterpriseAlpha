@@ -20,6 +20,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -34,6 +35,7 @@
         <activity android:name=".activity.SearchActivity">
         </activity>
         <activity android:name=".activity.ComplainSuggestActivity">
+
         </activity>
         <activity android:name=".activity.HelpCenterActivity">
         </activity>
@@ -52,6 +54,12 @@
         <activity android:name=".activity.StudentFeedBack">
         </activity>
         <activity android:name=".activity.RecordActivity">
+        </activity>
+        <activity android:name=".activity.MyWorksActivity">
+        </activity>
+        <activity android:name=".activity.MyWorksDeleteActivity">
+        </activity>
+        <activity android:name=".activity.MyWorksSelectActivity">
         </activity>
     </application>
 
