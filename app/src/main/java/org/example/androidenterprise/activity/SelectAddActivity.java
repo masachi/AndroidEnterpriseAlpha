@@ -1,5 +1,6 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,13 +34,14 @@ public class SelectAddActivity extends AppCompatActivity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.select_add_return_ib:
-                // TODO: 返回上一页
+                finish();
                 break;
             case R.id.select_add_rg:
                 //TODO: 实现单选功能
                 break;
             case R.id.select_add_increase_btn:
                 // TODO: 跳到编辑地址页面（增加地址形式）
+                startActivity(new Intent().setClass(SelectAddActivity.this, EditAddActivity.class));
                 break;
         }
     }

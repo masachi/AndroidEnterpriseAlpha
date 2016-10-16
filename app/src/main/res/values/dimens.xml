@@ -310,9 +310,13 @@
     <dimen name="myworks_delete_btn_height">49dp</dimen>
     <dimen name="myworks_delete_btn_text_size">16sp</dimen>
 
-
-
-
+    <dimen name="edit_add_margin_left_right">10dp</dimen>
+    <dimen name="edit_add_tv_margin_many">15dp</dimen>
+    <dimen name="edit_add_line_margin_delete">20dp</dimen>
+    <dimen name="edit_add_img_margin_delete">5dp</dimen>
+    <dimen name="edit_add_btn_margin_left_right">21dp</dimen>
+    <dimen name="edit_add_text_size">13sp</dimen>
+    <dimen name="edit_add_btn_size">14sp</dimen>
     <dimen name="select_add_margin_many">10dp</dimen>
     <dimen name="select_add_consignee_margin_phone">15dp</dimen>
     <dimen name="select_add_consignee_margin_add">8dp</dimen>

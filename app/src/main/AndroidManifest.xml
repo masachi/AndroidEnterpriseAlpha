@@ -61,6 +61,10 @@
         </activity>
         <activity android:name=".activity.MyWorksSelectActivity">
         </activity>
+        <activity android:name=".activity.SelectAddActivity">
+        </activity>
+        <activity android:name=".activity.EditAddActivity">
+        </activity>
     </application>
 
 </manifest>

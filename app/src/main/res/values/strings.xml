@@ -100,6 +100,14 @@
     <string name="select_add_increase">增加新地址</string>
     <string name="select_add_edit">编辑</string>
 
+    <string name="edit_add">编辑地址</string>
+    <string name="edit_add_consignee">收货人姓名</string>
+    <string name="edit_add_phonenum">手机号码</string>
+    <string name="edit_add_detailed">详细地址</string>
+    <string name="edit_add_click_input">点击即可输入</string>
+    <string name="edit_add_delete">删除当前地址</string>
+    <string name="edit_add_conserve">保存</string>
+
     <string name="qq_str">QQ</string>
 
     <!--activity_course_calendar-->
