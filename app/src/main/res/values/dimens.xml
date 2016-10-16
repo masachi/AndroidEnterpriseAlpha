@@ -311,9 +311,6 @@
     <dimen name="myworks_delete_btn_text_size">16sp</dimen>
 
 
-    <dimen name="students_head_list_gv_padding">10dp</dimen>
-    <dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>
-    <dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>
 
 
     <dimen name="select_add_margin_many">10dp</dimen>
@@ -325,8 +322,6 @@
     <dimen name="select_add_text_size">12sp</dimen>
     <dimen name="select_add_btn_size">14sp</dimen>
     <dimen name="order_lv_margin_top">10dp</dimen>
-    <dimen name="students_head_list_gv_padding">10dp</dimen>
-    <dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>
     <dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>
 
     <dimen name="instrument_info_title_margin">15dp</dimen>
