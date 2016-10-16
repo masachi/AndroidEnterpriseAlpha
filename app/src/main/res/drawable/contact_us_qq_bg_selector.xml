@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true"
+          android:drawable="@drawable/activity_us_contact_qq_gv_item_online_bg"/>
+    <item android:state_checked="false"
+          android:drawable="@drawable/activity_us_contact_qq_gv_item_outline_bg"/>
+</selector>
