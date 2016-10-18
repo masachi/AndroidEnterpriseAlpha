@@ -182,4 +182,9 @@
     <!--activity_my_works_select-->
     <string name="myworks_select_str">选择作品</string>
     <string name="myworks_select_confirm_str">确定</string>
+    <string name="activity_pay_success_title_str">支付成功</string>
+    <string name="activity_pay_success_remind_text_str">请关注上课时间按时上课</string>
+    <string name="activity_pay_success_check_btn_str">查看课程详情</string>
+    <string name="activity_pay_success_back_btn_str">返回课程中心</string>
+
 </resources>

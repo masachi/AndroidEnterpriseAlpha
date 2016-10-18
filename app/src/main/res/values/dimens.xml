@@ -371,4 +371,19 @@
     <dimen name="dimen_11sp">11sp</dimen>
     <dimen name="dimen_13sp">13sp</dimen>
 
+    <dimen name="pay_success_title_height">44dp</dimen>
+    <dimen name="pay_success_title_back_img_marginleft">10dp</dimen>
+    <dimen name="pay_success_title_textsize">17sp</dimen>
+    <dimen name="pay_success_text_margintop">70dp</dimen>
+    <dimen name="pay_success_textsize">28sp</dimen>
+    <dimen name="pay_success_text_remind_margintop">18dp</dimen>
+    <dimen name="pay_success_textsize_remind">12sp</dimen>
+    <dimen name="pay_success_check_btn_margintop">77dp</dimen>
+    <dimen name="pay_success_check_btn_marginleft">40dp</dimen>
+    <dimen name="pay_success_btn_textsize">15sp</dimen>
+    <dimen name="pay_success_btn_width">120dp</dimen>
+    <dimen name="pay_success_btn_height">36dp</dimen>
+    <dimen name="pay_success_back_btn_marginright">40dp</dimen>
+
+
 </resources>
