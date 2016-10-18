@@ -73,6 +73,9 @@
     <string name="release">发布</string>
     <string name="select_course_time">选择课时</string>
     <string name="please_input_thought">请输入感想。。。</string>
+    <string name="first_course_time">课时1</string>
+    <string name="second_course_time">课时2</string>
+    <string name="third_course_time">课时3</string>
     <!--activity_us_contact-->
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/activity_suggest_complain_popuwindow_bg">
+    <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/popupwindow_rg_left_dis"
+            android:layout_marginEnd="@dimen/popupwindow_rg_right_dis">
+        <RadioButton
+                android:id="@+id/first_course_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:text="@string/first_course_time"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/popupwindow_rb_text_size"
+                android:layout_marginStart="@dimen/popupwindow_rb_left_dis"
+                android:layout_marginTop="@dimen/popupwindow_rb_top_dis"
+                android:paddingEnd="@dimen/popupwindow_rb_padding_end"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popupwindow_tv_height"
+                android:background="@color/color_d1d1d1"
+                android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
+                android:layout_marginStart="@dimen/popupwindow_tv_left_dis"
+                android:layout_marginEnd="@dimen/popupwindow_tv_right_dis"/>
+
+        <RadioButton
+                android:id="@+id/suggest_ib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:text="@string/second_course_time"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/popupwindow_rb_text_size"
+                android:layout_marginStart="@dimen/popupwindow_rb_left_dis"
+                android:layout_marginTop="@dimen/popupwindow_rb_top_dis"
+                android:paddingEnd="@dimen/popupwindow_rb_padding_end"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popupwindow_tv_height"
+                android:background="@color/color_d1d1d1"
+                android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
+                android:layout_marginStart="@dimen/popupwindow_tv_left_dis"
+                android:layout_marginEnd="@dimen/popupwindow_tv_right_dis"/>
+        <RadioButton
+                android:id="@+id/other_ib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:text="@string/third_course_time"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/popupwindow_rb_text_size"
+                android:layout_marginStart="@dimen/popupwindow_rb_left_dis"
+                android:layout_marginTop="@dimen/popupwindow_rb_top_dis"
+                android:paddingEnd="@dimen/popupwindow_rb_padding_end"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popupwindow_tv_height"
+                android:background="@color/color_d1d1d1"
+                android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
+                android:layout_marginStart="@dimen/popupwindow_tv_left_dis"
+                android:layout_marginEnd="@dimen/popupwindow_tv_right_dis"/>
+    </RadioGroup>
+</LinearLayout>

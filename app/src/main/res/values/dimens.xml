@@ -329,7 +329,7 @@
     <dimen name="students_head_list_gv_padding">10dp</dimen>
     <dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>
     <dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>
-
+    <!--activity_instrument_detail-->
     <dimen name="instrument_info_title_margin">15dp</dimen>
     <dimen name="instrument_info_child_margin">10dp</dimen>
     <dimen name="instrument_info_margin_left_right">10dp</dimen>
@@ -338,6 +338,17 @@
     <dimen name="instrument_info_teacher_margin">5dp</dimen>
 
     <dimen name="student_feed_back_height">45dp</dimen>
+    <dimen name="select_course_time_rl">40dp</dimen>
+    <dimen name="release_feed_back_LR">20dp</dimen>
+    <dimen name="release_feed_back_TB">10dp</dimen>
+    <dimen name="release_feed_back">19sp</dimen>
+    <dimen name="release">18sp</dimen>
+    <dimen name="select_course_time_tv">16sp</dimen>
+    <dimen name="please_input_thought">16sp</dimen>
+    <dimen name="please_input_thought_height">100sp</dimen>
+    <dimen name="release_feed_back_square">100sp</dimen>
+    <dimen name="black_course_time">79sp</dimen>
+    <dimen name="release_feed_back_delete">2dp</dimen>
 
     <dimen name="order_payment_text_size">12sp</dimen>
     <dimen name="order_payment_btn_text_size">16sp</dimen>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -19,60 +19,110 @@
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"/>
+                android:paddingLeft="@dimen/release_feed_back_LR"
+                android:paddingRight="@dimen/release_feed_back_LR"
+                android:paddingTop="@dimen/release_feed_back_TB"
+                android:paddingBottom="@dimen/release_feed_back_TB"/>
         <TextView
                 android:text="@string/release_feed_back"
                 android:textColor="@color/white"
                 android:layout_centerInParent="true"
-                android:textSize="19sp"
+                android:textSize="@dimen/release_feed_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
                 android:id="@+id/release"
                 android:text="@string/release"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="@dimen/release"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingLeft="@dimen/release_feed_back_LR"
+                android:paddingRight="@dimen/release_feed_back_LR"
+                android:paddingTop="@dimen/release_feed_back_TB"
+                android:paddingBottom="@dimen/release_feed_back_TB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
     </RelativeLayout>
 
     <RelativeLayout
+            android:id="@+id/select_course_time_rl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <EditText
-                android:id="@+id/select_course_time"
-                android:background="@drawable/release_feed_back"
-                android:layout_marginTop="10sp"
-                android:layout_marginStart="10sp"
-                android:layout_marginEnd="10sp"
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
+            android:layout_height="@dimen/select_course_time_rl"
+            android:layout_below="@id/release_feed_back_top"
+            android:background="@drawable/release_feed_back"
+            android:layout_marginTop="@dimen/release_feed_back_TB"
+            android:layout_marginStart="@dimen/release_feed_back_TB"
+            android:layout_marginEnd="@dimen/release_feed_back_TB">
+        <TextView
+                android:id="@+id/select_course_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/select_course_time"
-                android:textSize="16sp"
-                android:textColor="@color/black_course_time"/>
-        <EditText
-                android:id="@+id/please_input_thought"
-                android:background="@drawable/release_feed_back"
-                android:layout_below="@id/select_course_time"
-                android:layout_marginTop="10sp"
-                android:layout_marginStart="10sp"
-                android:layout_marginEnd="10sp"
-                android:layout_width="match_parent"
-                android:layout_height="95sp"
-                android:text="@string/please_input_thought"
-                android:textSize="16sp"
-                android:textColor="@color/black_course_time"/>
-
-
+                android:textSize="@dimen/select_course_time_tv"
+                android:textColor="@color/black_course_time"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/release_feed_back_TB"/>
+        <ImageButton
+                android:id="@+id/down_qwe"
+                android:background="@mipmap/ic_down"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/release_feed_back_TB"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
     </RelativeLayout>
 
-</LinearLayout>
+    <EditText
+            android:id="@+id/please_input_thought"
+            android:hint="@string/please_input_thought"
+            android:textSize="@dimen/please_input_thought"
+            android:textColorHint="@color/black_course_time"
+            android:background="@drawable/release_feed_back"
+            android:layout_below="@id/select_course_time_rl"
+            android:layout_marginTop="@dimen/release_feed_back_TB"
+            android:layout_marginStart="@dimen/release_feed_back_TB"
+            android:layout_marginEnd="@dimen/release_feed_back_TB"
+            android:gravity="top"
+            android:paddingStart="@dimen/release_feed_back_TB"
+            android:paddingTop="@dimen/release_feed_back_TB"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/please_input_thought_height"/>
+    <FrameLayout
+            android:id="@+id/release_feed_back_square"
+            android:layout_width="@dimen/release_feed_back_square"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/please_input_thought">
+        <RelativeLayout
+                android:background="@color/black_course_time"
+                android:layout_marginTop="@dimen/release_feed_back_TB"
+                android:layout_marginStart="@dimen/release_feed_back_TB"
+                android:layout_width="@dimen/black_course_time"
+                android:layout_height="@dimen/black_course_time">
+            <ImageView
+                    android:id="@+id/release_feed_back_video"
+                    android:src="@mipmap/ic_video"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <ImageButton
+                android:id="@+id/release_feed_back_delete"
+                android:src="@mipmap/ic_delete"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/release_feed_back_delete"
+                android:background="@color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+    <ImageView
+            android:id="@+id/release_feed_back_add_square"
+            android:src="@drawable/ic_add_square"
+            android:layout_below="@id/please_input_thought"
+            android:layout_toEndOf="@id/release_feed_back_square"
+            android:layout_marginTop="@dimen/release_feed_back_TB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>
