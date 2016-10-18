@@ -11,7 +11,7 @@
             android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/myworks_delete_ib"
+                android:id="@+id/myworks_reback_ib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

@@ -14,7 +14,7 @@ public class HelpCenterActivity extends AppCompatActivity {
 
 
     @ViewInject(R.id.help_center_return_ib)
-    ImageButton rebackIb;
+    ImageButton help_center_return_ib;
     @ViewInject(R.id.use_article_context_tv)
     TextView use_article_context_tv;
     @ViewInject(R.id.about_context_tv)
@@ -22,7 +22,9 @@ public class HelpCenterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_help_center);
     }
 //    TODO get use_article about
 }

@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.activity.MyWorksActivity;
+import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.activity.*;
 import org.example.androidenterprise.adapter.SettingAdapter;
 

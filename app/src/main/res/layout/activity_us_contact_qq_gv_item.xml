@@ -4,15 +4,15 @@
               android:layout_height="match_parent">
     <RadioButton
             android:id="@+id/qq_rb"
+            android:layout_width="@dimen/qq_gv_item_rb_height"
+            android:layout_height="@dimen/qq_gv_item_rb_width"
             android:drawableLeft="@drawable/contact_us_qq_selector"
             android:text="123456"
-            android:layout_width="@dimen/dimen_102dp"
-            android:layout_height="@dimen/dimen_29dp"
             android:button="@null"
+            android:paddingLeft="@dimen/qq_gv_item_rb_padding_left"
             android:background="@drawable/contact_us_qq_bg_selector"
-            android:paddingLeft="@dimen/dimen_5dp"
             android:textColor="@color/color_666666"
-            android:textSize="@dimen/dimen_13sp"
-            android:drawablePadding="@dimen/dimen_5dp"/>
+            android:textSize="@dimen/qq_gv_item_rb_text_size"
+            android:drawablePadding="@dimen/qq_gv_item_rb_padding_left"/>
 
 </LinearLayout>

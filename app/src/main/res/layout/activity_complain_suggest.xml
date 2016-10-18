@@ -53,14 +53,14 @@
                 android:textColor="@color/color_666666"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/choose_suggest_text_left_dis"/>
-        <ImageButton
+        <ImageView
                 android:id="@+id/choose_ib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/choose_suggest_ib_right_dis"
-                android:background="@mipmap/ic_complain_suggest_normal"/>
+                />
     </RelativeLayout>
     <!--<ListView-->
             <!--android:id="@+id/suggest_kinds_lv"-->

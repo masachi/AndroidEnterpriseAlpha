@@ -19,7 +19,7 @@ public class MyWorksSelectActivity extends AppCompatActivity {
     CustomMeasureGridView myworks_gridview;
     @ViewInject(R.id.confirm_btn)
     Button confirm_btn;
-
+// TODO get works_data and select
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

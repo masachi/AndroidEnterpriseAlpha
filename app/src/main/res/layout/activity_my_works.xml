@@ -38,6 +38,9 @@
     <GridView
             android:id="@+id/myworks_gv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></GridView>
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:horizontalSpacing="@dimen/myworks_gridview_spacing"
+            android:verticalSpacing="@dimen/myworks_gridview_spacing"></GridView>
 
 </LinearLayout>

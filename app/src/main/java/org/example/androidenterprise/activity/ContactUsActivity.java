@@ -11,12 +11,12 @@ import org.example.androidenterprise.adapter.ContactUsServiceAdapter;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @ContentView(R.layout.activity_contact_us)
-
 public class ContactUsActivity extends AppCompatActivity {
 
     String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
@@ -26,14 +26,20 @@ public class ContactUsActivity extends AppCompatActivity {
 
     @ViewInject(R.id.contact_us_return_ib)
     ImageButton contact_us_return_ib;
-    @ViewInject(R.id.telephone_tv)
-    TextView telephone_tv;
-    @ViewInject(R.id.dial_telephone_tv)
-    TextView dial_telephone_tv;
+//    @ViewInject(R.id.telephone_tv)
+//    TextView telephone_tv;
+//    @ViewInject(R.id.dial_telephone_tv)
+//    TextView dial_telephone_tv;
     @ViewInject(R.id.service_gv)
     GridView service_gv;
     @ViewInject(R.id.qq_gv)
     GridView qq_gv;
+    @ViewInject(R.id.telephone_tv)
+    TextView telephone_tv;
+    @ViewInject(R.id.dial_telephone_tv)
+    TextView dial_telephone_tv;
+
+//    TODO get data
     //TODO:通过设定service_gv和qq_gv中的radiobutton的state_checked值，改变客服和QQ客服的状态显示
 
     @Override
@@ -51,5 +57,7 @@ public class ContactUsActivity extends AppCompatActivity {
         }
         ContactUsQQAdapter contactUsQQAdapter=new ContactUsQQAdapter(getApplicationContext(),listQQName);
         qq_gv.setAdapter(contactUsQQAdapter);
+//        setContentView(R.layout.activity_contact_us);
+        x.view().inject(this);
     }
 }

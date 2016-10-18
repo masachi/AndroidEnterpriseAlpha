@@ -83,6 +83,8 @@
     <string name="dial_str">拨 打</string>
     <string name="service_str">客服</string>
     <string name="service_01_str">客服1</string>
+    <string name="qq_str">QQ</string>
+
     <string name="activity_confirm_order_title_str">确认订单</string>
     <string name="confirm_order_consignee_str">收货人：</string>
     <string name="confirm_order_consignee_address_str">地点：</string>
@@ -116,7 +118,7 @@
     <string name="edit_add_delete">删除当前地址</string>
     <string name="edit_add_conserve">保存</string>
 
-    <string name="qq_str">QQ</string>
+    <!--<string name="qq_str">QQ</string>-->
 
     <!--activity_course_calendar-->
     <string name="course_calendar_title">课程日历</string>

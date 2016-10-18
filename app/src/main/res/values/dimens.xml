@@ -274,6 +274,14 @@
     <dimen name="qq_gv_top_dis">10dp</dimen>
     <dimen name="qq_gv_right_dis">10dp</dimen>
     <dimen name="qq_gv_vertical_spacing">10dp</dimen>
+    <dimen name="qq_gv_item_rb_height">102dp</dimen>
+    <dimen name="qq_gv_item_rb_width">29dp</dimen>
+    <dimen name="qq_gv_item_rb_padding_left">5dp</dimen>
+    <dimen name="qq_gv_item_rb_text_size">13sp</dimen>
+    <dimen name="service_gv_item_padding">5dp</dimen>
+    <dimen name="service_gv_item_rb_text_size">11sp</dimen>
+
+
 
 
     <!--activity_help_center-->
@@ -292,7 +300,7 @@
     <dimen name="about_context_tv_right_dis">10dp</dimen>
     <dimen name="about_context_tv_top_dis">10dp</dimen>
 
-    <!--activity_suggest_complain_popupwindow_layout-->
+    <!--activity_suggest_complain_popupwindow_listview-->
     <dimen name="popupwindow_rg_left_dis">10dp</dimen>
     <dimen name="popupwindow_rg_right_dis">10dp</dimen>
     <dimen name="popupwindow_rb_text_size">13sp</dimen>
@@ -303,9 +311,16 @@
     <dimen name="popupwindow_tv_top_dis">12dp</dimen>
     <dimen name="popupwindow_tv_left_dis">10dp</dimen>
     <dimen name="popupwindow_tv_right_dis">10dp</dimen>
+    <dimen name="popupwindow_lv_item_iv_right_dis">10dp</dimen>
 
     <!--activity_my_works-->
     <dimen name="top_delete_ib_right_dis">10dp</dimen>
+    <dimen name="myworks_gridview_spacing">2px</dimen>
+    <dimen name="myworks_gridview_item_et_height">20dp</dimen>
+    <dimen name="myworks_gridview_item_et_left_dis">10dp</dimen>
+    <dimen name="myworks_gridview_item_text_size">11sp</dimen>
+    <dimen name="myworks_gridview_item_tv_right_dis">10dp</dimen>
+    <dimen name="myworks_gridview_item_tv_bottom_dis">10dp</dimen>
     <!--activity_my_works_delete-->
     <dimen name="myworks_delete_btn_height">49dp</dimen>
     <dimen name="myworks_delete_btn_text_size">16sp</dimen>
@@ -317,6 +332,12 @@
     <dimen name="edit_add_btn_margin_left_right">21dp</dimen>
     <dimen name="edit_add_text_size">13sp</dimen>
     <dimen name="edit_add_btn_size">14sp</dimen>
+
+    <!--<dimen name="students_head_list_gv_padding">10dp</dimen>-->
+    <!--<dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>-->
+    <!--<dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>-->
+
+
     <dimen name="select_add_margin_many">10dp</dimen>
     <dimen name="select_add_consignee_margin_phone">15dp</dimen>
     <dimen name="select_add_consignee_margin_add">8dp</dimen>
