@@ -43,11 +43,13 @@
             android:textSize="@dimen/edit_add_text_size"/>
     <EditText
             android:id="@+id/edit_add_consignee_et"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/edit_add_consignee"
             android:layout_toRightOf="@id/edit_add_consignee"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
+            android:layout_marginRight="@dimen/edit_add_margin_left_right"
+            android:paddingBottom="@dimen/edit_add_tv_margin_many"
             android:background="@drawable/edit_add_et"
             android:hint="@string/edit_add_click_input"
             android:textColorHint="@color/color_999999"
@@ -75,11 +77,13 @@
             android:textSize="@dimen/edit_add_text_size"/>
     <EditText
             android:id="@+id/edit_add_phonenum_et"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/edit_add_phonenum"
             android:layout_toRightOf="@id/edit_add_phonenum"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
+            android:layout_marginRight="@dimen/edit_add_margin_left_right"
+            android:paddingBottom="@dimen/edit_add_tv_margin_many"
             android:background="@drawable/edit_add_et"
             android:inputType="number"
             android:hint="@string/edit_add_click_input"
@@ -108,11 +112,13 @@
             android:textSize="@dimen/edit_add_text_size"/>
     <EditText
             android:id="@+id/edit_add_detailed_et"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/edit_add_detailed"
             android:layout_toRightOf="@id/edit_add_detailed"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
+            android:layout_marginRight="@dimen/edit_add_margin_left_right"
+            android:paddingBottom="@dimen/edit_add_tv_margin_many"
             android:background="@drawable/edit_add_et"
             android:hint="@string/edit_add_click_input"
             android:textColorHint="@color/color_999999"
@@ -132,28 +138,26 @@
             android:id="@+id/edit_add_rl_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:layout_below="@id/edit_add_line3"
             android:layout_marginTop="@dimen/edit_add_line_margin_delete">
-        <TextView
-                android:id="@+id/edit_add_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/edit_add_margin_left_right"
-                android:layout_centerVertical="true"
-                android:text="@string/edit_add_delete"
-                android:textColor="@color/color_999999"
-                android:textSize="@dimen/edit_add_text_size"/>
         <ImageView
                 android:id="@+id/edit_add_delete_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/edit_add_delete"
-                android:layout_toLeftOf="@id/edit_add_delete"
-                android:layout_marginRight="@dimen/edit_add_img_margin_delete"
                 android:layout_centerVertical="true"
-                android:background="@color/transparent"
                 android:src="@mipmap/ic_add_delete"/>
+        <TextView
+                android:id="@+id/edit_add_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/edit_add_delete_img"
+                android:layout_marginLeft="@dimen/edit_add_img_margin_delete"
+                android:text="@string/edit_add_delete"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/edit_add_text_size"/>
     </RelativeLayout>
 
     <Button
@@ -161,12 +165,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_add_rl_delete"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
             android:layout_marginLeft="@dimen/edit_add_btn_margin_left_right"
             android:layout_marginRight="@dimen/edit_add_btn_margin_left_right"
             android:background="@color/color_97c8cd"
             android:text="@string/edit_add_conserve"
             android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/edit_add_btn_size"/>
+            android:textSize="@dimen/edit_add_btn_size"
+            style="?android:attr/borderlessButtonStyle"/>
 
 </RelativeLayout>

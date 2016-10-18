@@ -48,6 +48,7 @@
             android:background="@color/color_97c8cd"
             android:text="@string/select_add_increase"
             android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/select_add_btn_size"/>
+            android:textSize="@dimen/select_add_btn_size"
+            style="?android:attr/borderlessButtonStyle"/>
 
 </RelativeLayout>

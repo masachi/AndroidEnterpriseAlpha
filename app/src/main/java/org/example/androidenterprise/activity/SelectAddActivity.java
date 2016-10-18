@@ -39,9 +39,14 @@ public class SelectAddActivity extends AppCompatActivity {
             case R.id.select_add_rg:
                 //TODO: 实现单选功能
                 break;
+            // TODO: “编辑” 跳到编辑页面
             case R.id.select_add_increase_btn:
                 // TODO: 跳到编辑地址页面（增加地址形式）
-                startActivity(new Intent().setClass(SelectAddActivity.this, EditAddActivity.class));
+                Intent intent = new Intent().setClass(SelectAddActivity.this, EditAddActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("add_addr","0");
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
         }
     }
