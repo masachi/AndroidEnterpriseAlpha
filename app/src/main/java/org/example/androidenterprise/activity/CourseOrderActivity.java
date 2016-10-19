@@ -35,7 +35,7 @@ public class CourseOrderActivity extends AppCompatActivity {
         x.view().inject(this);
     }
 
-    @Event(value = {R.id.course_order_return_ib, R.id.course_order_})
+    @Event(value = {R.id.course_order_return_ib, R.id.course_order_confirm})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.course_order_return_ib:
