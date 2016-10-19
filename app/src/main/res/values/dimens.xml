@@ -374,7 +374,7 @@
     <dimen name="right_now_buy">21dp</dimen>
     <dimen name="right_now_buy_rectangle">38dp</dimen>
     <dimen name="instrument_info_teacher_margin">5dp</dimen>
-
+    <!--activity_students_feed_back-->
     <dimen name="student_feed_back_height">45dp</dimen>
     <dimen name="select_course_time_rl">40dp</dimen>
     <dimen name="release_feed_back_LR">20dp</dimen>
@@ -387,6 +387,13 @@
     <dimen name="release_feed_back_square">100sp</dimen>
     <dimen name="black_course_time">79sp</dimen>
     <dimen name="release_feed_back_delete">2dp</dimen>
+    <!--order_detail_lv_item-->
+    <dimen name="order_detail_margin_many">10dp</dimen>
+    <dimen name="order_detail_img">96dp</dimen>
+    <dimen name="order_detail_lv_name_margintop">5dp</dimen>
+    <dimen name="order_detail_lv_name_size">15sp</dimen>
+    <dimen name="order_detail_text_size">15sp</dimen>
+    <dimen name="order_detail_lv_price_size">14sp</dimen>
 
     <dimen name="order_payment_text_size">12sp</dimen>
     <dimen name="order_payment_btn_text_size">16sp</dimen>
