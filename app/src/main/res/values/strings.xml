@@ -76,6 +76,10 @@
     <string name="first_course_time">课时1</string>
     <string name="second_course_time">课时2</string>
     <string name="third_course_time">课时3</string>
+    <!--activity_order_detail-->
+    <string name="instrumentXXX">乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX</string>
+    <string name="order_detail_property">XXX属性</string>
+    <string name="order_detail_money">5000.00</string>
     <!--activity_us_contact-->
     <string name="contact_us_str">联系我们</string>
     <string name="telephone_str">电话</string>
