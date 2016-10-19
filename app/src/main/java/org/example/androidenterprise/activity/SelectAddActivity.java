@@ -18,11 +18,11 @@ import org.xutils.x;
 public class SelectAddActivity extends AppCompatActivity {
 
     @ViewInject(R.id.select_add_return_ib)
-    ImageButton select_add_return_ib;
+    ImageButton returnImgBtn;
     @ViewInject(R.id.select_add_rg)
-    RadioGroup select_add_rg;
+    RadioGroup radioGroup;
     @ViewInject(R.id.select_add_increase_btn)
-    Button select_add_increase_btn;
+    Button increaseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

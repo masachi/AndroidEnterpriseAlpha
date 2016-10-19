@@ -106,17 +106,26 @@
     <string name="students_head_list_title_left_bracket_str">）</string>
     <string name="students_list_title_str">学员列表</string>
 
+    <!--activity_select_add-->
     <string name="select_add">选择地址</string>
     <string name="select_add_increase">增加新地址</string>
     <string name="select_add_edit">编辑</string>
-
+    <!--activity_edit_add-->
     <string name="edit_add">编辑地址</string>
-    <string name="edit_add_consignee">收货人姓名</string>
-    <string name="edit_add_phonenum">手机号码</string>
-    <string name="edit_add_detailed">详细地址</string>
-    <string name="edit_add_click_input">点击即可输入</string>
-    <string name="edit_add_delete">删除当前地址</string>
-    <string name="edit_add_conserve">保存</string>
+    <string name="consignee">收货人姓名</string>
+    <string name="phonenum">手机号码</string>
+    <string name="detailed">详细地址</string>
+    <string name="click_input">点击即可输入</string>
+    <string name="delete">删除当前地址</string>
+    <string name="conserve">保存</string>
+    <!--activity_course_order-->
+    <string name="course_order">课程订购</string>
+    <string name="account">账户</string>
+    <string name="course_information">课程信息</string>
+    <string name="real_name">真实姓名</string>
+    <string name="money">金额</string>
+    <string name="confirm_order">确认订购</string>
+    <string name="asterisk">*</string>
 
     <!--<string name="qq_str">QQ</string>-->
 

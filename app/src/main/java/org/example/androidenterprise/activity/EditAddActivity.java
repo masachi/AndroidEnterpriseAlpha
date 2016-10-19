@@ -16,7 +16,7 @@ import org.xutils.x;
 public class EditAddActivity extends AppCompatActivity {
 
     @ViewInject(R.id.edit_add_return_ib)
-    ImageButton returnIb;
+    ImageButton returnImgBtn;
     @ViewInject(R.id.edit_add_consignee_et)
     EditText consigneeEt;
     @ViewInject(R.id.edit_add_phonenum_et)

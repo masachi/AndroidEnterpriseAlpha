@@ -81,6 +81,8 @@
     <color name="order_text_color">#FF666666</color>
     <color name="order_price_color">#FF666666</color>
 
+    <color name="color_e0e0e0">#FFE0E0E0</color>
+    <color name="color_ff0000">#FFFF0000</color>
     <color name="color_97c8cd">#97c8cd</color>
     <color name="color_ffffff">#ffffff</color>
     <color name="transparent_white">#00FFFFFF</color>
