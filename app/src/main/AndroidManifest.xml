@@ -68,6 +68,10 @@
         </activity>
         <activity android:name=".activity.CourseOrderActivity">
         </activity>
+        <activity android:name=".activity.MessageActivity">
+        </activity>
+        <activity android:name=".activity.OrderInfoActivity">
+        </activity>
     </application>
 
 </manifest>
