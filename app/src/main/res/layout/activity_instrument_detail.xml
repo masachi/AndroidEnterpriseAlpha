@@ -8,13 +8,13 @@
 
     <RelativeLayout
             android:id="@+id/rl_top"
-            android:background="@color/blue"
+            android:background="@color/color_97c8cd"
             android:layout_width="match_parent"
             android:layout_height="45dp">
         <ImageButton
                 android:id="@+id/ib_back"
                 android:src="@mipmap/ic_return"
-                android:background="@color/transparent_white"
+                android:background="@color/transparent"
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
                 android:paddingBottom="10dp"/>
         <TextView
                 android:text="@string/instrument_info_title"
-                android:textColor="@color/white"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:textSize="19sp"
@@ -35,7 +35,7 @@
 
     <org.example.androidenterprise.view.CustomScrollView
             android:layout_below="@id/rl_top"
-            android:background="@color/grey_bg"
+            android:background="@color/color_f0f0f0"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <RelativeLayout
@@ -59,7 +59,7 @@
                         android:id="@+id/tv_title"
                         android:text="@string/instrument_XXXX"
                         android:textSize="16sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/color_000000"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/instrument_info_title_margin"
@@ -69,7 +69,7 @@
                         android:id="@+id/tv_price"
                         android:text="@string/price_flute"
                         android:textSize="18sp"
-                        android:textColor="@color/yellow_price"
+                        android:textColor="@color/color_f49c14"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_below="@id/tv_title"
                         android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                         android:id="@+id/tv_level"
                         android:text="@string/transfer_fee"
                         android:textSize="13sp"
-                        android:textColor="@color/grey"
+                        android:textColor="@color/color_999999"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_marginBottom="@dimen/instrument_info_margin_left_right"
                         android:layout_below="@id/tv_price"
@@ -89,7 +89,7 @@
                         android:id="@+id/tv_place"
                         android:text="@string/place"
                         android:textSize="13sp"
-                        android:textColor="@color/grey"
+                        android:textColor="@color/color_999999"
                         android:layout_below="@id/tv_price"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="@dimen/instrument_info_margin_left_right"
@@ -119,7 +119,7 @@
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
                         android:layout_height="1px"
-                        android:background="@color/instrument_info_teacher_line"
+                        android:background="@color/color_999999"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
 
                 <ListView
@@ -139,7 +139,7 @@
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
                         android:layout_height="1px"
-                        android:background="@color/instrument_info_teacher_line"
+                        android:background="@color/color_999999"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
                 <TextView
                         android:text="@string/instrument_info_info"
@@ -183,7 +183,7 @@
                 android:id="@+id/tv_bottom_total"
                 android:text="@string/bottom_total"
                 android:textSize="14sp"
-                android:textColor="@color/grey"
+                android:textColor="@color/color_999999"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                 android:layout_width="wrap_content"
@@ -191,7 +191,7 @@
         <TextView
                 android:text="@string/bottom_money"
                 android:textSize="20sp"
-                android:textColor="@color/yellow_price"
+                android:textColor="@color/color_f49c14"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/tv_bottom_total"
                 android:layout_width="wrap_content"
@@ -200,8 +200,8 @@
                 android:id="@+id/tv_button"
                 android:text="@string/buy"
                 android:textSize="20sp"
-                android:textColor="@color/white"
-                android:background="@color/blue"
+                android:textColor="@color/color_ffffff"
+                android:background="@color/color_97c8cd"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/instrument_info_margin_left_right"

@@ -16,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/action_bar_mine"
                 android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerInParent="true"/>
 
         <ImageButton
@@ -43,7 +43,7 @@
                 android:src="@drawable/img_example2"
                 android:layout_centerVertical="true"
                 app:border_width="1px"
-                app:border_color="@color/white_stroke"
+                app:border_color="@color/color_ffffff"
                 android:paddingStart="@dimen/mine_image_padding"/>
 
         <TextView
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mine_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:text="2333333"
                 android:layout_toRightOf="@id/mine_image"
                 android:layout_alignTop="@id/mine_image"
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mine_phone_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:text="2333333"
                 android:layout_below="@id/mine_name"
                 android:layout_marginTop="@dimen/mine_text_margin_text"
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/item_setting_height"
-            android:divider="@color/list_course"
+            android:divider="@color/color_dddddd"
             android:dividerHeight="1px"
             android:descendantFocusability="blocksDescendants">
     </ListView>

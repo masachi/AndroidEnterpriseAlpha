@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey_bg">
+                android:background="@color/color_f0f0f0">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -18,7 +18,7 @@
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/record_date_property_color"
+                android:textColor="@color/color_cccccc"
                 android:textSize="@dimen/record_date_size"/>
         <TextView
                 android:text="已完成"
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textColor="@color/record_state_color"
+                android:textColor="@color/color_f49c14"
                 android:textSize="@dimen/record_state_size"/>
         <TextView
                 android:id="@+id/tv_line1"
@@ -34,7 +34,7 @@
                 android:layout_height="@dimen/storke_all"
                 android:layout_below="@id/tv_date"
                 android:layout_marginTop="@dimen/record_lv_margin_many"
-                android:background="@color/record_line_color"/>
+                android:background="@color/color_d1d1d1"/>
 
         <org.example.androidenterprise.view.CustomMeasureListView
                 android:id="@+id/lv_record_info"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/storke_all"
                 android:layout_below="@id/lv_record_info"
-                android:background="@color/record_line_color"/>
+                android:background="@color/color_d1d1d1"/>
 
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:textColor="@color/record_count_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/record_count_size"/>
             <TextView
                     android:text="共n件商品（含运费0.0）实付 "
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@id/tv_price"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/record_count_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/record_state_size"/>
 
         </RelativeLayout>

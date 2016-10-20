@@ -11,13 +11,13 @@
             android:layout_marginBottom="@dimen/search_record_lv_margin_top_end"
             android:layout_marginStart="@dimen/search_record_lv_margin_top_end"
             android:textSize="@dimen/search_record_date_size"
-            android:textColor="@color/search_record_date_color"/>
+            android:textColor="@color/color_cccccc"/>
 
     <TextView
             android:id="@+id/search_info_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/search_line_color"
+            android:background="@color/color_d1d1d1"
             android:layout_below="@id/search_info_record_date"
             android:layout_marginStart="@dimen/search_margin_sides"
             android:layout_marginEnd="@dimen/search_margin_sides"/>
@@ -32,7 +32,7 @@
             android:layout_alignParentEnd="true"
             android:text="233333"
             android:textSize="@dimen/search_record_state_size"
-            android:textColor="@color/search_record_state_color"/>
+            android:textColor="@color/color_f49c14"/>
 
     <org.example.androidenterprise.utils.CustomListView
             android:id="@+id/search_info_record_info"

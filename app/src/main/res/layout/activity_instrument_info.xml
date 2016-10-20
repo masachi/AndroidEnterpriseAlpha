@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.InstrumentInfoActivity"
-        android:background="@color/while_bg">
+        android:background="@color/color_ffffff">
     <RelativeLayout
             android:id="@+id/instrument_info_title"
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/action_bar_music"
                 android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerInParent="true"/>
 
         <ImageButton
@@ -49,8 +49,8 @@
             android:layout_below="@id/instrument_info_title"
             android:layout_marginTop="@dimen/music_ang_margin_any"
             android:background="@drawable/fragment_music_child"
-            app:tabSelectedTextColor="@color/music_type_text_color_selected"
-            app:tabTextColor="@color/music_type_text_color_normal"
+            app:tabSelectedTextColor="@color/color_97c8cd"
+            app:tabTextColor="@color/color_666666"
             app:tabPaddingStart="@dimen/music_type_margin_sides"
             app:tabPaddingEnd="@dimen/music_type_margin_sides"
             app:tabMode="scrollable"

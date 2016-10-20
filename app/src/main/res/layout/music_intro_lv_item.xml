@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/music_intro_margin_each"
             android:text="2333333"
-            android:textColor="@color/music_intro_title_color"
+            android:textColor="@color/color_333333"
             android:textSize="@dimen/music_intro_title_size"
             android:layout_centerHorizontal="true"/>
     <LinearLayout
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="$"
                 android:textSize="@dimen/music_intro_price_sign_size"
-                android:textColor="@color/music_intro_price_color"/>
+                android:textColor="@color/color_333333"/>
 
         <TextView
                 android:id="@+id/music_intro_price"
@@ -39,7 +39,7 @@
                 android:layout_marginStart="@dimen/music_intro_sign_margin_price"
                 android:text="2323232323232"
                 android:textSize="@dimen/music_intro_price_size"
-                android:textColor="@color/music_intro_price_color"/>
+                android:textColor="@color/color_333333"/>
 
     </LinearLayout>
 

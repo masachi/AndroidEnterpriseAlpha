@@ -4,6 +4,6 @@
           android:color="@color/color_666666"
           android:drawable="@mipmap/ic_contact_us_service_online"/>
     <item android:state_checked="false"
-          android:color="@color/color_CCCCCC"
+          android:color="@color/color_cccccc"
           android:drawable="@mipmap/ic_contact_us_service_outline"/>
 </selector>

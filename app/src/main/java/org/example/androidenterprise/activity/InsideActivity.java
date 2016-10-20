@@ -103,25 +103,25 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
                 imgIv_1.setImageResource(R.mipmap.bottom_selected);
                 imgIv_2.setImageResource(R.mipmap.bottom_normal);
                 imgIv_3.setImageResource(R.mipmap.bottom_normal);
-                text_1.setTextColor(getResources().getColor(R.color.bottom_color_selected));
-                text_2.setTextColor(getResources().getColor(R.color.bottom_color_normal));
-                text_3.setTextColor(getResources().getColor(R.color.bottom_color_normal));
+                text_1.setTextColor(getResources().getColor(R.color.color_97c8cd));
+                text_2.setTextColor(getResources().getColor(R.color.color_999999));
+                text_3.setTextColor(getResources().getColor(R.color.color_999999));
                 break;
             case 1:
                 imgIv_1.setImageResource(R.mipmap.bottom_normal);
                 imgIv_2.setImageResource(R.mipmap.bottom_selected);
                 imgIv_3.setImageResource(R.mipmap.bottom_normal);
-                text_1.setTextColor(getResources().getColor(R.color.bottom_color_normal));
-                text_2.setTextColor(getResources().getColor(R.color.bottom_color_selected));
-                text_3.setTextColor(getResources().getColor(R.color.bottom_color_normal));
+                text_1.setTextColor(getResources().getColor(R.color.color_999999));
+                text_2.setTextColor(getResources().getColor(R.color.color_97c8cd));
+                text_3.setTextColor(getResources().getColor(R.color.color_999999));
                 break;
             case 2:
                 imgIv_1.setImageResource(R.mipmap.bottom_normal);
                 imgIv_2.setImageResource(R.mipmap.bottom_normal);
                 imgIv_3.setImageResource(R.mipmap.bottom_selected);
-                text_1.setTextColor(getResources().getColor(R.color.bottom_color_normal));
-                text_2.setTextColor(getResources().getColor(R.color.bottom_color_normal));
-                text_3.setTextColor(getResources().getColor(R.color.bottom_color_selected));
+                text_1.setTextColor(getResources().getColor(R.color.color_999999));
+                text_2.setTextColor(getResources().getColor(R.color.color_999999));
+                text_3.setTextColor(getResources().getColor(R.color.color_97c8cd));
                 break;
         }
     }

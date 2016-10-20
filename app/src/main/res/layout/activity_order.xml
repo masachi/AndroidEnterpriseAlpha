@@ -4,14 +4,14 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_bg"
+        android:background="@color/color_f0f0f0"
         tools:context="org.example.androidenterprise.activity.OrderActivity">
 
     <RelativeLayout
             android:id="@+id/order_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
-            android:background="#FF97C8CD">
+            android:background="@color/color_97c8cd">
         <ImageButton
                 android:id="@+id/order_return_ib"
                 android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/action_bar_order"
                 android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerInParent="true"/>
 
         <ImageButton

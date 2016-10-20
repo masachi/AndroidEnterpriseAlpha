@@ -18,7 +18,7 @@
             android:layout_alignTop="@id/iv_record"
             android:layout_toRightOf="@id/iv_record"
             android:layout_marginLeft="@dimen/record_lv_margin_many"
-            android:textColor="@color/record_info_name_price_color"
+            android:textColor="@color/color_666666"
             android:textSize="@dimen/record_info_text_size"/>
     <TextView
             android:text="XXX属性"
@@ -28,7 +28,7 @@
             android:layout_below="@id/tv_name"
             android:layout_marginTop="@dimen/record_lv_margin_many"
             android:layout_alignLeft="@id/tv_name"
-            android:textColor="@color/record_date_property_color"
+            android:textColor="@color/color_cccccc"
             android:textSize="@dimen/record_info_text_size"/>
     <TextView
             android:text="¥6000.00"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignBottom="@id/iv_record"
-            android:textColor="@color/record_info_name_price_color"
+            android:textColor="@color/color_666666"
             android:textSize="@dimen/record_info_text_size"/>
 
 </RelativeLayout>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey_bg">
+                android:background="@color/color_f0f0f0">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -18,7 +18,7 @@
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/order_date_color"
+                android:textColor="@color/color_cccccc"
                 android:textSize="@dimen/order_date_size"/>
         <TextView
                 android:text="已完成"
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textColor="@color/order_state_color"
+                android:textColor="@color/color_f49c14"
                 android:textSize="@dimen/order_state_size"/>
         <TextView
                 android:id="@+id/tv_line1"
@@ -34,7 +34,7 @@
                 android:layout_height="@dimen/storke_all"
                 android:layout_below="@id/tv_date"
                 android:layout_marginTop="@dimen/order_lv_margin_many"
-                android:background="@color/order_line_color"/>
+                android:background="@color/color_d1d1d1"/>
 
         <RelativeLayout
                 android:id="@+id/rl_course"
@@ -56,7 +56,7 @@
                     android:layout_alignTop="@id/iv_course"
                     android:layout_toRightOf="@id/iv_course"
                     android:layout_marginLeft="@dimen/order_lv_margin_many"
-                    android:textColor="@color/order_text_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_text_size"/>
             <TextView
                     android:text="6课时"
@@ -66,7 +66,7 @@
                     android:layout_below="@id/tv_course_name"
                     android:layout_marginTop="@dimen/order_lv_margin_many"
                     android:layout_alignLeft="@id/tv_course_name"
-                    android:textColor="@color/order_text_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_text_size"/>
             <TextView
                     android:text="老师：XXX"
@@ -76,7 +76,7 @@
                     android:layout_below="@id/tv_classhour"
                     android:layout_marginTop="@dimen/order_lv_margin_many"
                     android:layout_alignLeft="@id/tv_course_name"
-                    android:textColor="@color/order_text_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_text_size"/>
             <TextView
                     android:text="¥6000.00"
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignBottom="@id/iv_course"
-                    android:textColor="@color/order_text_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_text_size"/>
 
         </RelativeLayout>
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/storke_all"
                 android:layout_below="@id/rl_course"
-                android:background="@color/order_line_color"/>
+                android:background="@color/color_d1d1d1"/>
 
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:textColor="@color/order_price_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_price_size"/>
             <TextView
                     android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
                     android:layout_toLeftOf="@id/tv_total_price"
                     android:layout_centerVertical="true"
                     android:text="@string/paid"
-                    android:textColor="@color/order_price_color"
+                    android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_state_size"/>
 
         </RelativeLayout>

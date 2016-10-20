@@ -21,6 +21,6 @@
         android:gravity="center_vertical"
         android:textSize="15sp"
         android:textColor="@android:color/white"
-        android:background="@color/viewpage_text_bg"/>
+        android:background="@color/color_000000_25"/>
 
 </FrameLayout>

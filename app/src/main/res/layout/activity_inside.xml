@@ -43,7 +43,7 @@
                     android:textSize="15sp"
                     android:text="课程"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/bottom_color_selected"/>
+                    android:textColor="@color/color_97c8cd"/>
 
         </RelativeLayout>
 
@@ -68,7 +68,7 @@
                     android:textSize="15sp"
                     android:text="我"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/bottom_color_selected"/>
+                    android:textColor="@color/color_97c8cd"/>
 
         </RelativeLayout>
 
@@ -94,7 +94,7 @@
                     android:textSize="15sp"
                     android:text="乐器"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/bottom_color_selected"/>
+                    android:textColor="@color/color_97c8cd"/>
 
         </RelativeLayout>
 

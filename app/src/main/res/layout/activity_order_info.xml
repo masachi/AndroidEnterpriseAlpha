@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/action_bar_order_info"
                 android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerInParent="true"/>
 
 
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="待付款"
                 android:textSize="@dimen/order_info_top_pay_size"
-                android:textColor="@color/color_FFFFFF"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/order_info_margin_left_right"/>
 
@@ -62,7 +62,7 @@
                 android:layout_centerVertical="true"
                 android:text="付款"
                 android:textSize="@dimen/order_info_top_btn_text_size"
-                android:textColor="@color/color_FFFFFF"/>
+                android:textColor="@color/color_ffffff"/>
 
     </RelativeLayout>
 
@@ -155,7 +155,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/order_info_between_each_grey_height"
-                    android:background="@color/grey_bg"/>
+                    android:background="@color/color_f0f0f0"/>
 
             <TextView
                     android:layout_width="match_parent"
@@ -220,7 +220,7 @@
                         android:layout_marginTop="@dimen/order_info_delivery_price_margin_each"
                         android:text="￥2333"
                         android:textSize="@dimen/order_info_delivery_final_price_size"
-                        android:textColor="@color/color_F49C14"/>
+                        android:textColor="@color/color_f49c14"/>
 
             </RelativeLayout>
 
@@ -249,7 +249,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/order_info_between_each_grey_height"
-                    android:background="@color/grey_bg"/>
+                    android:background="@color/color_f0f0f0"/>
 
             <TextView
                     android:layout_width="match_parent"
@@ -322,7 +322,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/order_info_between_each_grey_height"
-                    android:background="@color/grey_bg"/>
+                    android:background="@color/color_f0f0f0"/>
 
             <TextView
                     android:layout_width="match_parent"
@@ -347,7 +347,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/order_info_between_each_grey_height"
-                    android:background="@color/grey_bg"/>
+                    android:background="@color/color_f0f0f0"/>
 
             <TextView
                     android:layout_width="match_parent"
@@ -455,7 +455,7 @@
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/order_info_between_each_grey_height"
-                    android:background="@color/grey_bg"
+                    android:background="@color/color_f0f0f0"
                     android:visibility="invisible"/>
 
             <TextView

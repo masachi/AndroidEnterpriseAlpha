@@ -7,7 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/search_margin_sides"
-            android:textColor="@color/search_text_color"
+            android:textColor="@color/color_666666"
             android:textSize="@dimen/search_info_text_size"
             android:layout_marginTop="@dimen/search_text_margin_top_end"
             android:layout_marginBottom="@dimen/search_text_margin_top_end"
@@ -17,7 +17,7 @@
             android:id="@+id/search_info_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/search_line_color"
+            android:background="@color/color_d1d1d1"
             android:layout_below="@id/search_info_order_date"
             android:layout_marginStart="@dimen/search_margin_sides"
             android:layout_marginEnd="@dimen/search_margin_sides"/>

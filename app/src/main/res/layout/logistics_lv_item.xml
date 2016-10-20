@@ -14,7 +14,7 @@
             android:id="@+id/tv_line"
             android:layout_width="3dp"
             android:layout_height="@dimen/logistics_info_line"
-            android:background="@color/logistics_line_color"
+            android:background="@color/color_cccccc"
             android:layout_below="@+id/iv_img"
             android:layout_marginStart="7dp"/>
 
@@ -26,7 +26,7 @@
             android:text="233333333333333333333333333333333333333333333333333333333333333333333"
             android:layout_marginLeft="@dimen/logistics_info_img_margin_info"
             android:textSize="@dimen/logistics_info_info_size"
-            android:textColor="@color/logistics_info_color"/>
+            android:textColor="@color/color_999999"/>
 
     <TextView
             android:id="@+id/tv_date"
@@ -37,7 +37,7 @@
             android:layout_marginLeft="@dimen/logistics_info_img_margin_info"
             android:layout_marginTop="@dimen/logistics_info_info_margin_date"
             android:textSize="@dimen/logistics_info_date_size"
-            android:textColor="@color/logistics_date_clolor"
+            android:textColor="@color/color_cccccc"
             android:text="233333"/>
 
 </RelativeLayout>

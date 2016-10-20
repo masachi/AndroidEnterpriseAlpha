@@ -20,7 +20,7 @@
                     android:layout_width="@dimen/login_btn_width"
                     android:layout_height="@dimen/login_btn_height"
                     android:text="@string/login_text"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/color_ffffff"
                     android:textSize="@dimen/btn_text_size"
                     android:gravity="center"
                     android:background="@drawable/btn_login"/>
@@ -30,7 +30,7 @@
                     android:layout_height="@dimen/login_btn_height"
                     android:text="@string/register_text"
                     android:textSize="@dimen/btn_text_size"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/color_ffffff"
                     android:gravity="center"
                     android:layout_toRightOf="@id/btn_login"
                     android:layout_marginLeft="@dimen/btn_margin_btn"
@@ -59,7 +59,7 @@
                 android:drawableLeft="@mipmap/ic_et_locker"
                 android:drawablePadding="@dimen/image_padding_text"
                 android:hint="@string/password_hint"
-                android:textColorHint="@color/text_color"
+                android:textColorHint="@color/color_ffffff"
                 android:textSize="@dimen/password_text_size"/>
 
         <ImageButton
@@ -85,7 +85,7 @@
                     android:layout_width="@dimen/verify_edittext_width"
                     android:layout_height="wrap_content"
                     android:hint="@string/verify_hint"
-                    android:textColorHint="@color/text_color"
+                    android:textColorHint="@color/color_ffffff"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"/>
             <Button
@@ -97,7 +97,7 @@
                     android:layout_marginStart="21dp"
                     android:text="@string/get_verify_text"
                     android:textSize="@dimen/verify_btn_text_size"
-                    android:textColor="@color/text_color"/>
+                    android:textColor="@color/color_ffffff"/>
 
         </RelativeLayout>
 
@@ -110,7 +110,7 @@
                 android:layout_below="@id/verify_relative"
                 android:layout_marginTop="@dimen/register_big_margin_relative"
                 android:text="@string/register_text"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/btn_text_size"/>
     </RelativeLayout>
 

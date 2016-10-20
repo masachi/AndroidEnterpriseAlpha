@@ -193,7 +193,7 @@
                 android:layout_marginLeft="@dimen/course_order_margin_many"
                 android:layout_centerVertical="true"
                 android:text="@string/price_sign"
-                android:textColor="@color/color_F49C14"
+                android:textColor="@color/color_f49c14"
                 android:textSize="@dimen/course_order_text_size"/>
         <TextView
                 android:text="5000.00"
@@ -202,7 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/tv_price_sign"
                 android:layout_alignBaseline="@id/tv_price_sign"
-                android:textColor="@color/color_F49C14"
+                android:textColor="@color/color_f49c14"
                 android:textSize="@dimen/course_order_price_size"/>
         <Button
                 android:id="@+id/btn_confirm"

@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_bg"
+        android:background="@color/color_f0f0f0"
         tools:context="org.example.androidenterprise.activity.SearchActivity">
 
     <RelativeLayout
@@ -34,7 +34,7 @@
                 android:layout_marginEnd="@dimen/action_bar_image_margin_end"
                 android:text="搜索"
                 android:background="@null"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/search_btn_text_size"
                 android:layout_centerVertical="true"/>
 
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/search_et_height"
                 android:hint="@string/search_hint"
-                android:textColorHint="@color/search_hint_clolor"
+                android:textColorHint="@color/color_333333"
                 android:layout_toRightOf="@id/search_return_ib"
                 android:layout_centerVertical="true"
                 android:background="@drawable/search_et_shape"
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/search_course_text"
                         android:layout_marginStart="@dimen/search_margin_sides"
-                        android:textColor="@color/search_text_color"
+                        android:textColor="@color/color_666666"
                         android:textSize="@dimen/search_info_text_size"
                         android:layout_marginTop="@dimen/search_text_margin_top_end"
                         android:layout_marginBottom="@dimen/search_text_margin_top_end"/>
@@ -161,7 +161,7 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/search_line_color"/>
+                        android:background="@color/color_d1d1d1"/>
 
                 <org.example.androidenterprise.view.CustomMeasureListView
                         android:id="@+id/search_info_course_lv"
@@ -188,7 +188,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
-                        android:textColor="@color/search_text_color"
+                        android:textColor="@color/color_666666"
                         android:textSize="@dimen/search_info_text_size"
                         android:layout_marginTop="@dimen/search_text_margin_top_end"
                         android:layout_marginBottom="@dimen/search_text_margin_top_end"
@@ -197,7 +197,7 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/search_line_color"/>
+                        android:background="@color/color_d1d1d1"/>
                 
                 <org.example.androidenterprise.view.SearchExpandableListView
                         android:id="@+id/search_info_order_time_lv"
@@ -226,7 +226,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
-                        android:textColor="@color/search_text_color"
+                        android:textColor="@color/color_666666"
                         android:textSize="@dimen/search_info_text_size"
                         android:layout_marginTop="@dimen/search_text_margin_top_end"
                         android:layout_marginBottom="@dimen/search_text_margin_top_end"
@@ -235,7 +235,7 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/search_line_color"/>
+                        android:background="@color/color_d1d1d1"/>
 
                 <org.example.androidenterprise.view.CustomMeasureListView
                         android:id="@+id/search_info_record_lv"
@@ -262,7 +262,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
-                        android:textColor="@color/search_text_color"
+                        android:textColor="@color/color_666666"
                         android:textSize="@dimen/search_info_text_size"
                         android:layout_marginTop="@dimen/search_text_margin_top_end"
                         android:layout_marginBottom="@dimen/search_text_margin_top_end"
@@ -271,7 +271,7 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/search_line_color"/>
+                        android:background="@color/color_d1d1d1"/>
 
                 <org.example.androidenterprise.view.CustomMeasureGridView
                         android:id="@+id/search_gv"

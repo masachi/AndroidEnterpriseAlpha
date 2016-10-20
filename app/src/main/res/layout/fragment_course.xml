@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/action_bar_course"
                 android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerInParent="true" android:id="@+id/textView"/>
 
         <ImageButton
@@ -59,7 +59,7 @@
             android:id="@+id/course"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@color/list_course"
+            android:divider="@color/color_dddddd"
             android:dividerHeight="1px">
     </ListView>
 

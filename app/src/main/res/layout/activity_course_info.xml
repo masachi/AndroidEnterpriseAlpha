@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/course_info_title"
                 android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/text_color"
+                android:textColor="@color/color_ffffff"
                 android:layout_centerInParent="true"/>
 
         <ImageButton
@@ -46,7 +46,7 @@
 
     <org.example.androidenterprise.view.CustomScrollView
             android:layout_below="@id/course_info_top"
-            android:background="@color/grey_bg"
+            android:background="@color/color_f0f0f0"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:text="课程XXXXXXX"
                         android:textSize="@dimen/course_info_title_size"
-                        android:textColor="@color/course_info_title_color"
+                        android:textColor="@color/color_333333"
                         android:layout_marginTop="@dimen/course_info_title_margin"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"/>
 
@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="等级 ：XXXXXX"
                         android:textSize="@dimen/course_info_level_text_size"
-                        android:textColor="@color/course_info_level_color"
+                        android:textColor="@color/color_999999"
                         android:layout_below="@id/course_info_title_tv"
                         android:layout_marginTop="@dimen/course_info_margin_top"
                         android:layout_alignLeft="@id/course_info_title_tv"
@@ -95,7 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5000.00"
-                        android:textColor="@color/course_info_price_color"
+                        android:textColor="@color/color_f49c14"
                         android:textSize="@dimen/course_info_price_text_size"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
@@ -106,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/price_sign"
-                        android:textColor="@color/course_info_price_color"
+                        android:textColor="@color/color_f49c14"
                         android:textSize="@dimen/course_info_price_sign_size"
                         android:layout_marginLeft="-8dp"
                         android:layout_centerVertical="true"
@@ -115,7 +115,7 @@
                 <TextView
                         android:layout_width="1px"
                         android:layout_height="30sp"
-                        android:background="@color/course_info_vertical_line_color"
+                        android:background="@color/color_d1d1d1"
                         android:layout_toStartOf="@id/price_sign_tv"
                         android:layout_marginEnd="12dp"
                         android:layout_centerVertical="true"/>
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
-                        android:textColor="@color/course_info_number_color"
+                        android:textColor="@color/color_999999"
                         android:textSize="@dimen/course_info_number_text_size"
                         android:text="编号 ：XXXXXXXX"/>
 
@@ -147,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
-                        android:textColor="@color/course_info_number_color"
+                        android:textColor="@color/color_999999"
                         android:textSize="@dimen/course_info_number_text_size"
                         android:text="编号 ：XXXXXXXX"/>
 
@@ -157,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
-                        android:textColor="@color/course_info_number_color"
+                        android:textColor="@color/color_999999"
                         android:textSize="@dimen/course_info_number_text_size"
                         android:text="编号 ：XXXXXXXX"/>
 
@@ -167,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
-                        android:textColor="@color/course_info_number_color"
+                        android:textColor="@color/color_999999"
                         android:textSize="@dimen/course_info_number_text_size"
                         android:text="编号 ：XXXXXXXX"
                         android:layout_marginBottom="@dimen/course_info_margin_top"/>
@@ -196,7 +196,7 @@
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
                         android:layout_marginRight="@dimen/course_info_margin_left_right"
                         android:layout_height="1px"
-                        android:background="@color/course_info_teacher_line"
+                        android:background="@color/color_999999"
                         android:layout_marginTop="@dimen/course_info_teacher_margin"/>
 
                 <RelativeLayout
@@ -205,7 +205,7 @@
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
                         android:layout_height="wrap_content"
-                        android:background="@color/while_bg">
+                        android:background="@color/color_ffffff">
 
                     <org.example.androidenterprise.view.CircleImageView
                             android:id="@+id/course_info_person_image"
@@ -214,7 +214,7 @@
                             android:layout_marginTop="@dimen/course_info_teacher_margin"
                             android:src="@drawable/img_example2"
                             app:border_width="1px"
-                            app:border_color="@color/course_info_img_color"/>
+                            app:border_color="@color/color_dddddd"/>
 
                     <LinearLayout
                             android:layout_width="wrap_content"
@@ -229,7 +229,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="昵称Cdohng"
-                                android:textColor="@color/course_info_teacher_name_color"
+                                android:textColor="@color/color_666666"
                                 android:textSize="@dimen/course_info_teacher_name_size"
                                 android:layout_gravity="start"/>
 
@@ -238,7 +238,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="@dimen/course_info_margin_top"
                                 android:text="手机：18724615164"
-                                android:textColor="@color/course_info_teacher_name_color"
+                                android:textColor="@color/color_666666"
                                 android:textSize="@dimen/course_info_teacher_phone_size"/>
 
                     </LinearLayout>
@@ -261,14 +261,14 @@
                         android:layout_height="1px"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
                         android:layout_marginRight="@dimen/course_info_margin_left_right"
-                        android:background="@color/course_info_teacher_line"/>
+                        android:background="@color/color_999999"/>
 
                 <RelativeLayout
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
                         android:layout_marginTop="@dimen/course_info_teacher_margin"
                         android:layout_width="match_parent"
                         android:layout_marginRight="@dimen/course_info_margin_left_right"
-                        android:background="@color/while_bg"
+                        android:background="@color/color_ffffff"
                         android:layout_height="wrap_content">
 
                     <TextView
@@ -277,7 +277,7 @@
                             android:layout_marginTop="@dimen/course_info_student_margin"
                             android:layout_marginBottom="@dimen/course_info_student_margin"
                             android:textSize="@dimen/course_info_student_size"
-                            android:textColor="@color/course_info_student_color"
+                            android:textColor="@color/color_333333"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
@@ -287,7 +287,7 @@
                             android:layout_marginTop="12dp"
                             android:layout_marginBottom="12dp"
                             android:layout_marginLeft="@dimen/course_info_margin_left_right"
-                            android:background="@color/course_info_vertical_line_color"
+                            android:background="@color/color_d1d1d1"
                             android:layout_width="1px"
                             android:layout_height="18dp"/>
 
@@ -339,7 +339,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="课时1"
-                            android:textColor="@color/course_info_schedule_name_color"
+                            android:textColor="@color/color_333333"
                             android:textSize="@dimen/course_info_schedule_size"/>
 
                     <TextView
@@ -347,7 +347,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="5dp"
                             android:text="(已完成)"
-                            android:textColor="@color/course_info_schedule_other_color"
+                            android:textColor="@color/color_999999"
                             android:textSize="@dimen/course_info_schedule_size"
                             android:layout_toEndOf="@id/course_info_schedule_title"/>
 
@@ -355,7 +355,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2016-05-05 14:00"
-                            android:textColor="@color/course_info_schedule_other_color"
+                            android:textColor="@color/color_999999"
                             android:textSize="@dimen/course_info_schedule_date_size"
                             android:layout_alignParentEnd="true"/>
 
@@ -363,7 +363,7 @@
                             android:id="@+id/course_info_schedule_line"
                             android:layout_width="match_parent"
                             android:layout_height="1px"
-                            android:background="@color/course_info_schedule_line"
+                            android:background="@color/color_999999"
                             android:layout_marginTop="5dp"
                             android:layout_below="@id/course_info_schedule_title"/>
 
@@ -373,7 +373,7 @@
                             android:layout_width="wrap_content"
                             android:layout_marginTop="@dimen/course_info_margin_top"
                             android:text="内容 "
-                            android:textColor="@color/course_info_schedule_title_color"
+                            android:textColor="@color/color_666666"
                             android:textSize="@dimen/course_info_schedule_size"
                             android:layout_below="@id/course_info_schedule_line"/>
 
@@ -383,7 +383,7 @@
                             android:layout_marginTop="@dimen/course_info_margin_top"
                             android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
                             android:layout_below="@id/course_info_schedule_line"
-                            android:textColor="@color/course_info_schedule_other_color"
+                            android:textColor="@color/color_999999"
                             android:textSize="@dimen/course_info_schedule_size"
                             android:layout_toRightOf="@+id/course_info_schedule_content_title"/>
 
@@ -412,13 +412,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="121条学生反馈"
-                            android:textColor="@color/course_info_feedback_title_color"
+                            android:textColor="@color/color_333333"
                             android:textSize="@dimen/course_info_feedback_text_size"/>
 
                     <TextView
                             android:layout_marginTop="@dimen/course_info_feedback_margin"
                             android:layout_width="match_parent"
-                            android:background="@color/course_info_teacher_line"
+                            android:background="@color/color_999999"
                             android:layout_height="1px"/>
 
                     <RelativeLayout
@@ -458,7 +458,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/course_info_margin_top"
-                    android:background="@color/while_bg"
+                    android:background="@color/color_ffffff"
                     android:layout_below="@id/course_info_feedback">
 
                 <Button
@@ -466,7 +466,7 @@
                         android:layout_height="@dimen/course_info_button_height"
                         android:text="选课"
                         android:background="@drawable/course_info_child"
-                        android:textColor="@color/course_info_button_color"
+                        android:textColor="@color/color_97c8cd"
                         android:textSize="@dimen/course_info_button_text_size"
                         android:layout_gravity="center"/>
 
