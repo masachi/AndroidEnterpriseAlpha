@@ -33,7 +33,7 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_calendar);
-        calendar_mv = (MaterialCalendarView) findViewById(R.id.calendar_mv);
+        calendar_mv = (MaterialCalendarView) findViewById(R.id.mv_calendar);
 
         calendar_mv.setOnDateChangedListener(this);
         calendar_mv.setShowOtherDates(MaterialCalendarView.SHOW_ALL);

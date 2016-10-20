@@ -10,7 +10,7 @@
             android:background="@color/color_97c8cd">
 
         <ImageView
-                android:id="@+id/orderpayment_back_iv"
+                android:id="@+id/iv_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content">
 
         <TextView
-                android:id="@+id/orderpayment_courseInfo_title_tv"
+                android:id="@+id/tv_courseInfo_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/order_payment_margin_many"
@@ -44,10 +44,10 @@
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/order_payment_text_size"/>
         <TextView
-                android:id="@+id/orderpayment_courseInfo_tv"
+                android:id="@+id/tv_courseInfo"
                 android:layout_marginLeft="@dimen/order_payment_tv_tv"
-                android:layout_alignTop="@id/orderpayment_courseInfo_title_tv"
-                android:layout_toRightOf="@id/orderpayment_courseInfo_title_tv"
+                android:layout_alignTop="@id/tv_courseInfo_title"
+                android:layout_toRightOf="@id/tv_courseInfo_title"
                 android:text="课程XXXX"
                 android:textSize="@dimen/order_payment_text_size"
                 android:textColor="@color/color_333333"
@@ -55,25 +55,25 @@
                 android:layout_height="wrap_content"/>
         <View
                 android:background="@color/color_d1d1d1"
-                android:layout_below="@id/orderpayment_courseInfo_title_tv"
+                android:layout_below="@id/tv_courseInfo_title"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_line_height"/>
 
         <TextView
-                android:id="@+id/orderpayment_accout_title_tv"
+                android:id="@+id/tv_accout_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignRight="@id/orderpayment_courseInfo_title_tv"
+                android:layout_alignRight="@id/tv_courseInfo_title"
                 android:layout_marginTop="@dimen/order_payment_margin_many"
                 android:layout_marginBottom="@dimen/order_payment_margin_many"
                 android:text="@string/activity_orderpayment_account_title_str"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/order_payment_text_size"/>
         <TextView
-                android:id="@+id/orderpayment_accout_tv"
-                android:layout_toRightOf="@id/orderpayment_accout_title_tv"
-                android:layout_alignTop="@id/orderpayment_accout_title_tv"
+                android:id="@+id/tv_accout"
+                android:layout_toRightOf="@id/tv_accout_title"
+                android:layout_alignTop="@id/tv_accout_title"
                 android:layout_marginLeft="@dimen/order_payment_tv_tv"
                 android:text="Abc"
                 android:textSize="@dimen/order_payment_text_size"
@@ -81,26 +81,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <View
-                android:layout_below="@id/orderpayment_accout_title_tv"
+                android:layout_below="@id/tv_accout_title"
                 android:background="@color/color_d1d1d1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_line_height"/>
 
         <TextView
-                android:id="@+id/orderpayment_Attn_title_tv"
+                android:id="@+id/tv_Attn_title"
                 android:layout_marginTop="@dimen/order_payment_margin_many"
                 android:layout_marginBottom="@dimen/order_payment_margin_many"
-                android:layout_alignRight="@id/orderpayment_courseInfo_title_tv"
-                android:layout_below="@id/orderpayment_courseInfo_title_tv"
+                android:layout_alignRight="@id/tv_courseInfo_title"
+                android:layout_below="@id/tv_courseInfo_title"
                 android:text="@string/activity_orderpayment_Attn_title_str"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/order_payment_text_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:id="@+id/orderpayment_Attn_tv"
-                android:layout_toRightOf="@id/orderpayment_Attn_title_tv"
-                android:layout_alignTop="@id/orderpayment_Attn_title_tv"
+                android:id="@+id/tv_Attn"
+                android:layout_toRightOf="@id/tv_Attn_title"
+                android:layout_alignTop="@id/tv_Attn_title"
                 android:layout_marginLeft="@dimen/order_payment_tv_tv"
                 android:text="学员XXX"
                 android:textSize="@dimen/order_payment_text_size"
@@ -108,9 +108,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:id="@+id/orderpayment_Attn_phoneNumber_tv"
-                android:layout_toRightOf="@id/orderpayment_Attn_tv"
-                android:layout_alignTop="@id/orderpayment_Attn_tv"
+                android:id="@+id/tv_Attn_phoneNumber"
+                android:layout_toRightOf="@id/tv_Attn"
+                android:layout_alignTop="@id/tv_Attn"
                 android:layout_marginLeft="@dimen/order_payment_nametv_phonenumtv"
                 android:text="13567899876"
                 android:textSize="@dimen/order_payment_text_size"
@@ -118,15 +118,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <View
-                android:layout_below="@id/orderpayment_Attn_title_tv"
+                android:layout_below="@id/tv_Attn_title"
                 android:background="@color/color_d1d1d1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_line_height"/>
 
         <TextView
-                android:id="@+id/orderpayment_OrderNo_title_tv"
-                android:layout_below="@id/orderpayment_Attn_title_tv"
-                android:layout_alignRight="@id/orderpayment_Attn_title_tv"
+                android:id="@+id/tv_OrderNo_title"
+                android:layout_below="@id/tv_Attn_title"
+                android:layout_alignRight="@id/tv_Attn_title"
                 android:layout_marginTop="@dimen/order_payment_margin_many"
                 android:layout_marginBottom="@dimen/order_payment_margin_many"
                 android:text="@string/activity_orderpayment_OrderNo_title_str"
@@ -135,9 +135,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:id="@+id/orderpayment_OrderNo_tv"
-                android:layout_toRightOf="@id/orderpayment_OrderNo_title_tv"
-                android:layout_alignTop="@id/orderpayment_OrderNo_title_tv"
+                android:id="@+id/tv_OrderNo"
+                android:layout_toRightOf="@id/tv_OrderNo_title"
+                android:layout_alignTop="@id/tv_OrderNo_title"
                 android:layout_marginLeft="@dimen/order_payment_tv_tv"
                 android:text="7654321"
                 android:textSize="@dimen/order_payment_text_size"
@@ -145,15 +145,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <View
-                android:layout_below="@id/orderpayment_OrderNo_title_tv"
+                android:layout_below="@id/tv_OrderNo_title"
                 android:background="@color/color_d1d1d1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_line_height"/>
 
         <TextView
-                android:id="@+id/orderpayment_sum_title_tv"
-                android:layout_below="@id/orderpayment_OrderNo_title_tv"
-                android:layout_alignRight="@id/orderpayment_OrderNo_title_tv"
+                android:id="@+id/tv_sum_title"
+                android:layout_below="@id/tv_OrderNo_title"
+                android:layout_alignRight="@id/tv_OrderNo_title"
                 android:layout_marginTop="@dimen/order_payment_margin_many"
                 android:layout_marginBottom="@dimen/order_payment_margin_many"
                 android:text="@string/activity_orderpayment_sum_title_str"
@@ -162,9 +162,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:id="@+id/orderpayment_sum_tv"
-                android:layout_toRightOf="@id/orderpayment_sum_title_tv"
-                android:layout_alignTop="@id/orderpayment_sum_title_tv"
+                android:id="@+id/tv_sum"
+                android:layout_toRightOf="@id/tv_sum_title"
+                android:layout_alignTop="@id/tv_sum_title"
                 android:layout_marginLeft="@dimen/order_payment_tv_tv"
                 android:text="5000.0元"
                 android:textSize="@dimen/order_payment_text_size"
@@ -172,15 +172,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <View
-                android:layout_below="@id/orderpayment_sum_title_tv"
+                android:layout_below="@id/tv_sum_title"
                 android:background="@color/color_d1d1d1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_line_height"/>
 
         <TextView
-                android:id="@+id/orderpayment_payment_title_tv"
-                android:layout_below="@id/orderpayment_sum_title_tv"
-                android:layout_alignRight="@id/orderpayment_sum_title_tv"
+                android:id="@+id/tv_payment_title"
+                android:layout_below="@id/tv_sum_title"
+                android:layout_alignRight="@id/tv_sum_title"
                 android:layout_marginTop="@dimen/order_payment_margin_many"
                 android:layout_marginBottom="@dimen/order_payment_margin_many"
                 android:text="@string/activity_orderpayment_payment_title_str"
@@ -197,7 +197,7 @@
             android:layout_height="wrap_content">
 
         <TextView
-                android:id="@+id/orderpayment_alipay_title_tv"
+                android:id="@+id/tv_alipay_title"
                 android:background="@drawable/order_payment_tv_border"
                 android:drawableLeft="@mipmap/ic_paytype_zhifubao"
                 android:drawablePadding="@dimen/order_payment_pay_margin"
@@ -211,8 +211,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_pay_tv_height"/>
         <ImageView
-                android:id="@+id/orderpayment_selected_alipay_iv"
-                android:layout_alignRight="@id/orderpayment_alipay_title_tv"
+                android:id="@+id/iv_selected_alipay"
+                android:layout_alignRight="@id/tv_alipay_title"
                 android:layout_marginRight="@dimen/order_payment_pay_margin"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/ic_payment_check_selected"
@@ -226,7 +226,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
-                android:id="@+id/orderpayment_wechatpay_title_tv"
+                android:id="@+id/tv_wechatpay_title"
                 android:background="@drawable/order_payment_tv_border"
                 android:drawableLeft="@mipmap/ic_paytype_weixin"
                 android:drawablePadding="@dimen/order_payment_pay_margin"
@@ -240,8 +240,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_pay_tv_height"/>
         <ImageView
-                android:id="@+id/orderpayment_wechatpay_selected_iv"
-                android:layout_alignRight="@id/orderpayment_wechatpay_title_tv"
+                android:id="@+id/iv_wechatpay_selected"
+                android:layout_alignRight="@id/tv_wechatpay_title"
                 android:layout_marginRight="@dimen/order_payment_pay_margin"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/ic_payment_check_normal"
@@ -253,7 +253,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <Button
-                android:id="@+id/orderpayment_payment_btn"
+                android:id="@+id/btn_payment"
                 android:background="@color/color_ffffff"
                 android:text="@string/activity_orderpayment_payment_btn_str"
                 android:gravity="center"
@@ -263,7 +263,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_btn_height"/>
         <View
-                android:layout_above="@id/orderpayment_payment_btn"
+                android:layout_above="@id/btn_payment"
                 android:background="@color/color_d1d1d1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/order_payment_line_height"/>

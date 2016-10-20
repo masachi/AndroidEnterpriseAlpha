@@ -19,30 +19,30 @@ import org.xutils.x;
 public class OrderPaymentActivity extends Activity implements View.OnClickListener {
 
 
-    @ViewInject(R.id.orderpayment_back_iv)
-    ImageView orderpayment_back_iv;
-    @ViewInject(R.id.orderpayment_courseInfo_tv)
-    TextView orderpayment_courseInfo_tv;
-    @ViewInject(R.id.orderpayment_accout_tv)
-    TextView orderpayment_accout_tv;
-    @ViewInject(R.id.orderpayment_Attn_tv)
-    TextView orderpayment_Attn_tv;
-    @ViewInject(R.id.orderpayment_Attn_phoneNumber_tv)
-    TextView orderpayment_Attn_phoneNumber_tv;
-    @ViewInject(R.id.orderpayment_OrderNo_tv)
-    TextView orderpayment_OrderNo_tv;
-    @ViewInject(R.id.orderpayment_sum_tv)
-    TextView orderpayment_sum_tv;
-    @ViewInject(R.id.orderpayment_alipay_title_tv)
-    TextView orderpayment_alipay_title_tv;
-    @ViewInject(R.id.orderpayment_selected_alipay_iv)
-    ImageView orderpayment_selected_alipay_iv;
-    @ViewInject(R.id.orderpayment_wechatpay_title_tv)
-    TextView orderpayment_wechatpay_title_tv;
-    @ViewInject(R.id.orderpayment_wechatpay_selected_iv)
-    ImageView orderpayment_wechatpay_selected_iv;
-    @ViewInject(R.id.orderpayment_payment_btn)
-    Button orderpayment_payment_btn;
+    @ViewInject(R.id.iv_back)
+    ImageView iv_back;
+    @ViewInject(R.id.tv_courseInfo)
+    TextView tv_courseInfo;
+    @ViewInject(R.id.tv_accout)
+    TextView tv_accout;
+    @ViewInject(R.id.tv_Attn)
+    TextView tv_Attn;
+    @ViewInject(R.id.tv_Attn_phoneNumber)
+    TextView tv_Attn_phoneNumber;
+    @ViewInject(R.id.tv_OrderNo)
+    TextView tv_OrderNo;
+    @ViewInject(R.id.tv_sum)
+    TextView tv_sum;
+    @ViewInject(R.id.tv_alipay_title)
+    TextView tv_alipay_title;
+    @ViewInject(R.id.iv_selected_alipay)
+    ImageView iv_selected_alipay;
+    @ViewInject(R.id.tv_wechatpay_title)
+    TextView tv_wechatpay_title;
+    @ViewInject(R.id.iv_wechatpay_selected)
+    ImageView iv_wechatpay_selected;
+    @ViewInject(R.id.btn_payment)
+    Button btn_payment;
 
 
     @Override
@@ -55,23 +55,23 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
     }
 
 
-    @Event(value = {R.id.orderpayment_back_iv, R.id.orderpayment_alipay_title_tv, R.id.orderpayment_wechatpay_title_tv, R.id.orderpayment_payment_btn})
+    @Event(value = {R.id.iv_back, R.id.tv_alipay_title, R.id.tv_wechatpay_title, R.id.btn_payment})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.orderpayment_back_iv:
+            case R.id.iv_back:
                 //TODO 设置返回课程订购界面
                 break;
-            case R.id.orderpayment_alipay_title_tv:
-                orderpayment_selected_alipay_iv.setImageResource(R.mipmap.ic_payment_check_selected);
-                orderpayment_wechatpay_selected_iv.setImageResource(R.mipmap.ic_payment_check_normal);
+            case R.id.tv_alipay_title:
+                iv_selected_alipay.setImageResource(R.mipmap.ic_payment_check_selected);
+                iv_wechatpay_selected.setImageResource(R.mipmap.ic_payment_check_normal);
                 //TODO 设置支付宝支付
                 break;
-            case R.id.orderpayment_wechatpay_title_tv:
-                orderpayment_selected_alipay_iv.setImageResource(R.mipmap.ic_payment_check_normal);
-                orderpayment_wechatpay_selected_iv.setImageResource(R.mipmap.ic_payment_check_selected);
+            case R.id.tv_wechatpay_title:
+                iv_selected_alipay.setImageResource(R.mipmap.ic_payment_check_normal);
+                iv_wechatpay_selected.setImageResource(R.mipmap.ic_payment_check_selected);
                 //TODO 设置微信支付
                 break;
-            case R.id.orderpayment_payment_btn:
+            case R.id.btn_payment:
                 //TODO 设置跳转支付界面
                 break;
         }

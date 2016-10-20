@@ -17,16 +17,16 @@ import org.xutils.view.annotation.ViewInject;
  */
 @ContentView(R.layout.activity_pay_success)
 public class PaySuccessActivity extends Activity {
-    @ViewInject(R.id.pay_success_check_course_btn)
-    Button pay_success_check_course_btn;
-    @ViewInject(R.id.pay_success_back_course_btn)
-    Button pay_success_back_course_btn;
-    @ViewInject(R.id.pay_success_back_iv)
-    ImageView pay_success_back_iv;
-    @ViewInject(R.id.pay_success_tv)
-    TextView pay_success_tv;
-    @ViewInject(R.id.pay_success_remind_tv)
-    TextView pay_success_remind_tv;
+    @ViewInject(R.id.btn_check_course)
+    Button btn_check_course;
+    @ViewInject(R.id.btn_back_course)
+    Button btn_back_course;
+    @ViewInject(R.id.iv_back)
+    ImageView iv_back;
+    @ViewInject(R.id.tv_pay_success)
+    TextView tv_pay_success;
+    @ViewInject(R.id.tv_remind)
+    TextView tv_remind;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,16 +34,16 @@ public class PaySuccessActivity extends Activity {
     }
 
 
-    @Event(value = {R.id.pay_success_back_iv, R.id.pay_success_check_course_btn, R.id.pay_success_back_course_btn})
+    @Event(value = {R.id.iv_back, R.id.btn_check_course, R.id.btn_back_course})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.pay_success_back_iv:
+            case R.id.iv_back:
                 //TODO 对标题栏返回图片，返回功能的实现
                 break;
-            case R.id.pay_success_check_course_btn:
+            case R.id.btn_check_course:
                 //TODO 点击此按钮实现查看课程详情
                 break;
-            case R.id.pay_success_back_course_btn:
+            case R.id.btn_back_course:
                 //TODO 点击此按钮实现返回课程中心
                 break;
         }
