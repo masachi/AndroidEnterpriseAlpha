@@ -51,6 +51,14 @@ public class ContactUsQQAdapter extends BaseAdapter {
             holder_contactUsQQ = (ViewHolder_ContactUsQQ) view.getTag();
         }
         holder_contactUsQQ.qqRb.setText(listQQName.get(position));
+        if(position == 2 || position == 5){
+            holder_contactUsQQ.qqRb.setChecked(false);
+            holder_contactUsQQ.qqRb.setClickable(false);
+        }
+        else{
+            holder_contactUsQQ.qqRb.setChecked(true);
+            holder_contactUsQQ.qqRb.setClickable(true);
+        }
         return view;
     }
 }

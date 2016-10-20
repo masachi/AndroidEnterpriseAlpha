@@ -9,6 +9,7 @@ import android.widget.TextView;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ContactUsQQAdapter;
 import org.example.androidenterprise.adapter.ContactUsServiceAdapter;
+import org.example.androidenterprise.adapter.MyWorksAdapter;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;

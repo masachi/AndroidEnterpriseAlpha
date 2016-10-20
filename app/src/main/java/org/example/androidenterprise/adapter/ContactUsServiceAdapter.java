@@ -51,6 +51,14 @@ public class ContactUsServiceAdapter extends BaseAdapter {
             holder_contactUsService = (ViewHolder_ContactUsService) view.getTag();
         }
         holder_contactUsService.serviceItemRb.setText(listServiceName.get(position));
+        if(position == 2 || position == 5){
+            holder_contactUsService.serviceItemRb.setChecked(false);
+            holder_contactUsService.serviceItemRb.setClickable(false);
+        }
+        else{
+            holder_contactUsService.serviceItemRb.setChecked(true);
+            holder_contactUsService.serviceItemRb.setClickable(true);
+        }
         return view;
     }
 }

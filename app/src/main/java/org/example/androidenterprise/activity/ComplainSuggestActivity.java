@@ -34,6 +34,7 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
 
 
     private Context mContext = null;
+    PopupWindow popupWindow;
     private String[] suggest_kinds = {"投诉", "操作建议", "其他"};
 
     @Override
@@ -58,7 +59,7 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
         ComplainSuggestPopupwindowAdapter adapter = new ComplainSuggestPopupwindowAdapter(getApplicationContext(), suggest_kinds);
         listView.setAdapter(adapter);
 
-        final PopupWindow popupWindow = new PopupWindow(contentView, popupWindowWidth, ActionBar.LayoutParams.WRAP_CONTENT, true);
+        popupWindow = new PopupWindow(contentView, popupWindowWidth, ActionBar.LayoutParams.WRAP_CONTENT, true);
         popupWindow.setTouchable(true);
         popupWindow.showAsDropDown(contentView, 30, -20);
 

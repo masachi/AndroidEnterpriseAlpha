@@ -454,5 +454,10 @@
     <dimen name="pay_success_btn_height">36dp</dimen>
     <dimen name="pay_success_back_btn_marginright">40dp</dimen>
 
+    <!--top ImageButton padding-->
+    <dimen name="top_imagebutton_padding_right">20dp</dimen>
+    <dimen name="top_imagebutton_padding_top">5dp</dimen>
+    <dimen name="top_imagebutton_padding_bottom">5dp</dimen>
+
 
 </resources>

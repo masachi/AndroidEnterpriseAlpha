@@ -58,6 +58,7 @@ public class SettingAdapter extends BaseAdapter {
         switch (position){
             case 0:
                 holder.mine_image.setImageResource(R.mipmap.ic_order);
+                holder.icon.setVisibility(View.INVISIBLE);
                 break;
             case 1:
                 holder.mine_image.setImageResource(R.mipmap.ic_record);

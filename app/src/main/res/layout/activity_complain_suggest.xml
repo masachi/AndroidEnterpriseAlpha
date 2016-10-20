@@ -17,7 +17,10 @@
                 android:layout_centerVertical="true"
                 android:src="@mipmap/ic_return"
                 android:background="@color/transparent"
-                android:layout_marginLeft="@dimen/top_ib_left"/>
+                android:layout_marginLeft="@dimen/top_ib_left"
+                android:paddingRight="@dimen/top_imagebutton_padding_right"
+                android:paddingTop="@dimen/top_imagebutton_padding_top"
+                android:paddingBottom="@dimen/top_imagebutton_padding_bottom"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,16 +56,6 @@
                 android:layout_marginRight="@dimen/choose_suggest_ib_right_dis"
                 />
     </RelativeLayout>
-    <!--<ListView-->
-            <!--android:id="@+id/suggest_kinds_lv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/choose_kinds_rl"-->
-            <!--android:layout_marginLeft="@dimen/dimen_10dp"-->
-            <!--android:layout_marginRight="@dimen/dimen_10dp"-->
-            <!--android:visibility="invisible">-->
-
-    <!--</ListView>-->
     <EditText
             android:id="@+id/et_suggest_context"
             android:layout_width="match_parent"
