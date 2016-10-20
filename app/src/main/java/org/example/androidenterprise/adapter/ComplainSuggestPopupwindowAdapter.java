@@ -42,7 +42,7 @@ public class ComplainSuggestPopupwindowAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.complain_suggest_popupwindow_listview_item,null);
             holder = new ViewHolder();
-            holder.suggest = (TextView) convertView.findViewById(R.id.item_tv);
+            holder.suggest = (TextView) convertView.findViewById(R.id.tv_item);
             convertView.setTag(holder);
         }
         else{

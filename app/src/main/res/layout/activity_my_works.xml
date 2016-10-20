@@ -7,12 +7,12 @@
         android:orientation="vertical"
         tools:context="org.example.androidenterprise.activity.MyWorksActivity">
     <RelativeLayout
-            android:id="@+id/complain_suggest_top"
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/myworks_return_ib"
+                android:id="@+id/ib_reback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -27,7 +27,7 @@
                 android:textSize="@dimen/top_text_size"
                 android:textColor="@color/color_ffffff"/>
         <ImageButton
-                android:id="@+id/myworks_delete_ib"
+                android:id="@+id/ib_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/ic_myworks_delete"
@@ -36,7 +36,7 @@
                 android:layout_marginRight="@dimen/top_delete_ib_right_dis"/>
     </RelativeLayout>
     <GridView
-            android:id="@+id/myworks_gv"
+            android:id="@+id/gv_myworks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"

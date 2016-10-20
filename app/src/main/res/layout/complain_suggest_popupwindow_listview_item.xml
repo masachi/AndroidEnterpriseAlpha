@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
     <TextView
-            android:id="@+id/item_tv"
+            android:id="@+id/tv_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="hhhhh"
@@ -12,11 +12,11 @@
             android:layout_marginLeft="@dimen/popupwindow_rb_left_dis"
             android:layout_marginTop="@dimen/popupwindow_rb_top_dis"/>
     <ImageView
-            android:id="@+id/item_iv"
+            android:id="@+id/iv_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_complain_suggest_check_selected"
-            android:layout_alignBottom="@+id/item_tv"
+            android:layout_alignBottom="@+id/tv_item"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/popupwindow_lv_item_iv_right_dis"
             android:visibility="invisible"/>
@@ -24,7 +24,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/popupwindow_tv_height"
-            android:layout_below="@+id/item_tv"
+            android:layout_below="@+id/tv_item"
             android:background="@color/color_d1d1d1"
             android:layout_marginTop="@dimen/popupwindow_tv_top_dis"
             android:layout_marginLeft="@dimen/popupwindow_tv_left_dis"

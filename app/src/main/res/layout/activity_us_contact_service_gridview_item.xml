@@ -3,7 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <RadioButton
-            android:id="@+id/service_item_rb"
+            android:id="@+id/rb_service_item"
             android:drawableTop="@drawable/contact_us_service_selector"
             android:text="122"
             android:layout_width="wrap_content"
@@ -14,20 +14,5 @@
             android:textColor="@color/color_666666"
             android:gravity="center"
     />
-    <!--<ImageButton-->
-    <!--android:id="@+id/service_ib"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@mipmap/ic_contact_us_service_online"-->
-    <!--android:layout_marginLeft="@dimen/dimen_10dp"/>-->
-    <!--<TextView-->
-    <!--android:id="@+id/service_tv"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="客服1"-->
-    <!--android:gravity="center"-->
-    <!--android:textColor="@color/color_666666"-->
-    <!--android:textSize="@dimen/dimen_11sp"-->
-    <!--android:layout_marginTop="@dimen/dimen_5dp"/>-->
 
 </LinearLayout>

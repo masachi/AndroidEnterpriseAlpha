@@ -91,8 +91,8 @@ public class MineFragment extends Fragment implements View.OnClickListener,Adapt
             {
                 add(OrderActivity.class);
                 add(RecordActivity.class);
-                add(null);// TODO: 2016/10/16 add MessageActivity to this line
-                add(null);// TODO: 2016/10/16 add WorkActivity to this line
+                add(MessageActivity.class);// TODO: 2016/10/16 add MessageActivity to this line
+                add(MyWorksActivity.class);// TODO: 2016/10/16 add WorkActivity to this line
                 add(ComplainSuggestActivity.class);
                 add(ContactUsActivity.class);
                 add(HelpCenterActivity.class);

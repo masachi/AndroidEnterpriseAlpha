@@ -3,7 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <RadioButton
-            android:id="@+id/qq_rb"
+            android:id="@+id/rb_qq"
             android:layout_width="@dimen/qq_gv_item_rb_height"
             android:layout_height="@dimen/qq_gv_item_rb_width"
             android:drawableLeft="@drawable/contact_us_qq_selector"

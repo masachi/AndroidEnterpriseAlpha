@@ -6,12 +6,12 @@
         android:layout_height="match_parent"
         tools:context=".activity.ComplainSuggestActivity">
     <RelativeLayout
-            android:id="@+id/complain_suggest_top"
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/complain_suggest_return_ib"
+                android:id="@+id/ib_reback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -26,26 +26,17 @@
                 android:textSize="@dimen/top_text_size"
                 android:textColor="@color/color_ffffff"/>
     </RelativeLayout>
-    <!--<Spinner-->
-            <!--android:id="@+id/spinner"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="@dimen/dimen_37dp"-->
-            <!--android:background="@drawable/activity_suggest_complain_et_bg"-->
-            <!--android:layout_below="@+id/complain_suggest_top"-->
-            <!--android:layout_marginLeft="@dimen/dimen_10dp"-->
-            <!--android:layout_marginTop="@dimen/dimen_10dp"-->
-            <!--android:layout_marginRight="@dimen/dimen_10dp"></Spinner>-->
     <RelativeLayout
-            android:id="@+id/choose_kinds_rl"
+            android:id="@+id/rl_choose_kinds"
             android:layout_width="match_parent"
             android:layout_height="@dimen/choose_suggest_height"
-            android:layout_below="@+id/complain_suggest_top"
+            android:layout_below="@+id/rl_top"
             android:background="@drawable/activity_suggest_complain_et_bg"
             android:layout_marginTop="@dimen/choose_suggest_top_dis"
             android:layout_marginLeft="@dimen/choose_suggest_left_dis"
             android:layout_marginRight="@dimen/choose_suggest_right_dis">
         <TextView
-                android:id="@+id/choose_title_tv"
+                android:id="@+id/tv_choose_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="请选择意见类型"
@@ -54,7 +45,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/choose_suggest_text_left_dis"/>
         <ImageView
-                android:id="@+id/choose_ib"
+                android:id="@+id/iv_choose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -73,10 +64,10 @@
 
     <!--</ListView>-->
     <EditText
-            android:id="@+id/suggest_context_et"
+            android:id="@+id/et_suggest_context"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_context_et_height"
-            android:layout_below="@+id/choose_kinds_rl"
+            android:layout_below="@+id/rl_choose_kinds"
             android:background="@drawable/activity_suggest_complain_et_bg"
             android:hint="@string/input_context_str"
             android:textSize="@dimen/input_context_hint_text_size"
@@ -89,28 +80,28 @@
             android:layout_marginTop="@dimen/input_context_et_top_dis"
             />
     <TextView
-            android:id="@+id/complain_telephone_tv"
+            android:id="@+id/tv_complain_telephone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/complain_telephone_str"
             android:textSize="@dimen/choose_suggest_text_size"
             android:textColor="@color/color_999999"
-            android:layout_below="@+id/suggest_context_et"
+            android:layout_below="@+id/et_suggest_context"
             android:layout_marginTop="@dimen/complain_telephone_tv_top_dis"
             android:layout_marginLeft="@dimen/complain_telephone_tv_left_dis"/>
     <TextView
-            android:id="@+id/complain_telephone_number_tv"
+            android:id="@+id/tv_complain_telephone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/complain_telephone_number_str"
             android:textSize="@dimen/choose_suggest_text_size"
             android:textColor="@color/color_666666"
-            android:layout_below="@+id/suggest_context_et"
-            android:layout_toRightOf="@+id/complain_telephone_tv"
+            android:layout_below="@+id/et_suggest_context"
+            android:layout_toRightOf="@+id/tv_complain_telephone"
             android:layout_marginTop="@dimen/complain_telephone_num_tv_top_dis"
             android:layout_marginLeft="@dimen/complain_telephone_num_tv_left_dis"/>
     <Button
-            android:id="@+id/commit_btn"
+            android:id="@+id/btn_commit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/commit_btn_height"
             android:layout_marginLeft="@dimen/commit_btn_left_dis"

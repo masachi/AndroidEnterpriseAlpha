@@ -15,26 +15,27 @@ import org.xutils.x;
 @ContentView(R.layout.activity_my_works_delete)
 public class MyWorksDeleteActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @ViewInject(R.id.myworks_gridview)
-    CustomMeasureGridView myworks_gridview;
-    @ViewInject(R.id.delete_btn)
-    Button delete_btn;
-    @ViewInject(R.id.myworks_reback_ib)
-    ImageButton myworks_reback_ib;
-// TODO get works_data and  delete
+    @ViewInject(R.id.ib_reback)
+    ImageButton ib_reback;
+    @ViewInject(R.id.gv_myworks)
+    CustomMeasureGridView gv_myworks;
+    @ViewInject(R.id.btn_delete)
+    Button btn_delete;
+
+    // TODO get works_data and  delete
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_my_works_delete);
         x.view().inject(this);
-        myworks_reback_ib.setOnClickListener(this);
+        ib_reback.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.myworks_reback_ib:
-                Intent intent = new Intent(MyWorksDeleteActivity.this,MyWorksActivity.class);
+        switch (view.getId()) {
+            case R.id.ib_reback:
+                Intent intent = new Intent(MyWorksDeleteActivity.this, MyWorksActivity.class);
                 startActivity(intent);
                 break;
             default:

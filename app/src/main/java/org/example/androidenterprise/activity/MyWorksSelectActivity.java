@@ -12,13 +12,13 @@ import org.xutils.x;
 
 @ContentView(R.layout.activity_my_works_select)
 public class MyWorksSelectActivity extends AppCompatActivity {
+    @ViewInject(R.id.ib_reback)
+    ImageButton ib_reback;
+    @ViewInject(R.id.gv_myworks)
+    CustomMeasureGridView gv_myworks;
+    @ViewInject(R.id.btn_confirm)
+    Button btn_confirm;
 
-    @ViewInject(R.id.myworks_select_reback_ib)
-    ImageButton myworks_select_reback_ib;
-    @ViewInject(R.id.myworks_gridview)
-    CustomMeasureGridView myworks_gridview;
-    @ViewInject(R.id.confirm_btn)
-    Button confirm_btn;
 // TODO get works_data and select
 
     @Override

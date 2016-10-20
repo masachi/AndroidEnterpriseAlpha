@@ -7,12 +7,12 @@
         android:orientation="vertical"
         tools:context=".activity.ContactUsActivity">
     <RelativeLayout
-            android:id="@+id/contact_us_top"
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/contact_us_return_ib"
+                android:id="@+id/ib_reback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
-                android:id="@+id/telephone_tv"
+                android:id="@+id/tv_telephone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/telephone_str"
@@ -62,10 +62,10 @@
                 android:textSize="@dimen/contact_us_text_size"
                 android:textColor="@color/color_666666"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/telephone_tv"
+                android:layout_toRightOf="@+id/tv_telephone"
                 android:layout_marginLeft="@dimen/contact_telephone_num_tv_left_dis"/>
         <TextView
-                android:id="@+id/dial_telephone_tv"
+                android:id="@+id/tv_dial_telephone"
                 android:layout_width="@dimen/dial_tv_width"
                 android:layout_height="@dimen/dial_tv_height"
                 android:background="@drawable/activity_contact_us_telephone_bg"
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/tv_height"
                 android:background="@color/color_d1d1d1"
-                android:layout_below="@+id/telephone_tv"
+                android:layout_below="@+id/tv_telephone"
                 android:layout_marginLeft="@dimen/tv_left_dis"
                 android:layout_marginRight="@dimen/tv_right_dis"
                 android:layout_marginTop="@dimen/tv_margin_top"/>
@@ -100,7 +100,7 @@
             android:layout_marginTop="@dimen/service_tv_top_dis"
     />
     <GridView
-            android:id="@+id/service_gv"
+            android:id="@+id/gv_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numColumns="4"
@@ -114,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/tv_height"
             android:background="@color/color_d1d1d1"
-            android:layout_below="@+id/telephone_tv"
+            android:layout_below="@+id/tv_telephone"
             android:layout_marginLeft="@dimen/tv_left_dis"
             android:layout_marginRight="@dimen/tv_right_dis"
             android:layout_marginTop="@dimen/tv_margin_top"/>
@@ -128,7 +128,7 @@
             android:layout_marginTop="@dimen/qq_tv_top_dis"
     />
     <GridView
-            android:id="@+id/qq_gv"
+            android:id="@+id/gv_qq"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="3"

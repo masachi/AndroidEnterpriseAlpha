@@ -45,7 +45,7 @@ public class ContactUsServiceAdapter extends BaseAdapter {
         if(view==null){
             view = mLayoutInflate.inflate(R.layout.activity_us_contact_service_gridview_item,null);
             holder_contactUsService=new ViewHolder_ContactUsService();
-            holder_contactUsService.serviceItemRb=(RadioButton)view.findViewById(R.id.service_item_rb);
+            holder_contactUsService.serviceItemRb=(RadioButton)view.findViewById(R.id.rb_service_item);
             view.setTag(holder_contactUsService);
         }else {
             holder_contactUsService = (ViewHolder_ContactUsService) view.getTag();

@@ -6,12 +6,12 @@
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.MyWorksSelectActivity">
     <RelativeLayout
-            android:id="@+id/myworks_select_top"
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/top_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/myworks_select_reback_ib"
+                android:id="@+id/ib_reback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -29,16 +29,16 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/myworks_select_top">
+            android:layout_below="@+id/rl_top">
         <org.example.androidenterprise.view.CustomMeasureGridView
-                android:id="@+id/myworks_gridview"
+                android:id="@+id/gv_myworks"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
         </org.example.androidenterprise.view.CustomMeasureGridView>
     </ScrollView>
     <Button
-            android:id="@+id/confirm_btn"
+            android:id="@+id/btn_confirm"
             android:layout_width="match_parent"
             android:layout_height="@dimen/myworks_delete_btn_height"
             android:text="@string/myworks_select_confirm_str"

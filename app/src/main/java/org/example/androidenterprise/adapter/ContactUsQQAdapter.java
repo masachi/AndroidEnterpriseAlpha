@@ -45,7 +45,7 @@ public class ContactUsQQAdapter extends BaseAdapter {
         if(view==null){
             view = mLayoutInflate.inflate(R.layout.activity_us_contact_qq_gv_item,null);
             holder_contactUsQQ=new ViewHolder_ContactUsQQ();
-            holder_contactUsQQ.qqRb=(RadioButton)view.findViewById(R.id.qq_rb);
+            holder_contactUsQQ.qqRb=(RadioButton)view.findViewById(R.id.rb_qq);
             view.setTag(holder_contactUsQQ);
         }else {
             holder_contactUsQQ = (ViewHolder_ContactUsQQ) view.getTag();
