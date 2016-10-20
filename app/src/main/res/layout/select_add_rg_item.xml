@@ -8,7 +8,7 @@
                 android:paddingRight="@dimen/select_add_margin_many"
                 android:background="@drawable/select_add">
     <RadioButton
-            android:id="@+id/select_add_rb"
+            android:id="@+id/rb_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -17,49 +17,49 @@
     <!--android:button="@null"-->
     <TextView
             android:text="收货人：XXX"
-            android:id="@+id/select_add_consignee"
+            android:id="@+id/tv_consignee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/select_add_rb"
+            android:layout_toRightOf="@id/rb_select"
             android:layout_marginLeft="@dimen/select_add_margin_many"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/select_add_text_size"/>
     <TextView
             android:text="13428765549"
-            android:id="@+id/select_add_phonenum"
+            android:id="@+id/tv_phonenum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/select_add_consignee"
-            android:layout_toRightOf="@id/select_add_consignee"
+            android:layout_alignTop="@id/tv_consignee"
+            android:layout_toRightOf="@id/tv_consignee"
             android:layout_marginLeft="@dimen/select_add_consignee_margin_phone"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/select_add_text_size"/>
     <TextView
             android:text="地址：山东省威海市山东省威海市山东省威海市山东省威海市山东省威海市山东省威海市"
-            android:id="@+id/select_add_add"
+            android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/select_add_consignee"
+            android:layout_below="@id/tv_consignee"
             android:layout_marginTop="@dimen/select_add_consignee_margin_add"
-            android:layout_alignLeft="@id/select_add_consignee"
+            android:layout_alignLeft="@id/tv_consignee"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/select_add_text_size"/>
     <TextView
-            android:id="@+id/select_add_edit_tv"
+            android:id="@+id/tv_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/select_add_add"
+            android:layout_below="@id/tv_address"
             android:text="@string/select_add_edit"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/select_add_text_size"/>
     <ImageView
-            android:id="@+id/select_add_edit_img"
+            android:id="@+id/iv_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/select_add_edit_tv"
+            android:layout_toLeftOf="@id/tv_edit"
             android:layout_marginRight="@dimen/select_add_img_margin_textview"
-            android:layout_alignTop="@id/select_add_edit_tv"
+            android:layout_alignTop="@id/tv_edit"
             android:src="@mipmap/ic_add_edit"/>
 
 </RelativeLayout>

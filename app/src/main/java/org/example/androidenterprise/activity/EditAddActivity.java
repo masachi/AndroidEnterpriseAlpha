@@ -15,23 +15,22 @@ import org.xutils.x;
 
 public class EditAddActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.edit_add_return_ib)
-    ImageButton returnImgBtn;
-    @ViewInject(R.id.edit_add_consignee_et)
+    @ViewInject(R.id.ib_return)
+    ImageButton returnIb;
+    @ViewInject(R.id.et_consignee)
     EditText consigneeEt;
-    @ViewInject(R.id.edit_add_phonenum_et)
+    @ViewInject(R.id.et_phonenum)
     EditText phonenumEt;
-    @ViewInject(R.id.edit_add_detailed_et)
+    @ViewInject(R.id.et_detailed)
     EditText detailEt;
-    @ViewInject(R.id.edit_add_rl_delete)
+    @ViewInject(R.id.rl_delete)
     RelativeLayout deleteRl;
-    @ViewInject(R.id.edit_add_conserve)
+    @ViewInject(R.id.btn_conserve)
     Button conserveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_add);
         x.view().inject(this);
         Intent intent = getIntent();
         if(intent.getExtras().get("add_addr").equals("0")){
@@ -47,16 +46,16 @@ public class EditAddActivity extends AppCompatActivity {
         }
     }
 
-    @Event(value = {R.id.edit_add_return_ib, R.id.edit_add_rl_delete, R.id.edit_add_conserve})
+    @Event(value = {R.id.ib_return, R.id.rl_delete, R.id.btn_conserve})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.edit_add_return_ib:
+            case R.id.ib_return:
                 finish();
                 break;
-            case R.id.edit_add_rl_delete:
+            case R.id.rl_delete:
                 // TODO: 实现删除功能,上传到数据库
                 break;
-            case R.id.edit_add_conserve:
+            case R.id.btn_conserve:
                 // TODO: 实现按钮保存功能，上传到数据库
                 break;
         }

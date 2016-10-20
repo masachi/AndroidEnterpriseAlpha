@@ -17,11 +17,11 @@ import org.xutils.x;
 
 public class SelectAddActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.select_add_return_ib)
+    @ViewInject(R.id.ib_return)
     ImageButton returnImgBtn;
-    @ViewInject(R.id.select_add_rg)
+    @ViewInject(R.id.rg_address)
     RadioGroup radioGroup;
-    @ViewInject(R.id.select_add_increase_btn)
+    @ViewInject(R.id.btn_increase)
     Button increaseBtn;
 
     @Override
@@ -30,17 +30,17 @@ public class SelectAddActivity extends AppCompatActivity {
         x.view().inject(this);
     }
 
-    @Event(value = {R.id.select_add_return_ib, R.id.select_add_rg, R.id.select_add_increase_btn})
+    @Event(value = {R.id.ib_return, R.id.rg_address, R.id.btn_increase})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.select_add_return_ib:
+            case R.id.ib_return:
                 finish();
                 break;
-            case R.id.select_add_rg:
+            case R.id.rg_address:
                 //TODO: 实现单选功能
                 break;
             // TODO: “编辑” 跳到编辑页面
-            case R.id.select_add_increase_btn:
+            case R.id.btn_increase:
                 // TODO: 跳到编辑地址页面（增加地址形式）
                 Intent intent = new Intent().setClass(SelectAddActivity.this, EditAddActivity.class);
                 Bundle bundle = new Bundle();

@@ -7,36 +7,36 @@
 
     <ImageView
             android:src="@drawable/img_example"
-            android:id="@+id/record_info_img"
+            android:id="@+id/iv_record"
             android:layout_width="@dimen/record_info_img"
             android:layout_height="@dimen/record_info_img"/>
     <TextView
             android:text="乐器xxx乐器xxx乐器xxx乐器xxx乐器xxx乐器xxx"
-            android:id="@+id/record_info_name"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/record_info_img"
-            android:layout_toRightOf="@id/record_info_img"
+            android:layout_alignTop="@id/iv_record"
+            android:layout_toRightOf="@id/iv_record"
             android:layout_marginLeft="@dimen/record_lv_margin_many"
             android:textColor="@color/record_info_name_price_color"
             android:textSize="@dimen/record_info_text_size"/>
     <TextView
             android:text="XXX属性"
-            android:id="@+id/record_info_property"
+            android:id="@+id/tv_property"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/record_info_name"
+            android:layout_below="@id/tv_name"
             android:layout_marginTop="@dimen/record_lv_margin_many"
-            android:layout_alignLeft="@id/record_info_name"
+            android:layout_alignLeft="@id/tv_name"
             android:textColor="@color/record_date_property_color"
             android:textSize="@dimen/record_info_text_size"/>
     <TextView
             android:text="¥6000.00"
-            android:id="@+id/record_info_price"
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignBottom="@id/record_info_img"
+            android:layout_alignBottom="@id/iv_record"
             android:textColor="@color/record_info_name_price_color"
             android:textSize="@dimen/record_info_text_size"/>
 

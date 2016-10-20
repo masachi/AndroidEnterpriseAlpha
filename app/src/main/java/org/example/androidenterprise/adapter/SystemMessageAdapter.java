@@ -43,9 +43,9 @@ public class SystemMessageAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mLayoutInflate.inflate(R.layout.system_message_lv_item, null);
             holder = new ViewHolder_SystemMessage();
-            holder.title = (TextView) convertView.findViewById(R.id.system_message_title);
-            holder.content = (TextView) convertView.findViewById(R.id.system_message_content);
-            holder.time = (TextView) convertView.findViewById(R.id.system_message_time);
+            holder.title = (TextView) convertView.findViewById(R.id.tv_title);
+            holder.content = (TextView) convertView.findViewById(R.id.tv_content);
+            holder.time = (TextView) convertView.findViewById(R.id.tv_time);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder_SystemMessage) convertView.getTag();

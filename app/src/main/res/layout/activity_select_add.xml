@@ -6,12 +6,13 @@
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.SelectAddActivity">
     <RelativeLayout
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:paddingLeft="@dimen/select_add_margin_many"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/select_add_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -31,14 +32,15 @@
     </RelativeLayout>
 
     <RadioGroup
-            android:id="@+id/select_add_rg"
+            android:id="@+id/rg_address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_top">
         <!--TODO: select_add_rg_item-->
     </RadioGroup>
 
     <Button
-            android:id="@+id/select_add_increase_btn"
+            android:id="@+id/btn_increase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

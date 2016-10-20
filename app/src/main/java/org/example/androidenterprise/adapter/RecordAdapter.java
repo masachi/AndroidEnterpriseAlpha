@@ -66,10 +66,10 @@ public class RecordAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = mLayoutInflate.inflate(R.layout.record_lv_item, parent, false);
             holderGroup = new ViewHolderGroup_Record();
-            holderGroup.date = (TextView) convertView.findViewById(R.id.record_date);
-            holderGroup.state = (TextView) convertView.findViewById(R.id.record_state);
-            holderGroup.count = (TextView) convertView.findViewById(R.id.record_count);
-            holderGroup.count_price = (TextView) convertView.findViewById(R.id.record_count_price);
+            holderGroup.date = (TextView) convertView.findViewById(R.id.tv_date);
+            holderGroup.state = (TextView) convertView.findViewById(R.id.tv_state);
+            holderGroup.count = (TextView) convertView.findViewById(R.id.tv_count);
+            holderGroup.count_price = (TextView) convertView.findViewById(R.id.tv_price);
             convertView.setTag(holderGroup);
         } else {
             holderGroup = (ViewHolderGroup_Record) convertView.getTag();
@@ -88,10 +88,10 @@ public class RecordAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = mLayoutInflate.inflate(R.layout.record_info_lv_item, parent, false);
             holderChild = new ViewHolderChild_Record();
-            holderChild.img = (ImageView) convertView.findViewById(R.id.record_info_img);
-            holderChild.name = (TextView) convertView.findViewById(R.id.record_info_name);
-            holderChild.property = (TextView) convertView.findViewById(R.id.record_info_property);
-            holderChild.price = (TextView) convertView.findViewById(R.id.record_info_price);
+            holderChild.img = (ImageView) convertView.findViewById(R.id.iv_record);
+            holderChild.name = (TextView) convertView.findViewById(R.id.tv_name);
+            holderChild.property = (TextView) convertView.findViewById(R.id.tv_property);
+            holderChild.price = (TextView) convertView.findViewById(R.id.tv_price);
             convertView.setTag(holderChild);
         } else {
             holderChild = (ViewHolderChild_Record) convertView.getTag();

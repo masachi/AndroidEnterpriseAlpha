@@ -15,52 +15,52 @@
             android:background="@drawable/record">
         <TextView
                 android:text="订单时间 2016-05-06 14:00"
-                android:id="@+id/record_date"
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/record_date_property_color"
                 android:textSize="@dimen/record_date_size"/>
         <TextView
                 android:text="已完成"
-                android:id="@+id/record_state"
+                android:id="@+id/tv_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/record_state_color"
                 android:textSize="@dimen/record_state_size"/>
         <TextView
-                android:id="@+id/record_line1"
+                android:id="@+id/tv_line1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/storke_all"
-                android:layout_below="@id/record_date"
+                android:layout_below="@id/tv_date"
                 android:layout_marginTop="@dimen/record_lv_margin_many"
                 android:background="@color/record_line_color"/>
 
         <org.example.androidenterprise.view.CustomMeasureListView
-                android:id="@+id/record_info_lv"
+                android:id="@+id/lv_record_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/record_line1"
+                android:layout_below="@id/tv_line1"
                 android:paddingTop="@dimen/record_info_margin"
                 android:paddingBottom="@dimen/record_info_margin">
 
         </org.example.androidenterprise.view.CustomMeasureListView>
 
         <TextView
-                android:id="@+id/record_line2"
+                android:id="@+id/tv_line2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/storke_all"
-                android:layout_below="@id/record_info_lv"
+                android:layout_below="@id/lv_record_info"
                 android:background="@color/record_line_color"/>
 
         <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/record_line2"
+                android:layout_below="@id/tv_line2"
                 android:layout_marginTop="@dimen/record_lv_margin_many">
             <TextView
                     android:text="¥6000.00"
-                    android:id="@+id/record_count_price"
+                    android:id="@+id/tv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -68,10 +68,10 @@
                     android:textSize="@dimen/record_count_size"/>
             <TextView
                     android:text="共n件商品（含运费0.0）实付 "
-                    android:id="@+id/record_count"
+                    android:id="@+id/tv_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/record_count_price"
+                    android:layout_toLeftOf="@id/tv_price"
                     android:layout_centerVertical="true"
                     android:textColor="@color/record_count_color"
                     android:textSize="@dimen/record_state_size"/>

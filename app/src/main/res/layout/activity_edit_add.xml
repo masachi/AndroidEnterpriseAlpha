@@ -6,13 +6,13 @@
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.EditAddActivity">
     <RelativeLayout
-            android:id="@+id/edit_add_rl"
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:paddingLeft="@dimen/select_add_margin_many"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/edit_add_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -32,21 +32,21 @@
     </RelativeLayout>
 
     <TextView
-            android:id="@+id/edit_add_consignee"
+            android:id="@+id/tv_consignee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_add_rl"
+            android:layout_below="@id/rl_top"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
             android:layout_marginLeft="@dimen/edit_add_margin_left_right"
             android:text="@string/consignee"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/edit_add_text_size"/>
     <EditText
-            android:id="@+id/edit_add_consignee_et"
+            android:id="@+id/et_consignee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/edit_add_consignee"
-            android:layout_below="@id/edit_add_rl"
+            android:layout_toRightOf="@id/tv_consignee"
+            android:layout_below="@id/rl_top"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:paddingTop="@dimen/edit_add_tv_margin_many"
@@ -57,31 +57,31 @@
             android:textColor="@color/color_999999"
             android:textSize="@dimen/edit_add_text_size"/>
     <TextView
-            android:id="@+id/edit_add_line1"
+            android:id="@+id/tv_line1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/storke_all"
-            android:layout_below="@id/edit_add_consignee"
+            android:layout_below="@id/tv_consignee"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
             android:layout_marginLeft="@dimen/edit_add_margin_left_right"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:background="@color/color_d1d1d1"/>
 
     <TextView
-            android:id="@+id/edit_add_phonenum"
+            android:id="@+id/tv_phonenum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_add_line1"
+            android:layout_below="@id/tv_line1"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
-            android:layout_alignRight="@id/edit_add_consignee"
+            android:layout_alignRight="@id/tv_consignee"
             android:text="@string/phonenum"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/edit_add_text_size"/>
     <EditText
-            android:id="@+id/edit_add_phonenum_et"
+            android:id="@+id/et_phonenum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/edit_add_phonenum"
-            android:layout_below="@id/edit_add_line1"
+            android:layout_toRightOf="@id/tv_phonenum"
+            android:layout_below="@id/tv_line1"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:paddingTop="@dimen/edit_add_tv_margin_many"
@@ -93,31 +93,31 @@
             android:textColor="@color/color_999999"
             android:textSize="@dimen/edit_add_text_size"/>
     <TextView
-            android:id="@+id/edit_add_line2"
+            android:id="@+id/tv_line2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/storke_all"
-            android:layout_below="@id/edit_add_phonenum"
+            android:layout_below="@id/tv_phonenum"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
             android:layout_marginLeft="@dimen/edit_add_margin_left_right"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:background="@color/color_d1d1d1"/>
 
     <TextView
-            android:id="@+id/edit_add_detailed"
+            android:id="@+id/tv_detailed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_add_line2"
+            android:layout_below="@id/tv_line2"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
-            android:layout_alignRight="@id/edit_add_consignee"
+            android:layout_alignRight="@id/tv_consignee"
             android:text="@string/detailed"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/edit_add_text_size"/>
     <EditText
-            android:id="@+id/edit_add_detailed_et"
+            android:id="@+id/et_detailed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/edit_add_detailed"
-            android:layout_below="@id/edit_add_line2"
+            android:layout_toRightOf="@id/tv_detailed"
+            android:layout_below="@id/tv_line2"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:paddingTop="@dimen/edit_add_tv_margin_many"
@@ -128,35 +128,35 @@
             android:textColor="@color/color_999999"
             android:textSize="@dimen/edit_add_text_size"/>
     <TextView
-            android:id="@+id/edit_add_line3"
+            android:id="@+id/tv_line3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/storke_all"
-            android:layout_below="@id/edit_add_detailed"
+            android:layout_below="@id/tv_detailed"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
             android:layout_marginLeft="@dimen/edit_add_margin_left_right"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:background="@color/color_d1d1d1"/>
 
     <RelativeLayout
-            android:id="@+id/edit_add_rl_delete"
+            android:id="@+id/rl_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
-            android:layout_below="@id/edit_add_line3"
+            android:layout_below="@id/tv_line3"
             android:layout_marginTop="@dimen/edit_add_line_margin_delete">
         <ImageView
-                android:id="@+id/edit_add_delete_img"
+                android:id="@+id/iv_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/ic_add_delete"/>
         <TextView
-                android:id="@+id/edit_add_delete"
+                android:id="@+id/tv_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/edit_add_delete_img"
+                android:layout_toRightOf="@id/iv_delete"
                 android:layout_marginLeft="@dimen/edit_add_img_margin_delete"
                 android:text="@string/delete"
                 android:textColor="@color/color_999999"
@@ -164,10 +164,10 @@
     </RelativeLayout>
 
     <Button
-            android:id="@+id/edit_add_conserve"
+            android:id="@+id/btn_conserve"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_add_rl_delete"
+            android:layout_below="@id/rl_delete"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="@dimen/edit_add_btn_margin_left_right"
             android:layout_marginRight="@dimen/edit_add_btn_margin_left_right"

@@ -14,19 +14,19 @@ import org.xutils.x;
 
 public class CourseOrderActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.course_order_return_ib)
-    ImageButton returnImgBtn;
-    @ViewInject(R.id.course_order_account_name)
+    @ViewInject(R.id.ib_return)
+    ImageButton returnIb;
+    @ViewInject(R.id.tv_account_name)
     TextView accountTv;
-    @ViewInject(R.id.course_order_lv)
+    @ViewInject(R.id.lv_course_order)
     ListView courseorderLv;
-    @ViewInject(R.id.course_order_real_name)
+    @ViewInject(R.id.et_real_name)
     EditText realnameEt;
-    @ViewInject(R.id.course_order_phonenum)
+    @ViewInject(R.id.et_phonenum)
     EditText phonenumEt;
-    @ViewInject(R.id.course_order_price)
+    @ViewInject(R.id.tv_price)
     TextView priceTv;
-    @ViewInject(R.id.course_order_confirm)
+    @ViewInject(R.id.btn_confirm)
     Button confirmBtn;
 
     @Override
@@ -35,13 +35,13 @@ public class CourseOrderActivity extends AppCompatActivity {
         x.view().inject(this);
     }
 
-    @Event(value = {R.id.course_order_return_ib, R.id.course_order_confirm})
+    @Event(value = {R.id.ib_return, R.id.btn_confirm})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.course_order_return_ib:
+            case R.id.ib_return:
                 finish();
                 break;
-            case R.id.course_order_confirm:
+            case R.id.btn_confirm:
                 //TODO: 上传订购信息
                 break;
         }

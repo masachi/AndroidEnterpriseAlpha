@@ -45,12 +45,12 @@ public class CourseOrderAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mLayoutInflate.inflate(R.layout.course_order_lv_item, null);
             holder = new ViewHolder_CourseOrder();
-            holder.img = (ImageView) convertView.findViewById(R.id.course_order_lv_img);
-            holder.name = (TextView) convertView.findViewById(R.id.course_order_lv_name);
-            holder.difficulty = (TextView) convertView.findViewById(R.id.course_order_lv_difficulty);
-            holder.teacher = (TextView) convertView.findViewById(R.id.course_order_lv_teacher);
-            holder.classroom = (TextView) convertView.findViewById(R.id.course_order_lv_classroom);
-            holder.price = (TextView) convertView.findViewById(R.id.course_order_lv_price);
+            holder.img = (ImageView) convertView.findViewById(R.id.iv_course_order);
+            holder.name = (TextView) convertView.findViewById(R.id.tv_name);
+            holder.difficulty = (TextView) convertView.findViewById(R.id.tv_difficulty);
+            holder.teacher = (TextView) convertView.findViewById(R.id.tv_teacher);
+            holder.classroom = (TextView) convertView.findViewById(R.id.tv_classroom);
+            holder.price = (TextView) convertView.findViewById(R.id.tv_price);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder_CourseOrder) convertView.getTag();
