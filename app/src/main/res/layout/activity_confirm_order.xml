@@ -4,12 +4,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
     <RelativeLayout
-            android:id="@+id/confirm_order_title_rl"
+            android:id="@+id/rl_confirm_order_title"
             android:background="@color/color_97C8CD"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height">
         <ImageButton
-                android:id="@+id/confirm_order_return_ib"
+                android:id="@+id/ib_confirm_order_return"
                 android:src="@mipmap/ic_return"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/action_bar_ib_margin_start"
@@ -27,7 +27,7 @@
     </RelativeLayout>
 
     <org.example.androidenterprise.view.CustomScrollView
-            android:layout_below="@id/confirm_order_title_rl"
+            android:layout_below="@id/rl_confirm_order_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <RelativeLayout
@@ -35,19 +35,19 @@
                 android:layout_height="wrap_content">
 
             <RelativeLayout
-                    android:id="@+id/ship_address_rl"
+                    android:id="@+id/rl_ship_address"
                     android:background="@color/color_FFFFFF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <ImageView
-                        android:id="@+id/ship_address_iv"
+                        android:id="@+id/iv_ship_address"
                         android:background="@mipmap/ic_ship_address"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/confirm_order_adidress_iv_margin_start"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <ImageButton
-                        android:id="@+id/right_arrow"
+                        android:id="@+id/ib_right_arrow"
                         android:background="@mipmap/ic_right_arrow"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
@@ -55,57 +55,57 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/receiver_tv"
+                        android:id="@+id/tv_receiver"
                         android:text="@string/confirm_order_consignee_str"
                         android:textSize="@dimen/confirm_order_receiver_name_size"
                         android:textColor="@color/color_666666"
-                        android:layout_toRightOf="@id/ship_address_iv"
+                        android:layout_toRightOf="@id/iv_ship_address"
                         android:layout_marginLeft="@dimen/confirm_order_receiver_name_margin_top"
                         android:layout_marginTop="@dimen/confirm_order_receiver_name_margin_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/receiver_name_tv"
+                        android:id="@+id/tv_receiver_name"
                         android:text="XXX"
                         android:textSize="@dimen/confirm_order_receiver_name_size"
                         android:textColor="@color/color_666666"
-                        android:layout_toRightOf="@id/receiver_tv"
+                        android:layout_toRightOf="@id/tv_receiver"
                         android:layout_marginTop="@dimen/confirm_order_receiver_name_margin_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/receiver_tele_number_tv"
+                        android:id="@+id/tv_receiver_tele_number"
                         android:text="134285797846"
                         android:textSize="@dimen/confirm_order_receiver_name_size"
                         android:textColor="@color/color_666666"
-                        android:layout_alignTop="@id/receiver_name_tv"
-                        android:layout_toRightOf="@id/receiver_name_tv"
+                        android:layout_alignTop="@id/tv_receiver_name"
+                        android:layout_toRightOf="@id/tv_receiver_name"
                         android:layout_marginLeft="@dimen/confirm_order_receiver_tele_margin_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/address_tv"
+                        android:id="@+id/tv_address"
                         android:text="@string/confirm_order_consignee_address_str"
-                        android:layout_alignLeft="@id/receiver_tv"
-                        android:layout_below="@id/receiver_tv"
+                        android:layout_alignLeft="@id/tv_receiver"
+                        android:layout_below="@id/tv_receiver"
                         android:layout_marginTop="@dimen/confirm_order_details_address_margin_top"
                         android:layout_marginBottom="@dimen/confirm_order_details_address_margin_bottom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/details_address_tv"
+                        android:id="@+id/tv_details_address"
                         android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                        android:layout_toRightOf="@id/address_tv"
-                        android:layout_below="@id/receiver_name_tv"
-                        android:layout_toLeftOf="@id/right_arrow"
+                        android:layout_toRightOf="@id/tv_address"
+                        android:layout_below="@id/tv_receiver_name"
+                        android:layout_toLeftOf="@id/ib_right_arrow"
                         android:layout_marginRight="@dimen/confirm_order_details_address_margin_right"
                         android:layout_marginTop="@dimen/confirm_order_details_address_margin_top"
                         android:layout_marginBottom="@dimen/confirm_order_details_address_margin_bottom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <View
-                        android:id="@+id/divider_line1_view"
-                        android:layout_below="@id/details_address_tv"
+                        android:id="@+id/view_divider_line1"
+                        android:layout_below="@id/tv_details_address"
                         android:background="@color/color_d1d1d1"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
@@ -113,20 +113,20 @@
             </RelativeLayout>
 
             <RelativeLayout
-                    android:id="@+id/purchase_goods_details_rl"
+                    android:id="@+id/rl_purchase_goods_details"
                     android:background="@color/color_FFFFFF"
-                    android:layout_below="@id/ship_address_rl"
+                    android:layout_below="@id/rl_ship_address"
                     android:layout_marginTop="@dimen/purchase_goods_details_rl_margin_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <View
-                        android:id="@+id/divider_line2_view"
+                        android:id="@+id/view_divider_line2"
                         android:background="@color/color_d1d1d1"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
                 <org.example.androidenterprise.view.CustomMeasureListView
-                        android:id="@+id/goods_details_cmlv"
-                        android:layout_below="@id/divider_line2_view"
+                        android:id="@+id/cmlv_goods_details"
+                        android:layout_below="@id/view_divider_line2"
                         android:divider="@null"
                         android:scrollbars="none"
                         android:layout_width="match_parent"
@@ -134,111 +134,111 @@
                 </org.example.androidenterprise.view.CustomMeasureListView>
 
                 <View
-                        android:id="@+id/divider_line3_view"
+                        android:id="@+id/view_divider_line3"
                         android:layout_marginRight="@dimen/confirm_order_divider_line3_margin_right"
                         android:layout_marginLeft="@dimen/confirm_order_divider_line3_margin_left"
-                        android:layout_below="@id/goods_details_cmlv"
+                        android:layout_below="@id/cmlv_goods_details"
                         android:layout_marginTop="@dimen/confirm_order_divider_line3_margin_top"
                         android:background="@color/color_d1d1d1"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
 
                 <TextView
-                        android:id="@+id/buyer_message_tv"
+                        android:id="@+id/tv_buyer_message"
                         android:text="@string/confirm_order_buyer_message_str"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/confirm_order_buyer_message_size"
-                        android:layout_below="@id/divider_line3_view"
+                        android:layout_below="@id/view_divider_line3"
                         android:layout_marginTop="@dimen/confirm_order_buyer_message_margin"
-                        android:layout_alignLeft="@id/divider_line3_view"
+                        android:layout_alignLeft="@id/view_divider_line3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/buyer_leave_message_tv"
+                        android:id="@+id/tv_buyer_leave_message"
                         android:textColor="@color/color_666666"
                         android:textSize="@dimen/confirm_order_buyer_message_size"
                         android:text="@string/confirm_order_buyer_message_input_str"
-                        android:layout_toRightOf="@id/buyer_message_tv"
-                        android:layout_alignTop="@id/buyer_message_tv"
+                        android:layout_toRightOf="@id/tv_buyer_message"
+                        android:layout_alignTop="@id/tv_buyer_message"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                 <View
-                        android:id="@+id/divider_line4_view"
-                        android:layout_alignLeft="@id/divider_line3_view"
-                        android:layout_alignRight="@id/divider_line3_view"
-                        android:layout_below="@id/buyer_message_tv"
+                        android:id="@+id/view_divider_line4"
+                        android:layout_alignLeft="@id/view_divider_line3"
+                        android:layout_alignRight="@id/view_divider_line3"
+                        android:layout_below="@id/tv_buyer_message"
                         android:layout_marginTop="@dimen/confirm_order_divider_line4_margin"
                         android:background="@color/color_d1d1d1"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
                 <TextView
-                        android:id="@+id/freight_tv"
+                        android:id="@+id/tv_freight"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/confirm_order_freight_size"
                         android:text="@string/confirm_order_freight_str"
-                        android:layout_alignLeft="@id/divider_line4_view"
-                        android:layout_below="@id/divider_line4_view"
+                        android:layout_alignLeft="@id/view_divider_line4"
+                        android:layout_below="@id/view_divider_line4"
                         android:layout_marginTop="@dimen/confirm_order_divider_line4_margin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/freight_money_tv"
+                        android:id="@+id/tv_freight_money"
                         android:text="0.00"
                         android:layout_centerVertical="true"
                         android:textColor="@color/color_333333"
                         android:textSize="@dimen/confirm_order_buyer_message_size"
-                        android:layout_alignRight="@id/divider_line4_view"
-                        android:layout_alignBottom="@id/freight_tv"
+                        android:layout_alignRight="@id/view_divider_line4"
+                        android:layout_alignBottom="@id/tv_freight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/freight_money_symbol_tv"
+                        android:id="@+id/tv_freight_money_symbol"
                         android:text="@string/confirm_order_freight_money_symbol_str"
                         android:layout_centerVertical="true"
                         android:textColor="@color/color_333333"
                         android:textSize="@dimen/confirm_order_buyer_message_size"
-                        android:layout_toLeftOf="@id/freight_money_tv"
-                        android:layout_alignBottom="@id/freight_money_tv"
+                        android:layout_toLeftOf="@id/tv_freight_money"
+                        android:layout_alignBottom="@id/tv_freight_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                 <TextView
-                        android:id="@+id/real_pay_tv"
+                        android:id="@+id/tv_real_pay"
                         android:text="@string/confirm_order_real_pay_str"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/confirm_order_real_pay_size"
-                        android:layout_below="@id/freight_tv"
+                        android:layout_below="@id/tv_freight"
                         android:layout_marginTop="@dimen/confirm_order_divider_line4_margin"
-                        android:layout_alignLeft="@id/divider_line4_view"
+                        android:layout_alignLeft="@id/view_divider_line4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/real_pay_money_tv"
+                        android:id="@+id/tv_real_pay_money"
                         android:textColor="@color/color_F49C14"
                         android:textSize="@dimen/confirm_order_real_pay_money_size"
                         android:text="6000.00"
                         android:layout_centerVertical="true"
-                        android:layout_alignBottom="@id/real_pay_tv"
-                        android:layout_alignRight="@id/freight_money_tv"
+                        android:layout_alignBottom="@id/tv_real_pay"
+                        android:layout_alignRight="@id/tv_freight_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/real_pay_money_symbol_tv"
+                        android:id="@+id/tv_real_pay_money_symbol"
                         android:textColor="@color/color_F49C14"
                         android:textSize="@dimen/confirm_order_real_pay_money_size"
                         android:text="@string/confirm_order_freight_money_symbol_str"
                         android:layout_centerVertical="true"
-                        android:layout_alignBottom="@id/real_pay_money_tv"
-                        android:layout_toLeftOf="@id/real_pay_money_tv"
+                        android:layout_alignBottom="@id/tv_real_pay_money"
+                        android:layout_toLeftOf="@id/tv_real_pay_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <View
-                        android:id="@+id/divider_line5_view"
+                        android:id="@+id/view_divider_line5"
                         android:background="@color/color_d1d1d1"
-                        android:layout_alignRight="@id/divider_line4_view"
-                        android:layout_alignLeft="@id/divider_line4_view"
-                        android:layout_below="@id/real_pay_tv"
+                        android:layout_alignRight="@id/view_divider_line4"
+                        android:layout_alignLeft="@id/view_divider_line4"
+                        android:layout_below="@id/tv_real_pay"
                         android:layout_marginTop="@dimen/confirm_order_divider_line4_margin"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
@@ -246,14 +246,14 @@
             </RelativeLayout>
 
             <RelativeLayout
-                    android:id="@+id/payment_method_rl"
+                    android:id="@+id/rl_payment_method"
                     android:background="@color/color_FFFFFF"
-                    android:layout_below="@id/purchase_goods_details_rl"
+                    android:layout_below="@id/rl_purchase_goods_details"
                     android:layout_marginTop="@dimen/confirm_order_payment_method_rl_margin_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <TextView
-                        android:id="@+id/payment_method_tv"
+                        android:id="@+id/tv_payment_method"
                         android:layout_margin="@dimen/confirm_order_payment_method_margin"
                         android:text="@string/confirm_order_payment_method_str"
                         android:textColor="@color/color_999999"
@@ -262,16 +262,16 @@
                         android:layout_height="wrap_content"/>
 
                 <RadioGroup
-                        android:id="@+id/payment_method_choose_rg"
+                        android:id="@+id/rg_payment_method_choose"
                         android:orientation="vertical"
-                        android:layout_below="@id/payment_method_tv"
+                        android:layout_below="@id/tv_payment_method"
                         android:layout_marginLeft="@dimen/confirm_order_payment_method_margin"
                         android:layout_marginRight="@dimen/confirm_order_payment_method_margin"
                         android:layout_marginBottom="@dimen/confirm_order_payment_method_margin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                     <RadioButton
-                            android:id="@+id/alipay_method_rdoBtn"
+                            android:id="@+id/rdoBtn_alipay_method_"
                             android:background="@drawable/confirm_order_payment_method_selector_bg"
                             android:drawableLeft="@mipmap/ic_paytype_alipay"
                             android:padding="@dimen/confirm_order_payment_method_margin"
@@ -283,7 +283,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     <RadioButton
-                            android:id="@+id/wechat_method_rdoBtn"
+                            android:id="@+id/rdoBtn_wechat_method"
                             android:background="@drawable/confirm_order_payment_method_selector_bg"
                             android:drawableLeft="@mipmap/ic_paytype_wechat"
                             android:padding="@dimen/confirm_order_payment_method_margin"
@@ -299,19 +299,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                    android:id="@+id/submit_order_rl"
-                    android:layout_below="@id/payment_method_rl"
+                    android:id="@+id/rl_submit_order"
+                    android:layout_below="@id/rl_payment_method"
                     android:background="@color/color_FFFFFF"
                     android:layout_marginTop="@dimen/confirm_order_submit_order_rl_margin_top"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/confirm_order_submit_order_rl_height">
                 <View
-                        android:id="@+id/divider_line6_view"
+                        android:id="@+id/view_divider_line6"
                         android:background="@color/color_F0F0F0"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
                 <TextView
-                        android:id="@+id/amount_tv"
+                        android:id="@+id/tv_amount"
                         android:text="@string/confirm_order_amount_str"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/confirm_order_submit_order_amount_size"
@@ -320,29 +320,29 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/amount_money_symbol_tv"
+                        android:id="@+id/tv_amount_money_symbol"
                         android:text="@string/confirm_order_freight_money_symbol_str"
                         android:layout_centerVertical="true"
                         android:textSize="@dimen/confirm_order_submit_order_amount_money_size"
                         android:textColor="@color/color_F49C14"
-                        android:layout_toRightOf="@id/amount_tv"
+                        android:layout_toRightOf="@id/tv_amount"
                         android:layout_marginLeft="@dimen/confirm_order_submit_order_margin"
-                        android:layout_alignBottom="@id/amount_tv"
+                        android:layout_alignBottom="@id/tv_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/amount_money_tv"
+                        android:id="@+id/tv_amount_money"
                         android:text="6000.00"
                         android:layout_centerVertical="true"
                         android:textSize="@dimen/confirm_order_submit_order_amount_money_size"
                         android:textColor="@color/color_F49C14"
-                        android:layout_toRightOf="@id/amount_money_symbol_tv"
-                        android:layout_alignBottom="@id/amount_money_symbol_tv"
+                        android:layout_toRightOf="@id/tv_amount_money_symbol"
+                        android:layout_alignBottom="@id/tv_amount_money_symbol"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                 <Button
-                        android:id="@+id/submit_order_btn"
+                        android:id="@+id/btn_submit_order"
                         android:text="@string/confirm_order_submit_order_str"
                         android:textColor="@color/color_FFFFFF"
                         android:textSize="@dimen/confirm_order_submit_btn_size"
@@ -357,9 +357,9 @@
 
             <RelativeLayout
                     android:visibility="invisible"
-                    android:id="@+id/message_board_rl"
+                    android:id="@+id/rl_message_board"
                     android:background="@color/color_FFFFFF"
-                    android:layout_below="@id/submit_order_rl"
+                    android:layout_below="@id/rl_submit_order"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/confirm_order_message_board_rl_margin_top"
                     android:layout_marginBottom="@dimen/confirm_order_message_board_rl_margin_bottom"
@@ -367,7 +367,7 @@
                     android:layout_height="wrap_content">
 
                 <TextView
-                        android:id="@+id/message_board_buyer_tv"
+                        android:id="@+id/tv_message_board_buyer"
                         android:layout_marginLeft="@dimen/confirm_order_message_board_str_margin"
                         android:layout_marginTop="@dimen/confirm_order_message_board_str_margin"
                         android:text="@string/confirm_order_message_board_str"
@@ -376,36 +376,36 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <EditText
-                        android:id="@+id/message_board_buyer_et"
+                        android:id="@+id/et_message_board_buyer"
                         android:layout_centerHorizontal="true"
                         android:hint="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                         android:textColor="@color/color_333333"
                         android:textSize="@dimen/confirm_order_message_board_str_size"
                         android:padding="@dimen/confirm_order_message_board_str_margin"
                         android:background="@drawable/confirm_order_message_board_edittext_bg"
-                        android:layout_below="@id/message_board_buyer_tv"
+                        android:layout_below="@id/tv_message_board_buyer"
                         android:layout_marginTop="@dimen/confirm_order_message_board_str_margin"
                         android:layout_width="@dimen/confirm_order_message_board_edittext_width"
                         android:layout_height="wrap_content"/>
 
                 <View
-                        android:id="@+id/divider_line7_view"
-                        android:layout_alignLeft="@id/message_board_buyer_et"
-                        android:layout_alignRight="@id/message_board_buyer_et"
-                        android:layout_below="@id/message_board_buyer_et"
+                        android:id="@+id/view_divider_line7"
+                        android:layout_alignLeft="@id/et_message_board_buyer"
+                        android:layout_alignRight="@id/et_message_board_buyer"
+                        android:layout_below="@id/et_message_board_buyer"
                         android:layout_marginTop="@dimen/confirm_order_message_board_line7_margin_top"
                         android:background="@color/color_E3E3E3"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_divider_line_height"/>
                 <RadioGroup
-                        android:id="@+id/leave_message_submit_rg"
-                        android:layout_below="@id/divider_line7_view"
+                        android:id="@+id/rg_leave_message_submit"
+                        android:layout_below="@id/view_divider_line7"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/confirm_order_leave_message_submit_rg_height">
                     <RadioButton
-                            android:id="@+id/leave_message_resolve_rdoBtn"
+                            android:id="@+id/rdoBtn_leave_message_resolve"
                             android:gravity="center"
                             android:button="@null"
                             android:layout_weight="1"
@@ -416,12 +416,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     <View
-                            android:id="@+id/divider_line8_view"
+                            android:id="@+id/view_divider_line8"
                             android:background="@color/color_E3E3E3"
                             android:layout_width="@dimen/confirm_order_message_board_line8_width"
                             android:layout_height="@dimen/confirm_order_message_board_line8_height"/>
                     <RadioButton
-                            android:id="@+id/leave_message_affirm_rdoBtn"
+                            android:id="@+id/rdoBtn_leave_message_affirm"
                             android:button="@null"
                             android:checked="true"
                             android:gravity="center"
