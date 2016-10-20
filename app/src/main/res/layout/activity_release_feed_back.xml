@@ -8,12 +8,12 @@
         tools:context=".activity.ReleaseFeedBack">
 
     <RelativeLayout
-            android:id="@+id/release_feed_back_top"
+            android:id="@+id/rl_top"
             android:background="@color/blue"
             android:layout_width="match_parent"
             android:layout_height="@dimen/student_feed_back_height">
         <ImageButton
-                android:id="@+id/instrument_info_back1"
+                android:id="@+id/ib_back1"
                 android:src="@mipmap/ic_return"
                 android:background="@color/transparent_white"
                 android:layout_centerVertical="true"
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:id="@+id/release"
+                android:id="@+id/tv_release"
                 android:text="@string/release"
                 android:textColor="@color/white"
                 android:textSize="@dimen/release"
@@ -46,16 +46,16 @@
     </RelativeLayout>
 
     <RelativeLayout
-            android:id="@+id/select_course_time_rl"
+            android:id="@+id/rl_select_course_time"
             android:layout_width="match_parent"
             android:layout_height="@dimen/select_course_time_rl"
-            android:layout_below="@id/release_feed_back_top"
+            android:layout_below="@id/rl_top"
             android:background="@drawable/release_feed_back"
             android:layout_marginTop="@dimen/release_feed_back_TB"
             android:layout_marginStart="@dimen/release_feed_back_TB"
             android:layout_marginEnd="@dimen/release_feed_back_TB">
         <TextView
-                android:id="@+id/select_course_time_tv"
+                android:id="@+id/tv_select_course_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/select_course_time"
@@ -64,7 +64,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/release_feed_back_TB"/>
         <ImageButton
-                android:id="@+id/down_qwe"
+                android:id="@+id/ib_down_qwe"
                 android:background="@mipmap/ic_down"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/release_feed_back_TB"
@@ -74,12 +74,12 @@
     </RelativeLayout>
 
     <EditText
-            android:id="@+id/please_input_thought"
+            android:id="@+id/et_please_input_thought"
             android:hint="@string/please_input_thought"
             android:textSize="@dimen/please_input_thought"
             android:textColorHint="@color/black_course_time"
             android:background="@drawable/release_feed_back"
-            android:layout_below="@id/select_course_time_rl"
+            android:layout_below="@id/rl_select_course_time"
             android:layout_marginTop="@dimen/release_feed_back_TB"
             android:layout_marginStart="@dimen/release_feed_back_TB"
             android:layout_marginEnd="@dimen/release_feed_back_TB"
@@ -89,10 +89,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/please_input_thought_height"/>
     <FrameLayout
-            android:id="@+id/release_feed_back_square"
+            android:id="@+id/fl_square"
             android:layout_width="@dimen/release_feed_back_square"
             android:layout_height="wrap_content"
-            android:layout_below="@id/please_input_thought">
+            android:layout_below="@id/et_please_input_thought">
         <RelativeLayout
                 android:background="@color/black_course_time"
                 android:layout_marginTop="@dimen/release_feed_back_TB"
@@ -100,14 +100,14 @@
                 android:layout_width="@dimen/black_course_time"
                 android:layout_height="@dimen/black_course_time">
             <ImageView
-                    android:id="@+id/release_feed_back_video"
+                    android:id="@+id/iv_video"
                     android:src="@mipmap/ic_video"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </RelativeLayout>
         <ImageButton
-                android:id="@+id/release_feed_back_delete"
+                android:id="@+id/ib_delete"
                 android:src="@mipmap/ic_delete"
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/release_feed_back_delete"
@@ -117,10 +117,10 @@
     </FrameLayout>
 
     <ImageView
-            android:id="@+id/release_feed_back_add_square"
+            android:id="@+id/iv_add_square"
             android:src="@drawable/ic_add_square"
-            android:layout_below="@id/please_input_thought"
-            android:layout_toEndOf="@id/release_feed_back_square"
+            android:layout_below="@id/et_please_input_thought"
+            android:layout_toEndOf="@id/fl_square"
             android:layout_marginTop="@dimen/release_feed_back_TB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

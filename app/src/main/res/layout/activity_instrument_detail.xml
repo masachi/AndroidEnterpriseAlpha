@@ -7,12 +7,12 @@
         tools:context="org.example.androidenterprise.activity.InstrumentDetailActivity">
 
     <RelativeLayout
-            android:id="@+id/instrument_info_top"
+            android:id="@+id/rl_top"
             android:background="@color/blue"
             android:layout_width="match_parent"
             android:layout_height="45dp">
         <ImageButton
-                android:id="@+id/instrument_info_back"
+                android:id="@+id/ib_back"
                 android:src="@mipmap/ic_return"
                 android:background="@color/transparent_white"
                 android:layout_centerVertical="true"
@@ -34,7 +34,7 @@
     </RelativeLayout>
 
     <org.example.androidenterprise.view.CustomScrollView
-            android:layout_below="@id/instrument_info_top"
+            android:layout_below="@id/rl_top"
             android:background="@color/grey_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -42,21 +42,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <ImageView
-                    android:id="@+id/instrument_info_picture1"
+                    android:id="@+id/iv_picture1"
                     android:layout_width="match_parent"
                     android:layout_height="211dp"
                     android:src="@drawable/flute1"
                     android:scaleType="fitXY"
             />
             <RelativeLayout
-                    android:id="@+id/instrument_info_third"
+                    android:id="@+id/rl_third"
                     android:background="@drawable/instrument_info_child"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/instrument_info_picture1"
+                    android:layout_below="@id/iv_picture1"
             >
                 <TextView
-                        android:id="@+id/instrument_info_title"
+                        android:id="@+id/tv_title"
                         android:text="@string/instrument_XXXX"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -66,31 +66,31 @@
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                 />
                 <TextView
-                        android:id="@+id/instrument_info_price"
+                        android:id="@+id/tv_price"
                         android:text="@string/price_flute"
                         android:textSize="18sp"
                         android:textColor="@color/yellow_price"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
-                        android:layout_below="@id/instrument_info_title"
+                        android:layout_below="@id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                 <TextView
-                        android:id="@+id/instrument_info_level"
+                        android:id="@+id/tv_level"
                         android:text="@string/transfer_fee"
                         android:textSize="13sp"
                         android:textColor="@color/grey"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_marginBottom="@dimen/instrument_info_margin_left_right"
-                        android:layout_below="@id/instrument_info_price"
+                        android:layout_below="@id/tv_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/instrument_info_place"
+                        android:id="@+id/tv_place"
                         android:text="@string/place"
                         android:textSize="13sp"
                         android:textColor="@color/grey"
-                        android:layout_below="@id/instrument_info_price"
+                        android:layout_below="@id/tv_price"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="@dimen/instrument_info_margin_left_right"
                         android:layout_marginBottom="@dimen/instrument_info_margin_left_right"
@@ -100,9 +100,9 @@
 
 
             <LinearLayout
-                    android:id="@+id/instrument_info_setting"
+                    android:id="@+id/ll_setting"
                     android:background="@drawable/instrument_info_child"
-                    android:layout_below="@id/instrument_info_third"
+                    android:layout_below="@id/rl_third"
                     android:layout_marginTop="@dimen/instrument_info_child_margin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
 
                 <ListView
-                        android:id="@+id/instrument"
+                        android:id="@+id/lv_instrument_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                 </ListView>
@@ -149,7 +149,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 <ImageView
-                        android:id="@+id/instrument_info_picture2"
+                        android:id="@+id/iv_picture2"
                         android:layout_width="match_parent"
                         android:layout_height="211dp"
                         android:src="@drawable/flute3"
@@ -158,7 +158,7 @@
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
                 /><ImageView
-                    android:id="@+id/instrument_info_picture3"
+                    android:id="@+id/iv_picture3"
                     android:layout_width="match_parent"
                     android:layout_height="211dp"
                     android:src="@drawable/flute1"
@@ -174,13 +174,13 @@
     </org.example.androidenterprise.view.CustomScrollView>
 
     <RelativeLayout
-            android:id="@+id/bottom_fragment"
+            android:id="@+id/rl_bottom_fragment"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bottom_height"
             android:layout_alignParentBottom="true"
             android:background="@drawable/bottom_line">
         <TextView
-                android:id="@+id/bottom_total"
+                android:id="@+id/tv_bottom_total"
                 android:text="@string/bottom_total"
                 android:textSize="14sp"
                 android:textColor="@color/grey"
@@ -193,11 +193,11 @@
                 android:textSize="20sp"
                 android:textColor="@color/yellow_price"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/bottom_total"
+                android:layout_toEndOf="@id/tv_bottom_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:id="@+id/button"
+                android:id="@+id/tv_button"
                 android:text="@string/buy"
                 android:textSize="20sp"
                 android:textColor="@color/white"

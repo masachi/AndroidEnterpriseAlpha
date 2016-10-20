@@ -43,10 +43,10 @@ public class OrderDetailAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mLayoutInflate.inflate(R.layout.order_detail_lv_item, null);
             holder = new ViewHolder_OrderDetail();
-            holder.img = (ImageView) convertView.findViewById(R.id.order_detail_lv_img);
-            holder.name = (TextView) convertView.findViewById(R.id.order_detail_lv_name);
-            holder.property = (TextView) convertView.findViewById(R.id.order_detail_lv_property);
-            holder.price = (TextView) convertView.findViewById(R.id.order_detail_lv_price);
+            holder.img = (ImageView) convertView.findViewById(R.id.iv_img);
+            holder.name = (TextView) convertView.findViewById(R.id.tv_name);
+            holder.property = (TextView) convertView.findViewById(R.id.tv_property);
+            holder.price = (TextView) convertView.findViewById(R.id.tv_price);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder_OrderDetail) convertView.getTag();

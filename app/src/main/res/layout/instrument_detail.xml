@@ -4,7 +4,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bottom_line">
     <TextView
-            android:id="@+id/select_property"
+            android:id="@+id/tv_select_property"
             android:text="@string/select_property"
             android:textSize="15sp"
             android:textColor="@color/property_black"
@@ -13,8 +13,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     <GridView
-            android:id="@+id/property"
-            android:layout_below="@id/select_property"
+            android:id="@+id/gv_property"
+            android:layout_below="@id/tv_select_property"
             android:layout_marginStart="@dimen/instrument_info_margin_left_right"
             android:layout_marginTop="@dimen/instrument_info_margin_left_right"
             android:layout_width="wrap_content"
@@ -22,12 +22,12 @@
             android:numColumns="3">
     </GridView>
     <TextView
-            android:id="@+id/right_now_buy"
+            android:id="@+id/tv_right_now_buy"
             android:text="@string/right_now_buy"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:background="@color/blue"
-            android:layout_below="@id/property"
+            android:layout_below="@id/gv_property"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/right_now_buy"
             android:layout_marginEnd="@dimen/right_now_buy"

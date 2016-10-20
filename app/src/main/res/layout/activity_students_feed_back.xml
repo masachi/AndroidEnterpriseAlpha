@@ -8,12 +8,12 @@
         tools:context=".activity.StudentsFeedBack">
 
     <RelativeLayout
-            android:id="@+id/student_feed_back_top"
+            android:id="@+id/rl_top"
             android:background="@color/blue"
             android:layout_width="match_parent"
             android:layout_height="@dimen/student_feed_back_height">
         <ImageButton
-                android:id="@+id/instrument_info_back1"
+                android:id="@+id/ib_instrument_info_back1"
                 android:src="@mipmap/ic_return"
                 android:background="@color/transparent_white"
                 android:layout_centerVertical="true"
@@ -41,13 +41,13 @@
                 android:layout_height="match_parent">
 
             <RelativeLayout
-                    android:id="@+id/student_feed_back_second"
+                    android:id="@+id/rl_second"
                     android:background="@color/white"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/student_feed_back_height">
                 <ImageButton
-                        android:id="@+id/instrument_info_back2"
+                        android:id="@+id/ib_instrument_info_back2"
                         android:src="@drawable/ic_left"
                         android:background="@color/transparent_white"
                         android:layout_centerVertical="true"
@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <ImageButton
-                        android:id="@+id/instrument_info_"
+                        android:id="@+id/ib_instrument_info_"
                         android:src="@drawable/ic_right"
                         android:background="@color/transparent_white"
                         android:layout_alignParentEnd="true"
@@ -79,14 +79,14 @@
             </RelativeLayout>
 
             <RelativeLayout
-                    android:id="@+id/student_feed_back_third"
-                    android:layout_below="@id/student_feed_back_second"
+                    android:id="@+id/rl_third"
+                    android:layout_below="@id/rl_second"
                     android:layout_marginTop="10dp"
                     android:background="@color/while_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <ListView
-                        android:id="@+id/student_feed_back_th"
+                        android:id="@+id/lv_th"
                         android:background="@color/while_bg"
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
