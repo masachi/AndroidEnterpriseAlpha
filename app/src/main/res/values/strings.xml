@@ -11,6 +11,7 @@
     <string name="action_bar_order">预约订单</string>
     <string name="action_bar_message">我的留言</string>
     <string name="action_bar_order_info">订单详情</string>
+    <string name="action_bar_portrait">头像</string>
     <string name="action_bar_record">交易记录</string>
     <string name="schedule_text">设置上课时间</string>
     <string name="schedule_acc">接受上课时间</string>

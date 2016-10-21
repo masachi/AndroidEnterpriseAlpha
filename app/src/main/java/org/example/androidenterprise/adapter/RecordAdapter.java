@@ -24,13 +24,15 @@ public class RecordAdapter extends BaseExpandableListAdapter {
     @Override
     public int getGroupCount() {
         //TODO:return ___list.size();
-        return 0;
+        //return 0;
+        return 2;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
         // TODO:return ___list.get(groupPosition).get___().size();
-        return 0;
+        //return 0;
+        return 1;
     }
 
     @Override

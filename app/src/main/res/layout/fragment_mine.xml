@@ -20,7 +20,7 @@
                 android:layout_centerInParent="true"/>
 
         <ImageButton
-                android:id="@+id/mine_search_ib"
+                android:id="@+id/ib_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_search"
@@ -37,7 +37,7 @@
             android:background="#FF97C8CD">
 
         <org.example.androidenterprise.view.CircleImageView
-                android:id="@+id/mine_image"
+                android:id="@+id/civ_mine"
                 android:layout_width="@dimen/mine_image_side"
                 android:layout_height="@dimen/mine_image_side"
                 android:src="@drawable/img_example2"
@@ -47,29 +47,29 @@
                 android:paddingStart="@dimen/mine_image_padding"/>
 
         <TextView
-                android:id="@+id/mine_name"
+                android:id="@+id/tv_mine_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mine_text_size"
                 android:textColor="@color/color_ffffff"
                 android:text="2333333"
-                android:layout_toRightOf="@id/mine_image"
-                android:layout_alignTop="@id/mine_image"
+                android:layout_toRightOf="@id/civ_mine"
+                android:layout_alignTop="@id/civ_mine"
                 android:layout_marginTop="@dimen/mine_text_margin_top"
                 android:layout_marginStart="@dimen/mine_image_margin_text"/>
 
         <TextView
+                android:id="@+id/tv_mine_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mine_phone_size"
                 android:textColor="@color/color_ffffff"
                 android:text="2333333"
-                android:layout_below="@id/mine_name"
+                android:layout_below="@id/tv_mine_name"
                 android:layout_marginTop="@dimen/mine_text_margin_text"
-                android:layout_alignLeft="@id/mine_name"/>
+                android:layout_alignLeft="@id/tv_mine_name"/>
 
         <ImageButton
-                android:id="@+id/mine_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -81,7 +81,7 @@
     </RelativeLayout>
 
     <ListView
-            android:id="@+id/list_mine"
+            android:id="@+id/lv_mine_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/item_setting_height"

@@ -48,10 +48,10 @@ public class InstrumentInfoAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.instrument_info_grid_item,null);
             holder = new ViewHolder_Info();
-            holder.img =(ImageView) convertView.findViewById(R.id.item_img);
-            holder.title = (TextView) convertView.findViewById(R.id.item_title);
-            holder.price = (TextView) convertView.findViewById(R.id.item_price);
-            holder.price_line = (TextView) convertView.findViewById(R.id.item_price_with_line);
+            holder.img =(ImageView) convertView.findViewById(R.id.iv_instrument);
+            holder.title = (TextView) convertView.findViewById(R.id.tv_instrument_name);
+            holder.price = (TextView) convertView.findViewById(R.id.tv_instrument_price);
+            holder.price_line = (TextView) convertView.findViewById(R.id.tv_instrument_price_with_line);
             convertView.setTag(holder);
         }
         else{

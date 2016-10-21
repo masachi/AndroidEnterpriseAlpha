@@ -282,8 +282,6 @@
     <dimen name="service_gv_item_rb_text_size">11sp</dimen>
 
 
-
-
     <!--activity_help_center-->
     <dimen name="use_article_text_size">13sp</dimen>
     <dimen name="use_article_tv_left_dis">10dp</dimen>
@@ -458,6 +456,12 @@
     <dimen name="top_imagebutton_padding_right">20dp</dimen>
     <dimen name="top_imagebutton_padding_top">5dp</dimen>
     <dimen name="top_imagebutton_padding_bottom">5dp</dimen>
+
+    <dimen name="portrait_accept_text_size">17sp</dimen>
+    <dimen name="portrait_check_btn_height">34dp</dimen>
+    <dimen name="portrait_check_btn_margin_left_right">21dp</dimen>
+    <dimen name="portrait_check_btn_margin_end">30dp</dimen>
+    <dimen name="portrait_check_btn_text_size">14sp</dimen>
 
 
 </resources>

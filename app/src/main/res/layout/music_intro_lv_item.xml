@@ -4,7 +4,7 @@
         android:id="@+id/music_introduction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/album_lv"
+        android:layout_below="@id/lv_album"
         android:layout_marginTop="@dimen/music_ang_margin_any"
         android:background="@drawable/fragment_music_child">
 

@@ -31,7 +31,8 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
 
     @Override
     public int getCount() {
-        return CourseList.getData(context).size();
+        //return CourseList.getData(context).size();
+        return clist.size();
     }
 
     @Override
@@ -50,11 +51,11 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.course_list_item,null);
             holder = new ViewHolder_C();
-            holder.img = (ImageView) convertView.findViewById(R.id.item_image);
-            holder.course = (TextView) convertView.findViewById(R.id.item_course);
-            holder.level = (TextView) convertView.findViewById(R.id.item_level);
-            holder.teacher = (TextView) convertView.findViewById(R.id.item_teacher);
-            holder.pos = (TextView) convertView.findViewById(R.id.item_pos);
+            holder.img = (ImageView) convertView.findViewById(R.id.iv_course);
+            holder.course = (TextView) convertView.findViewById(R.id.tv_course_name);
+            holder.level = (TextView) convertView.findViewById(R.id.tv_course_level);
+            holder.teacher = (TextView) convertView.findViewById(R.id.tv_course_teacher);
+            holder.pos = (TextView) convertView.findViewById(R.id.tv_course_pos);
             holder.state = (Button) convertView.findViewById(R.id.btn_state);
             convertView.setTag(holder);
         }
@@ -62,17 +63,16 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
             holder = (ViewHolder_C)convertView.getTag();
         }
         holder.img.setImageResource(R.drawable.img_example);
-//        holder.course.setText(clist.get(position).getTitle());
-//        holder.level.setText("难度等级："+ clist.get(position).getCourse_level());
-//        holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());
-//        holder.pos.setText(clist.get(position).getCourse_address());
-//        if(clist.get(position).getState() == 0){
-//            holder.state.setText("未开通");
-//        }
-//        else{
-//            holder.state.setText("已开通");
-//        }
-        holder.state.setOnClickListener(this);
+        holder.course.setText(clist.get(position).getTitle());
+        holder.level.setText("难度等级："+ clist.get(position).getCourse_level());
+        holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());
+        holder.pos.setText(clist.get(position).getCourse_address());
+        if(clist.get(position).getState() == 0){
+            holder.state.setText("未开通");
+        }
+        else{
+            holder.state.setText("已开通");
+        }
         return convertView;
     }
 

@@ -7,13 +7,13 @@
         tools:context="org.example.androidenterprise.activity.LogisticsInfoActivity">
 
     <RelativeLayout
-            android:id="@+id/logistics_info_top"
+            android:id="@+id/rl_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="#FF97C8CD">
 
         <ImageButton
-                android:id="@+id/instrument_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -36,10 +36,10 @@
     </RelativeLayout>
 
     <ListView
-            android:id="@+id/logistics_lv"
+            android:id="@+id/lv_logistics"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/logistics_info_top"
+            android:layout_below="@id/rl_topbar"
             android:layout_marginTop="@dimen/logistics_info_margin_top"
             android:layout_marginLeft="@dimen/logistics_info_margin_left"
             android:layout_marginBottom="@dimen/logistics_info_margin_end"

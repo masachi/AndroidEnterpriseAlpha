@@ -8,12 +8,12 @@
         tools:context="org.example.androidenterprise.activity.RecordActivity">
 
     <RelativeLayout
-            android:id="@+id/record_title"
+            android:id="@+id/rl_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/record_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -32,7 +32,7 @@
                 android:layout_centerInParent="true"/>
 
         <ImageButton
-                android:id="@+id/record_search_ib"
+                android:id="@+id/ib_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_search"
@@ -47,10 +47,10 @@
     </RelativeLayout>
 
     <org.example.androidenterprise.view.RecordExpandableListView
-            android:id="@+id/record_expandlv"
+            android:id="@+id/explv_record"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/record_title"
+            android:layout_below="@id/rl_topbar"
             android:layout_marginTop="@dimen/record_expand_lv_margin_top">
 
     </org.example.androidenterprise.view.RecordExpandableListView>

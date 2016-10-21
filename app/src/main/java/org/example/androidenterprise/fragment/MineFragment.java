@@ -5,23 +5,25 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.AdapterView;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.activity.MyWorksActivity;
-import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.activity.*;
 import org.example.androidenterprise.adapter.SettingAdapter;
+import org.example.androidenterprise.view.CircleImageView;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.example.androidenterprise.activity.LoginActivity.isLogin;
+
+@ContentView(R.layout.fragment_mine)
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,19 +33,26 @@ import java.util.List;
  * Use the {@link MineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MineFragment extends Fragment implements View.OnClickListener,AdapterView.OnItemClickListener{
+public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    @ViewInject(R.id.ib_search)
+    ImageButton searchIb;
+    @ViewInject(R.id.civ_mine)
+    CircleImageView mineCIv;
+    @ViewInject(R.id.tv_mine_name)
+    TextView nameTv;
+    @ViewInject(R.id.tv_mine_phone)
+    TextView phoneTv;
+    @ViewInject(R.id.lv_mine_setting)
+    ListView settingLv;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private ListView setting_list;
-    private ImageButton mine_img_btn;
-    private ImageButton searchIb;
     private List<Class> jumpActivityList;
 
     private OnFragmentInteractionListener mListener;
@@ -80,14 +89,13 @@ public class MineFragment extends Fragment implements View.OnClickListener,Adapt
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mine,container,false);
-        setting_list = (ListView) view.findViewById(R.id.list_mine);
-        searchIb = (ImageButton) view.findViewById(R.id.mine_search_ib);
 
-        jumpActivityList = new ArrayList<Class>(){
+        settingLv = (ListView) view.findViewById(R.id.lv_mine_setting);
+        searchIb = (ImageButton) view.findViewById(R.id.ib_search);
+
+        jumpActivityList = new ArrayList<Class>() {
             {
                 add(OrderActivity.class);
                 add(RecordActivity.class);
@@ -99,21 +107,22 @@ public class MineFragment extends Fragment implements View.OnClickListener,Adapt
             }
         };
 
+        if (!isLogin) {
+            mineCIv.setImageResource(R.drawable.ic_head_default);
+            nameTv.setText("未登录");
+            phoneTv.setVisibility(View.INVISIBLE);
+        } else {
+            mineCIv.setImageResource(R.drawable.img_example2);
+            nameTv.setText("2333333");
+            phoneTv.setText("23333333");
+            phoneTv.setVisibility(View.VISIBLE);
+        }
+
         SettingAdapter settingAdapter = new SettingAdapter(getContext());
-        setting_list.setAdapter(settingAdapter);
-        mine_img_btn = (ImageButton) view.findViewById(R.id.mine_img_btn);
-        mine_img_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"可惜并没有做\n2333333",Toast.LENGTH_LONG).show();
-            }
-        });
+        settingLv.setAdapter(settingAdapter);
 
+        settingLv.setOnItemClickListener(this);
 
-        searchIb.setOnClickListener(this);
-        setting_list.setOnItemClickListener(this);
-
-        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -134,20 +143,29 @@ public class MineFragment extends Fragment implements View.OnClickListener,Adapt
         mListener = null;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.mine_search_ib:
-                startActivity(new Intent(getContext(), SearchActivity.class));
-                break;
-        }
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent();
-        intent.setClass(getContext(),jumpActivityList.get(position));
+        if(!isLogin && position != 4 && position != 5 && position != 6){
+            Toast.makeText(getContext(), "请先登录", Toast.LENGTH_LONG).show();
+            intent.setClass(getContext(), LoginActivity.class);
+        }else{
+            intent.setClass(getContext(), jumpActivityList.get(position));
+        }
         startActivity(intent);
+    }
+
+    @Event(value = {R.id.ib_search, R.id.civ_mine})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ib_search:
+                startActivity(new Intent(getContext(), SearchActivity.class));
+                break;
+            case R.id.civ_mine:
+                startActivity(new Intent(getContext(), PortraitActivity.class));
+                break;
+        }
     }
 
     /**

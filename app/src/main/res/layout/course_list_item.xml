@@ -9,50 +9,50 @@
                 android:descendantFocusability="blocksDescendants">
 
     <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/iv_course"
             android:layout_width="@dimen/item_image_width"
             android:layout_height="@dimen/item_image_height"
             android:scaleType="fitXY"/>
 
     <TextView
-            android:id="@+id/item_course"
+            android:id="@+id/tv_course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/item_image"
+            android:layout_toRightOf="@id/iv_course"
             android:layout_marginLeft="@dimen/item_margin_image_right"
-            android:layout_alignTop="@id/item_image"
+            android:layout_alignTop="@id/iv_course"
             android:layout_marginTop="@dimen/item_margin_image_top"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/item_title_size"
             android:text="23333333333333"/>
 
     <TextView
-            android:id="@+id/item_level"
+            android:id="@+id/tv_course_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/item_course"
-            android:layout_below="@id/item_course"
+            android:layout_alignLeft="@id/tv_course_name"
+            android:layout_below="@id/tv_course_name"
             android:layout_marginTop="@dimen/item_text_margn_text"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/item_others_size"
             android:text="23333333333333"/>
 
     <TextView
-            android:id="@+id/item_teacher"
+            android:id="@+id/tv_course_teacher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/item_course"
-            android:layout_below="@id/item_level"
+            android:layout_alignLeft="@id/tv_course_name"
+            android:layout_below="@id/tv_course_level"
             android:layout_marginTop="@dimen/item_text_margn_text"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/item_others_size"
             android:text="23333333333333"/>
 
     <TextView
-            android:id="@+id/item_pos"
+            android:id="@+id/tv_course_pos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/item_course"
+            android:layout_alignStart="@id/tv_course_name"
             android:layout_alignParentBottom="true"
             android:textColor="@color/color_999999"
             android:text="23333333333333"

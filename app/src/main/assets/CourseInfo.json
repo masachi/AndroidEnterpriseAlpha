@@ -1,0 +1,34 @@
+{
+	"adv": [{
+		"jump_url": "http://www.baidu.com",
+		"image_url": "http://f.hiphotos.baidu.com/zhidao/pic/item/5366d0160924ab18f267a2dd31fae6cd7a890be2.jpg",
+		"title": "轮播图1"
+	}, {
+		"jump_url": "http://www.baidu.com",
+		"image_url": "http://h.hiphotos.baidu.com/zhidao/pic/item/3b87e950352ac65cf7942699fff2b21192138a43.jpg",
+		"title": "轮播图"
+	}, {
+		"jump_url": "http://www.baidu.com",
+		"image_url": "http://e.hiphotos.baidu.com/zhidao/pic/item/5243fbf2b21193135c53bf5a61380cd790238dcc.jpg",
+		"title": "轮播图2"
+	}],
+	"course_list": [{
+		"course_level": 1,
+		"course_address": "上海",
+		"teacher_name": "张老师",
+		"state": 0,
+		"title": "课程标题"
+	}, {
+		"course_level": 1,
+		"course_address": "上海",
+		"teacher_name": "张老师",
+		"state": 0,
+		"title": "课程标题"
+	}, {
+		"course_level": 1,
+		"course_address": "上海",
+		"teacher_name": "张老师",
+		"state": 0,
+		"title": "课程标题"
+	}]
+}

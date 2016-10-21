@@ -8,27 +8,27 @@
                 android:paddingLeft="@dimen/item_gv_padding">
 
     <ImageView
-            android:id="@+id/item_img"
+            android:id="@+id/iv_instrument"
             android:layout_width="@dimen/music_lv_img_width"
             android:layout_height="@dimen/music_lv_img_height"
             android:layout_alignParentStart="true"
             android:scaleType="fitXY"/>
 
     <TextView
-            android:id="@+id/item_title"
+            android:id="@+id/tv_instrument_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/item_img"
+            android:layout_below="@id/iv_instrument"
             android:layout_marginTop="@dimen/item_music_margin_each"
             android:text="2333333"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/item_music_title_size"/>
 
     <TextView
-            android:id="@+id/item_price"
+            android:id="@+id/tv_instrument_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/item_title"
+            android:layout_below="@id/tv_instrument_title"
             android:layout_marginTop="@dimen/item_music_margin_each"
             android:text="$233"
             android:textColor="@color/color_333333"
@@ -38,9 +38,9 @@
             android:id="@+id/item_price_with_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/item_price"
+            android:layout_toRightOf="@id/tv_instrument_price"
             android:layout_marginStart="7dp"
-            android:layout_alignBaseline="@id/item_price"
+            android:layout_alignBaseline="@id/tv_instrument_price"
             android:text="233"
             android:textColor="@color/color_cccccc"
             android:textSize="@dimen/item_music_price_with_line_size"/>

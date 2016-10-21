@@ -5,7 +5,7 @@
         android:layout_height="match_parent">
 
     <ImageView
-            android:id="@+id/iv_img"
+            android:id="@+id/iv_logistics"
             android:layout_width="@dimen/logistics_info_circle_img_selected"
             android:layout_height="@dimen/logistics_info_circle_img_selected"
             android:src="@mipmap/ic_log_selected"/>
@@ -15,25 +15,25 @@
             android:layout_width="3dp"
             android:layout_height="@dimen/logistics_info_line"
             android:background="@color/color_cccccc"
-            android:layout_below="@+id/iv_img"
+            android:layout_below="@+id/iv_logistics"
             android:layout_marginStart="7dp"/>
 
     <TextView
-            android:id="@+id/tv_info"
+            android:id="@+id/tv_logistics_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/iv_img"
+            android:layout_toRightOf="@id/iv_logistics"
             android:text="233333333333333333333333333333333333333333333333333333333333333333333"
             android:layout_marginLeft="@dimen/logistics_info_img_margin_info"
             android:textSize="@dimen/logistics_info_info_size"
             android:textColor="@color/color_999999"/>
 
     <TextView
-            android:id="@+id/tv_date"
+            android:id="@+id/tv_logistics_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_info"
-            android:layout_toRightOf="@id/iv_img"
+            android:layout_below="@id/tv_logistics_info"
+            android:layout_toRightOf="@id/iv_logistics"
             android:layout_marginLeft="@dimen/logistics_info_img_margin_info"
             android:layout_marginTop="@dimen/logistics_info_info_margin_date"
             android:textSize="@dimen/logistics_info_date_size"

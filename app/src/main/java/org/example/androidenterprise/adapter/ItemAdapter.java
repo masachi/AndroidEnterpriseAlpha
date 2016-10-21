@@ -48,9 +48,9 @@ public class ItemAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.music_grid_item,null);
             holder = new ViewHolder_I();
-            holder.img =(ImageView) convertView.findViewById(R.id.item_img);
-            holder.title = (TextView) convertView.findViewById(R.id.item_title);
-            holder.price = (TextView) convertView.findViewById(R.id.item_price);
+            holder.img =(ImageView) convertView.findViewById(R.id.iv_instrument);
+            holder.title = (TextView) convertView.findViewById(R.id.tv_instrument_title);
+            holder.price = (TextView) convertView.findViewById(R.id.tv_instrument_price);
             holder.price_line = (TextView) convertView.findViewById(R.id.item_price_with_line);
             convertView.setTag(holder);
         }

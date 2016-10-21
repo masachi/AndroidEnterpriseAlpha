@@ -7,7 +7,7 @@
         tools:context="org.example.androidenterprise.activity.InsideActivity">
 
     <android.support.v4.view.ViewPager
-            android:id="@+id/main_viewpager"
+            android:id="@+id/vp_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/bottom_height">
@@ -23,22 +23,22 @@
 
         <!-- TODO: Update blank fragment layout -->
         <RelativeLayout
-                android:id="@+id/rl1"
+                android:id="@+id/rl_course"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="5dp"
                 android:layout_marginStart="60dp">
             <ImageView
-                    android:id="@+id/bottom_image_1"
+                    android:id="@+id/iv_course"
                     android:layout_width="@dimen/bottom_image_width"
                     android:layout_height="@dimen/bottom_image_height"
                     android:layout_centerHorizontal="true"/>
 
             <TextView
-                    android:id="@+id/bottom_text_1"
+                    android:id="@+id/tv_course"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/bottom_image_1"
+                    android:layout_below="@id/iv_course"
                     android:layout_marginTop="@dimen/bottom_image_margin_text"
                     android:textSize="15sp"
                     android:text="课程"
@@ -48,22 +48,22 @@
         </RelativeLayout>
 
         <RelativeLayout
-                android:id="@+id/rl2"
+                android:id="@+id/rl_mine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="5dp"
                 android:layout_centerHorizontal="true">
             <ImageView
-                    android:id="@+id/bottom_image_2"
+                    android:id="@+id/iv_mine"
                     android:layout_width="@dimen/bottom_image_width"
                     android:layout_height="@dimen/bottom_image_height"
                     android:layout_centerHorizontal="true"/>
 
             <TextView
-                    android:id="@+id/bottom_text_2"
+                    android:id="@+id/tv_mine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/bottom_image_2"
+                    android:layout_below="@id/iv_mine"
                     android:layout_marginTop="@dimen/bottom_image_margin_text"
                     android:textSize="15sp"
                     android:text="我"
@@ -73,23 +73,23 @@
         </RelativeLayout>
 
         <RelativeLayout
-                android:id="@+id/rl3"
+                android:id="@+id/rl_instrument"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="5dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="60dp">
             <ImageView
-                    android:id="@+id/bottom_image_3"
+                    android:id="@+id/iv_instrument"
                     android:layout_width="@dimen/bottom_image_width"
                     android:layout_height="@dimen/bottom_image_height"
                     android:layout_centerHorizontal="true"/>
 
             <TextView
-                    android:id="@+id/bottom_text_3"
+                    android:id="@+id/tv_instrument"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/bottom_image_3"
+                    android:layout_below="@id/iv_instrument"
                     android:layout_marginTop="@dimen/bottom_image_margin_text"
                     android:textSize="15sp"
                     android:text="乐器"

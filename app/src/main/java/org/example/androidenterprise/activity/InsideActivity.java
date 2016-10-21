@@ -13,6 +13,7 @@ import org.example.androidenterprise.R;
 import org.example.androidenterprise.fragment.CourseFragment;
 import org.example.androidenterprise.fragment.InstrumentFragment;
 import org.example.androidenterprise.fragment.MineFragment;
+import org.example.androidenterprise.utils.InitData;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -24,26 +25,27 @@ import java.util.List;
 
 public class InsideActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
 
-    @ViewInject(R.id.main_viewpager)
-    ViewPager inside;
-    @ViewInject(R.id.bottom_image_1)
-    ImageView imgIv_1;
-    @ViewInject(R.id.bottom_text_1)
-    TextView text_1;
-    @ViewInject(R.id.rl1)
-    RelativeLayout rl1;
-    @ViewInject(R.id.bottom_image_2)
-    ImageView imgIv_2;
-    @ViewInject(R.id.bottom_text_2)
-    TextView text_2;
-    @ViewInject(R.id.rl2)
-    RelativeLayout rl2;
-    @ViewInject(R.id.bottom_image_3)
-    ImageView imgIv_3;
-    @ViewInject(R.id.bottom_text_3)
-    TextView text_3;
-    @ViewInject(R.id.rl3)
-    RelativeLayout rl3;
+
+    @ViewInject(R.id.vp_fragment)
+    ViewPager fragmentVp;
+    @ViewInject(R.id.iv_course)
+    ImageView courseIv;
+    @ViewInject(R.id.tv_course)
+    TextView courseTv;
+    @ViewInject(R.id.rl_course)
+    RelativeLayout courseRl;
+    @ViewInject(R.id.iv_mine)
+    ImageView mineIv;
+    @ViewInject(R.id.tv_mine)
+    TextView mineTv;
+    @ViewInject(R.id.rl_mine)
+    RelativeLayout mineRl;
+    @ViewInject(R.id.iv_instrument)
+    ImageView instrumentIv;
+    @ViewInject(R.id.tv_instrument)
+    TextView instrumentTv;
+    @ViewInject(R.id.rl_instrument)
+    RelativeLayout instrumentRl;
 
     private List<Fragment> flist;
     private CourseFragment courseFragment;
@@ -55,6 +57,8 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        InitData.initData(this);
+
         flist = new ArrayList<>();
         courseFragment = new CourseFragment();
         mineFragment = new MineFragment();
@@ -63,11 +67,11 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
         flist.add(mineFragment);
         flist.add(instrumentFragment);
         adapter = new FragmentAdapter(getSupportFragmentManager(), flist);
-        inside.setAdapter(adapter);
+        fragmentVp.setAdapter(adapter);
 
-        inside.setOnPageChangeListener(this);
+        fragmentVp.setOnPageChangeListener(this);
 
-        inside.setOffscreenPageLimit(3);
+        fragmentVp.setOffscreenPageLimit(3);
         change(0);
     }
 
@@ -100,45 +104,45 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
     private void change(int pos) {
         switch (pos) {
             case 0:
-                imgIv_1.setImageResource(R.mipmap.bottom_selected);
-                imgIv_2.setImageResource(R.mipmap.bottom_normal);
-                imgIv_3.setImageResource(R.mipmap.bottom_normal);
-                text_1.setTextColor(getResources().getColor(R.color.color_97c8cd));
-                text_2.setTextColor(getResources().getColor(R.color.color_999999));
-                text_3.setTextColor(getResources().getColor(R.color.color_999999));
+                courseTv.setTextColor(getResources().getColor(R.color.color_97c8cd));
+                mineTv.setTextColor(getResources().getColor(R.color.color_999999));
+                instrumentTv.setTextColor(getResources().getColor(R.color.color_999999));
+                courseIv.setImageResource(R.mipmap.bottom_selected);
+                mineIv.setImageResource(R.mipmap.bottom_normal);
+                instrumentIv.setImageResource(R.mipmap.bottom_normal);
                 break;
             case 1:
-                imgIv_1.setImageResource(R.mipmap.bottom_normal);
-                imgIv_2.setImageResource(R.mipmap.bottom_selected);
-                imgIv_3.setImageResource(R.mipmap.bottom_normal);
-                text_1.setTextColor(getResources().getColor(R.color.color_999999));
-                text_2.setTextColor(getResources().getColor(R.color.color_97c8cd));
-                text_3.setTextColor(getResources().getColor(R.color.color_999999));
+                courseTv.setTextColor(getResources().getColor(R.color.color_999999));
+                mineTv.setTextColor(getResources().getColor(R.color.color_97c8cd));
+                instrumentTv.setTextColor(getResources().getColor(R.color.color_999999));
+                courseIv.setImageResource(R.mipmap.bottom_normal);
+                mineIv.setImageResource(R.mipmap.bottom_selected);
+                instrumentIv.setImageResource(R.mipmap.bottom_normal);
                 break;
             case 2:
-                imgIv_1.setImageResource(R.mipmap.bottom_normal);
-                imgIv_2.setImageResource(R.mipmap.bottom_normal);
-                imgIv_3.setImageResource(R.mipmap.bottom_selected);
-                text_1.setTextColor(getResources().getColor(R.color.color_999999));
-                text_2.setTextColor(getResources().getColor(R.color.color_999999));
-                text_3.setTextColor(getResources().getColor(R.color.color_97c8cd));
+                courseTv.setTextColor(getResources().getColor(R.color.color_999999));
+                mineTv.setTextColor(getResources().getColor(R.color.color_999999));
+                instrumentTv.setTextColor(getResources().getColor(R.color.color_97c8cd));
+                courseIv.setImageResource(R.mipmap.bottom_normal);
+                mineIv.setImageResource(R.mipmap.bottom_normal);
+                instrumentIv.setImageResource(R.mipmap.bottom_selected);
                 break;
         }
     }
 
-    @Event(value = {R.id.rl1, R.id.rl2, R.id.rl3})
+    @Event(value = {R.id.rl_course, R.id.rl_mine, R.id.rl_instrument})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.rl1:
-                inside.setCurrentItem(0);
+            case R.id.rl_course:
+                fragmentVp.setCurrentItem(0);
                 change(0);
                 break;
-            case R.id.rl2:
-                inside.setCurrentItem(1);
+            case R.id.rl_mine:
+                fragmentVp.setCurrentItem(1);
                 change(1);
                 break;
-            case R.id.rl3:
-                inside.setCurrentItem(2);
+            case R.id.rl_instrument:
+                fragmentVp.setCurrentItem(2);
                 change(2);
                 break;
         }

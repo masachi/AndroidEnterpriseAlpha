@@ -34,20 +34,23 @@ import java.util.List;
 
 public class LoginActivity extends BaseActivity implements View.OnTouchListener {
     private String LOGIN_URL = "http://112.124.38.1:12345/login";
+    private String REGISTER_URL = "http://138.68.4.19:8080/regist/getdata";
+
+    public static boolean isLogin = false;
 
     @ViewInject(R.id.btn_login)
     Button loginBtn;
     @ViewInject(R.id.btn_register)
     Button s_registerBtn;
-    @ViewInject(R.id.edittext_username)
+    @ViewInject(R.id.et_username)
     EditText usernameEt;
-    @ViewInject(R.id.edittext_password)
+    @ViewInject(R.id.et_password)
     EditText passwordEt;
-    @ViewInject(R.id.visible_button)
+    @ViewInject(R.id.btn_vis)
     ImageButton visBtn;
     @ViewInject(R.id.edittext_verify)
     EditText verifyEt;
-    @ViewInject(R.id.verify_btn)
+    @ViewInject(R.id.btn_verify)
     Button verifyBtn;
     @ViewInject(R.id.btn_register_big)
     Button l_registerBtn;
@@ -61,7 +64,6 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
         super.onCreate(savedInstanceState);
         x.view().inject(this);
 
-        InitData.initData(this);
 
 
         l_registerBtn.setOnTouchListener(this);
@@ -88,7 +90,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                     l_registerBtn.setBackgroundResource(R.drawable.btn_register_big);
                 }
                 break;
-            case R.id.visible_button:
+            case R.id.btn_vis:
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     passwordEt.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     passwordEt.setSelection(passwordEt.getText().length());
@@ -98,7 +100,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                     passwordEt.setSelection(passwordEt.getText().length());
                 }
                 break;
-            case R.id.verify_btn:
+            case R.id.btn_verify:
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     verifyBtn.setBackgroundResource(R.drawable.btn_register_big_selected);
                 }
@@ -115,7 +117,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
         try {
             for (int i = 0; i < ulist.size(); i++) {
                 //if (Base64Encrypt.decodeBase64(ulist.get(i).getUsername().toString()).equals(username) && Base64Encrypt.decodeBase64(ulist.get(i).getPassword().toString()).equals(password)){
-                if (String.valueOf(ulist.get(i).getPhone()).equals(username) && ulist.get(i).getPassword().equals(password)) {
+                if (String.valueOf(ulist.get(i).getUsername()).equals(username) && ulist.get(i).getPassword().equals(password)) {
                     return true;
                 }
             }
@@ -142,7 +144,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
         }
     }
 
-    @Event(value = {R.id.btn_login, R.id.btn_register, R.id.verify_btn, R.id.btn_register_big})
+    @Event(value = {R.id.btn_login, R.id.btn_register, R.id.btn_verify, R.id.btn_register_big})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
@@ -165,43 +167,76 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                 usernameEt.setText("");
                 passwordEt.setText("");
                 break;
-            case R.id.verify_btn:
+            case R.id.btn_verify:
                 Toast.makeText(this, "验证码已发送，注意查收", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_register_big:
                 UserInfoEntity userInfo = new UserInfoEntity();
-                userInfo.setPhone(Integer.parseInt(usernameEt.getEditableText().toString()));
+                userInfo.setUsername(usernameEt.getEditableText().toString());
                 userInfo.setPassword(passwordEt.getEditableText().toString());
-                userInfo.setDevice_id(Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID));
-                RequestParams params = new RequestParams(LOGIN_URL);
-                params.setAsJsonContent(true);
-                params.setBodyContent(new Gson().toJson(userInfo).toString());
-                Log.e("2333",new Gson().toJson(userInfo));
-                x.http().post(params, new Callback.CommonCallback<String>() {
+                if(((Button)view).getText().toString().equals("注册")){
+                    RequestParams params = new RequestParams(REGISTER_URL);
+                    params.setAsJsonContent(true);
+                    params.setBodyContent(new Gson().toJson(userInfo).toString());
+                    Log.e("2333",new Gson().toJson(userInfo));
+                    x.http().post(params, new Callback.CommonCallback<String>() {
 
-                    @Override
-                    public void onSuccess(String result) {
-                        LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>(){}.getType());
-                        Toast.makeText(getBaseContext(),respose.getMessage(),Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getBaseContext(),InsideActivity.class));
-                    }
+                        @Override
+                        public void onSuccess(String result) {
+                            Log.e("23333",result);
+                            LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>(){}.getType());
+                            Toast.makeText(getBaseContext(),respose.getMessage(),Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getBaseContext(),InsideActivity.class));
+                        }
 
-                    @Override
-                    public void onError(Throwable ex, boolean isOnCallback) {
-                        ex.printStackTrace();
-                        Toast.makeText(getBaseContext(),"FK",Toast.LENGTH_SHORT).show();
-                    }
+                        @Override
+                        public void onError(Throwable ex, boolean isOnCallback) {
+                            ex.printStackTrace();
+                            Toast.makeText(getBaseContext(),"FK",Toast.LENGTH_SHORT).show();
+                        }
 
-                    @Override
-                    public void onCancelled(CancelledException cex) {
+                        @Override
+                        public void onCancelled(CancelledException cex) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onFinished() {
+                        @Override
+                        public void onFinished() {
 
-                    }
-                });
+                        }
+                    });
+                }
+                else{
+                    RequestParams params = new RequestParams(LOGIN_URL);
+                    params.setAsJsonContent(true);
+                    params.setBodyContent(new Gson().toJson(userInfo).toString());
+                    Log.e("2333",new Gson().toJson(userInfo));
+                    x.http().post(params, new Callback.CommonCallback<String>() {
+
+                        @Override
+                        public void onSuccess(String result) {
+                            LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>(){}.getType());
+                            Toast.makeText(getBaseContext(),respose.getMessage(),Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getBaseContext(),InsideActivity.class));
+                        }
+
+                        @Override
+                        public void onError(Throwable ex, boolean isOnCallback) {
+                            ex.printStackTrace();
+                            Toast.makeText(getBaseContext(),"FK",Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(CancelledException cex) {
+
+                        }
+
+                        @Override
+                        public void onFinished() {
+
+                        }
+                    });
+                }
                 break;
         }
     }

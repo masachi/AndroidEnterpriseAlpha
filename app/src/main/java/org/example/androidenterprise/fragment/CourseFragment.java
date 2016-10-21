@@ -24,6 +24,7 @@ import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
+import org.example.androidenterprise.utils.InitData;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -55,15 +56,15 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
 
     private String COURSE_URL = "";
 
-    @ViewInject(R.id.action_bar_btn_table)
+    @ViewInject(R.id.btn_schedule)
     ImageButton scheduleBtn;
-    @ViewInject(R.id.action_bar_btn_clock)
+    @ViewInject(R.id.btn_clock)
     ImageButton clockBtn;
-    @ViewInject(R.id.course_search_ib)
+    @ViewInject(R.id.ib_search)
     ImageButton searchBtn;
     @ViewInject(R.id.course_viewpager)
     AutoPlayingViewPager courseAutoVP;
-    @ViewInject(R.id.course)
+    @ViewInject(R.id.lv_course)
     ListView course_list;
 
     // TODO: Rename and change types of parameters
@@ -71,7 +72,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private String mParam2;
 
     private List<AutoPlayInfo> mAutoPlayInfoList;
-    public static CourseEntity course;
+//    public static CourseEntity course;
 
 
     private OnFragmentInteractionListener mListener;
@@ -113,7 +114,6 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
 
-        course = new CourseEntity();
         RequestParams params = new RequestParams(COURSE_URL);
 //        params.setAsJsonContent(true);
 //        params.setBodyContent();
@@ -139,8 +139,8 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
 //            }
 //        });
 
-//        CourseAdapter courseAdapter = new CourseAdapter(getContext(),course.getCourse_list());
-//        course_list.setAdapter(courseAdapter);
+        CourseAdapter courseAdapter = new CourseAdapter(getContext(), InitData.course.getCourse_list());
+        course_list.setAdapter(courseAdapter);
 
         course_list.setOnItemClickListener(this);
 
@@ -178,15 +178,15 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     }
 
 
-    @Event(value = {R.id.action_bar_btn_clock, R.id.course_search_ib,R.id.action_bar_btn_table})
+    @Event(value = {R.id.btn_clock, R.id.ib_search,R.id.btn_schedule})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.action_bar_btn_clock:
+            case R.id.btn_clock:
                 break;
-            case R.id.course_search_ib:
+            case R.id.ib_search:
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;
-            case R.id.action_bar_btn_table:
+            case R.id.btn_schedule:
                 startActivity(new Intent(getContext(), CourseCalendarActivity.class));
                 break;
         }
@@ -236,13 +236,13 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
      */
     private List<AutoPlayInfo> changeAutoPlayInfoList() {
         List<AutoPlayInfo> autoPlayInfoList = new ArrayList<AutoPlayInfo>();
-        for (int i = 0; i < course.getAdv().size(); i++) {
+        for (int i = 0; i < InitData.course.getAdv().size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             //autoPlayInfo.setImageId(imagesCourse[i]);
             //autoPlayInfo.setAdLinks("");//无数据时不跳转
-//            autoPlayInfo.setImageUrl(course.getAdv().get(i).getImage_url());
-//            autoPlayInfo.setAdLinks("");//无数据时不跳转
-//            autoPlayInfo.setTitle(course.getAdv().get(i).getTitle());
+            autoPlayInfo.setImageUrl(InitData.course.getAdv().get(i).getImage_url());
+            autoPlayInfo.setAdLinks("");//无数据时不跳转
+            autoPlayInfo.setTitle(InitData.course.getAdv().get(i).getTitle());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;

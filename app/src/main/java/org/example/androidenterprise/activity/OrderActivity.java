@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.adapter.OrderAdapter;
 import org.example.androidenterprise.view.CustomMeasureListView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -14,11 +15,11 @@ import org.xutils.view.annotation.ViewInject;
 
 public class OrderActivity extends BaseActivity {
 
-    @ViewInject(R.id.order_return_ib)
+    @ViewInject(R.id.ib_return)
     ImageButton returnIb;
-    @ViewInject(R.id.order_lv)
+    @ViewInject(R.id.lv_order)
     CustomMeasureListView orderLv;
-    @ViewInject(R.id.order_search_ib)
+    @ViewInject(R.id.ib_search)
     ImageButton searchIb;
 
     @Override
@@ -26,16 +27,20 @@ public class OrderActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         // TODO: 2016/10/16 Add adapter in this place after server provide the port and URL
+
+        OrderAdapter ordAdapter = new OrderAdapter(this);
+
+        orderLv.setAdapter(ordAdapter);
     }
 
 
-    @Event(value = {R.id.order_return_ib, R.id.order_search_ib})
+    @Event(value = {R.id.ib_return, R.id.ib_search})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.order_return_ib:
+            case R.id.ib_return:
                 finish();
                 break;
-            case R.id.order_search_ib:
+            case R.id.ib_search:
                 startActivity(new Intent(this,SearchActivity.class));
                 break;
         }

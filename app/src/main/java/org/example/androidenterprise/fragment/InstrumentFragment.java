@@ -15,6 +15,8 @@ import android.widget.*;
 
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.IntroductionList;
+import org.example.androidenterprise.activity.CourseInfoActivity;
+import org.example.androidenterprise.activity.InstrumentDetailActivity;
 import org.example.androidenterprise.model.CatagoryEntity;
 import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.R;
@@ -37,7 +39,7 @@ import java.util.List;
  * Use the {@link InstrumentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelectedListener,View.OnClickListener{
+public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelectedListener,View.OnClickListener,AdapterView.OnItemClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -99,12 +101,12 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_instrument,container,false);
 
-        albumLv = (ListView) view.findViewById(R.id.album_lv);
-        introLv = (ListView) view.findViewById(R.id.intro_info_lv);
-        itemGv = (GridView) view.findViewById(R.id.instrument_gv);
-        typeTl = (TabLayout) view.findViewById(R.id.instrument_tab);
-        instrumentAutoVP = (AutoPlayingViewPager) view.findViewById(R.id.instrument_viewpager);
-        searchIb = (ImageButton) view.findViewById(R.id.instru_search_ib);
+        albumLv = (ListView) view.findViewById(R.id.lv_album);
+        introLv = (ListView) view.findViewById(R.id.lv_instru_info);
+        itemGv = (GridView) view.findViewById(R.id.gv_instrument);
+        typeTl = (TabLayout) view.findViewById(R.id.tab_instrument);
+        instrumentAutoVP = (AutoPlayingViewPager) view.findViewById(R.id.vp_instrument);
+        searchIb = (ImageButton) view.findViewById(R.id.ib_search);
 
         introLlist = IntroductionList.getData(getContext());
         cataList = CatagoryList.getData(getContext());
@@ -135,6 +137,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
 
         typeTl.setOnTabSelectedListener(this);
         searchIb.setOnClickListener(this);
+        itemGv.setOnItemClickListener(this);
 
         AlbumAdapter albumAdapter = new AlbumAdapter(getContext(),imagesAlbum);
         IntroAdapter introAdapter = new IntroAdapter(getContext());
@@ -198,10 +201,19 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.instru_search_ib:
+            case R.id.ib_search:
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getContext(), InstrumentDetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("instrument_selected", String.valueOf(position));
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 

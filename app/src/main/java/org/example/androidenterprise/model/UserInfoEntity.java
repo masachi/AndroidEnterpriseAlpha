@@ -12,17 +12,16 @@ import java.io.Serializable;
  * 用户登陆信息
  */
 public class UserInfoEntity implements Serializable {
-    private int phone; //用户名
+    private String username; //用户名
     private String password; //密码
-    private String device_id; //设备ID
 
 
-    public int getPhone() {
-        return phone;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
@@ -31,13 +30,5 @@ public class UserInfoEntity implements Serializable {
 
     public String getPassword() {
         return password;
-    }
-
-    public void setDevice_id(String device_id) {
-        this.device_id = device_id;
-    }
-
-    public String getDevice_id() {
-        return device_id;
     }
 }

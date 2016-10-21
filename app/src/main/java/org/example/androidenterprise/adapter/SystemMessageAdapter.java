@@ -24,7 +24,7 @@ public class SystemMessageAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         //TODO:return ___List.getData(context).size();
-        return 0;
+        return 3;
     }
 
     @Override

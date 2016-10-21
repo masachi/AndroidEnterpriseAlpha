@@ -42,10 +42,10 @@ public class LogisticsAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mLayoutInflate.inflate(R.layout.logistics_lv_item, null);
             holder = new ViewHolder_logistics();
-            holder.img = (ImageView) convertView.findViewById(R.id.iv_img);
+            holder.img = (ImageView) convertView.findViewById(R.id.iv_logistics);
             holder.line = (TextView) convertView.findViewById(R.id.tv_line);
-            holder.info = (TextView) convertView.findViewById(R.id.tv_info);
-            holder.date = (TextView) convertView.findViewById(R.id.tv_date);
+            holder.info = (TextView) convertView.findViewById(R.id.tv_logistics_info);
+            holder.date = (TextView) convertView.findViewById(R.id.tv_logistics_date);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder_logistics) convertView.getTag();

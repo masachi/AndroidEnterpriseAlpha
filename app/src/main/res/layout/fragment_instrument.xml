@@ -7,7 +7,7 @@
                 android:scrollbars="vertical"
                 tools:context="org.example.androidenterprise.fragment.InstrumentFragment">
     <RelativeLayout
-            android:id="@+id/instrument_title"
+            android:id="@+id/rl_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="#FF97C8CD">
@@ -20,7 +20,7 @@
                 android:layout_centerInParent="true"/>
 
         <ImageButton
-                android:id="@+id/instru_search_ib"
+                android:id="@+id/ib_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_search"
@@ -34,14 +34,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            android:layout_below="@id/instrument_title">
+            android:layout_below="@id/rl_topbar">
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <!-- TODO: Update blank fragment layout -->
 
             <org.example.androidenterprise.view.AutoPlayingViewPager
-                    android:id="@+id/instrument_viewpager"
+                    android:id="@+id/vp_instrument"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/viewpager_main_height">
 
@@ -50,10 +50,10 @@
             <!--TODO: replace HorizontalScrollView to HorizontalListView-->
 
             <android.support.design.widget.TabLayout
-                    android:id="@+id/instrument_tab"
+                    android:id="@+id/tab_instrument"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/tab_height"
-                    android:layout_below="@id/instrument_viewpager"
+                    android:layout_below="@id/vp_instrument"
                     android:layout_marginTop="@dimen/music_ang_margin_any"
                     android:background="@drawable/fragment_music_child"
                     app:tabSelectedTextColor="@color/color_97c8cd"
@@ -67,10 +67,10 @@
             </android.support.design.widget.TabLayout>
 
             <org.example.androidenterprise.view.CustomMeasureListView
-                    android:id="@+id/album_lv"
+                    android:id="@+id/lv_album"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/instrument_tab"
+                    android:layout_below="@id/tab_instrument"
                     android:background="@drawable/fragment_music_child"
                     android:layout_marginTop="@dimen/music_ang_margin_any">
 
@@ -78,10 +78,10 @@
 
 
             <org.example.androidenterprise.view.CustomMeasureListView
-                    android:id="@+id/intro_info_lv"
+                    android:id="@+id/lv_instru_info"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    android:layout_below="@id/album_lv"
+                    android:layout_below="@id/lv_album"
                     android:orientation="vertical"
                     android:background="@drawable/fragment_music_child"
                     android:layout_marginTop="@dimen/music_ang_margin_any">
@@ -89,10 +89,10 @@
             </org.example.androidenterprise.view.CustomMeasureListView>
 
             <org.example.androidenterprise.view.CustomMeasureGridView
-                    android:id="@+id/instrument_gv"
+                    android:id="@+id/gv_instrument"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/intro_info_lv"
+                    android:layout_below="@id/lv_instru_info"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/music_ang_margin_any"
                     android:background="@drawable/fragment_music_child"

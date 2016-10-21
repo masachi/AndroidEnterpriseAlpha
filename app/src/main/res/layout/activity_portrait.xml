@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="org.example.androidenterprise.activity.PortraitActivity">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_height"
+            android:background="#FF97C8CD">
+
+        <ImageView
+                android:id="@+id/iv_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/action_bar_image_margin_end"
+                android:background="@color/transparent"
+                android:paddingRight="@dimen/top_imagebutton_padding_right"
+                android:paddingTop="@dimen/top_imagebutton_padding_top"
+                android:paddingBottom="@dimen/top_imagebutton_padding_bottom"
+                android:src="@mipmap/ic_return" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/action_bar_portrait"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/action_bar_text_size" />
+
+        <TextView
+                android:id="@+id/tv_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                android:paddingLeft="@dimen/top_imagebutton_padding_right"
+                android:paddingTop="@dimen/top_imagebutton_padding_top"
+                android:paddingBottom="@dimen/top_imagebutton_padding_bottom"
+                android:text="确认"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/portrait_accept_text_size" />
+    </RelativeLayout>
+
+    <ImageView
+            android:id="@+id/img_head_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_centerVertical="true"
+            android:background="@color/color_000000"
+            android:src="@drawable/img_example2"
+            android:scaleType="fitXY"/>
+
+    <Button
+            android:id="@+id/btn_change_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/portrait_check_btn_height"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="@dimen/portrait_check_btn_margin_left_right"
+            android:layout_marginRight="@dimen/portrait_check_btn_margin_left_right"
+            android:background="@color/color_97c8cd"
+            android:text="更改头像"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/portrait_check_btn_text_size"
+            android:layout_alignParentBottom="true"
+            style="?android:borderlessButtonStyle"/>
+
+</RelativeLayout>

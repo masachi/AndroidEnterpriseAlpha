@@ -8,13 +8,13 @@
         tools:context="org.example.androidenterprise.activity.CourseInfoActivity">
 
     <RelativeLayout
-            android:id="@+id/course_info_top"
+            android:id="@+id/rl_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="#FF97C8CD">
 
         <ImageButton
-                android:id="@+id/course_info_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -34,18 +34,22 @@
                 android:layout_centerInParent="true"/>
 
         <ImageButton
+                android:id="@+id/ib_feedback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_course_info"
                 android:background="@color/transparent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/action_bar_image_margin_end"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
 
     </RelativeLayout>
 
     <org.example.androidenterprise.view.CustomScrollView
-            android:layout_below="@id/course_info_top"
+            android:layout_below="@id/rl_topbar"
             android:background="@color/color_f0f0f0"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -55,21 +59,21 @@
                 android:layout_height="match_parent">
 
             <ImageView
-                    android:id="@+id/course_info_topimg"
+                    android:id="@+id/iv_top_img"
                     android:layout_width="match_parent"
                     android:layout_height="211dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/neko"/>
 
             <RelativeLayout
-                    android:id="@+id/course_info_course"
+                    android:id="@+id/rl_course"
                     android:background="@drawable/course_info_child"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/course_info_topimg">
+                    android:layout_below="@id/iv_top_img">
 
                 <TextView
-                        android:id="@+id/course_info_title_tv"
+                        android:id="@+id/tv_course_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="课程XXXXXXX"
@@ -79,19 +83,19 @@
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"/>
 
                 <TextView
-                        android:id="@+id/course_info_level_tv"
+                        android:id="@+id/tv_course_level"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="等级 ：XXXXXX"
                         android:textSize="@dimen/course_info_level_text_size"
                         android:textColor="@color/color_999999"
-                        android:layout_below="@id/course_info_title_tv"
+                        android:layout_below="@id/tv_course_title"
                         android:layout_marginTop="@dimen/course_info_margin_top"
-                        android:layout_alignLeft="@id/course_info_title_tv"
+                        android:layout_alignLeft="@id/tv_course_title"
                         android:layout_marginBottom="@dimen/course_info_margin_top"/>
 
                 <TextView
-                        android:id="@+id/course_info_price_tv"
+                        android:id="@+id/tv_course_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5000.00"
@@ -102,7 +106,7 @@
                         android:layout_marginRight="@dimen/course_info_margin_left_right"/>
 
                 <TextView
-                        android:id="@+id/price_sign_tv"
+                        android:id="@+id/tv_price_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/price_sign"
@@ -110,29 +114,29 @@
                         android:textSize="@dimen/course_info_price_sign_size"
                         android:layout_marginLeft="-8dp"
                         android:layout_centerVertical="true"
-                        android:layout_alignLeft="@id/course_info_price_tv"/>
+                        android:layout_alignLeft="@id/tv_course_price"/>
 
                 <TextView
                         android:layout_width="1px"
                         android:layout_height="30sp"
+                        android:layout_toStartOf="@id/tv_price_sign"
                         android:background="@color/color_d1d1d1"
-                        android:layout_toStartOf="@id/price_sign_tv"
                         android:layout_marginEnd="12dp"
                         android:layout_centerVertical="true"/>
 
             </RelativeLayout>
 
             <LinearLayout
-                    android:id="@+id/course_info_couInfo"
+                    android:id="@+id/ll_course_info"
                     android:background="@drawable/course_info_child"
-                    android:layout_below="@id/course_info_course"
+                    android:layout_below="@id/rl_course"
                     android:layout_marginTop="@dimen/course_info_child_margin"
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
 
                 <TextView
-                        android:id="@+id/course_info_id"
+                        android:id="@+id/tv_course_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
@@ -142,7 +146,7 @@
                         android:text="编号 ：XXXXXXXX"/>
 
                 <TextView
-                        android:id="@+id/course_info_duration"
+                        android:id="@+id/tv_course_duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
@@ -152,7 +156,7 @@
                         android:text="编号 ：XXXXXXXX"/>
 
                 <TextView
-                        android:id="@+id/course_info_position"
+                        android:id="@+id/tv_course_pos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
@@ -162,7 +166,7 @@
                         android:text="编号 ：XXXXXXXX"/>
 
                 <TextView
-                        android:id="@+id/course_info_other"
+                        android:id="@+id/tv_course_other"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/course_info_number_margin_top"
@@ -175,13 +179,13 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:id="@+id/course_info_allnumber"
+                    android:id="@+id/ll_all_stu"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:background="@drawable/course_info_child"
                     android:layout_marginTop="@dimen/course_info_child_margin"
                     android:orientation="vertical"
-                    android:layout_below="@id/course_info_couInfo">
+                    android:layout_below="@id/ll_course_info">
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -200,6 +204,7 @@
                         android:layout_marginTop="@dimen/course_info_teacher_margin"/>
 
                 <RelativeLayout
+                        android:id="@+id/rl_teacher"
                         android:layout_marginBottom="@dimen/course_info_teacher_margin"
                         android:layout_marginLeft="@dimen/course_info_margin_left_right"
                         android:layout_width="match_parent"
@@ -208,7 +213,7 @@
                         android:background="@color/color_ffffff">
 
                     <org.example.androidenterprise.view.CircleImageView
-                            android:id="@+id/course_info_person_image"
+                            android:id="@+id/civ_teacher"
                             android:layout_width="43dp"
                             android:layout_height="43dp"
                             android:layout_marginTop="@dimen/course_info_teacher_margin"
@@ -219,13 +224,14 @@
                     <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/course_info_person_image"
+                            android:layout_toRightOf="@id/civ_teacher"
                             android:paddingLeft="15dp"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:layout_marginTop="@dimen/course_info_margin_top">
 
                         <TextView
+                                android:id="@+id/tv_teacher_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="昵称Cdohng"
@@ -234,6 +240,7 @@
                                 android:layout_gravity="start"/>
 
                         <TextView
+                                android:id="@+id/tv_teacher_phone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="@dimen/course_info_margin_top"
@@ -243,7 +250,7 @@
 
                     </LinearLayout>
 
-                    <ImageView
+                    <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
@@ -251,6 +258,7 @@
                             android:paddingLeft="@dimen/course_info_margin_left_right"
                             android:paddingRight="@dimen/course_info_margin_left_right"
                             android:src="@mipmap/ic_right_arrow"
+                            android:background="@color/transparent"
                             android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
@@ -272,7 +280,7 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:id="@+id/course_info_stu_number"
+                            android:id="@+id/tv_stu_number"
                             android:text="共36个学员"
                             android:layout_marginTop="@dimen/course_info_student_margin"
                             android:layout_marginBottom="@dimen/course_info_student_margin"
@@ -283,7 +291,7 @@
 
                     <TextView
                             android:id="@+id/course_info_stu_line"
-                            android:layout_toRightOf="@id/course_info_stu_number"
+                            android:layout_toRightOf="@id/tv_stu_number"
                             android:layout_marginTop="12dp"
                             android:layout_marginBottom="12dp"
                             android:layout_marginLeft="@dimen/course_info_margin_left_right"
@@ -301,7 +309,7 @@
                             android:layout_centerVertical="true"/>
 
                     <LinearLayout
-                            android:id="@+id/course_info_stu_info"
+                            android:id="@+id/ll_stu_info"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_toRightOf="@id/course_info_stu_line"
@@ -319,12 +327,12 @@
             </LinearLayout>
 
             <RelativeLayout
-                    android:id="@+id/course_info_schedule"
+                    android:id="@+id/rl_schedule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/course_info_child"
                     android:layout_marginTop="@dimen/course_info_margin_top"
-                    android:layout_below="@id/course_info_allnumber">
+                    android:layout_below="@id/ll_all_stu">
 
                 <RelativeLayout
                         android:layout_marginRight="@dimen/course_info_margin_left_right"
@@ -378,6 +386,7 @@
                             android:layout_below="@id/course_info_schedule_line"/>
 
                     <TextView
+                            android:id="@+id/tv_schedule_info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/course_info_margin_top"
@@ -393,12 +402,12 @@
             </RelativeLayout>
 
             <RelativeLayout
-                    android:id="@+id/course_info_feedback"
+                    android:id="@+id/rl_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/course_info_child"
                     android:layout_marginTop="@dimen/course_info_margin_top"
-                    android:layout_below="@id/course_info_schedule">
+                    android:layout_below="@id/rl_schedule">
 
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -409,6 +418,7 @@
                         android:layout_marginLeft="@dimen/course_info_margin_left_right">
 
                     <TextView
+                            android:id="@+id/tv_feedback_num"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="121条学生反馈"
@@ -429,7 +439,7 @@
                             android:layout_height="wrap_content">
 
                         <LinearLayout
-                                android:id="@+id/course_info_feedback_stu"
+                                android:id="@+id/ll_stu_feedback"
                                 android:layout_width="match_parent"
                                 android:layout_height="43dp"
                                 android:orientation="horizontal"
@@ -459,9 +469,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/course_info_margin_top"
                     android:background="@color/color_ffffff"
-                    android:layout_below="@id/course_info_feedback">
+                    android:layout_below="@id/rl_feedback">
 
                 <Button
+                        android:id="@+id/btn_choose"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/course_info_button_height"
                         android:text="选课"

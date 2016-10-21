@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
         <RelativeLayout
-                android:id="@+id/relative_btn"
+                android:id="@+id/rl_login_reg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
@@ -38,10 +38,10 @@
         </RelativeLayout>
 
         <EditText
-                android:id="@+id/edittext_username"
+                android:id="@+id/et_username"
                 android:layout_width="@dimen/et_width"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relative_btn"
+                android:layout_below="@id/rl_login_reg"
                 android:layout_marginTop="@dimen/et_margin_relative"
                 android:layout_centerInParent="true"
                 android:drawableLeft="@mipmap/ic_et_phone"
@@ -49,11 +49,11 @@
                 android:inputType="number"/>
 
         <EditText
-                android:id="@+id/edittext_password"
+                android:id="@+id/et_password"
                 android:layout_width="@dimen/et_width"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/edittext_username"
+                android:layout_below="@id/et_username"
                 android:layout_marginTop="@dimen/et_margin_et"
                 android:inputType="textPassword"
                 android:drawableLeft="@mipmap/ic_et_locker"
@@ -63,22 +63,22 @@
                 android:textSize="@dimen/password_text_size"/>
 
         <ImageButton
-                android:id="@+id/visible_button"
+                android:id="@+id/btn_vis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/edittext_password"
+                android:layout_above="@id/et_password"
                 android:src="@mipmap/ic_et_eye"
                 android:background="@color/transparent"
-                android:layout_alignEnd="@id/edittext_password"
-                android:layout_alignBottom="@id/edittext_password"
+                android:layout_alignEnd="@id/et_password"
+                android:layout_alignBottom="@id/et_password"
                 android:layout_marginBottom="16dp"/>
 
         <RelativeLayout
-                android:id="@+id/verify_relative"
+                android:id="@+id/rl_verify"
                 android:layout_width="@dimen/et_width"
                 android:layout_height="@dimen/verify_btn_height"
-                android:layout_below="@id/edittext_password"
-                android:layout_alignStart="@id/edittext_password"
+                android:layout_below="@id/et_password"
+                android:layout_alignStart="@id/et_password"
                 android:layout_marginTop="@dimen/et_margin_et">
             <EditText
                     android:id="@+id/edittext_verify"
@@ -89,7 +89,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"/>
             <Button
-                    android:id="@+id/verify_btn"
+                    android:id="@+id/btn_verify"
                     android:layout_width="@dimen/verify_btn_width"
                     android:layout_height="@dimen/verify_btn_height"
                     android:background="@drawable/btn_login"
@@ -107,7 +107,7 @@
                 android:layout_height="@dimen/register_big_btn_height"
                 android:background="@drawable/btn_register_big"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/verify_relative"
+                android:layout_below="@id/rl_verify"
                 android:layout_marginTop="@dimen/register_big_margin_relative"
                 android:text="@string/register_text"
                 android:textColor="@color/color_ffffff"

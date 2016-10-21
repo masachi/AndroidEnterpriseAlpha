@@ -9,7 +9,9 @@ import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
 import org.example.androidenterprise.adapter.SearchOrderAdapter;
 import org.example.androidenterprise.fragment.CourseFragment;
+import org.example.androidenterprise.utils.InitData;
 
+import static org.example.androidenterprise.utils.InitData.course;
 import static org.example.androidenterprise.utils.InitData.olist;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener,ExpandableListView.OnGroupClickListener{
@@ -28,19 +30,19 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        CourseAdapter courseAdapter = new CourseAdapter(this, CourseFragment.course.getCourse_list());
+        CourseAdapter courseAdapter = new CourseAdapter(this, InitData.course.getCourse_list());
         ItemAdapter itemAdapter = new ItemAdapter(this);
         SearchOrderAdapter searchOrderAdapter = new SearchOrderAdapter(this);
 
 
-        returnIb = (ImageButton) findViewById(R.id.search_return_ib);
-        mainWordEt = (EditText) findViewById(R.id.search_et);
-        searchTv = (TextView) findViewById(R.id.search_ib);
+        returnIb = (ImageButton) findViewById(R.id.ib_return);
+        mainWordEt = (EditText) findViewById(R.id.et_search);
+        searchTv = (TextView) findViewById(R.id.ib_search);
         searchRg = (RadioGroup) findViewById(R.id.search_radioGp);
-        courseLv = (ListView) findViewById(R.id.search_info_course_lv);
-        orderLv = (ExpandableListView) findViewById(R.id.search_info_order_time_lv);
-        recordLv = (ListView) findViewById(R.id.search_info_record_lv);
-        instruGv = (GridView) findViewById(R.id.search_gv);
+        courseLv = (ListView) findViewById(R.id.lv_course_info);
+        orderLv = (ExpandableListView) findViewById(R.id.explv_order);
+        recordLv = (ListView) findViewById(R.id.lv_record_info);
+        instruGv = (GridView) findViewById(R.id.gv_instrument_info);
 
         returnIb.setOnClickListener(this);
         searchTv.setOnClickListener(this);
@@ -53,15 +55,20 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         for(int i=0;i<olist.size();i++){
             orderLv.expandGroup(i);
         }
+
+        courseLv.setVisibility(View.INVISIBLE);
+        orderLv.setVisibility(View.INVISIBLE);
+        recordLv.setVisibility(View.INVISIBLE);
+        instruGv.setVisibility(View.INVISIBLE);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.search_return_ib:
+            case R.id.ib_return:
                 finish();
                 break;
-            case R.id.search_ib:
+            case R.id.ib_search:
                 break;
         }
     }

@@ -8,13 +8,13 @@
         tools:context="org.example.androidenterprise.activity.SearchActivity">
 
     <RelativeLayout
-            android:id="@+id/search_top"
+            android:id="@+id/rl_search_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="#FF97C8CD">
 
         <ImageButton
-                android:id="@+id/search_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -27,7 +27,7 @@
 
 
         <TextView
-                android:id="@+id/search_ib"
+                android:id="@+id/ib_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -39,17 +39,17 @@
                 android:layout_centerVertical="true"/>
 
         <EditText
-                android:id="@+id/search_et"
+                android:id="@+id/et_search"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/search_et_height"
                 android:hint="@string/search_hint"
                 android:textColorHint="@color/color_333333"
-                android:layout_toRightOf="@id/search_return_ib"
+                android:layout_toRightOf="@id/ib_return"
                 android:layout_centerVertical="true"
                 android:background="@drawable/search_et_shape"
                 android:layout_marginRight="@dimen/search_margin_right"
                 android:drawableStart="@mipmap/ic_search_hinticon"
-                android:layout_toLeftOf="@id/search_ib"
+                android:layout_toLeftOf="@id/ib_search"
                 android:paddingStart="5dp"
                 android:layout_marginLeft="@dimen/search_margin_left"
                 android:drawablePadding="5dp"
@@ -58,10 +58,10 @@
     </RelativeLayout>
 
     <RelativeLayout
-            android:id="@+id/search_selector"
+            android:id="@+id/rl_search_selector"
             android:layout_width="match_parent"
             android:layout_height="@dimen/search_selector_height"
-            android:layout_below="@id/search_top"
+            android:layout_below="@id/rl_search_top"
             android:background="@drawable/activity_search_child">
         <RadioGroup
                 android:id="@+id/search_radioGp"
@@ -70,7 +70,7 @@
                 android:orientation="horizontal">
 
             <RadioButton
-                    android:id="@+id/course_rbtn"
+                    android:id="@+id/rdob_course"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -85,7 +85,7 @@
                     android:layout_marginRight="@dimen/search_selector_margin_each"/>
 
             <RadioButton
-                    android:id="@+id/instru_rbtn"
+                    android:id="@+id/rdob_instrument"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -100,7 +100,7 @@
                     android:layout_marginRight="@dimen/search_selector_margin_each"/>
 
             <RadioButton
-                    android:id="@+id/order_rbtn"
+                    android:id="@+id/rdob_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -115,7 +115,7 @@
                     android:layout_marginRight="@dimen/search_selector_margin_each"/>
 
             <RadioButton
-                    android:id="@+id/record_rbtn"
+                    android:id="@+id/rdob_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -135,12 +135,12 @@
     <org.example.androidenterprise.view.CustomScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/search_selector">
+            android:layout_below="@id/rl_search_selector">
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <LinearLayout
-                    android:id="@+id/search_course_info"
+                    android:id="@+id/ll_course_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/activity_search_child"
@@ -148,7 +148,6 @@
                     android:orientation="vertical">
 
                 <TextView
-                        android:id="@+id/search_info_course"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/search_course_text"
@@ -160,11 +159,11 @@
 
                 <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_d1d1d1"/>
+                        android:background="@color/color_d1d1d1"
+                        android:layout_height="1px"/>
 
                 <org.example.androidenterprise.view.CustomMeasureListView
-                        android:id="@+id/search_info_course_lv"
+                        android:id="@+id/lv_course_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:dividerHeight="1dp"
@@ -175,16 +174,15 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:id="@+id/search_order_info"
+                    android:id="@+id/ll_order_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_below="@id/search_course_info"
+                    android:layout_below="@id/ll_course_info"
                     android:layout_marginTop="@dimen/search_margin_each"
                     android:background="@drawable/activity_search_child">
 
                 <TextView
-                        android:id="@+id/search_info_order"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
@@ -196,11 +194,11 @@
 
                 <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_d1d1d1"/>
-                
+                        android:background="@color/color_d1d1d1"
+                        android:layout_height="1px"/>
+
                 <org.example.androidenterprise.view.SearchExpandableListView
-                        android:id="@+id/search_info_order_time_lv"
+                        android:id="@+id/explv_order"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:groupIndicator="@null"
@@ -213,16 +211,15 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:id="@+id/search_record_info"
+                    android:id="@+id/ll_record_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_below="@id/search_order_info"
+                    android:layout_below="@id/ll_order_info"
                     android:layout_marginTop="@dimen/search_margin_each"
                     android:background="@drawable/activity_search_child">
 
                 <TextView
-                        android:id="@+id/search_info_record"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
@@ -234,11 +231,11 @@
 
                 <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="1px"
                         android:background="@color/color_d1d1d1"/>
 
                 <org.example.androidenterprise.view.CustomMeasureListView
-                        android:id="@+id/search_info_record_lv"
+                        android:id="@+id/lv_record_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:dividerHeight="1dp"
@@ -249,16 +246,15 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:id="@+id/search_instru_info"
+                    android:id="@+id/ll_instrument_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_below="@id/search_record_info"
+                    android:layout_below="@id/ll_record_info"
                     android:layout_marginTop="@dimen/search_margin_each"
                     android:background="@drawable/activity_search_child">
 
                 <TextView
-                        android:id="@+id/search_info_instru"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
@@ -270,11 +266,11 @@
 
                 <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        android:layout_height="1px"
                         android:background="@color/color_d1d1d1"/>
 
                 <org.example.androidenterprise.view.CustomMeasureGridView
-                        android:id="@+id/search_gv"
+                        android:id="@+id/gv_instrument_info"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -284,7 +280,9 @@
                 </org.example.androidenterprise.view.CustomMeasureGridView>
 
             </LinearLayout>
+
         </RelativeLayout>
+
     </org.example.androidenterprise.view.CustomScrollView>
 
 </RelativeLayout>

@@ -9,7 +9,7 @@
         tools:context="org.example.androidenterprise.activity.OrderInfoActivity">
 
     <RelativeLayout
-            android:id="@+id/order_info_title"
+            android:id="@+id/rl_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="#FF97C8CD">
@@ -36,13 +36,14 @@
     </RelativeLayout>
 
     <RelativeLayout
-            android:id="@+id/order_info_top"
+            android:id="@+id/rl_pay_state"
             android:layout_width="match_parent"
             android:layout_height="@dimen/order_info_top_height"
-            android:layout_below="@id/order_info_title"
+            android:layout_below="@id/rl_topbar"
             android:background="#FF97C8CD">
 
         <TextView
+                android:id="@+id/tv_pay_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="待付款"
@@ -52,7 +53,7 @@
                 android:layout_marginLeft="@dimen/order_info_margin_left_right"/>
 
         <Button
-                android:id="@+id/order_info_pay_btn"
+                android:id="@+id/btn_pay"
                 android:layout_width="@dimen/order_info_top_btn_width"
                 android:layout_height="@dimen/order_info_top_btn_height"
                 android:layout_alignParentEnd="true"
@@ -68,20 +69,23 @@
 
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:background="@color/color_d1d1d1"/>
     <org.example.androidenterprise.view.CustomScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+            
             <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+                
                 <ImageView
-                        android:id="@+id/order_info_logistics_img"
+                        android:id="@+id/iv_logistics"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_logistics_car"
@@ -90,33 +94,31 @@
                         android:layout_marginBottom="@dimen/order_info_logistics_maigin_top_end"/>
 
                 <TextView
-                        android:id="@+id/order_info_logistics_tv"
+                        android:id="@+id/tv_logistics"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/order_info_margin_left_right"
-                        android:layout_toRightOf="@id/order_info_logistics_img"
+                        android:layout_toRightOf="@id/iv_logistics"
                         android:layout_marginTop="@dimen/order_info_logistics_maigin_top_end"
                         android:layout_marginBottom="@dimen/order_info_logistics_maigin_top_end"
                         android:text="233333333"
                         android:textSize="@dimen/order_info_logistics_text_size"
-                        android:layout_alignBaseline="@id/order_info_logistics_img"
+                        android:layout_alignBaseline="@id/iv_logistics"
                         android:textColor="@color/color_999999"/>
 
             </RelativeLayout>
 
             <TextView
-                    android:id="@+id/order_info_logistics_line"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <RelativeLayout
-                    android:id="@+id/order_info_personality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <ImageView
-                        android:id="@+id/order_info_pos_img"
+                        android:id="@+id/iv_position"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_order_position"
@@ -124,24 +126,24 @@
                         android:layout_marginLeft="@dimen/order_info_margin_left_right"/>
 
                 <TextView
-                        android:id="@+id/order_info_personality_name"
+                        android:id="@+id/tv_person_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/order_info_personality_text_size"
                         android:layout_marginTop="@dimen/order_info_personality_margin_top_end"
                         android:text="233333333"
-                        android:layout_toRightOf="@id/order_info_pos_img"
+                        android:layout_toRightOf="@id/iv_position"
                         android:layout_marginLeft="@dimen/order_info_margin_left_right"/>
 
                 <TextView
-                        android:id="@+id/order_info_personality_pos"
+                        android:id="@+id/tv_person_position"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/order_info_personality_text_size"
                         android:layout_marginTop="@dimen/order_info_personality_margin_each"
-                        android:layout_below="@id/order_info_personality_name"
+                        android:layout_below="@id/tv_person_name"
                         android:text="23333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333"
-                        android:layout_toRightOf="@id/order_info_pos_img"
+                        android:layout_toRightOf="@id/iv_position"
                         android:layout_marginLeft="@dimen/order_info_margin_left_right"/>
 
 
@@ -149,7 +151,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <TextView
@@ -159,11 +161,11 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <org.example.androidenterprise.view.CustomMeasureListView
-                    android:id="@+id/order_info_order_lv"
+                    android:id="@+id/lv_order"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:dividerHeight="15dp"
@@ -174,7 +176,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"
                     android:layout_marginLeft="@dimen/order_info_margin_left_right"
                     android:layout_marginRight="@dimen/order_info_margin_left_right"/>
@@ -188,14 +190,14 @@
                     android:layout_marginRight="@dimen/order_info_margin_left_right"
                     android:layout_marginBottom="@dimen/order_info_delivery_price_margin_top_end">
                 <TextView
-                        android:id="@+id/order_info_delivery_price_text"
+                        android:id="@+id/tv_delivery_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="运费"
                         android:textSize="@dimen/order_info_delivery_price_text_size"/>
 
                 <TextView
-                        android:id="@+id/order_info_delivery_price"
+                        android:id="@+id/tv_delivery_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -203,20 +205,19 @@
                         android:textSize="@dimen/order_info_delivery_price_text_size"/>
 
                 <TextView
-                        android:id="@+id/order_info_delivery_final_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/order_info_delivery_price_text"
+                        android:layout_below="@id/tv_delivery_text"
                         android:layout_marginTop="@dimen/order_info_delivery_price_margin_each"
                         android:text="实付（含运费）"
                         android:textSize="@dimen/order_info_delivery_price_text_size"/>
 
                 <TextView
-                        android:id="@+id/order_info_delivery_final_price"
+                        android:id="@+id/tv_delivery_final_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@id/order_info_delivery_price"
+                        android:layout_below="@id/tv_delivery_price"
                         android:layout_marginTop="@dimen/order_info_delivery_price_margin_each"
                         android:text="￥2333"
                         android:textSize="@dimen/order_info_delivery_final_price_size"
@@ -226,13 +227,13 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"
                     android:layout_marginLeft="@dimen/order_info_margin_left_right"
                     android:layout_marginRight="@dimen/order_info_margin_left_right"/>
 
             <TextView
-                    android:id="@+id/order_info_delivery_message"
+                    android:id="@+id/tv_delivery_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/order_info_margin_left_right"
@@ -243,7 +244,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <TextView
@@ -253,7 +254,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <RelativeLayout
@@ -265,7 +266,7 @@
                     android:layout_marginRight="@dimen/order_info_margin_left_right">
 
                 <TextView
-                        android:id="@+id/order_info_order_number_tv"
+                        android:id="@+id/tv_order_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="订单编号：233"
@@ -273,40 +274,40 @@
                         android:textColor="@color/color_999999"/>
 
                 <TextView
-                        android:id="@+id/order_info_order_create_time_tv"
+                        android:id="@+id/tv_create_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/order_info_order_number_tv"
+                        android:layout_below="@id/tv_order_number"
                         android:layout_marginTop="@dimen/order_info_order_margin_each"
                         android:text="创建时间："
                         android:textSize="@dimen/order_info_order_text_size"
                         android:textColor="@color/color_999999"/>
 
                 <TextView
-                        android:id="@+id/order_info_order_pay_time_tv"
+                        android:id="@+id/tv_pay_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/order_info_order_create_time_tv"
+                        android:layout_below="@id/tv_create_time"
                         android:layout_marginTop="@dimen/order_info_order_margin_each"
                         android:text="付款时间："
                         android:textSize="@dimen/order_info_order_text_size"
                         android:textColor="@color/color_999999"/>
 
                 <TextView
-                        android:id="@+id/order_info_order_deliver_time_tv"
+                        android:id="@+id/tv_deliver_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/order_info_order_pay_time_tv"
+                        android:layout_below="@id/tv_pay_time"
                         android:layout_marginTop="@dimen/order_info_order_margin_each"
                         android:text="发货时间："
                         android:textSize="@dimen/order_info_order_text_size"
                         android:textColor="@color/color_999999"/>
 
                 <TextView
-                        android:id="@+id/order_info_order_catch_time_tv"
+                        android:id="@+id/tv_catch_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/order_info_order_deliver_time_tv"
+                        android:layout_below="@id/tv_deliver_time"
                         android:layout_marginTop="@dimen/order_info_order_margin_each"
                         android:text="收货时间："
                         android:textSize="@dimen/order_info_order_text_size"
@@ -316,7 +317,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <TextView
@@ -326,11 +327,11 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <TextView
-                    android:id="@+id/order_info_return_addr"
+                    android:id="@+id/tv_return_addr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_info_margin_top_end"
@@ -341,7 +342,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <TextView
@@ -351,7 +352,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <FrameLayout
@@ -364,13 +365,13 @@
                     android:layout_marginRight="15dp">
 
                 <RelativeLayout
-                        android:id="@+id/order_info_action_pay"
+                        android:id="@+id/rl_pay_action"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="visible">
 
                     <Button
-                            android:id="@+id/order_info_action_pay_cancel"
+                            android:id="@+id/btn_pay_cancel"
                             android:layout_width="@dimen/order_info_action_btn_width"
                             android:layout_height="@dimen/order_info_action_btn_height"
                             android:textSize="@dimen/order_info_action_btn_text_size"
@@ -381,7 +382,7 @@
                             android:text="取消订单"/>
 
                     <Button
-                            android:id="@+id/order_info_action_pay_yes"
+                            android:id="@+id/btn_pay_accept"
                             android:layout_width="@dimen/order_info_action_btn_width"
                             android:layout_height="@dimen/order_info_action_btn_height"
                             android:textSize="@dimen/order_info_action_btn_text_size"
@@ -395,13 +396,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                        android:id="@+id/order_info_action_cancel"
+                        android:id="@+id/rl_cancel_action"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="invisible">
 
                     <Button
-                            android:id="@+id/order_info_action_cancel_cancel"
+                            android:id="@+id/btn_cancel"
                             android:layout_width="@dimen/order_info_action_btn_width"
                             android:layout_height="@dimen/order_info_action_btn_height"
                             android:textSize="@dimen/order_info_action_btn_text_size"
@@ -415,13 +416,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                        android:id="@+id/order_info_action_catch"
+                        android:id="@+id/rl_catch_action"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="invisible">
 
                     <Button
-                            android:id="@+id/order_info_action_catch_cancel"
+                            android:id="@+id/btn_catch_cancel"
                             android:layout_width="@dimen/order_info_action_btn_width"
                             android:layout_height="@dimen/order_info_action_btn_height"
                             android:textSize="@dimen/order_info_action_btn_text_size"
@@ -432,7 +433,7 @@
                             android:text="退货"/>
 
                     <Button
-                            android:id="@+id/order_info_action_catch_yes"
+                            android:id="@+id/btn_catch_accept"
                             android:layout_width="@dimen/order_info_action_btn_width"
                             android:layout_height="@dimen/order_info_action_btn_height"
                             android:textSize="@dimen/order_info_action_btn_text_size"
@@ -449,7 +450,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"/>
 
             <TextView
@@ -460,7 +461,7 @@
 
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:background="@color/color_d1d1d1"
                     android:visibility="invisible"/>
 

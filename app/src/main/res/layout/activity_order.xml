@@ -8,12 +8,12 @@
         tools:context="org.example.androidenterprise.activity.OrderActivity">
 
     <RelativeLayout
-            android:id="@+id/order_title"
+            android:id="@+id/rl_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
             android:background="@color/color_97c8cd">
         <ImageButton
-                android:id="@+id/order_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -32,7 +32,7 @@
                 android:layout_centerInParent="true"/>
 
         <ImageButton
-                android:id="@+id/order_search_ib"
+                android:id="@+id/ib_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_search"
@@ -47,11 +47,11 @@
     </RelativeLayout>
 
     <org.example.androidenterprise.view.CustomMeasureListView
-            android:id="@+id/order_lv"
+            android:id="@+id/lv_order"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/order_lv_margin_top"
-            android:layout_below="@id/order_title">
+            android:layout_below="@id/rl_topbar">
 
     </org.example.androidenterprise.view.CustomMeasureListView>
 
