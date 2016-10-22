@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class UserInfoEntity implements Serializable {
     private String username; //用户名
     private String password; //密码
+    private String device_id; //设备码
 
 
     public String getUsername() {
@@ -30,5 +31,13 @@ public class UserInfoEntity implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getDevice_id() {
+        return device_id;
+    }
+
+    public void setDevice_id(String device_id) {
+        this.device_id = device_id;
     }
 }

@@ -19,6 +19,8 @@ import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.List.UserInfoList;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.model.LoginResponseEntity;
+import org.example.androidenterprise.model.LoginResponseErrorEntity;
+import org.example.androidenterprise.model.RegisterResponseEntity;
 import org.example.androidenterprise.model.UserInfoEntity;
 import org.example.androidenterprise.utils.InitData;
 import org.xutils.common.Callback;
@@ -33,7 +35,7 @@ import java.util.List;
 @ContentView(R.layout.activity_login)
 
 public class LoginActivity extends BaseActivity implements View.OnTouchListener {
-    private String LOGIN_URL = "http://112.124.38.1:12345/login";
+    private String LOGIN_URL = "http://138.68.4.19:8080/login/api_login";
     private String REGISTER_URL = "http://138.68.4.19:8080/regist/getdata";
 
     public static boolean isLogin = false;
@@ -184,9 +186,13 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                         @Override
                         public void onSuccess(String result) {
                             Log.e("23333",result);
-                            LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>(){}.getType());
-                            Toast.makeText(getBaseContext(),respose.getMessage(),Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getBaseContext(),InsideActivity.class));
+                            RegisterResponseEntity respose = new Gson().fromJson(result, new TypeToken<RegisterResponseEntity>(){}.getType());
+                            if(respose.getResult().equals("no")){
+                                Toast.makeText(getBaseContext(),"该手机号已经注册\n请登录",Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(getBaseContext(),"注册成功\n请登录",Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
@@ -207,6 +213,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                     });
                 }
                 else{
+                    userInfo.setDevice_id(Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID));
                     RequestParams params = new RequestParams(LOGIN_URL);
                     params.setAsJsonContent(true);
                     params.setBodyContent(new Gson().toJson(userInfo).toString());
@@ -215,9 +222,23 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
 
                         @Override
                         public void onSuccess(String result) {
-                            LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>(){}.getType());
-                            Toast.makeText(getBaseContext(),respose.getMessage(),Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getBaseContext(),InsideActivity.class));
+                            if(result.length()<40) {
+                                LoginResponseErrorEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseErrorEntity>() {
+                                }.getType());
+                                if(respose.getType() == 1){
+                                    Toast.makeText(LoginActivity.this, "该用户未注册", Toast.LENGTH_SHORT).show();
+                                }
+                                if(respose.getType() == 2){
+                                    Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else{
+                                LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>() {
+                                }.getType());
+                                Toast.makeText(getBaseContext(),"登录成功", Toast.LENGTH_SHORT).show();
+                                isLogin = true;
+                                startActivity(new Intent(getBaseContext(),InsideActivity.class));
+                            }
                         }
 
                         @Override

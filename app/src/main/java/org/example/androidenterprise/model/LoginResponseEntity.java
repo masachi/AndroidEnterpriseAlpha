@@ -10,22 +10,76 @@ import java.io.Serializable;
  * 服务器返回数据
  */
 public class LoginResponseEntity implements Serializable {
-    private int status_code;  //返回码
-    private String message;  //返回信息
+    private String Result;
+    private int Type;
+    private int User_id;
+    private String Username;
+    private String Pic_URL;
+    private String Location;
+    private String Other;
+    private String Introduction;
 
-    public int getStatus_code() {
-        return status_code;
+    public String getResult() {
+        return Result;
     }
 
-    public void setStatus_code(int status_code) {
-        this.status_code = status_code;
+    public void setResult(String result) {
+        Result = result;
     }
 
-    public String getMessage() {
-        return message;
+    public int getType() {
+        return Type;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setType(int type) {
+        Type = type;
+    }
+
+    public int getUser_id() {
+        return User_id;
+    }
+
+    public void setUser_id(int user_id) {
+        User_id = user_id;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public String getPic_URL() {
+        return Pic_URL;
+    }
+
+    public void setPic_URL(String pic_URL) {
+        Pic_URL = pic_URL;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public String getOther() {
+        return Other;
+    }
+
+    public void setOther(String other) {
+        Other = other;
+    }
+
+    public String getIntroduction() {
+        return Introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        Introduction = introduction;
     }
 }
