@@ -11,7 +11,7 @@ import org.example.androidenterprise.R;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/10/16.
+ * Created by baiqingyu : 联系我们页面中客服adapter
  */
 public class ContactUsServiceAdapter extends BaseAdapter {
     private List<String> listServiceName;

@@ -14,7 +14,7 @@ import org.xutils.x;
 @ContentView(R.layout.activity_confirm_order)
 
 /**
- * Created by Administrator on 2016/10/13.
+ * Created by baiqingyu : 确认订单
  */
 public class ConfirmOrderActivity extends Activity {
     @ViewInject(R.id.tv_buyer_leave_message)

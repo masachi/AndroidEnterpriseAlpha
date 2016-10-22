@@ -10,7 +10,7 @@ import org.xutils.x;
 @ContentView(R.layout.activity_students_head_list)
 
 /**
- * Created by Administrator on 2016/10/14.
+ * Created by baiqingyu : 学员列表
  */
 public class StudentsHeadListActivity extends Activity {
     @Override
