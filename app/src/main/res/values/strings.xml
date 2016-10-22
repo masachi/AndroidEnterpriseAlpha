@@ -65,6 +65,7 @@
     <string name="place">上海</string>
     <string name="transfer_fee">运费0.00</string>
     <string name="price_flute">￥5000.00</string>
+    <string name="price_flute_with_line">￥6000.00</string>
     <string name="instrument_XXXX">乐器XXXXXXXXX</string>
     <string name="select_property">选择属性</string>
     <string name="right_now_buy">立即购买</string>
