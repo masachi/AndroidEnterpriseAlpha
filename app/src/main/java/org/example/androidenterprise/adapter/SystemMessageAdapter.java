@@ -9,7 +9,7 @@ import android.widget.TextView;
 import org.example.androidenterprise.R;
 
 /**
- * Created by xiaohua on 2016/10/13.
+ * Created by yangxinghua on 2016/10/13 ：我的留言=》系统消息页面适配器
  */
 public class SystemMessageAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;

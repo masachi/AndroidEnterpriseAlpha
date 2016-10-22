@@ -13,6 +13,9 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+/**
+ * Created by yangxinghua ：选择地址
+ */
 @ContentView(R.layout.activity_select_add)
 
 public class SelectAddActivity extends AppCompatActivity {

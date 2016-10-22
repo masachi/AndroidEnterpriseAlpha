@@ -10,6 +10,9 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+/**
+ * Created by yangxinghua ：课程订购
+ */
 @ContentView(R.layout.activity_course_order)
 
 public class CourseOrderActivity extends AppCompatActivity {

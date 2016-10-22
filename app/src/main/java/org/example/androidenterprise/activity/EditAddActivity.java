@@ -11,6 +11,9 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+/**
+ * Created by yangxinghua ：编辑地址
+ */
 @ContentView(R.layout.activity_edit_add)
 
 public class EditAddActivity extends AppCompatActivity {

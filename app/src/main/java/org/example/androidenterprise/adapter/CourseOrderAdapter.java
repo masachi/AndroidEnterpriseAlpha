@@ -10,7 +10,7 @@ import android.widget.TextView;
 import org.example.androidenterprise.R;
 
 /**
- * Created by xiaohua on 2016/10/19.
+ * Created by yangxinghua on 2016/10/19 ：课程订购页面适配器
  */
 public class CourseOrderAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;

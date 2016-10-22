@@ -10,7 +10,7 @@ import android.widget.TextView;
 import org.example.androidenterprise.R;
 
 /**
- * Created by xiaohua on 2016/10/13.
+ * Created by yangxinghua on 2016/10/13 ：交易记录页面适配器
  */
 public class RecordAdapter extends BaseExpandableListAdapter {
     private LayoutInflater mLayoutInflate;
