@@ -1,13 +1,19 @@
 package org.example.androidenterprise.activity;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ContactUsQQAdapter;
 import org.example.androidenterprise.adapter.ContactUsServiceAdapter;
@@ -19,6 +25,10 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by chenguojiao : 联系我们
+ */
+
 @ContentView(R.layout.activity_contact_us)
 public class ContactUsActivity extends AppCompatActivity {
 
@@ -26,6 +36,7 @@ public class ContactUsActivity extends AppCompatActivity {
     List<String> listServiceName = new ArrayList<>();
     String qqName[] = {"123456", "234567", "154562", "4445112", "55151", "54545"};
     List<String> listQQName = new ArrayList<>();
+
 
     @ViewInject(R.id.tv_dial_telephone)
     TextView dailTv;
@@ -37,6 +48,9 @@ public class ContactUsActivity extends AppCompatActivity {
     ImageButton returnIb;
     @ViewInject(R.id.tv_telephone)
     TextView telephoneTv;
+    ImageButton ib_reback;
+    @ViewInject(R.id.tv_dial_telephone)
+    TextView tv_dial_telephone;
 
 
 //    TODO get data
@@ -65,10 +79,7 @@ public class ContactUsActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.tv_dial_telephone:
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                Uri data = Uri.parse("tel:" +telephoneTv.getText().toString());
-                intent.setData(data);
-                startActivity(intent);
+//               TODO 拔打电话
                 break;
         }
     }

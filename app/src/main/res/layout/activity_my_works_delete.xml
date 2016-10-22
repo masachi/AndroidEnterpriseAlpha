@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Created by chenguojiao : 删除作品-->
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -36,7 +37,10 @@
         <org.example.androidenterprise.view.CustomMeasureGridView
                 android:id="@+id/gv_myworks"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:numColumns="2"
+                android:horizontalSpacing="@dimen/myworks_gridview_spacing"
+                android:verticalSpacing="@dimen/myworks_gridview_spacing">
 
         </org.example.androidenterprise.view.CustomMeasureGridView>
     </ScrollView>
@@ -44,7 +48,6 @@
             android:id="@+id/btn_delete"
             android:layout_width="match_parent"
             android:layout_height="@dimen/myworks_delete_btn_height"
-            android:text="@string/myworks_delete_str"
             android:textSize="@dimen/myworks_delete_btn_text_size"
             android:textColor="@color/color_97c8cd"
             android:layout_alignParentBottom="true"

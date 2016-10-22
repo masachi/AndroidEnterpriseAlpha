@@ -10,6 +10,10 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+/**
+ * Created by chenguojiao : 选择作品
+ */
+
 @ContentView(R.layout.activity_my_works_select)
 public class MyWorksSelectActivity extends AppCompatActivity {
     @ViewInject(R.id.ib_reback)

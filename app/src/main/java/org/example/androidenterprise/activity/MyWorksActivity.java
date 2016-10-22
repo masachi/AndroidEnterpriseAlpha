@@ -15,6 +15,10 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by chenguojiao : 我的作品
+ */
+
 @ContentView(R.layout.activity_my_works)
 public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,7 +31,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
     GridView gv_myworks;
 
     private int works_data[] = {R.drawable.ic_shoot,R.drawable.ic_works,R.drawable.ic_works,R.drawable.ic_works,
-            R.drawable.ic_works,R.drawable.ic_works,R.drawable.ic_works,R.drawable.ic_works,R.drawable.ic_works,R.drawable.ic_works};
+            R.drawable.ic_works,R.drawable.ic_works};
     private List<Integer> list_works;
     // TODO get works_data
     @Override

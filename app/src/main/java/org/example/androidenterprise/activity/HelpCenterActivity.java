@@ -10,6 +10,10 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+/**
+ * Created by chenguojiao : 帮助中心
+ */
+
 @ContentView(R.layout.activity_help_center)
 
 public class HelpCenterActivity extends AppCompatActivity {

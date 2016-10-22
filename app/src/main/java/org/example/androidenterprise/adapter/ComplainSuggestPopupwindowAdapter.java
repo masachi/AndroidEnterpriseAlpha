@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2016/10/15.
+ * Created by chenguojiao : 投诉建议 意见类型adapter.
  */
 public class ComplainSuggestPopupwindowAdapter extends BaseAdapter {
 //    private List<String> mList;
@@ -38,20 +38,20 @@ public class ComplainSuggestPopupwindowAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        ViewHolder holder;
+        ViewHolder_ComplainSuggestPopupwindow holder;
         if(convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.complain_suggest_popupwindow_listview_item,null);
-            holder = new ViewHolder();
+            holder = new ViewHolder_ComplainSuggestPopupwindow();
             holder.suggest = (TextView) convertView.findViewById(R.id.tv_item);
             convertView.setTag(holder);
         }
         else{
-            holder = (ViewHolder)convertView.getTag();
+            holder = (ViewHolder_ComplainSuggestPopupwindow)convertView.getTag();
         }
         holder.suggest.setText(mSuggest[position]);
         return convertView;
     }
-    class ViewHolder{
-        TextView suggest;
-    }
+}
+final class ViewHolder_ComplainSuggestPopupwindow{
+    TextView suggest;
 }

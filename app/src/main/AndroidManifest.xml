@@ -29,8 +29,6 @@
         </activity>
         <activity android:name=".activity.InstrumentInfoActivity">
         </activity>
-        <activity android:name=".activity.ScheduleActivity">
-        </activity>
         <activity android:name=".activity.CourseInfoActivity">
         </activity>
         <activity android:name=".activity.LogisticsInfoActivity">
@@ -38,8 +36,10 @@
         <activity android:name=".activity.SearchActivity">
         </activity>
         <activity android:name=".activity.ComplainSuggestActivity">
+
         </activity>
         <activity android:name=".activity.HelpCenterActivity">
+
         </activity>
         <activity android:name=".activity.ContactUsActivity">
         </activity>
@@ -60,6 +60,7 @@
         <activity android:name=".activity.RecordActivity">
         </activity>
         <activity android:name=".activity.MyWorksActivity">
+
         </activity>
         <activity android:name=".activity.MyWorksDeleteActivity">
         </activity>

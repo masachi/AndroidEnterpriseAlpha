@@ -10,13 +10,17 @@ import android.widget.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ComplainSuggestPopupwindowAdapter;
 import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+/**
+ * Created by chenguojiao : 投诉建议
+ */
+
 @ContentView(R.layout.activity_complain_suggest)
 public class ComplainSuggestActivity extends AppCompatActivity implements View.OnClickListener {
-
+    @ViewInject(R.id.ib_reback)
+    ImageButton ib_reback;
     @ViewInject(R.id.tv_choose_title)
     TextView tv_choose_title;
     @ViewInject(R.id.iv_choose)
@@ -29,9 +33,6 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
     TextView tv_complain_telephone_number;
     @ViewInject(R.id.btn_commit)
     Button btn_commit;
-    @ViewInject(R.id.ib_reback)
-    ImageButton ib_reback;
-
 
     private Context mContext = null;
     PopupWindow popupWindow;
@@ -78,7 +79,7 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
     }
 
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.iv_choose:
                 iv_choose.setImageResource(R.mipmap.ic_complain_suggest_selected);
                 showPopupWindow(view);

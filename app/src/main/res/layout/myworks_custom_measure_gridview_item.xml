@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Created by chenguojiao : 作品的gridview的item-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/color_ffffff">
+              android:layout_height="match_parent">
     <ImageView
             android:id="@+id/iv_myworks_item"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"/>
     <!--<EditText-->
             <!--android:id="@+id/et_myworks_name"-->
             <!--android:layout_width="wrap_content"-->

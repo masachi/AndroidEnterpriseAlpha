@@ -13,7 +13,7 @@ import org.example.androidenterprise.activity.BaseActivity;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/10/20.
+ * Created by chenguojiao : 我的作品 .
  */
 public class MyWorksAdapter extends BaseAdapter {
     private List<Integer> mList;
@@ -39,20 +39,20 @@ public class MyWorksAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        ViewHolder holder;
+        ViewHolder_MyWorks holder;
         if(convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.myworks_custom_measure_gridview_item,null);
-            holder = new ViewHolder();
+            holder = new ViewHolder_MyWorks();
             holder.works_photo = (ImageView) convertView.findViewById(R.id.iv_myworks_item);
             convertView.setTag(holder);
         }else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (ViewHolder_MyWorks) convertView.getTag();
         }
         holder.works_photo.setImageResource(mList.get(position));
         return convertView;
     }
-    class ViewHolder{
-        ImageView works_photo;
+}
+class ViewHolder_MyWorks{
+    ImageView works_photo;
 
-    }
 }
