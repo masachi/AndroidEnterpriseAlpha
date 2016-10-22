@@ -10,7 +10,7 @@
             android:id="@+id/rl_top"
             android:background="@color/color_97c8cd"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="@dimen/dimen_45sp">
         <ImageButton
                 android:id="@+id/ib_back"
                 android:src="@mipmap/ic_return"
@@ -18,16 +18,16 @@
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"/>
+                android:paddingLeft="@dimen/dimen_20dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:paddingBottom="@dimen/dimen_10dp"/>
         <TextView
                 android:text="@string/instrument_info_title"
                 android:textColor="@color/color_ffffff"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:textSize="19sp"
+                android:textSize="@dimen/dimen_19sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -45,7 +45,7 @@
             <ImageView
                     android:id="@+id/iv_picture1"
                     android:layout_width="match_parent"
-                    android:layout_height="211dp"
+                    android:layout_height="@dimen/dimen_211dp"
                     android:src="@drawable/flute1"
                     android:scaleType="fitXY"
             />
@@ -59,7 +59,7 @@
                 <TextView
                         android:id="@+id/tv_title"
                         android:text="@string/instrument_XXXX"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/dimen_16sp"
                         android:textColor="@color/color_000000"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -69,17 +69,26 @@
                 <TextView
                         android:id="@+id/tv_price"
                         android:text="@string/price_flute"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/dimen_18sp"
                         android:textColor="@color/color_f49c14"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_below="@id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-
+                <TextView
+                        android:id="@+id/tv_price_with_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_price"
+                        android:layout_marginStart="@dimen/instrument_info_margin_left_right"
+                        android:layout_alignBaseline="@id/tv_price"
+                        android:text="@string/price_flute_with_line"
+                        android:textColor="@color/color_cccccc"
+                        android:textSize="@dimen/dimen_13sp"/>
                 <TextView
                         android:id="@+id/tv_level"
                         android:text="@string/transfer_fee"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/dimen_13sp"
                         android:textColor="@color/color_999999"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_marginBottom="@dimen/instrument_info_margin_left_right"
@@ -89,7 +98,7 @@
                 <TextView
                         android:id="@+id/tv_place"
                         android:text="@string/place"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/dimen_13sp"
                         android:textColor="@color/color_999999"
                         android:layout_below="@id/tv_price"
                         android:layout_alignParentEnd="true"
@@ -110,7 +119,7 @@
                     android:orientation="vertical">
                 <TextView
                         android:text="@string/instrument_info_canshu"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/dimen_13sp"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_width="match_parent"
@@ -130,7 +139,7 @@
                 </ListView>
                 <TextView
                         android:text="@string/instrument_info_detail"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/dimen_13sp"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_width="match_parent"
@@ -144,7 +153,7 @@
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
                 <TextView
                         android:text="@string/instrument_info_info"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/dimen_13sp"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_width="match_parent"
@@ -184,7 +193,7 @@
         <TextView
                 android:id="@+id/tv_bottom_total"
                 android:text="@string/bottom_total"
-                android:textSize="14sp"
+                android:textSize="@dimen/dimen_14sp"
                 android:textColor="@color/color_999999"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/instrument_info_margin_left_right"
@@ -192,7 +201,7 @@
                 android:layout_height="wrap_content"/>
         <TextView
                 android:text="@string/bottom_money"
-                android:textSize="20sp"
+                android:textSize="@dimen/dimen_20sp"
                 android:textColor="@color/color_f49c14"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/tv_bottom_total"
@@ -201,14 +210,14 @@
         <TextView
                 android:id="@+id/tv_buy"
                 android:text="@string/buy"
-                android:textSize="20sp"
+                android:textSize="@dimen/dimen_20sp"
                 android:textColor="@color/color_ffffff"
                 android:background="@color/color_97c8cd"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/instrument_info_margin_left_right"
                 android:layout_width="100dp"
-                android:layout_height="35sp"
+                android:layout_height="@dimen/dimen_35sp"
                 android:gravity="center"/>
 
     </RelativeLayout>
@@ -224,7 +233,7 @@
         <TextView
                 android:id="@+id/tv_select_property"
                 android:text="@string/select_property"
-                android:textSize="15sp"
+                android:textSize="@dimen/dimen_15sp"
                 android:textColor="@color/color_333333"
                 android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                 android:layout_marginTop="@dimen/instrument_info_margin_left_right"
@@ -244,7 +253,7 @@
                 android:id="@+id/tv_right_now_buy"
                 android:text="@string/right_now_buy"
                 android:textColor="@color/color_ffffff"
-                android:textSize="15sp"
+                android:textSize="@dimen/dimen_15sp"
                 android:background="@color/color_97c8cd"
                 android:layout_below="@id/gv_property"
                 android:layout_centerHorizontal="true"

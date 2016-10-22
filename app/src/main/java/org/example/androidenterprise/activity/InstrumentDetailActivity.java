@@ -1,6 +1,7 @@
 package org.example.androidenterprise.activity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +13,7 @@ import org.xutils.view.annotation.ViewInject;
 
 @ContentView(R.layout.activity_instrument_detail)
 
-public class InstrumentDetailActivity extends BaseActivity implements View.OnFocusChangeListener{
+public class InstrumentDetailActivity extends BaseActivity implements View.OnFocusChangeListener {
 
     @ViewInject(R.id.ib_back)
     ImageButton returnIb;
@@ -34,10 +35,13 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
     TextView buyBtn;
     @ViewInject(R.id.rl_instant_buy)
     RelativeLayout instantRl;
+    @ViewInject(R.id.tv_price_with_line)
+    TextView priceWithLineTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        priceWithLineTv.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         int pos = Integer.parseInt(bundle.getString("instrument_selected"));
@@ -60,12 +64,11 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        if(!hasFocus){
+        if (!hasFocus) {
             instantRl.setVisibility(View.INVISIBLE);
-        }
-        else{
+        } else {
             instantRl.setVisibility(View.INVISIBLE);
-            Log.e("23333","233333");
+            Log.e("23333", "233333");
         }
     }
 }
