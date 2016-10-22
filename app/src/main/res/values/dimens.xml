@@ -366,21 +366,23 @@
     <dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>
     <dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>
     <!--activity_instrument_detail-->
-    <dimen name="dimen_18sp">18sp</dimen>
-    <dimen name="dimen_19sp">19sp</dimen>
-    <dimen name="dimen_14sp">14sp</dimen>
-    <dimen name="dimen_20sp">20sp</dimen>
-    <dimen name="dimen_15sp">15sp</dimen>
-    <dimen name="dimen_16sp">16sp</dimen>
-    <dimen name="dimen_35sp">35sp</dimen>
-    <dimen name="dimen_45sp">45sp</dimen>
-    <dimen name="dimen_20dp">20dp</dimen>
-    <dimen name="dimen_10dp">10dp</dimen>
-    <dimen name="dimen_211dp">211dp</dimen>
+    <dimen name="instrument_detail_price">18sp</dimen>
+    <dimen name="instrument_detail_top_title">19sp</dimen>
+    <dimen name="instrument_detail_bottom_total">14sp</dimen>
+    <dimen name="instrument_detail_bottom_price">20sp</dimen>
+    <dimen name="instrument_detail_select_property">15sp</dimen>
+    <dimen name="instrument_detail_instant_buy">15sp</dimen>
+    <dimen name="instrument_detail_title">16sp</dimen>
+    <dimen name="instrument_detail_buy">35sp</dimen>
+    <dimen name="instrument_detail_top">45sp</dimen>
+    <dimen name="instrument_detail_LR">20dp</dimen>
+    <dimen name="instrument_detail_TB">10dp</dimen>
+    <dimen name="instrument_detail_picture">211dp</dimen>
     <dimen name="instrument_info_title_margin">15dp</dimen>
     <dimen name="instrument_info_child_margin">10dp</dimen>
     <dimen name="instrument_info_margin_left_right">10dp</dimen>
     <dimen name="right_now_buy">21dp</dimen>
+    <dimen name="instrument_detail_line">1px</dimen>
     <dimen name="right_now_buy_rectangle">38dp</dimen>
     <dimen name="instrument_info_teacher_margin">5dp</dimen>
     <!--activity_students_feed_back-->

@@ -12,7 +12,9 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
 @ContentView(R.layout.activity_instrument_detail)
-
+/**
+ * Created by caishuang:乐器详情
+ */
 public class InstrumentDetailActivity extends BaseActivity implements View.OnFocusChangeListener {
 
     @ViewInject(R.id.ib_back)

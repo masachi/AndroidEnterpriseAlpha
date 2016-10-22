@@ -10,7 +10,7 @@ import android.widget.TextView;
 import org.example.androidenterprise.R;
 
 /**
- * Created by cs on 2016/10/19.
+ * Created by caishuang:物流跟踪
  */
 public class LogisticsAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;

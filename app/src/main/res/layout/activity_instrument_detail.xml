@@ -10,7 +10,7 @@
             android:id="@+id/rl_top"
             android:background="@color/color_97c8cd"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_45sp">
+            android:layout_height="@dimen/instrument_detail_top">
         <ImageButton
                 android:id="@+id/ib_back"
                 android:src="@mipmap/ic_return"
@@ -18,16 +18,16 @@
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/dimen_20dp"
-                android:paddingRight="@dimen/dimen_20dp"
-                android:paddingTop="@dimen/dimen_10dp"
-                android:paddingBottom="@dimen/dimen_10dp"/>
+                android:paddingLeft="@dimen/instrument_detail_LR"
+                android:paddingRight="@dimen/instrument_detail_LR"
+                android:paddingTop="@dimen/instrument_detail_TB"
+                android:paddingBottom="@dimen/instrument_detail_TB"/>
         <TextView
                 android:text="@string/instrument_info_title"
                 android:textColor="@color/color_ffffff"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:textSize="@dimen/dimen_19sp"
+                android:textSize="@dimen/instrument_detail_top_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -45,7 +45,7 @@
             <ImageView
                     android:id="@+id/iv_picture1"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_211dp"
+                    android:layout_height="@dimen/instrument_detail_picture"
                     android:src="@drawable/flute1"
                     android:scaleType="fitXY"
             />
@@ -59,7 +59,7 @@
                 <TextView
                         android:id="@+id/tv_title"
                         android:text="@string/instrument_XXXX"
-                        android:textSize="@dimen/dimen_16sp"
+                        android:textSize="@dimen/instrument_detail_title"
                         android:textColor="@color/color_000000"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 <TextView
                         android:id="@+id/tv_price"
                         android:text="@string/price_flute"
-                        android:textSize="@dimen/dimen_18sp"
+                        android:textSize="@dimen/instrument_detail_price"
                         android:textColor="@color/color_f49c14"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                         android:layout_below="@id/tv_title"
@@ -128,7 +128,7 @@
                         android:layout_width="match_parent"
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
-                        android:layout_height="1px"
+                        android:layout_height="@dimen/instrument_detail_line"
                         android:background="@color/color_999999"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
 
@@ -148,7 +148,7 @@
                         android:layout_width="match_parent"
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
-                        android:layout_height="1px"
+                        android:layout_height="@dimen/instrument_detail_line"
                         android:background="@color/color_999999"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
                 <TextView
@@ -161,7 +161,7 @@
                 <ImageView
                         android:id="@+id/iv_picture2"
                         android:layout_width="match_parent"
-                        android:layout_height="211dp"
+                        android:layout_height="@dimen/instrument_detail_picture"
                         android:src="@drawable/flute3"
                         android:scaleType="fitXY"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
@@ -171,7 +171,7 @@
                 <ImageView
                         android:id="@+id/iv_picture3"
                         android:layout_width="match_parent"
-                        android:layout_height="211dp"
+                        android:layout_height="@dimen/instrument_detail_picture"
                         android:src="@drawable/flute1"
                         android:scaleType="fitXY"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
@@ -193,7 +193,7 @@
         <TextView
                 android:id="@+id/tv_bottom_total"
                 android:text="@string/bottom_total"
-                android:textSize="@dimen/dimen_14sp"
+                android:textSize="@dimen/instrument_detail_bottom_total"
                 android:textColor="@color/color_999999"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/instrument_info_margin_left_right"
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"/>
         <TextView
                 android:text="@string/bottom_money"
-                android:textSize="@dimen/dimen_20sp"
+                android:textSize="@dimen/instrument_detail_bottom_price"
                 android:textColor="@color/color_f49c14"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/tv_bottom_total"
@@ -210,14 +210,14 @@
         <TextView
                 android:id="@+id/tv_buy"
                 android:text="@string/buy"
-                android:textSize="@dimen/dimen_20sp"
+                android:textSize="@dimen/instrument_detail_bottom_price"
                 android:textColor="@color/color_ffffff"
                 android:background="@color/color_97c8cd"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/instrument_info_margin_left_right"
                 android:layout_width="100dp"
-                android:layout_height="@dimen/dimen_35sp"
+                android:layout_height="@dimen/instrument_detail_buy"
                 android:gravity="center"/>
 
     </RelativeLayout>
@@ -233,7 +233,7 @@
         <TextView
                 android:id="@+id/tv_select_property"
                 android:text="@string/select_property"
-                android:textSize="@dimen/dimen_15sp"
+                android:textSize="@dimen/instrument_detail_select_property"
                 android:textColor="@color/color_333333"
                 android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                 android:layout_marginTop="@dimen/instrument_info_margin_left_right"
@@ -253,7 +253,7 @@
                 android:id="@+id/tv_right_now_buy"
                 android:text="@string/right_now_buy"
                 android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/dimen_15sp"
+                android:textSize="@dimen/instrument_detail_instant_buy"
                 android:background="@color/color_97c8cd"
                 android:layout_below="@id/gv_property"
                 android:layout_centerHorizontal="true"

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import org.example.androidenterprise.R;
 
 /**
- * Created by cs on 2016/10/19.
+ * Created by caishuang:订单详情
  */
 public class OrderDetailAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
