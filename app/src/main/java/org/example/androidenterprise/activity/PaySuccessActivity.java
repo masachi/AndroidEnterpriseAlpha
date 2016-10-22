@@ -13,8 +13,10 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
 /**
- * Created by Administrator on 2016/10/18.
+ * Created by byyoung1 on 2016/10/18.：支付成功界面
  */
+
+
 @ContentView(R.layout.activity_pay_success)
 public class PaySuccessActivity extends Activity {
     @ViewInject(R.id.btn_check_course)

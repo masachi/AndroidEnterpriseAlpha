@@ -13,8 +13,10 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 /**
- * Created by Administrator on 2016/10/15.
+ * Created by byyoung1 2016/10/15.：订单支付界面
  */
+
+
 @ContentView(R.layout.activity_order_payment)
 public class OrderPaymentActivity extends Activity implements View.OnClickListener {
 
