@@ -78,6 +78,12 @@
         </activity>
         <activity android:name=".activity.PortraitActivity">
         </activity>
+        <activity android:name=".activity.OrderPaymentActivity">
+        </activity>
+        <activity android:name=".activity.PaySuccessActivity">
+        </activity>
+        <activity android:name=".activity.PersonalDataActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -476,5 +476,11 @@
     <dimen name="portrait_check_btn_margin_end">30dp</dimen>
     <dimen name="portrait_check_btn_text_size">14sp</dimen>
 
+    <!--activity_personal_data-->
+    <dimen name="title_height">44dp</dimen>
+    <dimen name="personal_data_mar_left_or_right">10dp</dimen>
+    <dimen name="personal_data_mar_top_or_bottom">15dp</dimen>
+    <dimen name="personal_data_title_text_size">17sp</dimen>
+    <dimen name="personal_data_text_size">13sp</dimen>
 
 </resources>
