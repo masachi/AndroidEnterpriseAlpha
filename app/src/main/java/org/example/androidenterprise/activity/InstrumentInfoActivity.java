@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -14,6 +15,9 @@ import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
 import org.example.androidenterprise.view.PullToRefreshView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.util.List;
 
@@ -44,12 +48,15 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
         Bundle bundle = intent.getExtras();
         pos = Integer.parseInt(bundle.getString("tab_selected"));
 
-
         InitTabDatas();
         adapter_list = ItemList.getData(this);
         instrumentInfoAdapter = new InstrumentInfoAdapter(this,adapter_list);
         instrinfoGv.setAdapter(instrumentInfoAdapter);
         InitSelectedGvDatas();
+
+        instrumentTL.setSmoothScrollingEnabled(true);
+        instrumentTL.setScrollPosition(pos,0f,true);
+        instrumentTL.scrollTo(calculateScrollXForTab(pos,0f),0);
 
         instrumentTL.setOnTabSelectedListener(this);
         mPullToRefreshView.setOnHeaderRefreshListener(this);
@@ -144,5 +151,17 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         finish();
+    }
+
+    private int calculateScrollXForTab(int position, float positionOffset) {
+        if (instrumentTL.getTabMode() == TabLayout.MODE_SCROLLABLE) {
+            View selectedChild = instrumentTL.getChildAt(position);
+            View nextChild = position + 1 >= instrumentTL.getChildCount() ? null : instrumentTL.getChildAt(position + 1);
+            int selectedWidth = selectedChild == null ? 0 : selectedChild.getWidth();
+            int nextWidth = nextChild == null ? 0 : nextChild.getWidth();
+            return (int) (((float) selectedChild.getLeft() + (float) (selectedWidth + nextWidth) * positionOffset * 0.5F + (float) selectedChild.getWidth() * 0.5F) - (float) selectedChild.getWidth() * 0.5F);
+        } else {
+            return 0;
+        }
     }
 }

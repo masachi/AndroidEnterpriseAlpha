@@ -186,8 +186,8 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                         @Override
                         public void onSuccess(String result) {
                             Log.e("23333",result);
-                            RegisterResponseEntity respose = new Gson().fromJson(result, new TypeToken<RegisterResponseEntity>(){}.getType());
-                            if(respose.getResult().equals("no")){
+                            RegisterResponseEntity response = new Gson().fromJson(result, new TypeToken<RegisterResponseEntity>(){}.getType());
+                            if(response.getResult().equals("no")){
                                 Toast.makeText(getBaseContext(),"该手机号已经注册\n请登录",Toast.LENGTH_SHORT).show();
                             }
                             else{
@@ -223,17 +223,17 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                         @Override
                         public void onSuccess(String result) {
                             if(result.length()<40) {
-                                LoginResponseErrorEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseErrorEntity>() {
+                                LoginResponseErrorEntity response = new Gson().fromJson(result, new TypeToken<LoginResponseErrorEntity>() {
                                 }.getType());
-                                if(respose.getType() == 1){
+                                if(response.getType() == 1){
                                     Toast.makeText(LoginActivity.this, "该用户未注册", Toast.LENGTH_SHORT).show();
                                 }
-                                if(respose.getType() == 2){
+                                if(response.getType() == 2){
                                     Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else{
-                                LoginResponseEntity respose = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>() {
+                                LoginResponseEntity response = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>() {
                                 }.getType());
                                 Toast.makeText(getBaseContext(),"登录成功", Toast.LENGTH_SHORT).show();
                                 isLogin = true;

@@ -7,9 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import org.example.androidenterprise.R;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 @ContentView(R.layout.activity_instrument_detail)
 /**
@@ -47,6 +50,32 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         int pos = Integer.parseInt(bundle.getString("instrument_selected"));
+
+        RequestParams params = new RequestParams("http://138.68.4.19:8080/music/api_insdetail");
+        params.setAsJsonContent(true);
+        params.setBodyContent("{\"Ins_id\":\"1\"}");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("23333",result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e("23333","FK");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
         instantRl.setOnFocusChangeListener(this);
     }
 
