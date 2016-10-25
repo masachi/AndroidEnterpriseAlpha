@@ -30,7 +30,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        CourseAdapter courseAdapter = new CourseAdapter(this, InitData.course.getCourse_list());
+        CourseAdapter courseAdapter = new CourseAdapter(this, InitData.course.getList());
         ItemAdapter itemAdapter = new ItemAdapter(this);
         SearchOrderAdapter searchOrderAdapter = new SearchOrderAdapter(this);
 
