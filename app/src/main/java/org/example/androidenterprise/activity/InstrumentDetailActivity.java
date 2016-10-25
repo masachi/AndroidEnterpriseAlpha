@@ -42,6 +42,20 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
     RelativeLayout instantRl;
     @ViewInject(R.id.tv_price_with_line)
     TextView priceWithLineTv;
+    @ViewInject(R.id.tv_buy_price)
+    TextView buyPriceTv;
+    @ViewInject(R.id.iv_picture_first)
+    ImageView firstPictureIv;
+    @ViewInject(R.id.tv_transfer_price)
+    TextView transferPriceTv;
+    @ViewInject(R.id.tv_content)
+    TextView contentTv;
+    @ViewInject(R.id.iv_picture_second)
+    ImageView secondPictureIv;
+    @ViewInject(R.id.iv_picture_third)
+    ImageView thirdPictureIv;
+    @ViewInject(R.id.tv_bottom_total)
+    TextView bottomTotalTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +71,12 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("23333",result);
+                Log.e("23333", result);
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e("23333","FK");
+                Log.e("23333", "FK");
             }
 
             @Override

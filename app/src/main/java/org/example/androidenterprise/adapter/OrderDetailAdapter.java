@@ -52,7 +52,7 @@ public class OrderDetailAdapter extends BaseAdapter {
             holder = (ViewHolder_OrderDetail) convertView.getTag();
         }
         // TODO: ___list.get(position).get___()
-        holder.img.setImageResource(R.drawable.flute1);
+        holder.img.setImageResource(R.drawable.ic_flute_first);
         holder.name.setText("什么什么乐器");
         holder.property.setText("什么什么属性");
         holder.price.setText("1000");

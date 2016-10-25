@@ -43,10 +43,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <ImageView
-                    android:id="@+id/iv_picture1"
+                    android:id="@+id/iv_picture_first"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/instrument_detail_picture"
-                    android:src="@drawable/flute1"
+                    android:src="@drawable/ic_flute_first"
                     android:scaleType="fitXY"
             />
             <RelativeLayout
@@ -54,7 +54,7 @@
                     android:background="@drawable/instrument_info_child"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/iv_picture1"
+                    android:layout_below="@id/iv_picture_first"
             >
                 <TextView
                         android:id="@+id/tv_title"
@@ -67,8 +67,8 @@
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
                 />
                 <TextView
-                        android:id="@+id/tv_price"
-                        android:text="@string/price_flute"
+                        android:id="@+id/tv_yellow_sign"
+                        android:text="@string/money_sign"
                         android:textSize="@dimen/instrument_detail_price"
                         android:textColor="@color/color_f49c14"
                         android:layout_marginStart="@dimen/instrument_info_margin_left_right"
@@ -76,17 +76,46 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 <TextView
+                        android:id="@+id/tv_price"
+                        android:layout_toEndOf="@id/tv_yellow_sign"
+                        android:text="@string/price_flute"
+                        android:textSize="@dimen/instrument_detail_price"
+                        android:textColor="@color/color_f49c14"
+                        android:layout_below="@id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:id="@+id/tv_grey_sign"
+                        android:text="@string/money_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/tv_price"
+                        android:layout_marginStart="@dimen/instrument_info_margin_left_right"
+                        android:layout_alignBaseline="@id/tv_price"
+                        android:textColor="@color/color_cccccc"
+                        android:textSize="@dimen/dimen_13sp"/>
+                <TextView
                         android:id="@+id/tv_price_with_line"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/tv_price"
-                        android:layout_marginStart="@dimen/instrument_info_margin_left_right"
+                        android:layout_toEndOf="@id/tv_grey_sign"
                         android:layout_alignBaseline="@id/tv_price"
                         android:text="@string/price_flute_with_line"
                         android:textColor="@color/color_cccccc"
                         android:textSize="@dimen/dimen_13sp"/>
                 <TextView
+                        android:id="@+id/tv_transfer_price"
+                        android:text="@string/transfer_price"
+                        android:textSize="@dimen/dimen_13sp"
+                        android:textColor="@color/color_999999"
+                        android:layout_marginStart="@dimen/instrument_info_margin_left_right"
+                        android:layout_marginBottom="@dimen/instrument_info_margin_left_right"
+                        android:layout_below="@id/tv_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
                         android:id="@+id/tv_level"
+                        android:layout_toEndOf="@id/tv_transfer_price"
                         android:text="@string/transfer_fee"
                         android:textSize="@dimen/dimen_13sp"
                         android:textColor="@color/color_999999"
@@ -152,6 +181,7 @@
                         android:background="@color/color_999999"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"/>
                 <TextView
+                        android:id="@+id/tv_content"
                         android:text="@string/instrument_info_info"
                         android:textSize="@dimen/dimen_13sp"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
@@ -159,25 +189,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 <ImageView
-                        android:id="@+id/iv_picture2"
+                        android:id="@+id/iv_picture_second"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/instrument_detail_picture"
-                        android:src="@drawable/flute3"
+                        android:src="@drawable/ic_flute_third"
                         android:scaleType="fitXY"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
                 />
                 <ImageView
-                        android:id="@+id/iv_picture3"
+                        android:id="@+id/iv_picture_third"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/instrument_detail_picture"
-                        android:src="@drawable/flute1"
+                        android:src="@drawable/ic_flute_first"
                         android:scaleType="fitXY"
                         android:layout_marginTop="@dimen/instrument_info_teacher_margin"
                         android:layout_marginLeft="@dimen/instrument_info_margin_left_right"
                         android:layout_marginRight="@dimen/instrument_info_margin_left_right"
                 />
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/bottom_height">
+                </TextView>
             </LinearLayout>
 
 
@@ -191,8 +225,8 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/bottom_line">
         <TextView
-                android:id="@+id/tv_bottom_total"
-                android:text="@string/bottom_total"
+                android:id="@+id/tv_bottom_total_left"
+                android:text="@string/bottom_total_left"
                 android:textSize="@dimen/instrument_detail_bottom_total"
                 android:textColor="@color/color_999999"
                 android:layout_centerVertical="true"
@@ -200,11 +234,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:text="@string/bottom_money"
+                android:id="@+id/tv_bottom_total"
+                android:text="@string/transfer_fee"
+                android:layout_toEndOf="@id/tv_bottom_total_left"
+                android:textSize="@dimen/instrument_detail_bottom_total"
+                android:textColor="@color/color_999999"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_bottom_total_right"
+                android:text="@string/bottom_total_right"
+                android:layout_toEndOf="@id/tv_bottom_total"
+                android:textSize="@dimen/instrument_detail_bottom_total"
+                android:textColor="@color/color_999999"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_bottom_sign"
+                android:text="@string/money_sign"
                 android:textSize="@dimen/instrument_detail_bottom_price"
                 android:textColor="@color/color_f49c14"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/tv_bottom_total"
+                android:layout_toEndOf="@id/tv_bottom_total_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_buy_price"
+                android:text="@string/price_total"
+                android:textSize="@dimen/instrument_detail_bottom_price"
+                android:layout_toEndOf="@id/tv_bottom_sign"
+                android:textColor="@color/color_f49c14"
+                android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
