@@ -35,8 +35,8 @@ import java.util.List;
 @ContentView(R.layout.activity_login)
 
 public class LoginActivity extends BaseActivity implements View.OnTouchListener {
-    private String LOGIN_URL = "http://138.68.4.19:8080/login/api_login";
-    private String REGISTER_URL = "http://138.68.4.19:8080/regist/getdata";
+    private String LOGIN_URL = "http://138.68.11.223:8080/login/api_login";
+    private String REGISTER_URL = "http://138.68.11.223:8080/regist/getdata";
 
     public static boolean isLogin = false;
 
@@ -179,7 +179,8 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                 if(((Button)view).getText().toString().equals("注册")){
                     RequestParams params = new RequestParams(REGISTER_URL);
                     params.setAsJsonContent(true);
-                    params.setBodyContent(new Gson().toJson(userInfo).toString());
+                    params.setBodyContent(new Gson().toJson(userInfo));
+                    //params.setBodyContent("{\"result\":\"233\",\"id\":223}");
                     Log.e("2333",new Gson().toJson(userInfo));
                     x.http().post(params, new Callback.CommonCallback<String>() {
 

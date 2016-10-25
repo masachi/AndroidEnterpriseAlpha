@@ -1,6 +1,7 @@
 package org.example.androidenterprise.activity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,8 +56,14 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
         InitSelectedGvDatas();
 
         instrumentTL.setSmoothScrollingEnabled(true);
-        instrumentTL.setScrollPosition(pos,0f,true);
-        instrumentTL.scrollTo(calculateScrollXForTab(pos,0f),0);
+
+        new Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        instrumentTL.getTabAt(pos).select();
+                    }
+                }, 0);
 
         instrumentTL.setOnTabSelectedListener(this);
         mPullToRefreshView.setOnHeaderRefreshListener(this);

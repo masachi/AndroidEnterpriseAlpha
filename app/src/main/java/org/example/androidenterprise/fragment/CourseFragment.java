@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -23,6 +24,7 @@ import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.model.CourseEntity;
+import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.utils.InitData;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
@@ -54,7 +56,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String COURSE_URL = "";
+    private String COURSE_VIEWPAGER_URL = "http://138.68.11.223:8080/regist/ss";
 
     @ViewInject(R.id.btn_schedule)
     ImageButton scheduleBtn;
@@ -72,6 +74,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private String mParam2;
 
     private List<AutoPlayInfo> mAutoPlayInfoList;
+    private ViewPagerEntity response;
 //    public static CourseEntity course;
 
 
@@ -114,30 +117,31 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
 
-        RequestParams params = new RequestParams(COURSE_URL);
-//        params.setAsJsonContent(true);
-//        params.setBodyContent();
-//        x.http().post(params, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
+        RequestParams params = new RequestParams(COURSE_VIEWPAGER_URL);
+        params.setAsJsonContent(true);
+        params.setBodyContent("{\"code\":2004,\"id\":9527}");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("2333333","2333333");
+                response = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(getContext(), "网络错误", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
 
         CourseAdapter courseAdapter = new CourseAdapter(getContext(), InitData.course.getCourse_list());
         course_list.setAdapter(courseAdapter);
@@ -212,8 +216,12 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         @Override
         protected Void doInBackground(Void... params) {
             //模拟网络请求获取数据
+
             try {
                 Thread.sleep(2000);//模拟休眠2秒
+                if(response == null){
+                    Thread.sleep(2000);
+                }
                 mAutoPlayInfoList = changeAutoPlayInfoList();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -236,13 +244,16 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
      */
     private List<AutoPlayInfo> changeAutoPlayInfoList() {
         List<AutoPlayInfo> autoPlayInfoList = new ArrayList<AutoPlayInfo>();
-        for (int i = 0; i < InitData.course.getAdv().size(); i++) {
+        for (int i = 0; i < response.getTop().size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             //autoPlayInfo.setImageId(imagesCourse[i]);
             //autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setImageUrl(InitData.course.getAdv().get(i).getImage_url());
+//            autoPlayInfo.setImageUrl(InitData.course.getAdv().get(i).getImage_url());
+//            autoPlayInfo.setAdLinks("");//无数据时不跳转
+//            autoPlayInfo.setTitle(InitData.course.getAdv().get(i).getTitle());
+            autoPlayInfo.setImageUrl(response.getTop().get(i).getTop_image());
             autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setTitle(InitData.course.getAdv().get(i).getTitle());
+            autoPlayInfo.setTitle(response.getTop().get(i).getClass_name());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;

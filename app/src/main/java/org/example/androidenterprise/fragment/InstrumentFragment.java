@@ -13,6 +13,10 @@ import android.view.ViewGroup;
 
 import android.widget.*;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.IntroductionList;
 import org.example.androidenterprise.activity.CourseInfoActivity;
@@ -25,8 +29,12 @@ import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.AlbumAdapter;
 import org.example.androidenterprise.adapter.IntroAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
+import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,15 +63,17 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     private GridView itemGv;
     private List<IntroductionEntity> introLlist;
     private List<CatagoryEntity> cataList;
-    private int[] imagesInstrument;
     private int[] imagesAlbum;
-    private String[] imageTitle;
     private List<View> instrumentView;
     private List<View> albumView;
     private TabLayout typeTl;
     private AutoPlayingViewPager instrumentAutoVP;
     private List<AutoPlayInfo> mAutoPlayInfoList;
     private ImageButton searchIb;
+
+    private String INSTRUMENT_VIEWPAGER_URL = "http://138.68.11.223:8080/regist/ss";
+
+    private ViewPagerEntity response;
 
 
     private OnFragmentInteractionListener mListener;
@@ -98,6 +108,10 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ImageLoader imageLoader = ImageLoader.getInstance();
+        imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_instrument,container,false);
 
@@ -111,19 +125,36 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         introLlist = IntroductionList.getData(getContext());
         cataList = CatagoryList.getData(getContext());
 
-        imagesInstrument = new int[] {R.drawable.viewpage_1,R.drawable.viewpage_2,R.drawable.viewpage_3,R.drawable.viewpage_4};
         imagesAlbum = new int[] {R.drawable.viewpage_4,R.drawable.viewpage_3,R.drawable.viewpage_2,R.drawable.viewpage_1};
-        imageTitle = new String[] {"1","2","3","4"};
 
         instrumentView = new ArrayList<>();
         albumView = new ArrayList<>();
 
+        RequestParams params = new RequestParams(INSTRUMENT_VIEWPAGER_URL);
+        params.setAsJsonContent(true);
+        params.setBodyContent("{\"code\":2004,\"id\":9527}");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                response = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
+            }
 
-        for(int image : imagesInstrument){
-            ImageView tempIv = new ImageView(getContext());
-            tempIv.setImageResource(image);
-            instrumentView.add(tempIv);
-        }
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(getContext(), "网络错误", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
 
         for(int image : imagesAlbum){
             ImageView tempIv = new ImageView(getContext());
@@ -263,11 +294,11 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
      */
     private List<AutoPlayInfo> changeAutoPlayInfoList(){
         List<AutoPlayInfo> autoPlayInfoList = new ArrayList<AutoPlayInfo>();
-        for(int i = 0 ; i < imagesInstrument.length ; i ++){
+        for(int i = 0 ; i < response.getTop().size() ; i ++){
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
-            autoPlayInfo.setImageId(imagesInstrument[i]);
-            //autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setTitle(imageTitle[i]);
+            autoPlayInfo.setImageUrl(response.getTop().get(i).getTop_image());
+            autoPlayInfo.setAdLinks("");//无数据时不跳转
+            autoPlayInfo.setTitle(response.getTop().get(i).getClass_name());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;
