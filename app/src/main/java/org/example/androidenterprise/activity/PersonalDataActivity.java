@@ -17,17 +17,17 @@ import org.xutils.view.annotation.ViewInject;
 @ContentView(R.layout.activity_personal_data)
 public class PersonalDataActivity extends Activity {
     @ViewInject(R.id.ib_return)
-    ImageButton ib_return;
+    ImageButton returnIbtn;
     @ViewInject(R.id.civ_head)
-    CircleImageView civ_head;
+    CircleImageView headCiv;
     @ViewInject(R.id.tv_account_mes)
-    TextView tv_account_mes;
+    TextView accountmesTv;
     @ViewInject(R.id.tv_area_mes)
-    TextView tv_area_mes;
+    TextView areamesTv;
     @ViewInject(R.id.tv_other_mes)
-    TextView tv_other_mes;
+    TextView othermesTv;
     @ViewInject(R.id.tv_self_mes)
-    TextView tv_self_mes;
+    TextView selfmesTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

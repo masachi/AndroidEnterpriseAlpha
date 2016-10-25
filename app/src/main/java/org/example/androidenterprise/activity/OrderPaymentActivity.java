@@ -22,29 +22,29 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
 
 
     @ViewInject(R.id.iv_back)
-    ImageView iv_back;
+    ImageView backIv;
     @ViewInject(R.id.tv_courseInfo)
-    TextView tv_courseInfo;
+    TextView courseInfoTv;
     @ViewInject(R.id.tv_accout)
-    TextView tv_accout;
+    TextView accoutTv;
     @ViewInject(R.id.tv_Attn)
-    TextView tv_Attn;
+    TextView attnTv;
     @ViewInject(R.id.tv_Attn_phoneNumber)
-    TextView tv_Attn_phoneNumber;
+    TextView attnphoneNumberTv;
     @ViewInject(R.id.tv_OrderNo)
-    TextView tv_OrderNo;
+    TextView orderNoTv;
     @ViewInject(R.id.tv_sum)
-    TextView tv_sum;
+    TextView sumTv;
     @ViewInject(R.id.tv_alipay_title)
-    TextView tv_alipay_title;
+    TextView alipaytitleTv;
     @ViewInject(R.id.iv_selected_alipay)
-    ImageView iv_selected_alipay;
+    ImageView selectedalipayIv;
     @ViewInject(R.id.tv_wechatpay_title)
-    TextView tv_wechatpay_title;
+    TextView wechatpaytitleTv;
     @ViewInject(R.id.iv_wechatpay_selected)
-    ImageView iv_wechatpay_selected;
+    ImageView wechatpayselectedIv;
     @ViewInject(R.id.btn_payment)
-    Button btn_payment;
+    Button paymentBtn;
 
 
     @Override
@@ -64,13 +64,13 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
                 //TODO 设置返回课程订购界面
                 break;
             case R.id.tv_alipay_title:
-                iv_selected_alipay.setImageResource(R.mipmap.ic_payment_check_selected);
-                iv_wechatpay_selected.setImageResource(R.mipmap.ic_payment_check_normal);
+                selectedalipayIv.setImageResource(R.mipmap.ic_payment_check_selected);
+                wechatpayselectedIv.setImageResource(R.mipmap.ic_payment_check_normal);
                 //TODO 设置支付宝支付
                 break;
             case R.id.tv_wechatpay_title:
-                iv_selected_alipay.setImageResource(R.mipmap.ic_payment_check_normal);
-                iv_wechatpay_selected.setImageResource(R.mipmap.ic_payment_check_selected);
+                selectedalipayIv.setImageResource(R.mipmap.ic_payment_check_normal);
+                wechatpayselectedIv.setImageResource(R.mipmap.ic_payment_check_selected);
                 //TODO 设置微信支付
                 break;
             case R.id.btn_payment:

@@ -20,15 +20,15 @@ import org.xutils.view.annotation.ViewInject;
 @ContentView(R.layout.activity_pay_success)
 public class PaySuccessActivity extends Activity {
     @ViewInject(R.id.btn_check_course)
-    Button btn_check_course;
+    Button checkcourseBtn;
     @ViewInject(R.id.btn_back_course)
-    Button btn_back_course;
+    Button backcourseBtn;
     @ViewInject(R.id.iv_back)
-    ImageView iv_back;
+    ImageView backIv;
     @ViewInject(R.id.tv_pay_success)
-    TextView tv_pay_success;
+    TextView paysuccessTv;
     @ViewInject(R.id.tv_remind)
-    TextView tv_remind;
+    TextView remindTv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
