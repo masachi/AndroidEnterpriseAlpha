@@ -8,22 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.example.androidenterprise.List.CourseList;
 import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.model.CourseInfoEntity;
 
 import java.util.List;
 
 /**
  * Created by sdlds on 2016/9/17.
  */
-public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
+public class CourseAdapter extends BaseAdapter{
     private LayoutInflater mLayoutInflate;
     private Context context;
-    private List<CourseInfoEntity> clist;
+    private List<CourseEntity.CourseListEntity> clist;
 
-    public CourseAdapter(Context context, List<CourseInfoEntity> course_list){
+    public CourseAdapter(Context context, List<CourseEntity.CourseListEntity> course_list){
         this.mLayoutInflate = LayoutInflater.from(context);
         this.context = context;
         this.clist = course_list;
@@ -55,7 +53,7 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
             holder.course = (TextView) convertView.findViewById(R.id.tv_course_name);
             holder.level = (TextView) convertView.findViewById(R.id.tv_course_level);
             holder.teacher = (TextView) convertView.findViewById(R.id.tv_course_teacher);
-            holder.pos = (TextView) convertView.findViewById(R.id.tv_course_pos);
+            holder.local = (TextView) convertView.findViewById(R.id.tv_course_pos);
             holder.state = (Button) convertView.findViewById(R.id.btn_state);
             convertView.setTag(holder);
         }
@@ -63,11 +61,11 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
             holder = (ViewHolder_C)convertView.getTag();
         }
         holder.img.setImageResource(R.drawable.img_example);
-        holder.course.setText(clist.get(position).getTitle());
-        holder.level.setText("难度等级："+ clist.get(position).getCourse_level());
+        holder.course.setText(clist.get(position).getClass_name());
+        holder.level.setText("难度等级："+ clist.get(position).getLevel());
         holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());
-        holder.pos.setText(clist.get(position).getCourse_address());
-        if(clist.get(position).getState() == 0){
+        holder.local.setText(clist.get(position).getLocal());
+        if(clist.get(position).getAvailable().equals("false")){
             holder.state.setText("未开通");
         }
         else{
@@ -75,24 +73,12 @@ public class CourseAdapter extends BaseAdapter implements View.OnClickListener{
         }
         return convertView;
     }
-
-    @Override
-    public void onClick(View v) {
-        if(((Button)v).getText().toString().equals("已开通")){
-            ((Button)v).setText("未开通");
-        }
-        else {
-            if (((Button) v).getText().toString().equals("未开通")) {
-                ((Button) v).setText("已开通");
-            }
-        }
-    }
 }
 final class ViewHolder_C{
     ImageView img;
     TextView course;
     TextView level;
     TextView teacher;
-    TextView pos;
+    TextView local;
     Button state;
 }

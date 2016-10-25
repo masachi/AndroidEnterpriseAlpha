@@ -56,6 +56,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private String COURSE_LISTVIEW_URL="http://138.68.11.223:8080/sc";
     private String COURSE_VIEWPAGER_URL = "http://138.68.11.223:8080/regist/ss";
 
     @ViewInject(R.id.btn_schedule)
@@ -74,7 +75,8 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private String mParam2;
 
     private List<AutoPlayInfo> mAutoPlayInfoList;
-    private ViewPagerEntity response;
+    private ViewPagerEntity responseVp;
+    private CourseEntity responseCourse;
 //    public static CourseEntity course;
 
 
@@ -117,14 +119,14 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
 
-        RequestParams params = new RequestParams(COURSE_VIEWPAGER_URL);
-        params.setAsJsonContent(true);
-        params.setBodyContent("{\"code\":2004,\"id\":9527}");
-        x.http().post(params, new Callback.CommonCallback<String>() {
+        RequestParams paramsVp = new RequestParams(COURSE_VIEWPAGER_URL);
+        paramsVp.setAsJsonContent(true);
+        paramsVp.setBodyContent("{\"code\":2004,\"id\":9527}");
+        x.http().post(paramsVp, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Log.e("2333333","2333333");
-                response = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
+                responseVp = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
             }
 
             @Override
@@ -143,7 +145,31 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
             }
         });
 
-        CourseAdapter courseAdapter = new CourseAdapter(getContext(), InitData.course.getCourse_list());
+        RequestParams paramsCourse=new RequestParams(COURSE_LISTVIEW_URL);
+        paramsCourse.setAsJsonContent(true);
+        paramsCourse.setBodyContent("{\"code\":2004,\"id\":9527,\"role\":\"student\",\"maxtime\":0}");
+        x.http().post(paramsCourse, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                responseCourse=new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+        CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
         course_list.setAdapter(courseAdapter);
 
         course_list.setOnItemClickListener(this);
@@ -219,7 +245,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
 
             try {
                 Thread.sleep(2000);//模拟休眠2秒
-                if(response == null){
+                if(responseVp == null){
                     Thread.sleep(2000);
                 }
                 mAutoPlayInfoList = changeAutoPlayInfoList();
@@ -244,16 +270,16 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
      */
     private List<AutoPlayInfo> changeAutoPlayInfoList() {
         List<AutoPlayInfo> autoPlayInfoList = new ArrayList<AutoPlayInfo>();
-        for (int i = 0; i < response.getTop().size(); i++) {
+        for (int i = 0; i < responseVp.getTop().size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             //autoPlayInfo.setImageId(imagesCourse[i]);
             //autoPlayInfo.setAdLinks("");//无数据时不跳转
 //            autoPlayInfo.setImageUrl(InitData.course.getAdv().get(i).getImage_url());
 //            autoPlayInfo.setAdLinks("");//无数据时不跳转
 //            autoPlayInfo.setTitle(InitData.course.getAdv().get(i).getTitle());
-            autoPlayInfo.setImageUrl(response.getTop().get(i).getTop_image());
+            autoPlayInfo.setImageUrl(responseVp.getTop().get(i).getTop_image());
             autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setTitle(response.getTop().get(i).getClass_name());
+            autoPlayInfo.setTitle(responseVp.getTop().get(i).getClass_name());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;

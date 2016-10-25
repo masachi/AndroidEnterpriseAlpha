@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="116dp"
+                android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/item_margin_left"
                 android:paddingRight="@dimen/item_margin_right"
                 android:paddingTop="@dimen/item_margin_top"
@@ -53,7 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/tv_course_name"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_course_teacher"
+            android:layout_marginTop="@dimen/item_text_margn_text"
             android:textColor="@color/color_999999"
             android:text="23333333333333"
             android:textSize="@dimen/item_others_size"/>
@@ -63,7 +64,7 @@
             android:id="@+id/btn_state"
             android:layout_width="56dp"
             android:layout_height="23dp"
-            android:layout_alignParentBottom="true"
+            android:layout_alignBottom="@id/iv_course"
             android:layout_alignParentEnd="true"
             android:textColor="@color/color_999999"
             android:background="@drawable/item_btn"
