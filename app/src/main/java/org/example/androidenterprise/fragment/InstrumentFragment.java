@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -70,8 +73,6 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     private AutoPlayingViewPager instrumentAutoVP;
     private List<AutoPlayInfo> mAutoPlayInfoList;
     private ImageButton searchIb;
-
-    private String INSTRUMENT_VIEWPAGER_URL = "http://138.68.11.223:8080/regist/ss";
 
     private ViewPagerEntity response;
 
@@ -130,12 +131,13 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         instrumentView = new ArrayList<>();
         albumView = new ArrayList<>();
 
-        RequestParams params = new RequestParams(INSTRUMENT_VIEWPAGER_URL);
+        RequestParams params = new RequestParams(VIEWPAGER_URL);
         params.setAsJsonContent(true);
         params.setBodyContent("{\"code\":2004,\"id\":9527}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                Log.e("2333333","2333333");
                 response = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
             }
 
@@ -154,6 +156,8 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
 
             }
         });
+
+
 
 
         for(int image : imagesAlbum){
@@ -271,7 +275,10 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         protected Void doInBackground(Void... params) {
             //模拟网络请求获取数据
             try {
-                Thread.sleep(1000);//模拟休眠2秒
+                Thread.sleep(2000);//模拟休眠2秒
+                while(response == null){
+                    Thread.sleep(2000);
+                }
                 mAutoPlayInfoList = changeAutoPlayInfoList();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -298,7 +305,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             autoPlayInfo.setImageUrl(response.getTop().get(i).getTop_image());
             autoPlayInfo.setAdLinks("");//无数据时不跳转
-            autoPlayInfo.setTitle(response.getTop().get(i).getClass_name());
+            //autoPlayInfo.setTitle(response.getTop().get(i).getClass_name());
             autoPlayInfoList.add(autoPlayInfo);
         }
         return autoPlayInfoList;

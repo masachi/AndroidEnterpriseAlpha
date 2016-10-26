@@ -4,14 +4,22 @@ import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.RegisterResponseEntity;
 import org.example.androidenterprise.view.CircleImageView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
+import org.xutils.x;
 
 import static org.example.androidenterprise.List.CourseList.clist;
 

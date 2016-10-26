@@ -56,8 +56,6 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String COURSE_LISTVIEW_URL="http://138.68.11.223:8080/sc";
-    private String COURSE_VIEWPAGER_URL = "http://138.68.11.223:8080/regist/ss";
 
     @ViewInject(R.id.btn_schedule)
     ImageButton scheduleBtn;
@@ -145,32 +143,33 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
             }
         });
 
-        RequestParams paramsCourse=new RequestParams(COURSE_LISTVIEW_URL);
-        paramsCourse.setAsJsonContent(true);
-        paramsCourse.setBodyContent("{\"code\":2004,\"id\":9527,\"role\":\"student\",\"maxtime\":0}");
-        x.http().post(paramsCourse, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                responseCourse=new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
-        CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
-        course_list.setAdapter(courseAdapter);
+//        RequestParams paramsCourse = new RequestParams(COURSE_LIST_URL);
+//        paramsCourse.setAsJsonContent(true);
+//        paramsCourse.setBodyContent("{\"code\":2004,\"id\":9527,\"role\":\"student\",\"maxtime\":0}");
+//        x.http().post(paramsCourse, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                responseCourse = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
+//
+//        CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
+//        course_list.setAdapter(courseAdapter);
 
         course_list.setOnItemClickListener(this);
 
@@ -245,7 +244,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
 
             try {
                 Thread.sleep(2000);//模拟休眠2秒
-                if(responseVp == null){
+                while(responseVp == null){
                     Thread.sleep(2000);
                 }
                 mAutoPlayInfoList = changeAutoPlayInfoList();

@@ -32,11 +32,12 @@ import org.xutils.x;
 
 import java.util.List;
 
+import static org.example.androidenterprise.utils.UrlAddress.LOGIN_URL;
+import static org.example.androidenterprise.utils.UrlAddress.REGISTER_URL;
+
 @ContentView(R.layout.activity_login)
 
 public class LoginActivity extends BaseActivity implements View.OnTouchListener {
-    private String LOGIN_URL = "http://138.68.11.223:8080/login/api_login";
-    private String REGISTER_URL = "http://138.68.11.223:8080/regist/getdata";
 
     public static boolean isLogin = false;
 
@@ -234,6 +235,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                                 }
                             }
                             else{
+                                Log.e("23333",result);
                                 LoginResponseEntity response = new Gson().fromJson(result, new TypeToken<LoginResponseEntity>() {
                                 }.getType());
                                 Toast.makeText(getBaseContext(),"登录成功", Toast.LENGTH_SHORT).show();
