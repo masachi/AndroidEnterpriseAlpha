@@ -7,6 +7,7 @@ public class UrlAddress {
     public static String VIEWPAGER_URL = "http://128.199.201.13:8080/regist/ss";
     public static String COURSE_LIST_URL = "http://128.199.201.13:8080/regist/sc";
     public static String LOGIN_URL = "http://128.199.201.13:8080/login/api_login";
-    public static String REGISTER_URL = "http://128.199.201.13:8080/regist/getdata";
+    public static String  REGISTER_URL = "http://128.199.201.13:8080/regist/getdata";
+    public static String COURSE_INFO_URL = "http://128.199.201.13:8080/music/api_classdetail";
 
 }

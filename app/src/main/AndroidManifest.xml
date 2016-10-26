@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
             android:name=".MyApplication"
@@ -30,16 +30,19 @@
         <activity android:name=".activity.InstrumentInfoActivity">
         </activity>
         <activity android:name=".activity.CourseInfoActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.LogisticsInfoActivity">
         </activity>
         <activity android:name=".activity.SearchActivity">
         </activity>
         <activity android:name=".activity.ComplainSuggestActivity">
-
         </activity>
         <activity android:name=".activity.HelpCenterActivity">
-
         </activity>
         <activity android:name=".activity.ContactUsActivity">
         </activity>
@@ -60,7 +63,6 @@
         <activity android:name=".activity.RecordActivity">
         </activity>
         <activity android:name=".activity.MyWorksActivity">
-
         </activity>
         <activity android:name=".activity.MyWorksDeleteActivity">
         </activity>

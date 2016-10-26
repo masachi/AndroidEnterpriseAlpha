@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.model.RegisterResponseEntity;
+import org.example.androidenterprise.model.CourseInfoEntity;
 import org.example.androidenterprise.view.CircleImageView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -22,6 +22,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.x;
 
 import static org.example.androidenterprise.List.CourseList.clist;
+import static org.example.androidenterprise.utils.UrlAddress.COURSE_INFO_URL;
 
 @ContentView(R.layout.activity_course_info)
 
@@ -47,6 +48,9 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
     private int id;
 
+//    private String COURSE_INFO_URL = "http://138.68.11.223:8080/music/api_classdetail";
+    CourseInfoEntity response;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +70,46 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
         initLinearLayoutImage();
         initLinearLayoutFeedback();
+
+        RequestParams params = new RequestParams(COURSE_INFO_URL);
+        params.setAsJsonContent(true);
+        //params.setBodyContent("{\"Class_id\":\""+id+"\"}");
+        params.setBodyContent("{\"Class_id\":\"1\"}");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("233",result);
+                response = new Gson().fromJson(result,new TypeToken<CourseInfoEntity>(){}.getType());
+                getCourseInfoData();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                ex.printStackTrace();
+                Toast.makeText(CourseInfoActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    public void getCourseInfoData(){
+        titleTv.setText(response.getClass_name());
+        levelTv.setText(response.getClass_level());
+        priceTv.setText(response.getClass_price());
+        idTv.setText(response.getClass_number());
+        durationTv.setText(response.getClass_time());
+        posTv.setText(response.getClass_location());
+        otherTv.setText(response.getClass_remark());
+
     }
 
     @Override

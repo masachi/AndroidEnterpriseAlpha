@@ -39,6 +39,8 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
+
 import static org.example.androidenterprise.utils.UrlAddress.COURSE_LIST_URL;
 import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
 
