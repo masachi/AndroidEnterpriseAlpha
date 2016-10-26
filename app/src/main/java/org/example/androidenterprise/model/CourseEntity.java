@@ -12,20 +12,19 @@ import java.util.List;
  * 课程Model
  */
 public class CourseEntity implements Serializable {
-    private String maxtime;
+    private String maxiime;
     private List<CourseListEntity> list;
 
     public CourseEntity(){
-        setMaxtime(new String());
         setList(new ArrayList<CourseListEntity>());
     }
 
-    public String getMaxtime() {
-        return maxtime;
+    public String getMaxiime() {
+        return maxiime;
     }
 
-    public void setMaxtime(String maxtime) {
-        this.maxtime = maxtime;
+    public void setMaxiime(String maxiime) {
+        this.maxiime = maxiime;
     }
 
     public List<CourseListEntity> getList() {

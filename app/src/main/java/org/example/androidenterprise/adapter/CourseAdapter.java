@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.R;
 
@@ -60,7 +61,8 @@ public class CourseAdapter extends BaseAdapter{
         else{
             holder = (ViewHolder_C)convertView.getTag();
         }
-        holder.img.setImageResource(R.drawable.img_example);
+//        holder.img.setImageResource(R.drawable.img_example);
+        Glide.with(context).load(clist.get(position).getClass_pic_url()).into(holder.img);
         holder.course.setText(clist.get(position).getClass_name());
         holder.level.setText("难度等级："+ clist.get(position).getLevel());
         holder.teacher.setText("老师：" + clist.get(position).getTeacher_name());

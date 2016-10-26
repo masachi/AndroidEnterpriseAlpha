@@ -24,6 +24,7 @@ import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.model.CourseEntity;
+import org.example.androidenterprise.model.ListRequestModel;
 import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.utils.InitData;
@@ -37,6 +38,9 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.example.androidenterprise.utils.UrlAddress.COURSE_LIST_URL;
+import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
 
 
 /**
@@ -117,7 +121,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
 
-        RequestParams paramsVp = new RequestParams(COURSE_VIEWPAGER_URL);
+        RequestParams paramsVp = new RequestParams(VIEWPAGER_URL);
         paramsVp.setAsJsonContent(true);
         paramsVp.setBodyContent("{\"code\":2004,\"id\":9527}");
         x.http().post(paramsVp, new Callback.CommonCallback<String>() {
@@ -143,33 +147,41 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
             }
         });
 
-//        RequestParams paramsCourse = new RequestParams(COURSE_LIST_URL);
-//        paramsCourse.setAsJsonContent(true);
+        ListRequestModel courseRequest = new ListRequestModel();
+        courseRequest.setCode(2004);
+        courseRequest.setId(9527);
+        courseRequest.setRole("student");
+        courseRequest.setMaxtime(0);
+        RequestParams paramsCourse = new RequestParams(COURSE_LIST_URL);
+        paramsCourse.setAsJsonContent(true);
+        paramsCourse.setBodyContent(new Gson().toJson(courseRequest));
 //        paramsCourse.setBodyContent("{\"code\":2004,\"id\":9527,\"role\":\"student\",\"maxtime\":0}");
-//        x.http().post(paramsCourse, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-//                responseCourse = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
-//
-//        CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
-//        course_list.setAdapter(courseAdapter);
+        x.http().post(paramsCourse, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("23333",result);
+                result = "{" + result + "}";
+                responseCourse = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
+                CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
+                course_list.setAdapter(courseAdapter);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
 
         course_list.setOnItemClickListener(this);
 
