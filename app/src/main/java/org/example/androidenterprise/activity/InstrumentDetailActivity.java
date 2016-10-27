@@ -6,13 +6,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
+import org.example.androidenterprise.model.InstrumentDetailEntity;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import static org.example.androidenterprise.utils.UrlAddress.INSTRUMENT_DETAIL_URL;
 
 @ContentView(R.layout.activity_instrument_detail)
 /**
@@ -57,6 +63,8 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
     @ViewInject(R.id.tv_bottom_total)
     TextView bottomTotalTv;
 
+    private InstrumentDetailEntity response;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,13 +73,16 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
         Bundle bundle = intent.getExtras();
         int pos = Integer.parseInt(bundle.getString("instrument_selected"));
 
-        RequestParams params = new RequestParams("http://138.68.4.19:8080/music/api_insdetail");
+        RequestParams params = new RequestParams(INSTRUMENT_DETAIL_URL);
         params.setAsJsonContent(true);
         params.setBodyContent("{\"Ins_id\":\"1\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Log.e("23333", result);
+                response = new Gson().fromJson(result, new TypeToken<InstrumentDetailEntity>() {
+                }.getType());
+                getInstrumentDetailData();
             }
 
             @Override
@@ -91,6 +102,17 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
         });
 
         instantRl.setOnFocusChangeListener(this);
+    }
+
+    public void getInstrumentDetailData() {
+        titleTv.setText(response.getInstrument_name());
+        priceTv.setText(String.valueOf(response.getInstrument_now_price()));
+        priceWithLineTv.setText(String.valueOf(response.getInstrument_pre_price()));
+        levelTv.setText(String.valueOf(response.getFreight()));
+        placeTv.setText(response.getInstrument_location());
+        contentTv.setText(response.getDescription());
+        bottomTotalTv.setText(String.valueOf(response.getFreight()));
+        buyPriceTv.setText(String.valueOf(response.getInstrument_now_price() + response.getFreight()));
     }
 
     @Event(value = {R.id.ib_back, R.id.tv_buy, R.id.tv_right_now_buy})
