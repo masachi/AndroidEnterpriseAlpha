@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="org.example.androidenterprise.activity.MessageActivity">
 
     <RelativeLayout
@@ -12,7 +13,7 @@
             android:layout_height="@dimen/action_bar_height"
             android:background="#FF97C8CD">
         <ImageButton
-                android:id="@+id/order_return_ib"
+                android:id="@+id/ib_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_return"
@@ -33,13 +34,81 @@
 
     </RelativeLayout>
 
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/color_f0f0f0"/>
+
     <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:id="@+id/rl_sys_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
+
         <ImageView
+                android:id="@+id/iv_sysmsg"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_system_message"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+        <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <com.readystatesoftware.viewbadger.BadgeView
+                    android:id="@+id/badget_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/ic_orange"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="28dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="5dp"
+                    android:text="12"
+                    android:textColor="@color/color_ffffff"
+                    android:textSize="8sp"
+                    android:gravity="center"/>
+        </FrameLayout>
+
+        <TextView
+                android:id="@+id/tv_sys_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="系统消息"
+                android:layout_toRightOf="@id/iv_sysmsg"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_sys_msg"
+                android:layout_marginTop="10dp"
+                android:text="xxxxxxx"
+                android:layout_toRightOf="@id/iv_sysmsg"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/color_999999"/>
+
+
+        <TextView
+                android:id="@+id/tv_msg_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2333"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/color_999999"
+                android:layout_marginTop="10dp"/>
+
 
     </RelativeLayout>
 
-</RelativeLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_d1d1d1"/>
+
+</LinearLayout>

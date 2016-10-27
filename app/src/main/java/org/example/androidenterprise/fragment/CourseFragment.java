@@ -162,7 +162,6 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
             @Override
             public void onSuccess(String result) {
                 Log.e("23333",result);
-                result = "{" + result + "}";
                 responseCourse = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
                 CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
                 course_list.setAdapter(courseAdapter);
