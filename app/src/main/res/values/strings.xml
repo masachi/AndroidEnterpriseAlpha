@@ -53,7 +53,7 @@
     <string name="use_article_str">使用文章</string>
     <string name="about_str">关于XXX</string>
 
-
+    <string name="instant_buy_gv_item">属性</string>
     <!-- activity_instrument_detail -->
     <string name="instrument_info_title">乐器详情</string>
     <string name="instrument_info_canshu">产品参数</string>>

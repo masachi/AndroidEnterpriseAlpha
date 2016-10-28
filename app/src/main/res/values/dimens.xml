@@ -366,6 +366,9 @@
     <dimen name="students_head_list_gv_vertical_spacing">20dp</dimen>
     <dimen name="students_head_list_gv_horizontal_spacing">20dp</dimen>
     <!--activity_instrument_detail-->
+    <dimen name="instant_buy_gv_item">15sp</dimen>
+    <dimen name="instant_buy_gv_item_width">105dp</dimen>
+    <dimen name="instant_buy_gv_item_height">38dp</dimen>
     <dimen name="instrument_detail_price">18sp</dimen>
     <dimen name="instrument_detail_top_title">19sp</dimen>
     <dimen name="instrument_detail_bottom_total">14sp</dimen>
