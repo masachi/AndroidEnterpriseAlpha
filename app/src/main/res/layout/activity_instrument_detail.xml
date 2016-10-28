@@ -2,6 +2,7 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_instrument_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.InstrumentDetailActivity">
@@ -280,50 +281,6 @@
                 android:layout_marginEnd="@dimen/instrument_info_margin_left_right"
                 android:layout_width="100dp"
                 android:layout_height="@dimen/instrument_detail_buy"
-                android:gravity="center"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/rl_instant_buy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:layout_alignParentBottom="true"
-            android:visibility="invisible"
-            android:layout_above="@id/sclv_main">
-        <TextView
-                android:id="@+id/tv_select_property"
-                android:text="@string/select_property"
-                android:textSize="@dimen/instrument_detail_select_property"
-                android:textColor="@color/color_333333"
-                android:layout_marginStart="@dimen/instrument_info_margin_left_right"
-                android:layout_marginTop="@dimen/instrument_info_margin_left_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <GridView
-                android:id="@+id/gv_property"
-                android:layout_below="@id/tv_select_property"
-                android:layout_marginStart="@dimen/instrument_info_margin_left_right"
-                android:layout_marginTop="@dimen/instrument_info_margin_left_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numColumns="3">
-        </GridView>
-
-        <TextView
-                android:id="@+id/tv_right_now_buy"
-                android:text="@string/right_now_buy"
-                android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/instrument_detail_instant_buy"
-                android:background="@color/color_97c8cd"
-                android:layout_below="@id/gv_property"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/right_now_buy"
-                android:layout_marginEnd="@dimen/right_now_buy"
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/right_now_buy_rectangle"
                 android:gravity="center"/>
 
     </RelativeLayout>

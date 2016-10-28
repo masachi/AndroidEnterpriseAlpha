@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.adapter.BuyPropertyAdapter;
 import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
 import org.example.androidenterprise.model.InstrumentDetailEntity;
 import org.xutils.common.Callback;
@@ -24,7 +27,7 @@ import static org.example.androidenterprise.utils.UrlAddress.INSTRUMENT_DETAIL_U
 /**
  * Created by caishuang:乐器详情
  */
-public class InstrumentDetailActivity extends BaseActivity implements View.OnFocusChangeListener {
+public class InstrumentDetailActivity extends BaseActivity{
 
     @ViewInject(R.id.ib_back)
     ImageButton returnIb;
@@ -38,14 +41,8 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
     TextView placeTv;
     @ViewInject(R.id.lv_instrument_detail)
     ListView instrumentDetailLv;
-    @ViewInject(R.id.gv_property)
-    GridView propertyGv;
-    @ViewInject(R.id.tv_right_now_buy)
-    TextView instantBuyBtn;
     @ViewInject(R.id.tv_buy)
     TextView buyBtn;
-    @ViewInject(R.id.rl_instant_buy)
-    RelativeLayout instantRl;
     @ViewInject(R.id.tv_price_with_line)
     TextView priceWithLineTv;
     @ViewInject(R.id.tv_buy_price)
@@ -64,6 +61,7 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
     TextView bottomTotalTv;
 
     private InstrumentDetailEntity response;
+    private PopupWindow buyNowPopup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +69,7 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
         priceWithLineTv.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        int pos = Integer.parseInt(bundle.getString("instrument_selected"));
+        //final int pos = Integer.parseInt(bundle.getString("instrument_selected"));
 
         RequestParams params = new RequestParams(INSTRUMENT_DETAIL_URL);
         params.setAsJsonContent(true);
@@ -100,8 +98,33 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
 
             }
         });
+        final BuyPropertyAdapter propertyAdapter = new BuyPropertyAdapter(this);
 
-        instantRl.setOnFocusChangeListener(this);
+        View popupView = getLayoutInflater().inflate(R.layout.instrument_detail,null);
+        buyNowPopup = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT,true);
+        buyNowPopup.setTouchable(true);
+        buyNowPopup.setOutsideTouchable(true);
+        buyNowPopup.setAnimationStyle(R.style.anim_menu_buy);
+
+        buyNowPopup.getContentView().setFocusableInTouchMode(true);
+        buyNowPopup.getContentView().setFocusable(true);
+        TextView buyNowTv = (TextView) popupView.findViewById(R.id.tv_right_now_buy);
+        GridView propertyGv = (GridView) popupView.findViewById(R.id.gv_property);
+        propertyGv.setAdapter(propertyAdapter);
+
+        buyNowTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buyNowPopup.dismiss();
+            }
+        });
+
+        propertyGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                propertyAdapter.changeState(position);
+            }
+        });
     }
 
     public void getInstrumentDetailData() {
@@ -115,27 +138,15 @@ public class InstrumentDetailActivity extends BaseActivity implements View.OnFoc
         buyPriceTv.setText(String.valueOf(response.getInstrument_now_price() + response.getFreight()));
     }
 
-    @Event(value = {R.id.ib_back, R.id.tv_buy, R.id.tv_right_now_buy})
+    @Event(value = {R.id.ib_back, R.id.tv_buy})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.ib_back:
                 finish();
                 break;
             case R.id.tv_buy:
-                instantRl.setVisibility(View.VISIBLE);
+                buyNowPopup.showAtLocation(findViewById(R.id.layout_instrument_detail), Gravity.BOTTOM, 0, 0);
                 break;
-            case R.id.tv_right_now_buy:
-                break;
-        }
-    }
-
-    @Override
-    public void onFocusChange(View v, boolean hasFocus) {
-        if (!hasFocus) {
-            instantRl.setVisibility(View.INVISIBLE);
-        } else {
-            instantRl.setVisibility(View.INVISIBLE);
-            Log.e("23333", "233333");
         }
     }
 }

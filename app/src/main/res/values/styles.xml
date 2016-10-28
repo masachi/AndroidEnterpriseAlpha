@@ -14,4 +14,10 @@
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">@dimen/music_type_text_size</item>
     </style>
+
+    <style name="anim_menu_buy">
+        <item name="android:windowEnterAnimation">@anim/menu_buy_in</item>
+        <item name="android:windowExitAnimation">@anim/menu_buy_out</item>
+    </style>
+
 </resources>
