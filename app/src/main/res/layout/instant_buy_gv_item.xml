@@ -2,18 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <Button
+    <TextView
             android:id="@+id/btn_instant_buy"
+            android:layout_width="@dimen/instant_buy_gv_item_width"
+            android:layout_height="@dimen/instant_buy_gv_item_height"
             android:layout_marginTop="20dp"
             android:background="@drawable/activity_instant_buy_grey_bg"
             android:text="@string/instant_buy_gv_item"
             android:textSize="@dimen/instant_buy_gv_item"
             android:textColor="@color/color_999999"
             android:drawablePadding="@dimen/dimen_5dp"
-            android:gravity="center"
-            android:layout_width="@dimen/instant_buy_gv_item_width"
-            android:layout_height="@dimen/instant_buy_gv_item_height"
-            style="?android:borderlessButtonStyle"/>
+            android:gravity="center"/>
 
 
 </LinearLayout>
