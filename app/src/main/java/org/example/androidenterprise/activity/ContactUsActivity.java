@@ -1,19 +1,10 @@
 package org.example.androidenterprise.activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ContactUsQQAdapter;
 import org.example.androidenterprise.adapter.ContactUsServiceAdapter;
@@ -65,6 +56,21 @@ public class ContactUsActivity extends AppCompatActivity {
         ContactUsServiceAdapter contactUsServiceAdapter = new ContactUsServiceAdapter(getApplicationContext(), listServiceName);
         serviceGv.setAdapter(contactUsServiceAdapter);
 
+        serviceGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(ContactUsActivity.this,ServiceTalkActivity.class);
+//                startActivity(intent);
+                Toast.makeText(ContactUsActivity.this,"hhhhh",Toast.LENGTH_LONG).show();
+            }
+        });
+//        tv_dial_telephone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ContactUsActivity.this,ServiceTalkActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         for (int i = 0; i < qqName.length; i++) {
             listQQName.add(qqName[i]);
         }

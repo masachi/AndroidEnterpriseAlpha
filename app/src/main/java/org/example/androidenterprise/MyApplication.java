@@ -1,6 +1,7 @@
 package org.example.androidenterprise;
 
 import android.app.Application;
+import io.rong.imkit.RongIM;
 import org.xutils.x;
 
 /**
@@ -12,5 +13,7 @@ public class MyApplication extends Application {
         super.onCreate();
         x.Ext.init(this);
         x.Ext.setDebug(BuildConfig.DEBUG);// 开启debug会影响性能
+
+        RongIM.init(this);
     }
 }

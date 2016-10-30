@@ -1,5 +1,6 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
@@ -40,6 +42,16 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     private TextView signTv;
     private TextView priceTv;
     private ImageButton feedbackIb;
+    private CircleImageView teacherCiv;
+    private TextView teacherNameTv;
+    private TextView teacherPhoneTv;
+    private TextView studentNumberTv;
+    private TextView courseInfoScheduleTitleTv;
+    private TextView typeTv;
+    private TextView scheduleInfoTv;
+    private TextView feedbackNumTv;
+
+    private Context context;
 
 
     public final static int STUDENT_NUMBER = 10;
@@ -48,8 +60,7 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
     private int id;
 
-//    private String COURSE_INFO_URL = "http://138.68.11.223:8080/music/api_classdetail";
-    CourseInfoEntity response;
+    private CourseInfoEntity response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +84,13 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
         RequestParams params = new RequestParams(COURSE_INFO_URL);
         params.setAsJsonContent(true);
-        //params.setBodyContent("{\"Class_id\":\""+id+"\"}");
-        params.setBodyContent("{\"Class_id\":\"1\"}");
+        params.setBodyContent("{\"Class_id\":\""+id+"\"}");
+//        params.setBodyContent("{\"Class_id\":\"1\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Log.e("233",result);
+//                result = "{" + result + "}";
                 response = new Gson().fromJson(result,new TypeToken<CourseInfoEntity>(){}.getType());
                 getCourseInfoData();
             }
@@ -103,13 +115,17 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
     public void getCourseInfoData(){
         titleTv.setText(response.getClass_name());
-        levelTv.setText(response.getClass_level());
-        priceTv.setText(response.getClass_price());
-        idTv.setText(response.getClass_number());
-        durationTv.setText(response.getClass_time());
+        levelTv.setText(String.valueOf(response.getClass_level()));
+        priceTv.setText(String.valueOf(response.getClass_price()));
+        idTv.setText(String.valueOf(response.getClass_number()));
+        durationTv.setText(String.valueOf(response.getClass_time()));
         posTv.setText(response.getClass_location());
         otherTv.setText(response.getClass_remark());
-
+        Glide.with(context).load(response.getTeacher().get(0).getTeacher_pic_URL()).into(teacherCiv);
+//        Glide.with(context).load(response.getTeacher().get(0)).bitmapTransform(new CropCircleTransformation(context)).into(teacherCiv);
+        teacherNameTv.setText(response.getTeacher().get(0).getTeacher_name());
+        teacherPhoneTv.setText(response.getTeacher().get(0).getTeacher_telephone());
+        studentNumberTv.setText(String.valueOf(response.getTeacher().get(0).getStudent_number()));
     }
 
     @Override
@@ -139,6 +155,14 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         signTv = (TextView) findViewById(R.id.tv_price_sign);
         priceTv = (TextView) findViewById(R.id.tv_course_price);
         feedbackIb = (ImageButton) findViewById(R.id.ib_feedback);
+        teacherCiv = (CircleImageView) findViewById(R.id.civ_teacher);
+        teacherNameTv = (TextView) findViewById(R.id.tv_teacher_name);
+        teacherPhoneTv = (TextView) findViewById(R.id.tv_teacher_phone);
+        studentNumberTv = (TextView) findViewById(R.id.tv_stu_number);
+        courseInfoScheduleTitleTv = (TextView) findViewById(R.id.tv_course_info_schedule_title);
+        typeTv = (TextView) findViewById(R.id.tv_type);
+        scheduleInfoTv = (TextView) findViewById(R.id.tv_schedule_info);
+        feedbackNumTv = (TextView) findViewById(R.id.tv_feedback_num);
 
         ll = (LinearLayout) findViewById(R.id.ll_stu_info);
         feedbackLl = (LinearLayout) findViewById(R.id.ll_stu_feedback);

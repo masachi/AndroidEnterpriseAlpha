@@ -30,11 +30,13 @@
         <activity android:name=".activity.InstrumentInfoActivity">
         </activity>
         <activity android:name=".activity.CourseInfoActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".activity.LogisticsInfoActivity">
         </activity>
@@ -45,6 +47,11 @@
         <activity android:name=".activity.HelpCenterActivity">
         </activity>
         <activity android:name=".activity.ContactUsActivity">
+            <intent-filter>
+                 <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".activity.ConfirmOrderActivity">
         </activity>
@@ -55,11 +62,6 @@
         <activity android:name=".activity.OrderActivity">
         </activity>
         <activity android:name=".activity.InstrumentDetailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activity.StudentsFeedBack">
         </activity>
@@ -92,6 +94,19 @@
         <activity android:name=".activity.PersonalDataActivity">
         </activity>
         <activity android:name=".activity.MessageInfoActivity">
+        </activity>
+        <activity
+                android:name=".activity.ServiceTalkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                        android:host="org.example.androidenterprise"
+                        android:pathPrefix="/conversation/"
+                        android:scheme="rong"/>
+            </intent-filter>
         </activity>
     </application>
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by chenguojiao : 课程详情页面从服务器端获取数据实体类.
+ * Created by chenguojiao : 课程详情model.
  */
 public class CourseInfoEntity implements Serializable{
     private int Class_id;
