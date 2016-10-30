@@ -448,7 +448,7 @@
     <dimen name="order_info_action_btn_text_size">16sp</dimen>
 
     <dimen name="dimen_5dp">5dp</dimen>
-    <dimen name="dimen_29dp">29dp</dimen>上
+    <dimen name="dimen_29dp">29dp</dimen>
     <dimen name="dimen_102dp">102dp</dimen>
 
     <dimen name="dimen_11sp">11sp</dimen>
@@ -485,5 +485,6 @@
     <dimen name="personal_data_mar_top_or_bottom">15dp</dimen>
     <dimen name="personal_data_title_text_size">17sp</dimen>
     <dimen name="personal_data_text_size">13sp</dimen>
+
 
 </resources>

@@ -23,4 +23,8 @@
     <color name="color_ff0000">#FF0000</color>
     <color name="color_ff8000">#FF8000</color>
     <color name="color_ffffff">#FFFFFF</color>
+
+    <!--photo picker-->
+    <color name="white">#ffffff</color>
+    <color name="bg_floder_press">#bdbdbd</color>
 </resources>

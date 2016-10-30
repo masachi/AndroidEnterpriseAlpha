@@ -218,4 +218,13 @@
     <string name="activity_personal_data_other_text">其他</string>
     <string name="activity_personal_data_self_text">自我介绍</string>
 
+    <!--photo picker-->
+
+    <string name="photos_num">%1$d张</string>
+    <string name="msg_no_camera">没找到摄像头</string>
+    <string name="msg_maxi_capacity">已达到照片选择上限</string>
+    <string name="commit">确定</string>
+    <string name="commit_num">确定(%1$d/%2$d)</string>
+    <string name="selectimg">选择图片</string>
+
 </resources>
