@@ -66,7 +66,9 @@
         <RadioGroup
                 android:id="@+id/search_radioGp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="95dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 android:orientation="horizontal">
 
             <RadioButton
@@ -80,9 +82,7 @@
                     android:textColor="@drawable/search_text_selector"
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_sides"
-                    android:layout_marginRight="@dimen/search_selector_margin_each"/>
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"/>
 
             <RadioButton
                     android:id="@+id/rdob_instrument"
@@ -96,8 +96,7 @@
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
                     android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_each"
-                    android:layout_marginRight="@dimen/search_selector_margin_each"/>
+                    android:layout_marginLeft="@dimen/search_selector_margin_each"/>
 
             <RadioButton
                     android:id="@+id/rdob_order"
@@ -111,8 +110,7 @@
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
                     android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_each"
-                    android:layout_marginRight="@dimen/search_selector_margin_each"/>
+                    android:layout_marginLeft="@dimen/search_selector_margin_each"/>
 
             <RadioButton
                     android:id="@+id/rdob_record"
@@ -126,8 +124,7 @@
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
                     android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_each"
-                    android:layout_marginRight="@dimen/search_selector_margin_sides"/>
+                    android:layout_marginLeft="@dimen/search_selector_margin_each"/>
 
         </RadioGroup>
 

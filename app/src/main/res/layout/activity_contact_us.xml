@@ -112,7 +112,8 @@
             android:verticalSpacing="@dimen/service_gv_vertical_spacing"
             android:layout_marginLeft="@dimen/service_gv_left_dis"
             android:layout_marginRight="@dimen/service_gv_right_dis"
-            android:listSelector="@android:color/transparent">
+            android:listSelector="@android:color/transparent"
+            android:focusable="true">
     </GridView>
     <TextView
             android:layout_width="match_parent"

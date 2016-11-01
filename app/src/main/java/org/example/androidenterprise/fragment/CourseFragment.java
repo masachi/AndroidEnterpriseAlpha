@@ -150,7 +150,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         });
 
         ListRequestModel courseRequest = new ListRequestModel();
-        courseRequest.setCode(2004);
+        courseRequest.setCode(2051);
         courseRequest.setId(9527);
         courseRequest.setRole("student");
         courseRequest.setMaxtime(0);

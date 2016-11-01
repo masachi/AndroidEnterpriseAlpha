@@ -1,5 +1,6 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,7 +23,7 @@ public class ServiceTalkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_talk);
-        connect("78iEO5pAED4akH8zf2RHXugbFsvzkHNJGQEmzgwVOvw516I9SimvjWpGwjq234dOAH8C7Q7HIH5hL2BvTrOICw==");
+        connect("3xheWPjjmiPztJ8LTpVtMkxCmntzjCygMK8AxneEUJtzNiszBisNBbFuXv1ri4Vj1squkKQfjQ884vtuk8OuFg==");
     }
     /**
      * 建立与融云服务器的连接
@@ -68,7 +69,7 @@ public class ServiceTalkActivity extends AppCompatActivity {
 // *//*
                     RongIM.getInstance().startCustomerServiceChat(ServiceTalkActivity.this, "KEFU147774053111627", "在线客服", csInfo);
 //                   startActivity(new Intent(MainActivity.this, TalkActivity.class));
-                    finish();
+//                    finish();
                 }
 
                 /**
@@ -94,6 +95,7 @@ public class ServiceTalkActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+
         return super.onKeyDown(keyCode, event);
     }
 }

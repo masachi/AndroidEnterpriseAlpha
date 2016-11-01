@@ -234,25 +234,25 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                                 Toast.makeText(LoginActivity.this,"请输入密码",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            progressDialog.setTitle("正在验证...");
-                            progressDialog.show();
-                            SMSSDK.getInstance().checkSmsCodeAsyn(phoneN, code, new SmscheckListener() {
-                                @Override
-                                public void checkCodeSuccess(final String code) {
-                                    if(progressDialog!=null&&progressDialog.isShowing()){
-                                        progressDialog.dismiss();
-                                    }
-                                    Toast.makeText(LoginActivity.this,code,Toast.LENGTH_SHORT).show();
-                                }
-
-                                @Override
-                                public void checkCodeFail(int errCode, final String errmsg) {
-                                    if(progressDialog!=null&&progressDialog.isShowing()){
-                                        progressDialog.dismiss();
-                                    }
-                                    Toast.makeText(LoginActivity.this,errmsg,Toast.LENGTH_SHORT).show();
-                                }
-                            });
+//                            progressDialog.setTitle("正在验证...");
+//                            progressDialog.show();
+//                            SMSSDK.getInstance().checkSmsCodeAsyn(phoneN, code, new SmscheckListener() {
+//                                @Override
+//                                public void checkCodeSuccess(final String code) {
+//                                    if(progressDialog!=null&&progressDialog.isShowing()){
+//                                        progressDialog.dismiss();
+//                                    }
+//                                    Toast.makeText(LoginActivity.this,code,Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                                @Override
+//                                public void checkCodeFail(int errCode, final String errmsg) {
+//                                    if(progressDialog!=null&&progressDialog.isShowing()){
+//                                        progressDialog.dismiss();
+//                                    }
+//                                    Toast.makeText(LoginActivity.this,errmsg,Toast.LENGTH_SHORT).show();
+//                                }
+//                            });
 
 
                     RequestParams params = new RequestParams(REGISTER_URL);

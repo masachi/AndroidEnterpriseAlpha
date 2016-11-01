@@ -56,14 +56,14 @@ public class ContactUsActivity extends AppCompatActivity {
         ContactUsServiceAdapter contactUsServiceAdapter = new ContactUsServiceAdapter(getApplicationContext(), listServiceName);
         serviceGv.setAdapter(contactUsServiceAdapter);
 
-        serviceGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//        serviceGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                Intent intent = new Intent(ContactUsActivity.this,ServiceTalkActivity.class);
 //                startActivity(intent);
-                Toast.makeText(ContactUsActivity.this,"hhhhh",Toast.LENGTH_LONG).show();
-            }
-        });
+//                Toast.makeText(ContactUsActivity.this,"hhhhh",Toast.LENGTH_LONG).show();
+//            }
+//        });
 //        tv_dial_telephone.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
