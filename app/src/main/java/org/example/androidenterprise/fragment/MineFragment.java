@@ -62,6 +62,8 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     private RelativeLayout rlMineInfo;
 
     private OnFragmentInteractionListener mListener;
+    private RelativeLayout rlMineInfo;
+
 
     public MineFragment() {
         // Required empty public constructor
