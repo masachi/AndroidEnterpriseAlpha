@@ -218,7 +218,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                 if(((Button)view).getText().toString().equals("注册")){
 
 
-                            //开始验证
+//                            //开始验证
                             String code = verifyEt.getText().toString();
                             String phoneN = usernameEt.getText().toString();
                             String password = passwordEt.getText().toString();
