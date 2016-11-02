@@ -5,8 +5,8 @@
               android:layout_height="match_parent">
     <ImageView
             android:id="@+id/iv_myworks_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/myworks_gridview_item_iv_width"
+            android:layout_height="@dimen/myworks_gridview_item_iv_height"
             android:scaleType="fitXY"/>
     <!--<EditText-->
             <!--android:id="@+id/et_myworks_name"-->

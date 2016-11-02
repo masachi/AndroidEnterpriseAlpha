@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.*;
 import org.example.androidenterprise.adapter.SettingAdapter;
@@ -33,7 +34,7 @@ import static org.example.androidenterprise.activity.LoginActivity.isLogin;
  * Use the {@link MineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener,MainActivity.InitTopBar{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -48,6 +49,10 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     TextView phoneTv;
     @ViewInject(R.id.lv_mine_setting)
     ListView settingLv;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -91,16 +96,16 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        initTopBar();
 
         settingLv = (ListView) view.findViewById(R.id.lv_mine_setting);
-        searchIb = (ImageButton) view.findViewById(R.id.ib_search);
 
         jumpActivityList = new ArrayList<Class>() {
             {
                 add(OrderActivity.class);
                 add(RecordActivity.class);
-                add(MessageActivity.class);// TODO: 2016/10/16 add MessageActivity to this line
-                add(MyWorksActivity.class);// TODO: 2016/10/16 add WorkActivity to this line
+                add(MessageActivity.class);
+                add(MyWorksActivity.class);
                 add(ComplainSuggestActivity.class);
                 add(ContactUsActivity.class);
                 add(HelpCenterActivity.class);
@@ -147,16 +152,25 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent();
-        if(!isLogin && position != 4 && position != 5 && position != 6){
+        if (!isLogin && position != 4 && position != 5 && position != 6) {
             Toast.makeText(getContext(), "请先登录", Toast.LENGTH_LONG).show();
             intent.setClass(getContext(), LoginActivity.class);
-        }else{
+        } else {
             intent.setClass(getContext(), jumpActivityList.get(position));
         }
         startActivity(intent);
     }
 
-    @Event(value = {R.id.ib_search, R.id.civ_mine})
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        x.view().inject(this, rootView);
+        return rootView;
+    }
+
+    @Event(value = {R.id.ib_left, R.id.ib_search,R.id.civ_mine})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.ib_search:
@@ -166,6 +180,12 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
                 startActivity(new Intent(getContext(), PortraitActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void initTopBar() {
+        topTv.setText(R.string.action_bar_mine);
+        leftIb.setVisibility(View.INVISIBLE);
     }
 
     /**

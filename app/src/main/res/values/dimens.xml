@@ -319,6 +319,8 @@
     <dimen name="myworks_gridview_item_text_size">11sp</dimen>
     <dimen name="myworks_gridview_item_tv_right_dis">10dp</dimen>
     <dimen name="myworks_gridview_item_tv_bottom_dis">10dp</dimen>
+    <dimen name="myworks_gridview_item_iv_width">187dp</dimen>
+    <dimen name="myworks_gridview_item_iv_height">124dp</dimen>
     <!--activity_my_works_delete-->
     <dimen name="myworks_delete_btn_height">49dp</dimen>
     <dimen name="myworks_delete_btn_text_size">16sp</dimen>

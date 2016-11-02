@@ -10,29 +10,17 @@ import org.example.androidenterprise.activity.InsideActivity;
 import org.example.androidenterprise.activity.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
+    /**
+     * init top bar text and button visibility
+     */
+    public interface InitTopBar{
+        void initTopBar();
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button btn1 = (Button) findViewById(R.id.btn1);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent().setClass(MainActivity.this, InsideActivity.class));
-                startActivity(new Intent().setClass(MainActivity.this, LoginActivity.class));
-                //startActivity(new Intent().setClass(MainActivity.this, InsideActivity.class));
-            }
-        });
-
-        Button btn2 = (Button) findViewById(R.id.btn2);
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent().setClass(MainActivity.this, InsideActivity.class));
-                //startActivity(new Intent().setClass(MainActivity.this, LoginActivity.class));
-                //startActivity(new Intent().setClass(MainActivity.this, InsideActivity.class));
-            }
-        });
+    /**
+     * if use relativelayout and top bar has its own id, use this interface to make the include view can be clicked
+     */
+    public interface InjectIncludeView{
+        void injectView();
     }
 }

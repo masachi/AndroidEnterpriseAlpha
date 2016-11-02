@@ -10,10 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -27,7 +24,6 @@ import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.model.ListRequestModel;
 import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
-import org.example.androidenterprise.utils.InitData;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -38,8 +34,6 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
 
 import static org.example.androidenterprise.utils.UrlAddress.COURSE_LIST_URL;
 import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
@@ -63,16 +57,16 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     private static final String ARG_PARAM2 = "param2";
 
 
-    @ViewInject(R.id.btn_schedule)
-    ImageButton scheduleBtn;
-    @ViewInject(R.id.btn_clock)
-    ImageButton clockBtn;
-    @ViewInject(R.id.ib_search)
-    ImageButton searchBtn;
     @ViewInject(R.id.course_viewpager)
     AutoPlayingViewPager courseAutoVP;
     @ViewInject(R.id.lv_course)
     ListView course_list;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
+    @ViewInject(R.id.ib_search)
+    ImageButton searchIb;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -129,8 +123,9 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         x.http().post(paramsVp, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("2333333","2333333");
-                responseVp = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
+                Log.e("2333333", "2333333");
+                responseVp = new Gson().fromJson(result, new TypeToken<ViewPagerEntity>() {
+                }.getType());
             }
 
             @Override
@@ -161,8 +156,9 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         x.http().post(paramsCourse, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("23333",result);
-                responseCourse = new Gson().fromJson(result,new TypeToken<CourseEntity>(){}.getType());
+                Log.e("23333", result);
+                responseCourse = new Gson().fromJson(result, new TypeToken<CourseEntity>() {
+                }.getType());
                 CourseAdapter courseAdapter = new CourseAdapter(getContext(), responseCourse.getList());
                 course_list.setAdapter(courseAdapter);
             }
@@ -219,20 +215,26 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         startActivity(intent);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        x.view().inject(this, rootView);
+        return rootView;
+    }
 
-    @Event(value = {R.id.btn_clock, R.id.ib_search,R.id.btn_schedule})
+    @Event(value = {R.id.ib_left, R.id.ib_search})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_clock:
+            case R.id.ib_left:
+                startActivity(new Intent(getContext(), CourseCalendarActivity.class));
                 break;
             case R.id.ib_search:
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;
-            case R.id.btn_schedule:
-                startActivity(new Intent(getContext(), CourseCalendarActivity.class));
-                break;
         }
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -257,7 +259,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
 
             try {
                 Thread.sleep(2000);//模拟休眠2秒
-                while(responseVp == null){
+                while (responseVp == null) {
                     Thread.sleep(2000);
                 }
                 mAutoPlayInfoList = changeAutoPlayInfoList();

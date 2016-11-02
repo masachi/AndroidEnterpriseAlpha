@@ -11,36 +11,41 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.*;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.IntroductionList;
-import org.example.androidenterprise.activity.CourseInfoActivity;
-import org.example.androidenterprise.activity.InstrumentDetailActivity;
-import org.example.androidenterprise.model.CatagoryEntity;
-import org.example.androidenterprise.model.IntroductionEntity;
+import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.activity.InstrumentDetailActivity;
 import org.example.androidenterprise.activity.InstrumentInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.AlbumAdapter;
 import org.example.androidenterprise.adapter.IntroAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
+import org.example.androidenterprise.model.CatagoryEntity;
+import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
+import org.example.androidenterprise.view.CustomMeasureGridView;
+import org.example.androidenterprise.view.CustomMeasureListView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
+
+@ContentView(R.layout.fragment_instrument)
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,29 +55,39 @@ import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
  * Use the {@link InstrumentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelectedListener,View.OnClickListener,AdapterView.OnItemClickListener{
+public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabSelectedListener, AdapterView.OnItemClickListener, MainActivity.InitTopBar {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    @ViewInject(R.id.vp_instrument)
+    AutoPlayingViewPager instrumentAutoVP;
+    @ViewInject(R.id.tab_instrument)
+    TabLayout typeTl;
+    @ViewInject(R.id.lv_album)
+    CustomMeasureListView albumLv;
+    @ViewInject(R.id.lv_instru_info)
+    CustomMeasureListView introLv;
+    @ViewInject(R.id.gv_instrument)
+    CustomMeasureGridView itemGv;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
+    @ViewInject(R.id.ib_search)
+    ImageButton searchIb;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-
-    private ListView albumLv;
-    private ListView introLv;
-    private GridView itemGv;
+    private List<View> instrumentView;
+    private List<View> albumView;
     private List<IntroductionEntity> introLlist;
     private List<CatagoryEntity> cataList;
     private int[] imagesAlbum;
-    private List<View> instrumentView;
-    private List<View> albumView;
-    private TabLayout typeTl;
-    private AutoPlayingViewPager instrumentAutoVP;
     private List<AutoPlayInfo> mAutoPlayInfoList;
-    private ImageButton searchIb;
 
     private ViewPagerEntity response;
 
@@ -107,29 +122,23 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onViewCreated(View view,
+                              Bundle savedInstanceState) {
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_instrument,container,false);
-
-        albumLv = (ListView) view.findViewById(R.id.lv_album);
-        introLv = (ListView) view.findViewById(R.id.lv_instru_info);
-        itemGv = (GridView) view.findViewById(R.id.gv_instrument);
-        typeTl = (TabLayout) view.findViewById(R.id.tab_instrument);
-        instrumentAutoVP = (AutoPlayingViewPager) view.findViewById(R.id.vp_instrument);
-        searchIb = (ImageButton) view.findViewById(R.id.ib_search);
 
         introLlist = IntroductionList.getData(getContext());
         cataList = CatagoryList.getData(getContext());
 
-        imagesAlbum = new int[] {R.drawable.viewpage_4,R.drawable.viewpage_3,R.drawable.viewpage_2,R.drawable.viewpage_1};
+        imagesAlbum = new int[]{R.drawable.viewpage_4, R.drawable.viewpage_3, R.drawable.viewpage_2, R.drawable.viewpage_1};
 
         instrumentView = new ArrayList<>();
         albumView = new ArrayList<>();
+
+        initTopBar();
 
         RequestParams params = new RequestParams(VIEWPAGER_URL);
         params.setAsJsonContent(true);
@@ -137,8 +146,9 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("2333333","2333333");
-                response = new Gson().fromJson(result,new TypeToken<ViewPagerEntity>(){}.getType());
+                Log.e("2333333", "2333333");
+                response = new Gson().fromJson(result, new TypeToken<ViewPagerEntity>() {
+                }.getType());
             }
 
             @Override
@@ -158,23 +168,20 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         });
 
 
-
-
-        for(int image : imagesAlbum){
+        for (int image : imagesAlbum) {
             ImageView tempIv = new ImageView(getContext());
             tempIv.setImageResource(image);
             albumView.add(tempIv);
         }
 
-        for(int i=0;i<cataList.size();i++) {
+        for (int i = 0; i < cataList.size(); i++) {
             typeTl.addTab(typeTl.newTab().setText(cataList.get(i).getType()), false);
         }
 
         typeTl.setOnTabSelectedListener(this);
-        searchIb.setOnClickListener(this);
         itemGv.setOnItemClickListener(this);
 
-        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(),imagesAlbum);
+        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(), imagesAlbum);
         IntroAdapter introAdapter = new IntroAdapter(getContext());
         ItemAdapter itemAdapter = new ItemAdapter(getContext());
         itemGv.setAdapter(itemAdapter);
@@ -183,7 +190,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         MyAsyncTask myAsyncTask = new MyAsyncTask();
         myAsyncTask.execute();
 
-        return view;
+        x.view().inject(this, view);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -211,7 +218,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         Intent intent = new Intent();
         intent.setClass(getContext(), InstrumentInfoActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("tab_selected",String.valueOf(pos));
+        bundle.putString("tab_selected", String.valueOf(pos));
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -227,20 +234,11 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         Intent intent = new Intent();
         intent.setClass(getContext(), InstrumentInfoActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("tab_selected",String.valueOf(pos));
+        bundle.putString("tab_selected", String.valueOf(pos));
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.ib_search:
-                startActivity(new Intent(getContext(), SearchActivity.class));
-                break;
-        }
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -249,6 +247,44 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
         bundle.putString("instrument_selected", String.valueOf(position));
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+
+
+    @Override
+    public void initTopBar() {
+        leftIb.setVisibility(View.INVISIBLE);
+        topTv.setText(R.string.action_bar_music);
+    }
+
+//    @Override
+//    public void injectView() {
+//        leftIb = (ImageButton) topView.findViewById(R.id.ib_left);
+//        topTv = (TextView) topView.findViewById(R.id.tv_top_bar);
+//        searchIb = (ImageButton) topView.findViewById(R.id.ib_search);
+//
+//        initTopBar();
+//
+//        searchIb.setOnClickListener(this);
+//    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        x.view().inject(this, rootView);
+        return rootView;
+    }
+
+    @Event(value = {R.id.ib_left, R.id.ib_search})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ib_left:
+                break;
+            case R.id.ib_search:
+                startActivity(new Intent(getContext(), SearchActivity.class));
+                break;
+        }
     }
 
 
@@ -268,7 +304,6 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     }
 
 
-
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -276,7 +311,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
             //模拟网络请求获取数据
             try {
                 Thread.sleep(2000);//模拟休眠2秒
-                while(response == null){
+                while (response == null) {
                     Thread.sleep(2000);
                 }
                 mAutoPlayInfoList = changeAutoPlayInfoList();
@@ -299,9 +334,9 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     /**
      * 将数据转换为AutoPlayInfo形式
      */
-    private List<AutoPlayInfo> changeAutoPlayInfoList(){
+    private List<AutoPlayInfo> changeAutoPlayInfoList() {
         List<AutoPlayInfo> autoPlayInfoList = new ArrayList<AutoPlayInfo>();
-        for(int i = 0 ; i < response.getTop().size() ; i ++){
+        for (int i = 0; i < response.getTop().size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             autoPlayInfo.setImageUrl(response.getTop().get(i).getTop_image());
             autoPlayInfo.setAdLinks("");//无数据时不跳转
@@ -314,7 +349,7 @@ public class InstrumentFragment extends Fragment implements TabLayout.OnTabSelec
     @Override
     public void onResume() {
         //没有数据时不执行startPlaying,避免执行几次导致轮播混乱
-        if(mAutoPlayInfoList != null && !mAutoPlayInfoList.isEmpty()){
+        if (mAutoPlayInfoList != null && !mAutoPlayInfoList.isEmpty()) {
             instrumentAutoVP.startPlaying();
         }
         super.onResume();
