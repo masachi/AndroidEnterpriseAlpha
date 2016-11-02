@@ -13,6 +13,7 @@
             layout="@layout/top_bar_rl"/>
 
     <RelativeLayout
+            android:id="@+id/rl_mine_info"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fragment_mine_top"
             android:background="#FF97C8CD">

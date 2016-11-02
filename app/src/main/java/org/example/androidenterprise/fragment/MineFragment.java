@@ -61,6 +61,8 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     private List<Class> jumpActivityList;
 
     private OnFragmentInteractionListener mListener;
+    private RelativeLayout rlMineInfo;
+
 
     public MineFragment() {
         // Required empty public constructor
@@ -99,6 +101,15 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
         initTopBar();
 
         settingLv = (ListView) view.findViewById(R.id.lv_mine_setting);
+        rlMineInfo=(RelativeLayout)view.findViewById(R.id.rl_mine_info);
+        rlMineInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isLogin){
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                }
+            }
+        });
 
         jumpActivityList = new ArrayList<Class>() {
             {
