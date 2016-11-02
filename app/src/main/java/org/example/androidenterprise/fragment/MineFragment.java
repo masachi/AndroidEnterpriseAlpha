@@ -107,6 +107,8 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
             public void onClick(View view) {
                 if (!isLogin){
                     startActivity(new Intent(getContext(), LoginActivity.class));
+                }else {
+                    startActivity(new Intent(getContext(), PersonalDataActivity.class));
                 }
             }
         });

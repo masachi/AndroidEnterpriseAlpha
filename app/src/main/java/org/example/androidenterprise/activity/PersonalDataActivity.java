@@ -32,6 +32,7 @@ public class PersonalDataActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_personal_data);
         //TODO 从服务器端获取信息设置到相应的TextView中
 
     }
