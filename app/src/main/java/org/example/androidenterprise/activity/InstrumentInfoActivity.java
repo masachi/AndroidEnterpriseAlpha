@@ -67,7 +67,7 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
 
         instrumentTL.setOnTabSelectedListener(this);
         mPullToRefreshView.setOnHeaderRefreshListener(this);
-        mPullToRefreshView.setOnFooterRefreshListener(this);
+//        mPullToRefreshView.setOnFooterRefreshListener(this);
         returnIb.setOnClickListener(this);
     }
 

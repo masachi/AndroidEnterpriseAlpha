@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.androidenterprise.activity.LoginActivity.isLogin;
+import static org.example.androidenterprise.utils.Constant.ARG_PARAM1;
+import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
 
 @ContentView(R.layout.fragment_mine)
 
@@ -37,8 +39,8 @@ import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener,MainActivity.InitTopBar{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+//    private static final String ARG_PARAM1 = "param1";
+//    private static final String ARG_PARAM2 = "param2";
     @ViewInject(R.id.ib_search)
     ImageButton searchIb;
     @ViewInject(R.id.civ_mine)
@@ -53,6 +55,8 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     ImageButton leftIb;
     @ViewInject(R.id.tv_top_bar)
     TextView topTv;
+    @ViewInject(R.id.rl_mine_info)
+    RelativeLayout circleloginRl;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -132,6 +136,12 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
             nameTv.setText("2333333");
             phoneTv.setText("23333333");
             phoneTv.setVisibility(View.VISIBLE);
+            circleloginRl.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getActivity(),PersonalDataActivity.class));
+                }
+            });
         }
 
         SettingAdapter settingAdapter = new SettingAdapter(getContext());
@@ -163,22 +173,13 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent();
-        if (!isLogin && position != 4 && position != 5 && position != 6) {
+        if(!isLogin && position != 4 && position != 5 && position != 6){
             Toast.makeText(getContext(), "请先登录", Toast.LENGTH_LONG).show();
             intent.setClass(getContext(), LoginActivity.class);
-        } else {
+        }else{
             intent.setClass(getContext(), jumpActivityList.get(position));
         }
         startActivity(intent);
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        x.view().inject(this, rootView);
-        return rootView;
     }
 
     @Event(value = {R.id.ib_left, R.id.ib_search,R.id.civ_mine})
@@ -197,6 +198,14 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     public void initTopBar() {
         topTv.setText(R.string.action_bar_mine);
         leftIb.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        x.view().inject(this, rootView);
+        return rootView;
     }
 
     /**

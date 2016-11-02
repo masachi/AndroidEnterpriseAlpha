@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
@@ -20,7 +17,7 @@ import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.x;
 
-import static org.example.androidenterprise.utils.UrlAddress.COURSE_INFO_URL;
+import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.activity_course_info)
 
@@ -46,13 +43,14 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     private TextView typeTv;
     private TextView scheduleInfoTv;
     private TextView feedbackNumTv;
+    private Button chooseBtn;
 
     private Context context;
 
 
-    public final static int STUDENT_NUMBER = 10;
-    public final static int MAX_STUDENT_NUMBER = 8;
-    public final static int MAX_STUDENT_NUMBER_BACK = 7;
+//    public final static int STUDENT_NUMBER = 10;
+//    public final static int MAX_STUDENT_NUMBER = 8;
+//    public final static int MAX_STUDENT_NUMBER_BACK = 7;
 
     private int id;
 
@@ -76,6 +74,9 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         ll.setOnClickListener(this);
         feedbackLl.setOnClickListener(this);
         feedbackIb.setOnClickListener(this);
+        chooseBtn.setOnClickListener(this);
+        feedbackIb.setOnClickListener(this);
+
         initLinearLayoutImage();
         initLinearLayoutFeedback();
 
@@ -115,16 +116,16 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
     public void getCourseInfoData() {
         titleTv.setText(response.getClass_name());
-        levelTv.setText(response.getClass_level());
+        levelTv.setText("等级 : " + response.getClass_level());
         priceTv.setText(String.valueOf(response.getClass_price()));
-        idTv.setText(String.valueOf(response.getClass_number()));
-        durationTv.setText(String.valueOf(response.getClass_time()));
-        posTv.setText(response.getClass_location());
-        otherTv.setText(response.getClass_remark());
+        idTv.setText("编号 : " + String.valueOf(response.getClass_number()));
+        durationTv.setText("课时 : " + String.valueOf(response.getClass_time()));
+        posTv.setText("地点 : " + response.getClass_location());
+        otherTv.setText("备注 : " + response.getClass_remark());
 //        Glide.with(context).load(response.getTeacher().get(0).getTeacher_pic_URL()).into(teacherCiv);
 //        Glide.with(context).load(response.getTeacher().get(0)).bitmapTransform(new CropCircleTransformation(context)).into(teacherCiv);
         teacherNameTv.setText(response.getTeacher().get(0).getTeacher_name());
-        teacherPhoneTv.setText(response.getTeacher().get(0).getTeacher_telephone());
+        teacherPhoneTv.setText("手机号 : " + response.getTeacher().get(0).getTeacher_telephone());
         studentNumberTv.setText("共" + String.valueOf(response.getTeacher().get(0).getStudent_number()) + "名学员");
         feedbackNumTv.setText(String.valueOf(response.getFeedback_number()) + "条学员反馈");
     }
@@ -136,12 +137,16 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.ll_stu_info:
+                startActivity(new Intent(this,StudentsHeadListActivity.class));
                 break;
             case R.id.ll_stu_feedback:
                 startActivity(new Intent(this, StudentsFeedBack.class));
                 break;
             case R.id.ib_feedback:
-                startActivity(new Intent(this, ReleaseFeedBack.class));
+                startActivity(new Intent(this, ReleaseFeedBackActivity.class));
+                break;
+            case R.id.btn_choose:
+                startActivity(new Intent(this,CourseOrderActivity.class));
                 break;
         }
     }
@@ -164,6 +169,8 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         typeTv = (TextView) findViewById(R.id.tv_type);
         scheduleInfoTv = (TextView) findViewById(R.id.tv_schedule_info);
         feedbackNumTv = (TextView) findViewById(R.id.tv_feedback_num);
+
+        chooseBtn = (Button) findViewById(R.id.btn_choose);
 
         ll = (LinearLayout) findViewById(R.id.ll_stu_info);
         feedbackLl = (LinearLayout) findViewById(R.id.ll_stu_feedback);

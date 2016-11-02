@@ -17,7 +17,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +28,8 @@ import android.widget.Scroller;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.utils.AutoPlayInfo;
+
+import static org.example.androidenterprise.utils.Constant.TIME_INTERVALAUTOPLAYINGVIEWPAGER;
 
 
 /**
@@ -42,7 +43,7 @@ import org.example.androidenterprise.utils.AutoPlayInfo;
  */
 public class AutoPlayingViewPager extends FrameLayout {
 
-	private final static String TAG = "AutoPlayingViewPager";
+//	private final static String TAG = "AutoPlayingViewPager";
 	/**
 	 * 轮播图图片数量
 	 */
@@ -50,7 +51,7 @@ public class AutoPlayingViewPager extends FrameLayout {
 	/**
 	 * 自动轮播的时间间隔
 	 */
-	private final static int TIME_INTERVAL = 5;
+//	private final static int TIME_INTERVAL = 5;
 	/**
 	 * 切换图片过度时间
 	 */
@@ -216,7 +217,7 @@ public class AutoPlayingViewPager extends FrameLayout {
 	public void startPlaying() {
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 		scheduledExecutorService.scheduleAtFixedRate(new SlideShowTask(), 1,
-				TIME_INTERVAL, TimeUnit.SECONDS);
+				TIME_INTERVALAUTOPLAYINGVIEWPAGER, TimeUnit.SECONDS);
 	}
 
 	/**
@@ -238,7 +239,7 @@ public class AutoPlayingViewPager extends FrameLayout {
 	 */
 	public void build() {
 		if (mAutoPlayInfoList == null || mAutoPlayInfoList.isEmpty()) {
-			Log.d(TAG, "init image fail ");
+//			Log.d(TAG, "init image fail ");
 			return;
 		}
 		mInflate = LayoutInflater.from(mContext);

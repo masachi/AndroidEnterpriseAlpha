@@ -12,7 +12,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.BuyPropertyAdapter;
-import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
 import org.example.androidenterprise.model.InstrumentDetailEntity;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -21,7 +20,7 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import static org.example.androidenterprise.utils.UrlAddress.INSTRUMENT_DETAIL_URL;
+import static org.example.androidenterprise.utils.Constant.INSTRUMENT_DETAIL_URL;
 
 @ContentView(R.layout.activity_instrument_detail)
 /**

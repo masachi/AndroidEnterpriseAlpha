@@ -9,6 +9,10 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Toast;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.google.gson.Gson;
@@ -35,8 +39,8 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.androidenterprise.utils.UrlAddress.COURSE_LIST_URL;
-import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
+import static org.example.androidenterprise.utils.Constant.*;
+
 
 
 /**
@@ -53,8 +57,8 @@ import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
 public class CourseFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+//    private static final String ARG_PARAM1 = "param1";
+//    private static final String ARG_PARAM2 = "param2";
 
 
     @ViewInject(R.id.course_viewpager)
@@ -234,7 +238,6 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
                 break;
         }
     }
-
 
     /**
      * This interface must be implemented by activities that contain this

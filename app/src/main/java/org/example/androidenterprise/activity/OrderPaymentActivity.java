@@ -65,6 +65,7 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
         switch (view.getId()) {
             case R.id.iv_back:
                 //TODO 设置返回课程订购界面
+                finish();
                 break;
             case R.id.tv_alipay_title:
                 selectedalipayIv.setImageResource(R.mipmap.ic_payment_check_selected);
