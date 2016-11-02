@@ -75,7 +75,7 @@
                 <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".activity.StudentsFeedBack">
+        <activity android:name=".activity.StudentsFeedBackActivity">
         </activity>
         <activity android:name=".activity.ReleaseFeedBackActivity">
         </activity>

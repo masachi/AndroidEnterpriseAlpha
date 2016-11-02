@@ -140,7 +140,7 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
                 startActivity(new Intent(this,StudentsHeadListActivity.class));
                 break;
             case R.id.ll_stu_feedback:
-                startActivity(new Intent(this, StudentsFeedBack.class));
+                startActivity(new Intent(this, StudentsFeedBackActivity.class));
                 break;
             case R.id.ib_feedback:
                 startActivity(new Intent(this, ReleaseFeedBackActivity.class));
