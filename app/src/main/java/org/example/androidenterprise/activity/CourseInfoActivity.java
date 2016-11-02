@@ -9,23 +9,31 @@ import android.view.View;
 import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.model.CourseInfoEntity;
 import org.example.androidenterprise.view.CircleImageView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.activity_course_info)
 
-public class CourseInfoActivity extends BaseActivity implements View.OnClickListener {
+public class CourseInfoActivity extends BaseActivity implements View.OnClickListener, MainActivity.InitTopBar {
     LinearLayout ll, feedbackLl;
     LayoutInflater mInflater = null;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
+    @ViewInject(R.id.ib_search)
+    ImageButton feedbackIb;
 
-    private ImageButton returnIb;
     private TextView titleTv;
     private TextView levelTv;
     private TextView idTv;
@@ -34,7 +42,6 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     private TextView otherTv;
     private TextView signTv;
     private TextView priceTv;
-    private ImageButton feedbackIb;
     private CircleImageView teacherCiv;
     private TextView teacherNameTv;
     private TextView teacherPhoneTv;
@@ -60,14 +67,13 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initTopBar();
         mInflater = LayoutInflater.from(this);
 
-        returnIb = (ImageButton) findViewById(R.id.ib_return);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = Integer.parseInt(bundle.getString("course_selected"));
-        returnIb.setOnClickListener(this);
+        leftIb.setOnClickListener(this);
 
         InitWidget();
 
@@ -85,33 +91,34 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 //        params.setBodyContent("{\"Class_id\":\""+id+"\"}");
         params.setBodyContent("{\"Class_id\":\"1\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
-                @Override
-                public void onSuccess(String result) {
-                    Log.e("233", result);
-                    response = new Gson().fromJson(result, new TypeToken<CourseInfoEntity>() {
-                    }.getType());
+            @Override
+            public void onSuccess(String result) {
+                Log.e("233", result);
+                response = new Gson().fromJson(result, new TypeToken<CourseInfoEntity>() {
+                }.getType());
 //                    Log.e("hhhhh",response.toString());
-                    getCourseInfoData();
-                }
+                getCourseInfoData();
+            }
 
 
-                @Override
-                public void onError(Throwable ex, boolean isOnCallback) {
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
 //                    Log.e("233", "crrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-                    ex.printStackTrace();
+                ex.printStackTrace();
 
-                    Toast.makeText(CourseInfoActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
-                }
-                @Override
-                public void onCancelled(CancelledException cex) {
+                Toast.makeText(CourseInfoActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+            }
 
-                }
+            @Override
+            public void onCancelled(CancelledException cex) {
 
-                @Override
-                public void onFinished() {
+            }
 
-                }
-            });
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     public void getCourseInfoData() {
@@ -130,23 +137,24 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         feedbackNumTv.setText(String.valueOf(response.getFeedback_number()) + "条学员反馈");
     }
 
+    @Event(value = {R.id.ib_left})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ib_return:
+            case R.id.ib_left:
                 finish();
                 break;
             case R.id.ll_stu_info:
-                startActivity(new Intent(this,StudentsHeadListActivity.class));
+                startActivity(new Intent(this, StudentsHeadListActivity.class));
                 break;
             case R.id.ll_stu_feedback:
                 startActivity(new Intent(this, StudentsFeedBackActivity.class));
                 break;
-            case R.id.ib_feedback:
+            case R.id.ib_search:
                 startActivity(new Intent(this, ReleaseFeedBackActivity.class));
                 break;
             case R.id.btn_choose:
-                startActivity(new Intent(this,CourseOrderActivity.class));
+                startActivity(new Intent(this, CourseOrderActivity.class));
                 break;
         }
     }
@@ -160,7 +168,7 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         otherTv = (TextView) findViewById(R.id.tv_course_other);
         signTv = (TextView) findViewById(R.id.tv_price_sign);
         priceTv = (TextView) findViewById(R.id.tv_course_price);
-        feedbackIb = (ImageButton) findViewById(R.id.ib_feedback);
+        feedbackIb = (ImageButton) findViewById(R.id.ib_search);
         teacherCiv = (CircleImageView) findViewById(R.id.civ_teacher);
         teacherNameTv = (TextView) findViewById(R.id.tv_teacher_name);
         teacherPhoneTv = (TextView) findViewById(R.id.tv_teacher_phone);
@@ -205,4 +213,10 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         }
     }
 
+    @Override
+    public void initTopBar() {
+        leftIb.setImageResource(R.mipmap.ic_return);
+        topTv.setText(R.string.course_info_title);
+        feedbackIb.setImageResource(R.mipmap.ic_course_info);
+    }
 }

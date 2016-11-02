@@ -63,7 +63,6 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     private String mParam2;
 
     private List<Class> jumpActivityList;
-    private RelativeLayout rlMineInfo;
 
     private OnFragmentInteractionListener mListener;
     private RelativeLayout rlMineInfo;
