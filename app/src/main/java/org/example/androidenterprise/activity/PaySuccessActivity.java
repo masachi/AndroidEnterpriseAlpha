@@ -18,7 +18,7 @@ import org.xutils.view.annotation.ViewInject;
 
 
 @ContentView(R.layout.activity_pay_success)
-public class PaySuccessActivity extends Activity {
+public class PaySuccessActivity extends Activity implements View.OnClickListener{
     @ViewInject(R.id.btn_check_course)
     Button checkcourseBtn;
     @ViewInject(R.id.btn_back_course)
@@ -33,11 +33,14 @@ public class PaySuccessActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        backIv.setOnClickListener(this);
+        checkcourseBtn.setOnClickListener(this);
+        backcourseBtn.setOnClickListener(this);
     }
 
 
     @Event(value = {R.id.iv_back, R.id.btn_check_course, R.id.btn_back_course})
-    private void onClick(View view) {
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 //TODO 对标题栏返回图片，返回功能的实现

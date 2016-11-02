@@ -52,7 +52,10 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_payment);
         x.view().inject(this);
-
+        backIv.setOnClickListener(this);
+        alipaytitleTv.setOnClickListener(this);
+        wechatpaytitleTv.setOnClickListener(this);
+        paymentBtn.setOnClickListener(this);
 
     }
 
