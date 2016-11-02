@@ -1,5 +1,6 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -46,6 +47,7 @@ public class CourseOrderActivity extends AppCompatActivity {
                 break;
             case R.id.btn_confirm:
                 //TODO: 上传订购信息
+                startActivity(new Intent(this,OrderPaymentActivity.class));
                 break;
         }
     }

@@ -23,6 +23,7 @@
     <color name="color_ff0000">#FF0000</color>
     <color name="color_ff8000">#FF8000</color>
     <color name="color_ffffff">#FFFFFF</color>
+    <color name="color_e6e6e6">#E6E6E6</color>
 
     <!--photo picker-->
     <color name="white">#ffffff</color>

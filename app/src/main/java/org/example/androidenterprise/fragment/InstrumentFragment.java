@@ -18,6 +18,9 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.IntroductionList;
+import org.example.androidenterprise.activity.InstrumentDetailActivity;
+import org.example.androidenterprise.model.CatagoryEntity;
+import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.InstrumentDetailActivity;
@@ -43,9 +46,9 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
-
-@ContentView(R.layout.fragment_instrument)
+import static org.example.androidenterprise.utils.Constant.ARG_PARAM1;
+import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
+import static org.example.androidenterprise.utils.Constant.VIEWPAGER_URL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,8 +61,8 @@ import static org.example.androidenterprise.utils.UrlAddress.VIEWPAGER_URL;
 public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabSelectedListener, AdapterView.OnItemClickListener, MainActivity.InitTopBar {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+//    private static final String ARG_PARAM1 = "param1";
+//    private static final String ARG_PARAM2 = "param2";
 
     @ViewInject(R.id.vp_instrument)
     AutoPlayingViewPager instrumentAutoVP;

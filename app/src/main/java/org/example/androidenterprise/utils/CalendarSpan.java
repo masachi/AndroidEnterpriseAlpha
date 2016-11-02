@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.style.LineBackgroundSpan;
 
+import static org.example.androidenterprise.utils.Constant.DEFAULT_RADIUS;
+
 /**
  * Span to draw a dot centered under a section of text
  */
@@ -13,7 +15,7 @@ public class CalendarSpan implements LineBackgroundSpan {
     /**
      * Default radius used
      */
-    public static final float DEFAULT_RADIUS = 3;
+//    public static final float DEFAULT_RADIUS = 3;
 
     private final float radius;
     private final int color;
@@ -22,7 +24,7 @@ public class CalendarSpan implements LineBackgroundSpan {
      * Create a span to draw a dot using default radius and color
      *
      * @see #CalendarSpan(float, int)
-     * @see #DEFAULT_RADIUS
+     * @see #
      */
     public CalendarSpan() {
         this.radius = DEFAULT_RADIUS;
@@ -34,7 +36,7 @@ public class CalendarSpan implements LineBackgroundSpan {
      *
      * @param color color of the dot
      * @see #CalendarSpan(float, int)
-     * @see #DEFAULT_RADIUS
+     * @see #
      */
     public CalendarSpan(int color) {
         this.radius = DEFAULT_RADIUS;
