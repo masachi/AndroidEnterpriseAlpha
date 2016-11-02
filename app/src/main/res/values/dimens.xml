@@ -400,7 +400,7 @@
     <dimen name="select_course_time_tv">16sp</dimen>
     <dimen name="please_input_thought">16sp</dimen>
     <dimen name="please_input_thought_height">100sp</dimen>
-    <dimen name="release_feed_back_square">100sp</dimen>
+    <dimen name="release_feed_back_square">96sp</dimen>
     <dimen name="black_course_time">79sp</dimen>
     <dimen name="release_feed_back_delete">2dp</dimen>
     <!--order_detail_lv_item-->
