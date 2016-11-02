@@ -75,7 +75,7 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 
         ll.setOnClickListener(this);
         feedbackLl.setOnClickListener(this);
-
+        feedbackIb.setOnClickListener(this);
         initLinearLayoutImage();
         initLinearLayoutFeedback();
 

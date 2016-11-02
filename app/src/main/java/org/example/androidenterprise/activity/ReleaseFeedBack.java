@@ -81,7 +81,7 @@ public class ReleaseFeedBack extends AppCompatActivity implements View.OnClickLi
 
         popupWindow = new PopupWindow(contentView, popupWindowWidth, ActionBar.LayoutParams.WRAP_CONTENT, true);
         popupWindow.setTouchable(true);
-        popupWindow.showAsDropDown(contentView, 30, 100);
+        popupWindow.showAsDropDown(contentView, 30, -10);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
