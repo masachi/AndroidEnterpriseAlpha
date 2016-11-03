@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_000000"
+        tools:context="org.example.androidenterprise.activity.VideoRecordActivity">
+
+    <RelativeLayout
+            android:id="@+id/record_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+        <ImageButton
+                android:id="@+id/ib_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_return"
+                android:paddingRight="10dp"
+                android:background="@color/transparent"/>
+
+        <ImageButton
+                android:id="@+id/ib_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_upload"
+                android:paddingRight="10dp"
+                android:layout_alignParentEnd="true"
+                android:background="@color/transparent"/>
+
+    </RelativeLayout>
+
+    <org.example.androidenterprise.utils.MovieRecorderView
+            android:id="@+id/rv_record"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/record_top_bar">
+
+    </org.example.androidenterprise.utils.MovieRecorderView>
+
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp">
+
+        <TextView
+                android:id="@+id/tv_record_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_ffffff"
+                android:text="2333"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"/>
+        <ImageButton
+                android:id="@+id/ib_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_video_record"
+                android:layout_marginTop="15dp"
+                style="?android:borderlessButtonStyle"
+                android:layout_below="@id/tv_record_time"/>
+
+        <TextView
+                android:id="@+id/tv_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_ffffff"
+                android:text="暂停"
+                android:textSize="13sp"
+                android:layout_below="@id/ib_record"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>

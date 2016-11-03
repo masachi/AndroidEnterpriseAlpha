@@ -7,10 +7,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".activity.ContactUsActivity">
-    <include
-            android:layout_height="wrap_content"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_contact_us"
             android:layout_width="match_parent"
-            layout="@layout/top_bar_rl"/>
+            android:layout_height="wrap_content"></org.example.androidenterprise.view.TopbarView>
+    <!--<include-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--layout="@layout/top_bar_rl"/>-->
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
