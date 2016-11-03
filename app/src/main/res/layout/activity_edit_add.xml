@@ -6,37 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.EditAddActivity">
-    <RelativeLayout
-            android:id="@+id/rl_top"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_edit_add"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/action_bar_height"
-            android:paddingLeft="@dimen/select_add_margin_many"
-            android:background="@color/color_97c8cd">
-        <ImageButton
-                android:id="@+id/ib_return"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@color/transparent"
-                android:src="@mipmap/ic_return"
-                android:paddingTop="@dimen/edit_add_margin_left_right"
-                android:paddingBottom="@dimen/edit_add_margin_left_right"
-                android:paddingRight="@dimen/edit_add_margin_left_right"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/edit_add"
-                android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/action_bar_text_size"/>
-
-    </RelativeLayout>
-
+            android:layout_height="wrap_content"/>
     <TextView
             android:id="@+id/tv_consignee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_top"
+            android:layout_below="@id/topbar_edit_add"
             android:layout_marginTop="@dimen/edit_add_tv_margin_many"
             android:layout_marginLeft="@dimen/edit_add_margin_left_right"
             android:text="@string/consignee"
@@ -47,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/tv_consignee"
-            android:layout_below="@id/rl_top"
+            android:layout_below="@id/topbar_edit_add"
             android:layout_marginLeft="@dimen/edit_add_tv_margin_many"
             android:layout_marginRight="@dimen/edit_add_margin_left_right"
             android:paddingTop="@dimen/edit_add_tv_margin_many"

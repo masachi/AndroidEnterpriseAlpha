@@ -57,7 +57,7 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         InitData.initData(this);
 
         flist = new ArrayList<>();

@@ -1,33 +1,41 @@
 package org.example.androidenterprise.activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.ItemList;
-import org.example.androidenterprise.model.CatagoryEntity;
-import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
+import org.example.androidenterprise.model.CatagoryEntity;
+import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.view.PullToRefreshView;
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
+import org.example.androidenterprise.view.TopbarView;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.List;
 
-public class InstrumentInfoActivity extends AppCompatActivity implements View.OnClickListener,TabLayout.OnTabSelectedListener,PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener {
-    private TabLayout instrumentTL;
+@ContentView(R.layout.activity_instrument_info)
+
+public class InstrumentInfoActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener {
+    @ViewInject(R.id.topbar_instrument_info)
+    TopbarView topbar;
+    @ViewInject(R.id.instrument_info_tab)
+    TabLayout instrumentTL;
+    @ViewInject(R.id.instrument_info_gv)
+    GridView instrinfoGv;
+    @ViewInject(R.id.instrument_pull_refresh_view)
+    PullToRefreshView mPullToRefreshView;
     //private PullToRefreshGridView instrinfoGv;
-    private PullToRefreshView mPullToRefreshView;
-    private GridView instrinfoGv;
-    private ImageButton returnIb;
     private InstrumentInfoAdapter instrumentInfoAdapter;
     private List<CatagoryEntity> cataList;
     private List<ItemEntity> adapter_list;
@@ -37,12 +45,9 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instrument_info);
-        instrumentTL = (TabLayout) findViewById(R.id.instrument_info_tab);
+        x.view().inject(this);
+        setTopbar();
         //instrinfoGv = (PullToRefreshGridView) findViewById(R.id.instrument_info_gv);
-        instrinfoGv = (GridView) findViewById(R.id.instrument_info_gv);
-        mPullToRefreshView = (PullToRefreshView) findViewById(R.id.instrument_pull_refresh_view);
-        returnIb = (ImageButton) findViewById(R.id.instrument_return_ib);
 
         cataList = CatagoryList.getData(this);
         Intent intent = getIntent();
@@ -51,7 +56,7 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
 
         InitTabDatas();
         adapter_list = ItemList.getData(this);
-        instrumentInfoAdapter = new InstrumentInfoAdapter(this,adapter_list);
+        instrumentInfoAdapter = new InstrumentInfoAdapter(this, adapter_list);
         instrinfoGv.setAdapter(instrumentInfoAdapter);
         InitSelectedGvDatas();
 
@@ -68,39 +73,60 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
         instrumentTL.setOnTabSelectedListener(this);
         mPullToRefreshView.setOnHeaderRefreshListener(this);
 //        mPullToRefreshView.setOnFooterRefreshListener(this);
-        returnIb.setOnClickListener(this);
     }
 
-    private void InitTabDatas(){
-        for(int i=0;i<cataList.size();i++){
-            if(i == pos){
-                instrumentTL.addTab(instrumentTL.newTab().setText(cataList.get(i).getType()),true);
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("乐器");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
-            else {
+        });
+        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
+        topbar.setRight1Ib(ic_search);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), SearchActivity.class));
+            }
+        });
+    }
+
+    private void InitTabDatas() {
+        for (int i = 0; i < cataList.size(); i++) {
+            if (i == pos) {
+                instrumentTL.addTab(instrumentTL.newTab().setText(cataList.get(i).getType()), true);
+            } else {
                 instrumentTL.addTab(instrumentTL.newTab().setText(cataList.get(i).getType()), false);
             }
         }
     }
 
-    private void InitSelectedGvDatas(){
+    private void InitSelectedGvDatas() {
         adapter_list.clear();
         ilist = ItemList.getData(this);
-        if(pos == 0){
-            for(int i=0;i<ilist.size();i++){
-                if(ilist.get(i).getFresh() == 0){
+        if (pos == 0) {
+            for (int i = 0; i < ilist.size(); i++) {
+                if (ilist.get(i).getFresh() == 0) {
                     adapter_list.add(ilist.get(i));
                 }
             }
-        }
-        else{
+        } else {
             AddAdapter();
         }
         instrumentInfoAdapter.notifyDataSetChanged();
     }
 
-    private void AddAdapter(){
-        for(int i=0;i<ilist.size();i++){
-            if(ilist.get(i).getFresh() == 0 && ilist.get(i).getType() == pos){
+    private void AddAdapter() {
+        for (int i = 0; i < ilist.size(); i++) {
+            if (ilist.get(i).getFresh() == 0 && ilist.get(i).getType() == pos) {
                 adapter_list.add(ilist.get(i));
             }
         }
@@ -144,8 +170,8 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
             public void run() {
                 // 设置更新时间
                 // mPullToRefreshView.onHeaderRefreshComplete("最近更新:01-23 12:01");
-                for(int i=0;i<ilist.size();i++){
-                    if(ilist.get(i).getFresh() == 1 && ilist.get(i).getType() == pos){
+                for (int i = 0; i < ilist.size(); i++) {
+                    if (ilist.get(i).getFresh() == 1 && ilist.get(i).getType() == pos) {
                         adapter_list.add(ilist.get(i));
                     }
                 }
@@ -153,11 +179,6 @@ public class InstrumentInfoActivity extends AppCompatActivity implements View.On
                 mPullToRefreshView.onHeaderRefreshComplete();
             }
         }, 1000);
-    }
-
-    @Override
-    public void onClick(View v) {
-        finish();
     }
 
     private int calculateScrollXForTab(int position, float positionOffset) {

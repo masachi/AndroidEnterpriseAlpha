@@ -75,9 +75,8 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
 
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
-        String title = "课程日历";
         Resources res = getResources();
-        topbar.setTopbarTv(title);
+        topbar.setTopbarTv("课程日历");
         Drawable ic_table = res.getDrawable(R.mipmap.ic_table);
         topbar.setLeftIb(ic_table);
         topbar.getLeftIb().setVisibility(View.VISIBLE);

@@ -133,9 +133,8 @@ public class CourseInfoActivity extends BaseActivity {
 
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
-        String title = "课程详情";
         Resources res = getResources();
-        topbar.setTopbarTv(title);
+        topbar.setTopbarTv("课程详情");
         Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
         topbar.setLeftIb(ic_return);
         topbar.getLeftIb().setVisibility(View.VISIBLE);

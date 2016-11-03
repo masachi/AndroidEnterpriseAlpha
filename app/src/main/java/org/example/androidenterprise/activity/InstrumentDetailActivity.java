@@ -1,20 +1,21 @@
 package org.example.androidenterprise.activity;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.BuyPropertyAdapter;
 import org.example.androidenterprise.model.InstrumentDetailEntity;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
@@ -30,8 +31,6 @@ import static org.example.androidenterprise.utils.Constant.INSTRUMENT_DETAIL_URL
  */
 public class InstrumentDetailActivity extends BaseActivity {
 
-    @ViewInject(R.id.ib_back)
-    ImageButton returnIb;
     @ViewInject(R.id.tv_title)
     TextView titleTv;
     @ViewInject(R.id.tv_price)
@@ -61,6 +60,8 @@ public class InstrumentDetailActivity extends BaseActivity {
     ImageView thirdPictureIv;
     @ViewInject(R.id.tv_bottom_total)
     TextView bottomTotalTv;
+    @ViewInject(R.id.topbar_instrument_detail)
+    TopbarView topbar;
 
     private InstrumentDetailEntity response;
     private PopupWindow buyNowPopup;
@@ -69,6 +70,7 @@ public class InstrumentDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTopbar();
         priceWithLineTv.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -145,12 +147,24 @@ public class InstrumentDetailActivity extends BaseActivity {
         buyPriceTv.setText(String.valueOf(response.getInstrument_now_price() + response.getFreight()));
     }
 
-    @Event(value = {R.id.ib_back, R.id.tv_buy})
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("乐器详情");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    @Event(value = {R.id.tv_buy})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ib_back:
-                finish();
-                break;
             case R.id.tv_buy:
                 buyNowPopup.showAtLocation(findViewById(R.id.layout_instrument_detail), Gravity.BOTTOM, 0, 0);
                 break;

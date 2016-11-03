@@ -7,36 +7,14 @@
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.InstrumentDetailActivity">
 
-    <RelativeLayout
-            android:id="@+id/rl_top"
-            android:background="@color/color_97c8cd"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_instrument_detail"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/instrument_detail_top">
-        <ImageButton
-                android:id="@+id/ib_back"
-                android:src="@mipmap/ic_return"
-                android:background="@color/transparent"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/instrument_detail_LR"
-                android:paddingRight="@dimen/instrument_detail_LR"
-                android:paddingTop="@dimen/instrument_detail_TB"
-                android:paddingBottom="@dimen/instrument_detail_TB"/>
-        <TextView
-                android:text="@string/instrument_info_title"
-                android:textColor="@color/color_ffffff"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:textSize="@dimen/instrument_detail_top_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-    </RelativeLayout>
+            android:layout_height="wrap_content"/>
 
     <org.example.androidenterprise.view.CustomScrollView
             android:id="@+id/sclv_main"
-            android:layout_below="@id/rl_top"
+            android:layout_below="@id/topbar_instrument_detail"
             android:background="@color/color_f0f0f0"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
