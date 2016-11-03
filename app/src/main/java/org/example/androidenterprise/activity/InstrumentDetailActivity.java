@@ -1,5 +1,6 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
@@ -26,7 +28,7 @@ import static org.example.androidenterprise.utils.Constant.INSTRUMENT_DETAIL_URL
 /**
  * Created by caishuang:乐器详情
  */
-public class InstrumentDetailActivity extends BaseActivity{
+public class InstrumentDetailActivity extends BaseActivity {
 
     @ViewInject(R.id.ib_back)
     ImageButton returnIb;
@@ -40,6 +42,7 @@ public class InstrumentDetailActivity extends BaseActivity{
     TextView placeTv;
     @ViewInject(R.id.lv_instrument_detail)
     ListView instrumentDetailLv;
+    //乐器参数
     @ViewInject(R.id.tv_buy)
     TextView buyBtn;
     @ViewInject(R.id.tv_price_with_line)
@@ -61,6 +64,7 @@ public class InstrumentDetailActivity extends BaseActivity{
 
     private InstrumentDetailEntity response;
     private PopupWindow buyNowPopup;
+//    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,8 +103,8 @@ public class InstrumentDetailActivity extends BaseActivity{
         });
         final BuyPropertyAdapter propertyAdapter = new BuyPropertyAdapter(this);
 
-        View popupView = getLayoutInflater().inflate(R.layout.instrument_detail,null);
-        buyNowPopup = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT,true);
+        View popupView = getLayoutInflater().inflate(R.layout.instrument_detail, null);
+        buyNowPopup = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true);
         buyNowPopup.setTouchable(true);
         buyNowPopup.setOutsideTouchable(true);
         buyNowPopup.setAnimationStyle(R.style.anim_menu_buy);
@@ -132,6 +136,10 @@ public class InstrumentDetailActivity extends BaseActivity{
         priceWithLineTv.setText(String.valueOf(response.getInstrument_pre_price()));
         levelTv.setText(String.valueOf(response.getFreight()));
         placeTv.setText(response.getInstrument_location());
+//        产品参数和图片
+//        Glide.with(this).load(response.getPic_url()).into(firstPictureIv);
+//        Glide.with(context).load(response.getPic_url()).into(secondPictureIv);
+//        Glide.with(context).load(response.getPic_url()).into(thirdPictureIv);
         contentTv.setText(response.getDescription());
         bottomTotalTv.setText(String.valueOf(response.getFreight()));
         buyPriceTv.setText(String.valueOf(response.getInstrument_now_price() + response.getFreight()));

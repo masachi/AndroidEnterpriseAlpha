@@ -83,6 +83,9 @@
     <string name="first_course_time">课时1</string>
     <string name="second_course_time">课时2</string>
     <string name="third_course_time">课时3</string>
+    <string name="studentsXXX">学员XXX</string>
+    <string name="six_minutes_ago">6分钟前</string>
+    <string name="contactXXXXX">内容XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
     <!--activity_order_detail-->
     <string name="instrumentXXX">乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX</string>
     <string name="order_detail_property">XXX属性</string>
