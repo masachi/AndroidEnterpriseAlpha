@@ -50,6 +50,7 @@ import static org.example.androidenterprise.utils.Constant.ARG_PARAM1;
 import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
 import static org.example.androidenterprise.utils.Constant.VIEWPAGER_URL;
 
+@ContentView(R.layout.fragment_instrument)
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -279,11 +280,9 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         return rootView;
     }
 
-    @Event(value = {R.id.ib_left, R.id.ib_search})
+    @Event(value = {R.id.ib_search})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ib_left:
-                break;
             case R.id.ib_search:
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;

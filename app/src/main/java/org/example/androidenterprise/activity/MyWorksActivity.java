@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import org.example.androidenterprise.R;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 
 @ContentView(R.layout.activity_my_works)
-public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
 
 
     @ViewInject(R.id.ib_reback)
@@ -46,13 +47,14 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 
         ib_reback.setOnClickListener(this);
         ib_delete.setOnClickListener(this);
+        gv_myworks.setOnItemClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ib_reback:
-               finish();
+                finish();
                 break;
             case R.id.ib_delete:
                 Intent intent_delete = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
@@ -68,5 +70,15 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
             list.add(works_data[i]);
         }
         return list;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if(position == 0){
+            startActivity(new Intent(this,VideoRecordActivity.class));
+        }
+        else{
+            // TODO: 2016/11/2 video play
+        }
     }
 }
