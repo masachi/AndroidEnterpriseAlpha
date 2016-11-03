@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import org.example.androidenterprise.List.ItemList;
+import org.example.androidenterprise.model.InstrumentEntity;
 import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.R;
 
@@ -20,15 +22,16 @@ import java.util.List;
 public class ItemAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
-    private List<ItemEntity> ilist;
+    private InstrumentEntity ilist;
 
-    public ItemAdapter(Context context){
+    public ItemAdapter(Context context,InstrumentEntity ilist){
         this.mLayoutInflate = LayoutInflater.from(context);
         this.context = context;
+        this.ilist = ilist;
     }
     @Override
     public int getCount() {
-        return ItemList.getData(context).size();
+        return ilist.getInsArr().size();
     }
 
     @Override
@@ -43,7 +46,7 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ilist = ItemList.getData(context);
+//        ilist = ItemList.getData(context);
         ViewHolder_I holder;
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.music_grid_item,null);
@@ -58,9 +61,11 @@ public class ItemAdapter extends BaseAdapter {
             holder = (ViewHolder_I) convertView.getTag();
         }
         holder.img.setImageResource(R.drawable.img_example2);
-        holder.title.setText(ilist.get(position).getTitle());
-        holder.price.setText(ilist.get(position).getPrice());
-        holder.price_line.setText(String.valueOf(ilist.get(position).getPrice_line()));
+        //TODO 服务器没给出正确的图片URL地址
+       // Glide.with(context).load(ilist.getInsArr().get(position).getPic_url()).into(holder.img);
+        holder.title.setText(ilist.getInsArr().get(position).getName());
+        holder.price.setText(String.valueOf(ilist.getInsArr().get(position).getNow_price()));
+        holder.price_line.setText(String.valueOf(ilist.getInsArr().get(position).getPre_price()));
         holder.price_line.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         return convertView;
     }

@@ -12,6 +12,9 @@ import android.view.WindowManager;
 import android.widget.GridView;
 import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.ItemList;
+import org.example.androidenterprise.model.CatagoryEntity;
+import org.example.androidenterprise.model.InstrumentEntity;
+import org.example.androidenterprise.model.ItemEntity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.InstrumentInfoAdapter;
 import org.example.androidenterprise.model.CatagoryEntity;
@@ -22,6 +25,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ContentView(R.layout.activity_instrument_info)
@@ -37,7 +41,7 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
     PullToRefreshView mPullToRefreshView;
     //private PullToRefreshGridView instrinfoGv;
     private InstrumentInfoAdapter instrumentInfoAdapter;
-    private List<CatagoryEntity> cataList;
+    private List<InstrumentEntity.InstrumentMsgEntity> cataList;
     private List<ItemEntity> adapter_list;
     private List<ItemEntity> ilist;
     private int pos;
@@ -49,15 +53,24 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
         setTopbar();
         //instrinfoGv = (PullToRefreshGridView) findViewById(R.id.instrument_info_gv);
 
-        cataList = CatagoryList.getData(this);
+        //cataList = CatagoryList.getData(this);
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        pos = Integer.parseInt(bundle.getString("tab_selected"));
+        ArrayList list = bundle.getParcelableArrayList("list");
+       cataList = (List<InstrumentEntity.InstrumentMsgEntity>)list.get(0);
 
         InitTabDatas();
         adapter_list = ItemList.getData(this);
         instrumentInfoAdapter = new InstrumentInfoAdapter(this, adapter_list);
         instrinfoGv.setAdapter(instrumentInfoAdapter);
+        //提取出pos
+        for (int i = 0; i < cataList.size(); i++) {
+            if(cataList.get(i).getPos()!= null){
+                pos = Integer.parseInt(cataList.get(i).getPos());
+                break;
+            }
+        }
         InitSelectedGvDatas();
 
         instrumentTL.setSmoothScrollingEnabled(true);

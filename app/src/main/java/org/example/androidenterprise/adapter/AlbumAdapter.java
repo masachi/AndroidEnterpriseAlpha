@@ -6,6 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import com.bumptech.glide.Glide;
+import org.example.androidenterprise.model.AlbumEntity;
+
+import java.util.List;
 
 /**
  * Created by sdlds on 2016/9/23.
@@ -13,16 +17,16 @@ import android.widget.ImageView;
 public class AlbumAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
-    private int[] imagesAlbum;
+    private List<AlbumEntity.AlbumPicEntity> imagesAlbum;
 
-    public AlbumAdapter(Context context, int[] imagesAlbum){
+    public AlbumAdapter(Context context, List<AlbumEntity.AlbumPicEntity> imagesAlbum){
         this.context = context;
         this.imagesAlbum = imagesAlbum;
     }
 
     @Override
     public int getCount() {
-        return imagesAlbum.length;
+        return imagesAlbum.size();
     }
 
     @Override
@@ -38,7 +42,7 @@ public class AlbumAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imgView = new ImageView(context);
-        imgView.setImageResource(imagesAlbum[position]);
+        //Glide.with(context).load(imagesAlbum.get(position)).into(imgView);
         return imgView;
     }
 }

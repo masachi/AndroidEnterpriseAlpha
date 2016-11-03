@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -22,6 +24,8 @@ import org.example.androidenterprise.activity.InstrumentDetailActivity;
 import org.example.androidenterprise.model.CatagoryEntity;
 import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.MainActivity;
+import org.example.androidenterprise.adapter.InstrumentAdapter;
+import org.example.androidenterprise.model.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.InstrumentDetailActivity;
 import org.example.androidenterprise.activity.InstrumentInfoActivity;
@@ -33,6 +37,7 @@ import org.example.androidenterprise.model.CatagoryEntity;
 import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
+import org.example.androidenterprise.utils.Constant;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
 import org.example.androidenterprise.view.CustomMeasureGridView;
 import org.example.androidenterprise.view.CustomMeasureListView;
@@ -46,9 +51,7 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.androidenterprise.utils.Constant.ARG_PARAM1;
-import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
-import static org.example.androidenterprise.utils.Constant.VIEWPAGER_URL;
+import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.fragment_instrument)
 /**
@@ -89,7 +92,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     private List<View> instrumentView;
     private List<View> albumView;
     private List<IntroductionEntity> introLlist;
-    private List<CatagoryEntity> cataList;
+    private List<InstrumentEntity.InstrumentMsgEntity> cataList;
     private int[] imagesAlbum;
     private List<AutoPlayInfo> mAutoPlayInfoList;
 
@@ -97,6 +100,15 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
 
 
     private OnFragmentInteractionListener mListener;
+
+    //专辑图片
+    private AlbumEntity albumresponse;
+
+    //图片描述
+    private InsAndDesEntity insanddesresponse;
+
+    //所有乐器展示
+    private InstrumentEntity instrumentresponse;
 
     public InstrumentFragment() {
         // Required empty public constructor
@@ -135,7 +147,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         // Inflate the layout for this fragment
 
         introLlist = IntroductionList.getData(getContext());
-        cataList = CatagoryList.getData(getContext());
+
 
         imagesAlbum = new int[]{R.drawable.viewpage_4, R.drawable.viewpage_3, R.drawable.viewpage_2, R.drawable.viewpage_1};
 
@@ -143,54 +155,29 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         albumView = new ArrayList<>();
 
         initTopBar();
-
-        RequestParams params = new RequestParams(VIEWPAGER_URL);
-        params.setAsJsonContent(true);
-        params.setBodyContent("{\"code\":2004,\"id\":9527}");
-        x.http().post(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.e("2333333", "2333333");
-                response = new Gson().fromJson(result, new TypeToken<ViewPagerEntity>() {
-                }.getType());
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Toast.makeText(getContext(), "网络错误", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
+        getRequest();
 
 
-        for (int image : imagesAlbum) {
-            ImageView tempIv = new ImageView(getContext());
-            tempIv.setImageResource(image);
-            albumView.add(tempIv);
-        }
+//        for(int image : imagesAlbum){
+//            ImageView tempIv = new ImageView(getContext());
+//            tempIv.setImageResource(image);
+//            albumView.add(tempIv);
+//        }
 
-        for (int i = 0; i < cataList.size(); i++) {
-            typeTl.addTab(typeTl.newTab().setText(cataList.get(i).getType()), false);
-        }
 
-        typeTl.setOnTabSelectedListener(this);
         itemGv.setOnItemClickListener(this);
 
-        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(), imagesAlbum);
-        IntroAdapter introAdapter = new IntroAdapter(getContext());
-        ItemAdapter itemAdapter = new ItemAdapter(getContext());
-        itemGv.setAdapter(itemAdapter);
-        albumLv.setAdapter(albumAdapter);
-        introLv.setAdapter(introAdapter);
+//        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(), imagesAlbum);
+//        IntroAdapter introAdapter = new IntroAdapter(getContext());
+
+
+//        ItemAdapter itemAdapter = new ItemAdapter(getContext());
+//        itemGv.setAdapter(itemAdapter);
+//        InstrumentAdapter instrumentAdapter = new InstrumentAdapter(getContext());
+//        itemGv.setAdapter(instrumentAdapter);
+
+
+
         MyAsyncTask myAsyncTask = new MyAsyncTask();
         myAsyncTask.execute();
 
@@ -219,6 +206,10 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         int pos = tab.getPosition();
+        for (int i = 0; i < cataList.size(); i++) {
+            cataList.get(i).setPos("");
+        }
+        cataList.get(pos).setPos(String.valueOf(pos));
         Intent intent = new Intent();
         intent.setClass(getContext(), InstrumentInfoActivity.class);
         Bundle bundle = new Bundle();
@@ -238,7 +229,9 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         Intent intent = new Intent();
         intent.setClass(getContext(), InstrumentInfoActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("tab_selected", String.valueOf(pos));
+        ArrayList bundlelist = new ArrayList();
+        bundlelist.add(cataList);
+        bundle.putParcelableArrayList("list",bundlelist);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -252,6 +245,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
 
 
     @Override
@@ -288,6 +282,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
                 break;
         }
     }
+
 
 
     /**
@@ -363,4 +358,171 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         super.onPause();
     }
 
+    /**
+     * 网络请求
+     */
+    public void getRequest(){
+        RequestParams params = new RequestParams(VIEWPAGER_URL);
+        params.setAsJsonContent(true);
+        params.setBodyContent("{\"code\":2004,\"id\":9527}");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("VIEWPAGER",result);
+                response = new Gson().fromJson(result, new TypeToken<ViewPagerEntity>() {
+                }.getType());
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(getContext(), "网络错误", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+        //乐器界面 专辑图片的服务器请求
+        AlbumInfoEntity albumInfoEntity = new AlbumInfoEntity();
+        albumInfoEntity.setCode("2000");
+        RequestParams paramsAlbum = new RequestParams(Constant.ALBUM_URL);
+        paramsAlbum.setAsJsonContent(true);
+        paramsAlbum.setBodyContent(new Gson().toJson(albumInfoEntity));
+        x.http().post(paramsAlbum,new Callback.CommonCallback<String>(){
+            @Override
+            public void onSuccess(String result) {
+                Log.e("专辑图片",result);
+                albumresponse = new Gson().fromJson(result,new TypeToken<AlbumEntity>(){}.getType());
+                getAlbumData();
+            }
+
+            //        for (int image : imagesAlbum) {
+//            ImageView tempIv = new ImageView(getContext());
+//            tempIv.setImageResource(image);
+//            albumView.add(tempIv);
+//        }
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e("专辑图片","FK");
+                Toast.makeText(getContext(),"请求失败",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+        //图片描述网络请求
+        InsAndDesInfoEntity insAndDesInfoEntity = new InsAndDesInfoEntity();
+        insAndDesInfoEntity.setCode("2054");
+        RequestParams paramsIns = new RequestParams(INSANDDES_URL);
+        paramsIns.setAsJsonContent(true);
+        paramsIns.setBodyContent(new Gson().toJson(insAndDesInfoEntity));
+        x.http().post(paramsIns, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("InsAndDes",result);
+                insanddesresponse = new Gson().fromJson(result,new TypeToken<InsAndDesEntity>(){}.getType());
+                getInsAndDes();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e("InsAndDes","FK");
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+        //所有乐器展示的网络请求
+        InstrumentInfoEntity infoEntity = new InstrumentInfoEntity();
+        infoEntity.setCode("2053");
+        infoEntity.setId(738);
+        infoEntity.setRole("student");
+        infoEntity.setMaxtime(0);
+        RequestParams paramsInstrument = new RequestParams(INSTRUNMET_URL);
+        paramsInstrument.setAsJsonContent(true);
+        paramsInstrument.setBodyContent(new Gson().toJson(infoEntity));
+        x.http().post(paramsInstrument, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("所有乐器展示",result);
+                instrumentresponse = new Gson().fromJson(result,new TypeToken<InstrumentEntity>(){}.getType());
+                getInstrumentData();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+
+    }
+    /**
+     * 对从服务器获取的专辑数据进行处理
+     */
+    public void getAlbumData(){
+        for (int i = 0; i < albumresponse.getAlbums().size(); i++) {
+            ImageView tempIv = new ImageView(getContext());
+            Glide.with(getContext()).load(albumresponse.getAlbums().get(i).getAlbum_url()).into(tempIv);
+            albumView.add(tempIv);
+        }
+        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(),albumresponse.getAlbums());
+        albumLv.setAdapter(albumAdapter);
+    }
+
+    /**
+     * 对从服务器获取的图片描述数据进行处理
+     */
+    public void getInsAndDes(){
+        IntroAdapter introAdapter = new IntroAdapter(getContext(),insanddesresponse);
+        introLv.setAdapter(introAdapter);
+    }
+
+    /**
+     * 对从服务器获取的所有乐器数据进行处理
+     */
+    public void getInstrumentData(){
+        ItemAdapter itemAdapter = new ItemAdapter(getContext(),instrumentresponse);
+        itemGv.setAdapter(itemAdapter);
+
+        cataList = instrumentresponse.getInsArr();
+        for (int i = 0; i < cataList.size(); i++) {
+            typeTl.addTab(typeTl.newTab().setText(cataList.get(i).getType()), false);
+        }
+
+        typeTl.setOnTabSelectedListener(this);
+    }
 }

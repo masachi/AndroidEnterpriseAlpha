@@ -9,6 +9,7 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import org.example.androidenterprise.List.IntroductionList;
+import org.example.androidenterprise.model.InsAndDesEntity;
 import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.R;
 
@@ -20,16 +21,17 @@ import java.util.List;
 public class IntroAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
-    private List<IntroductionEntity> introList;
+    private InsAndDesEntity introList;
 
-    public IntroAdapter(Context context){
+    public IntroAdapter(Context context,InsAndDesEntity introList){
         this.mLayoutInflate = LayoutInflater.from(context);
         this.context = context;
+        this.introList = introList;
     }
 
     @Override
     public int getCount() {
-        return IntroductionList.getData(context).size();
+        return introList.getInspicsList().size();
     }
 
     @Override
@@ -44,7 +46,7 @@ public class IntroAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        introList = IntroductionList.getData(context);
+       // introList = IntroductionList.getData(context);
         ViewHolder_Intro holder;
         if(convertView == null){
             convertView = mLayoutInflate.inflate(R.layout.music_intro_lv_item,null);
@@ -60,10 +62,10 @@ public class IntroAdapter extends BaseAdapter {
         else{
             holder = (ViewHolder_Intro) convertView.getTag();
         }
-        holder.titleTv.setText(introList.get(position).getTitle());
-        holder.signTv.setText(introList.get(position).getSign());
-        holder.priceTv.setText(String.valueOf(introList.get(position).getPrice()));
-        holder.infoTv.setText(introList.get(position).getInfo());
+        holder.titleTv.setText(introList.getInspicsList().get(position).getName());
+        //holder.signTv.setText(introList.getInspicsList().get(position));
+        holder.priceTv.setText(String.valueOf(introList.getInspicsList().get(position).getNow_price()));
+        holder.infoTv.setText(introList.getInspicsList().get(position).getDes());
         return convertView;
     }
 }

@@ -31,7 +31,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         CourseAdapter courseAdapter = new CourseAdapter(this, InitData.course.getList());
-        ItemAdapter itemAdapter = new ItemAdapter(this);
+       // ItemAdapter itemAdapter = new ItemAdapter(this);
         SearchOrderAdapter searchOrderAdapter = new SearchOrderAdapter(this);
 
 
@@ -49,7 +49,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         orderLv.setOnGroupClickListener(this);
 
         courseLv.setAdapter(courseAdapter);
-        instruGv.setAdapter(itemAdapter);
+      //  instruGv.setAdapter(itemAdapter);
         orderLv.setAdapter(searchOrderAdapter);
 
         for(int i=0;i<olist.size();i++){
