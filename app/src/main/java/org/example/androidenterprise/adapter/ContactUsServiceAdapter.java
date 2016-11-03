@@ -43,7 +43,7 @@ public class ContactUsServiceAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        ViewHolder_ContactUsService holder_contactUsService;
+        final ViewHolder_ContactUsService holder_contactUsService;
         if (view == null) {
             view = mLayoutInflate.inflate(R.layout.activity_us_contact_service_gridview_item, null);
             holder_contactUsService = new ViewHolder_ContactUsService();
@@ -60,15 +60,17 @@ public class ContactUsServiceAdapter extends BaseAdapter {
             holder_contactUsService.serviceItemRb.setChecked(true);
             holder_contactUsService.serviceItemRb.setClickable(true);
         }
-        holder_contactUsService.serviceItemRb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context,ServiceTalkActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+        if (holder_contactUsService.serviceItemRb.isChecked() == true) {
+            holder_contactUsService.serviceItemRb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ServiceTalkActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
 //                Toast.makeText(context, "hhhhh", Toast.LENGTH_LONG).show();
-            }
-        });
+                }
+            });
+        }
         return view;
     }
 }

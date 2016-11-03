@@ -31,6 +31,7 @@ public class BuyPropertyAdapter extends BaseAdapter {
         this.mLayoutInflate = LayoutInflater.from(context);
         for(int i=0;i<size;i++){
             vector.add(false);
+
         }
     }
 
@@ -61,6 +62,7 @@ public class BuyPropertyAdapter extends BaseAdapter {
         else{
             holder = (ViewHolder_Pro) convertView.getTag();
         }
+
         if(vector.elementAt(position) == true){
             holder.propertyTv.setBackground(context.getResources().getDrawable(R.drawable.activity_instant_buy_blue_bg));
             holder.propertyTv.setTextColor(context.getResources().getColor(R.color.color_97c8cd));

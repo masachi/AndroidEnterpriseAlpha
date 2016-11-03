@@ -1,14 +1,20 @@
 package org.example.androidenterprise.activity;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.bumptech.glide.load.engine.Resource;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ContactUsQQAdapter;
@@ -22,6 +28,8 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.androidenterprise.utils.Constant.serviceName;
+
 /**
  * Created by chenguojiao : 联系我们
  */
@@ -29,22 +37,25 @@ import java.util.List;
 @ContentView(R.layout.activity_contact_us)
 public class ContactUsActivity extends AppCompatActivity {
 
-    String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
-    List<String> listServiceName = new ArrayList<>();
-    String qqName[] = {"123456", "234567", "154562", "4445112", "55151", "54545"};
-    List<String> listQQName = new ArrayList<>();
+//    String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
+
+//    String qqName[] = {"123456", "234567", "154562", "4445112", "55151", "54545"};
+//    List<String> listQQName = new ArrayList<>();
 
     @ViewInject(R.id.tv_dial_telephone)
     TextView dailTv;
     @ViewInject(R.id.gv_service)
     GridView serviceGv;
-    @ViewInject(R.id.gv_qq)
-    GridView qqGv;
+    //    @ViewInject(R.id.gv_qq)
+//    GridView qqGv;
     @ViewInject(R.id.tv_telephone)
     TextView telephoneTv;
     @ViewInject(R.id.tv_dial_telephone)
-    TextView tv_dial_telephone;
+    TextView dialTelephoneTv;
     @ViewInject(R.id.topbar_contact_us)
+    TopbarView contactusTopbar;
+
+    List<String> listServiceName = new ArrayList<>();
     TopbarView topbar;
 
 //    TODO get data
@@ -60,11 +71,30 @@ public class ContactUsActivity extends AppCompatActivity {
         ContactUsServiceAdapter contactUsServiceAdapter = new ContactUsServiceAdapter(getApplicationContext(), listServiceName);
         serviceGv.setAdapter(contactUsServiceAdapter);
 
-        for (int i = 0; i < qqName.length; i++) {
-            listQQName.add(qqName[i]);
-        }
-        ContactUsQQAdapter contactUsQQAdapter = new ContactUsQQAdapter(getApplicationContext(), listQQName);
-        qqGv.setAdapter(contactUsQQAdapter);
+//        dialTelephoneTv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:10010"));
+//                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
+//                startActivity(intent);
+//                Toast.makeText(ContactUsActivity.this, "hhhhhh", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        for (int i = 0; i < qqName.length; i++) {
+//            listQQName.add(qqName[i]);
+//        }
+//        ContactUsQQAdapter contactUsQQAdapter = new ContactUsQQAdapter(getApplicationContext(), listQQName);
+//        qqGv.setAdapter(contactUsQQAdapter);
     }
 
     private void setTopbar() {

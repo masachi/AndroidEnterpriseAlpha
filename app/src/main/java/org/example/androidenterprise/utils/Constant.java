@@ -16,6 +16,7 @@ public class Constant {
     public static String COURSE_INFO_URL = URL_HEAD + "/music/api_classdetail";
     public static String INSTRUMENT_DETAIL_URL = URL_HEAD + "/music/api_insdetail";
     public static String STUDENT_FEEDBACK_URL = URL_HEAD + "/music-stju-test/api_feedback";
+    public static String RECORD_URL = URL_HEAD + "/myapi/buyOrder/api_buyInsOrder";
     public static String HELP_CENTER_URL=URL_HEAD+"/music-stju-test/api_helpcenter";
     public static String ALBUM_URL = URL_HEAD + "/myapi/showalbum/api_showalbum";
     public static String INSANDDES_URL = URL_HEAD + "/myapi/showInsAndDes/api_insdes";
@@ -52,5 +53,7 @@ public class Constant {
     // pull state
     public static int PULL_UP_STATE = 0;
     public static int PULL_DOWN_STATE = 1;
+
+   public static String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
 
 }

@@ -120,7 +120,9 @@ public class InstrumentDetailActivity extends BaseActivity {
         buyNowTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 buyNowPopup.dismiss();
+                startActivity(new Intent(getBaseContext(),ConfirmOrderActivity.class));
             }
         });
 

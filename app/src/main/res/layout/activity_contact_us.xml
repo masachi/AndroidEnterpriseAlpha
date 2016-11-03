@@ -103,26 +103,26 @@
             android:layout_marginLeft="@dimen/tv_left_dis"
             android:layout_marginRight="@dimen/tv_right_dis"
             android:layout_marginTop="@dimen/tv_margin_top"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/qq_str"
-            android:textSize="@dimen/contact_us_text_size"
-            android:textColor="@color/color_999999"
-            android:layout_marginLeft="@dimen/qq_tv_left_dis"
-            android:layout_marginTop="@dimen/qq_tv_top_dis"
-    />
-    <GridView
-            android:id="@+id/gv_qq"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="3"
-            android:verticalSpacing="@dimen/qq_gv_vertical_spacing"
-            android:layout_marginTop="@dimen/qq_gv_top_dis"
-           android:layout_marginLeft="@dimen/qq_gv_left_dis"
-            android:layout_marginRight="@dimen/qq_gv_right_dis"
+    <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/qq_str"-->
+            <!--android:textSize="@dimen/contact_us_text_size"-->
+            <!--android:textColor="@color/color_999999"-->
+            <!--android:layout_marginLeft="@dimen/qq_tv_left_dis"-->
+            <!--android:layout_marginTop="@dimen/qq_tv_top_dis"-->
+    <!--/>-->
+    <!--<GridView-->
+            <!--android:id="@+id/gv_qq"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:numColumns="3"-->
+            <!--android:verticalSpacing="@dimen/qq_gv_vertical_spacing"-->
+            <!--android:layout_marginTop="@dimen/qq_gv_top_dis"-->
+           <!--android:layout_marginLeft="@dimen/qq_gv_left_dis"-->
+            <!--android:layout_marginRight="@dimen/qq_gv_right_dis"-->
 
-            >
-    </GridView>
+            <!--&gt;-->
+    <!--</GridView>-->
 
 </LinearLayout>

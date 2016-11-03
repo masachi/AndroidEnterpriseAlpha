@@ -25,7 +25,7 @@ import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.model.CourseEntity;
-import org.example.androidenterprise.model.ListRequestModel;
+import org.example.androidenterprise.model.ListRequestEntity;
 import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
@@ -148,7 +148,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
             }
         });
 
-        ListRequestModel courseRequest = new ListRequestModel();
+        ListRequestEntity courseRequest = new ListRequestEntity();
         courseRequest.setCode(2051);
         courseRequest.setId(9527);
         courseRequest.setRole("student");
