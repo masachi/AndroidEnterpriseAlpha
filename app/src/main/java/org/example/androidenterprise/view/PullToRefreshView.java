@@ -22,15 +22,17 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
 
+import static org.example.androidenterprise.utils.Constant.*;
+
 public class PullToRefreshView extends LinearLayout {
     private static final String TAG = "PullToRefreshView";
     // refresh states
-    private static final int PULL_TO_REFRESH = 2;
-    private static final int RELEASE_TO_REFRESH = 3;
-    private static final int REFRESHING = 4;
-    // pull state
-    private static final int PULL_UP_STATE = 0;
-    private static final int PULL_DOWN_STATE = 1;
+//    private static final int PULL_TO_REFRESH = 2;
+//    private static final int RELEASE_TO_REFRESH = 3;
+//    private static final int REFRESHING = 4;
+//    // pull state
+//    private static final int PULL_UP_STATE = 0;
+//    private static final int PULL_DOWN_STATE = 1;
     private boolean enablePullTorefresh = true;
     private boolean enablePullLoadMoreDataStatus = true;
     /**

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.ReleaseFeedBack">
+        tools:context=".activity.ReleaseFeedBackActivity">
 
     <RelativeLayout
             android:id="@+id/rl_top"
@@ -64,9 +64,8 @@
                 android:textColor="@color/color_666666"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/release_feed_back_TB"/>
-        <ImageButton
-                android:id="@+id/ib_down_qwe"
-                android:background="@mipmap/ic_down"
+        <ImageView
+                android:id="@+id/iv_down_qwe"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/release_feed_back_TB"
                 android:layout_centerVertical="true"

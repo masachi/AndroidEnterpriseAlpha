@@ -1,17 +1,18 @@
 package org.example.androidenterprise.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
 
 import java.util.Vector;
+
+import static org.example.androidenterprise.utils.Constant.lastPosition;
+import static org.example.androidenterprise.utils.Constant.size;
 
 /**
  * Created by sdlds on 2016/10/28.
@@ -20,9 +21,9 @@ public class BuyPropertyAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
     private Vector<Boolean> vector = new Vector<Boolean>();// 定义一个向量作为选中与否容器
-    private int lastPosition = -1;   //lastPosition 记录上一次选中的图片位置，-1表示未选中
+//    private int lastPosition = -1;   //lastPosition 记录上一次选中的图片位置，-1表示未选中
     private int pos;
-    private int size = 10;
+//    private int size = 10;
     // TODO: 2016/10/29 this size is the array's length marked as property via http protocol from server.
 
     public BuyPropertyAdapter(Context context){

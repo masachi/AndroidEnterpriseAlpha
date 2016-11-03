@@ -4,8 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -17,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import cn.jpush.sms.SMSSDK;
-import cn.jpush.sms.listener.SmscheckListener;
 import cn.jpush.sms.listener.SmscodeListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,7 +24,6 @@ import org.example.androidenterprise.model.LoginResponseEntity;
 import org.example.androidenterprise.model.LoginResponseErrorEntity;
 import org.example.androidenterprise.model.RegisterResponseEntity;
 import org.example.androidenterprise.model.UserInfoEntity;
-import org.example.androidenterprise.utils.InitData;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
@@ -39,8 +35,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static org.example.androidenterprise.utils.UrlAddress.LOGIN_URL;
-import static org.example.androidenterprise.utils.UrlAddress.REGISTER_URL;
+import static org.example.androidenterprise.utils.Constant.LOGIN_URL;
+import static org.example.androidenterprise.utils.Constant.REGISTER_URL;
+import static org.example.androidenterprise.utils.Constant.TIME_INTERVAL;
 
 @ContentView(R.layout.activity_login)
 
@@ -74,7 +71,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
     private int timess;
     private ProgressDialog progressDialog;
     //两次获取验证码的时间间隔
-    private Long TIME_INTERVAL = 60000L;
+//    private Long TIME_INTERVAL = 60000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

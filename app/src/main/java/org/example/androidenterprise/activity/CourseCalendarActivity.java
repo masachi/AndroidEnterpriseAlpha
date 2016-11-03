@@ -7,25 +7,41 @@ package org.example.androidenterprise.activity;
 
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.utils.EventDecorator;
 import org.example.androidenterprise.utils.MySelectorDecorator;
 import org.example.androidenterprise.utils.OneDayDecorator;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-public class CourseCalendarActivity extends AppCompatActivity implements OnDateSelectedListener {
+@ContentView(R.layout.activity_course_calendar)
+public class CourseCalendarActivity extends AppCompatActivity implements OnDateSelectedListener, MainActivity.InitTopBar {
 
-    private MaterialCalendarView calendar_mv;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
+    @ViewInject(R.id.ib_search)
+    ImageButton searchIb;
+    @ViewInject(R.id.mv_calendar)
+    MaterialCalendarView calendarMv;
 
     private final OneDayDecorator oneDayDecorator = new OneDayDecorator();
 
@@ -33,14 +49,13 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_calendar);
-        calendar_mv = (MaterialCalendarView) findViewById(R.id.mv_calendar);
-
-        calendar_mv.setOnDateChangedListener(this);
-        calendar_mv.setShowOtherDates(MaterialCalendarView.SHOW_ALL);
+        x.view().inject(this);
+        initTopBar();
+        calendarMv.setOnDateChangedListener(this);
+        calendarMv.setShowOtherDates(MaterialCalendarView.SHOW_ALL);
 
         Calendar instance = Calendar.getInstance();
-        calendar_mv.setSelectedDate(instance.getTime());
+        calendarMv.setSelectedDate(instance.getTime());
 
         Calendar instance1 = Calendar.getInstance();
         instance1.set(instance1.get(Calendar.YEAR), Calendar.JANUARY, 1);
@@ -48,12 +63,12 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
         Calendar instance2 = Calendar.getInstance();
         instance2.set(instance2.get(Calendar.YEAR), Calendar.DECEMBER, 31);
 
-        calendar_mv.state().edit()
+        calendarMv.state().edit()
                 .setMinimumDate(instance1.getTime())
                 .setMaximumDate(instance2.getTime())
                 .commit();
 
-        calendar_mv.addDecorators(
+        calendarMv.addDecorators(
                 new MySelectorDecorator(this),
                 //new HighlightWeekendsDecorator(),
                 oneDayDecorator
@@ -67,6 +82,20 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
         //If you change a decorate, you need to invalidate decorators
         oneDayDecorator.setDate(date.getDate());
         widget.invalidateDecorators();
+    }
+
+    @Event(value = {R.id.ib_left})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ib_left:
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    public void initTopBar() {
+        topTv.setText(R.string.course_calendar_title);
     }
 
     /**
@@ -101,7 +130,7 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
                 return;
             }
 
-            calendar_mv.addDecorator(new EventDecorator(Color.rgb(151, 200, 205), calendarDays));
+            calendarMv.addDecorator(new EventDecorator(Color.rgb(151, 200, 205), calendarDays));
         }
     }
 

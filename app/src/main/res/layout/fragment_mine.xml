@@ -64,10 +64,9 @@
 
     <ListView
             android:id="@+id/lv_mine_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/item_setting_height"
-            android:divider="@color/color_dddddd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/color_e6e6e6"
             android:dividerHeight="1px"
             android:descendantFocusability="blocksDescendants">
     </ListView>

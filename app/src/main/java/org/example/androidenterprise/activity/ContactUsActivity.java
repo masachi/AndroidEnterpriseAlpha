@@ -1,10 +1,12 @@
 package org.example.androidenterprise.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.*;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ContactUsQQAdapter;
 import org.example.androidenterprise.adapter.ContactUsServiceAdapter;
@@ -21,7 +23,7 @@ import java.util.List;
  */
 
 @ContentView(R.layout.activity_contact_us)
-public class ContactUsActivity extends AppCompatActivity {
+public class ContactUsActivity extends AppCompatActivity implements MainActivity.InitTopBar{
 
     String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
     List<String> listServiceName = new ArrayList<>();
@@ -35,13 +37,16 @@ public class ContactUsActivity extends AppCompatActivity {
     GridView serviceGv;
     @ViewInject(R.id.gv_qq)
     GridView qqGv;
-    @ViewInject(R.id.ib_reback)
-    ImageButton returnIb;
     @ViewInject(R.id.tv_telephone)
     TextView telephoneTv;
-    ImageButton ib_reback;
     @ViewInject(R.id.tv_dial_telephone)
     TextView tv_dial_telephone;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
+    @ViewInject(R.id.ib_search)
+    ImageButton searchIb;
 
 
 //    TODO get data
@@ -50,27 +55,13 @@ public class ContactUsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
+        initTopBar();
         for (int i = 0; i < serviceName.length; i++) {
             listServiceName.add(serviceName[i]);
         }
         ContactUsServiceAdapter contactUsServiceAdapter = new ContactUsServiceAdapter(getApplicationContext(), listServiceName);
         serviceGv.setAdapter(contactUsServiceAdapter);
 
-//        serviceGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(ContactUsActivity.this,ServiceTalkActivity.class);
-//                startActivity(intent);
-//                Toast.makeText(ContactUsActivity.this,"hhhhh",Toast.LENGTH_LONG).show();
-//            }
-//        });
-//        tv_dial_telephone.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ContactUsActivity.this,ServiceTalkActivity.class);
-//                startActivity(intent);
-//            }
-//        });
         for (int i = 0; i < qqName.length; i++) {
             listQQName.add(qqName[i]);
         }
@@ -78,15 +69,22 @@ public class ContactUsActivity extends AppCompatActivity {
         qqGv.setAdapter(contactUsQQAdapter);
     }
 
-    @Event(value = {R.id.ib_reback, R.id.tv_dial_telephone})
+    @Event(value = {R.id.tv_dial_telephone, R.id.ib_left})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ib_reback:
+            case R.id.ib_left:
                 finish();
                 break;
             case R.id.tv_dial_telephone:
 //               TODO 拔打电话
                 break;
         }
+    }
+
+    @Override
+    public void initTopBar() {
+        leftIb.setImageResource(R.mipmap.ic_return);
+        topTv.setText(R.string.contact_us_str);
+        searchIb.setVisibility(View.INVISIBLE);
     }
 }

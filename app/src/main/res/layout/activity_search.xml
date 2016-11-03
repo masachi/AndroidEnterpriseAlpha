@@ -66,15 +66,16 @@
         <RadioGroup
                 android:id="@+id/search_radioGp"
                 android:layout_width="match_parent"
-                android:layout_height="95dp"
+                android:layout_height="match_parent"
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp"
                 android:orientation="horizontal">
 
             <RadioButton
                     android:id="@+id/rdob_course"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:button="@null"
                     android:drawableTop="@drawable/search_radio_course_selector"
                     android:drawablePadding="10dp"
@@ -88,6 +89,7 @@
                     android:id="@+id/rdob_instrument"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:button="@null"
                     android:drawableTop="@drawable/search_radio_instru_selector"
                     android:drawablePadding="10dp"
@@ -95,13 +97,13 @@
                     android:textColor="@drawable/search_text_selector"
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_each"/>
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"/>
 
             <RadioButton
                     android:id="@+id/rdob_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:button="@null"
                     android:drawableTop="@drawable/search_radio_order_selector"
                     android:drawablePadding="10dp"
@@ -109,13 +111,13 @@
                     android:textColor="@drawable/search_text_selector"
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_each"/>
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"/>
 
             <RadioButton
                     android:id="@+id/rdob_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:button="@null"
                     android:drawableTop="@drawable/search_radio_record_selector"
                     android:drawablePadding="10dp"
@@ -123,8 +125,7 @@
                     android:textColor="@drawable/search_text_selector"
                     android:textSize="@dimen/search_selector_text_size"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/search_selector_margin_top_end"
-                    android:layout_marginLeft="@dimen/search_selector_margin_each"/>
+                    android:layout_marginTop="@dimen/search_selector_margin_top_end"/>
 
         </RadioGroup>
 

@@ -10,6 +10,7 @@ import org.example.androidenterprise.view.CircleImageView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 /**
  * Created by byyoung1 on 2016/10/23.:个人资料
@@ -32,6 +33,7 @@ public class PersonalDataActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        x.view().inject(this);
         //TODO 从服务器端获取信息设置到相应的TextView中
 
     }

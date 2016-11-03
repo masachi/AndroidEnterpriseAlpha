@@ -6,29 +6,34 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.model.CourseInfoEntity;
 import org.example.androidenterprise.view.CircleImageView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import static org.example.androidenterprise.utils.UrlAddress.COURSE_INFO_URL;
+import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.activity_course_info)
 
-public class CourseInfoActivity extends BaseActivity implements View.OnClickListener {
+public class CourseInfoActivity extends BaseActivity implements View.OnClickListener, MainActivity.InitTopBar {
     LinearLayout ll, feedbackLl;
     LayoutInflater mInflater = null;
+    @ViewInject(R.id.ib_left)
+    ImageButton leftIb;
+    @ViewInject(R.id.tv_top_bar)
+    TextView topTv;
+    @ViewInject(R.id.ib_search)
+    ImageButton feedbackIb;
 
-    private ImageButton returnIb;
     private TextView titleTv;
     private TextView levelTv;
     private TextView idTv;
@@ -37,7 +42,6 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     private TextView otherTv;
     private TextView signTv;
     private TextView priceTv;
-    private ImageButton feedbackIb;
     private CircleImageView teacherCiv;
     private TextView teacherNameTv;
     private TextView teacherPhoneTv;
@@ -46,13 +50,14 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     private TextView typeTv;
     private TextView scheduleInfoTv;
     private TextView feedbackNumTv;
+    private Button chooseBtn;
 
     private Context context;
 
 
-    public final static int STUDENT_NUMBER = 10;
-    public final static int MAX_STUDENT_NUMBER = 8;
-    public final static int MAX_STUDENT_NUMBER_BACK = 7;
+//    public final static int STUDENT_NUMBER = 10;
+//    public final static int MAX_STUDENT_NUMBER = 8;
+//    public final static int MAX_STUDENT_NUMBER_BACK = 7;
 
     private int id;
 
@@ -62,19 +67,21 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initTopBar();
         mInflater = LayoutInflater.from(this);
 
-        returnIb = (ImageButton) findViewById(R.id.ib_return);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = Integer.parseInt(bundle.getString("course_selected"));
-        returnIb.setOnClickListener(this);
+        leftIb.setOnClickListener(this);
 
         InitWidget();
 
         ll.setOnClickListener(this);
         feedbackLl.setOnClickListener(this);
+        feedbackIb.setOnClickListener(this);
+        chooseBtn.setOnClickListener(this);
+        feedbackIb.setOnClickListener(this);
 
         initLinearLayoutImage();
         initLinearLayoutFeedback();
@@ -84,64 +91,70 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
 //        params.setBodyContent("{\"Class_id\":\""+id+"\"}");
         params.setBodyContent("{\"Class_id\":\"1\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
-                @Override
-                public void onSuccess(String result) {
-                    Log.e("233", result);
-                    response = new Gson().fromJson(result, new TypeToken<CourseInfoEntity>() {
-                    }.getType());
+            @Override
+            public void onSuccess(String result) {
+                Log.e("233", result);
+                response = new Gson().fromJson(result, new TypeToken<CourseInfoEntity>() {
+                }.getType());
 //                    Log.e("hhhhh",response.toString());
-                    getCourseInfoData();
-                }
+                getCourseInfoData();
+            }
 
 
-                @Override
-                public void onError(Throwable ex, boolean isOnCallback) {
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
 //                    Log.e("233", "crrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-                    ex.printStackTrace();
+                ex.printStackTrace();
 
-                    Toast.makeText(CourseInfoActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
-                }
-                @Override
-                public void onCancelled(CancelledException cex) {
+                Toast.makeText(CourseInfoActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+            }
 
-                }
+            @Override
+            public void onCancelled(CancelledException cex) {
 
-                @Override
-                public void onFinished() {
+            }
 
-                }
-            });
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     public void getCourseInfoData() {
         titleTv.setText(response.getClass_name());
-        levelTv.setText(response.getClass_level());
+        levelTv.setText("等级 : " + response.getClass_level());
         priceTv.setText(String.valueOf(response.getClass_price()));
-        idTv.setText(String.valueOf(response.getClass_number()));
-        durationTv.setText(String.valueOf(response.getClass_time()));
-        posTv.setText(response.getClass_location());
-        otherTv.setText(response.getClass_remark());
+        idTv.setText("编号 : " + String.valueOf(response.getClass_number()));
+        durationTv.setText("课时 : " + String.valueOf(response.getClass_time()));
+        posTv.setText("地点 : " + response.getClass_location());
+        otherTv.setText("备注 : " + response.getClass_remark());
 //        Glide.with(context).load(response.getTeacher().get(0).getTeacher_pic_URL()).into(teacherCiv);
 //        Glide.with(context).load(response.getTeacher().get(0)).bitmapTransform(new CropCircleTransformation(context)).into(teacherCiv);
         teacherNameTv.setText(response.getTeacher().get(0).getTeacher_name());
-        teacherPhoneTv.setText(response.getTeacher().get(0).getTeacher_telephone());
+        teacherPhoneTv.setText("手机号 : " + response.getTeacher().get(0).getTeacher_telephone());
         studentNumberTv.setText("共" + String.valueOf(response.getTeacher().get(0).getStudent_number()) + "名学员");
         feedbackNumTv.setText(String.valueOf(response.getFeedback_number()) + "条学员反馈");
     }
 
+    @Event(value = {R.id.ib_left})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ib_return:
+            case R.id.ib_left:
                 finish();
                 break;
             case R.id.ll_stu_info:
+                startActivity(new Intent(this, StudentsHeadListActivity.class));
                 break;
             case R.id.ll_stu_feedback:
-                startActivity(new Intent(this, StudentsFeedBack.class));
+                startActivity(new Intent(this, StudentsFeedBackActivity.class));
                 break;
-            case R.id.ib_feedback:
-                startActivity(new Intent(this, ReleaseFeedBack.class));
+            case R.id.ib_search:
+                startActivity(new Intent(this, ReleaseFeedBackActivity.class));
+                break;
+            case R.id.btn_choose:
+                startActivity(new Intent(this, CourseOrderActivity.class));
                 break;
         }
     }
@@ -155,7 +168,7 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         otherTv = (TextView) findViewById(R.id.tv_course_other);
         signTv = (TextView) findViewById(R.id.tv_price_sign);
         priceTv = (TextView) findViewById(R.id.tv_course_price);
-        feedbackIb = (ImageButton) findViewById(R.id.ib_feedback);
+        feedbackIb = (ImageButton) findViewById(R.id.ib_search);
         teacherCiv = (CircleImageView) findViewById(R.id.civ_teacher);
         teacherNameTv = (TextView) findViewById(R.id.tv_teacher_name);
         teacherPhoneTv = (TextView) findViewById(R.id.tv_teacher_phone);
@@ -164,6 +177,8 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         typeTv = (TextView) findViewById(R.id.tv_type);
         scheduleInfoTv = (TextView) findViewById(R.id.tv_schedule_info);
         feedbackNumTv = (TextView) findViewById(R.id.tv_feedback_num);
+
+        chooseBtn = (Button) findViewById(R.id.btn_choose);
 
         ll = (LinearLayout) findViewById(R.id.ll_stu_info);
         feedbackLl = (LinearLayout) findViewById(R.id.ll_stu_feedback);
@@ -198,4 +213,10 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         }
     }
 
+    @Override
+    public void initTopBar() {
+        leftIb.setImageResource(R.mipmap.ic_return);
+        topTv.setText(R.string.course_info_title);
+        feedbackIb.setImageResource(R.mipmap.ic_course_info);
+    }
 }
