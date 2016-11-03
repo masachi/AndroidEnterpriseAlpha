@@ -6,38 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.CourseOrderActivity">
-
-    <RelativeLayout
-            android:id="@+id/rl_top"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_course_order"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/action_bar_height"
-            android:background="@color/color_97c8cd">
-        <ImageButton
-                android:id="@+id/ib_return"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/course_order_margin_many"
-                android:background="@color/transparent"
-                android:src="@mipmap/ic_return"
-                android:paddingTop="@dimen/course_order_margin_many"
-                android:paddingBottom="@dimen/course_order_margin_many"
-                android:paddingRight="@dimen/course_order_margin_many"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/course_order"
-                android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/action_bar_text_size"/>
-
-    </RelativeLayout>
-
+            android:layout_height="wrap_content"/>
     <TextView
             android:id="@+id/tv_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_top"
+            android:layout_below="@id/topbar_course_order"
             android:layout_marginTop="@dimen/course_order_margin_many"
             android:layout_marginLeft="@dimen/course_order_margin_many"
             android:text="@string/account"

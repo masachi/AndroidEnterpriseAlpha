@@ -2,17 +2,23 @@ package org.example.androidenterprise.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.*;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.model.CourseInfoEntity;
 import org.example.androidenterprise.view.CircleImageView;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
@@ -24,15 +30,11 @@ import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.activity_course_info)
 
-public class CourseInfoActivity extends BaseActivity implements View.OnClickListener, MainActivity.InitTopBar {
+public class CourseInfoActivity extends BaseActivity {
     LinearLayout ll, feedbackLl;
     LayoutInflater mInflater = null;
-    @ViewInject(R.id.ib_left)
-    ImageButton leftIb;
-    @ViewInject(R.id.tv_top_bar)
-    TextView topTv;
-    @ViewInject(R.id.ib_search)
-    ImageButton feedbackIb;
+    @ViewInject(R.id.topbar_course_info)
+    TopbarView topbar;
 
     private TextView titleTv;
     private TextView levelTv;
@@ -67,21 +69,13 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initTopBar();
         mInflater = LayoutInflater.from(this);
-
+        setTopbar();
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = Integer.parseInt(bundle.getString("course_selected"));
-        leftIb.setOnClickListener(this);
 
         InitWidget();
-
-        ll.setOnClickListener(this);
-        feedbackLl.setOnClickListener(this);
-        feedbackIb.setOnClickListener(this);
-        chooseBtn.setOnClickListener(this);
-        feedbackIb.setOnClickListener(this);
 
         initLinearLayoutImage();
         initLinearLayoutFeedback();
@@ -137,21 +131,39 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         feedbackNumTv.setText(String.valueOf(response.getFeedback_number()) + "条学员反馈");
     }
 
-    @Event(value = {R.id.ib_left})
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ib_left:
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        String title = "课程详情";
+        Resources res = getResources();
+        topbar.setTopbarTv(title);
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
-                break;
+            }
+        });
+        Drawable ic_course_info = res.getDrawable(R.mipmap.ic_course_info);
+        topbar.setRight1Ib(ic_course_info);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), ReleaseFeedBackActivity.class));
+            }
+        });
+    }
+
+    @Event(value = {R.id.ll_stu_info, R.id.ll_stu_feedback, R.id.btn_choose})
+    private void onClick(View view) {
+        switch (view.getId()) {
             case R.id.ll_stu_info:
                 startActivity(new Intent(this, StudentsHeadListActivity.class));
                 break;
             case R.id.ll_stu_feedback:
                 startActivity(new Intent(this, StudentsFeedBackActivity.class));
-                break;
-            case R.id.ib_search:
-                startActivity(new Intent(this, ReleaseFeedBackActivity.class));
                 break;
             case R.id.btn_choose:
                 startActivity(new Intent(this, CourseOrderActivity.class));
@@ -168,7 +180,7 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
         otherTv = (TextView) findViewById(R.id.tv_course_other);
         signTv = (TextView) findViewById(R.id.tv_price_sign);
         priceTv = (TextView) findViewById(R.id.tv_course_price);
-        feedbackIb = (ImageButton) findViewById(R.id.ib_search);
+        //feedbackIb = (ImageButton) findViewById(R.id.ib_search);
         teacherCiv = (CircleImageView) findViewById(R.id.civ_teacher);
         teacherNameTv = (TextView) findViewById(R.id.tv_teacher_name);
         teacherPhoneTv = (TextView) findViewById(R.id.tv_teacher_phone);
@@ -211,12 +223,5 @@ public class CourseInfoActivity extends BaseActivity implements View.OnClickList
                 linearLayout.addView(v);
             }
         }
-    }
-
-    @Override
-    public void initTopBar() {
-        leftIb.setImageResource(R.mipmap.ic_return);
-        topTv.setText(R.string.course_info_title);
-        feedbackIb.setImageResource(R.mipmap.ic_course_info);
     }
 }

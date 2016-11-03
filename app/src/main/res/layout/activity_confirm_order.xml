@@ -4,13 +4,12 @@
                 android:background="@color/color_f0f0f0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <include
-            android:id="@+id/rl_topbar"
-            android:layout_height="wrap_content"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_confirm_order"
             android:layout_width="match_parent"
-            layout="@layout/top_bar_rl"/>
+            android:layout_height="wrap_content"/>
     <org.example.androidenterprise.view.CustomScrollView
-            android:layout_below="@id/rl_topbar"
+            android:layout_below="@id/topbar_confirm_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <RelativeLayout

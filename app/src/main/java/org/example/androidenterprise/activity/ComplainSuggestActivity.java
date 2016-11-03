@@ -1,15 +1,18 @@
 package org.example.androidenterprise.activity;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.*;
-import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ComplainSuggestPopupwindowAdapter;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -20,7 +23,7 @@ import org.xutils.x;
  */
 
 @ContentView(R.layout.activity_complain_suggest)
-public class ComplainSuggestActivity extends AppCompatActivity implements View.OnClickListener, MainActivity.InitTopBar {
+public class ComplainSuggestActivity extends AppCompatActivity {
     @ViewInject(R.id.tv_choose_title)
     TextView tv_choose_title;
     @ViewInject(R.id.iv_choose)
@@ -33,12 +36,8 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
     TextView tv_complain_telephone_number;
     @ViewInject(R.id.btn_commit)
     Button btn_commit;
-    @ViewInject(R.id.ib_left)
-    ImageButton leftIb;
-    @ViewInject(R.id.tv_top_bar)
-    TextView topTv;
-    @ViewInject(R.id.ib_search)
-    ImageButton searchIb;
+    @ViewInject(R.id.topbar_complain_suggest)
+    TopbarView topbar;
 
     private Context mContext = null;
     PopupWindow popupWindow;
@@ -48,12 +47,26 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
-        initTopBar();
+        setTopbar();
         mContext = this;
         tv_choose_title.setText("请选择意见类型");
         chooseIv.setImageResource(R.mipmap.ic_complain_suggest_normal);
-        chooseIv.setOnClickListener(this);
-        btn_commit.setOnClickListener(this);
+    }
+
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        String title = "投诉建议";
+        Resources res = getResources();
+        topbar.setTopbarTv(title);
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void showPopupWindow(View view) {
@@ -81,11 +94,10 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
                 popupWindow.dismiss();
             }
         });
-
     }
 
-    @Event(value = {R.id.ib_left})
-    public void onClick(View view) {
+    @Event(value = {R.id.iv_choose, R.id.btn_commit})
+    private void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_choose:
                 chooseIv.setImageResource(R.mipmap.ic_complain_suggest_selected);
@@ -93,18 +105,6 @@ public class ComplainSuggestActivity extends AppCompatActivity implements View.O
                 break;
             case R.id.btn_commit: // TODO commit suggest
                 break;
-            case R.id.ib_left:
-                finish();
-                break;
-            default:
-                break;
         }
-    }
-
-    @Override
-    public void initTopBar() {
-        leftIb.setImageResource(R.mipmap.ic_return);
-        topTv.setText(R.string.complain_suggest_str);
-        searchIb.setVisibility(View.INVISIBLE);
     }
 }

@@ -5,22 +5,24 @@ package org.example.androidenterprise.activity;
  */
 
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.view.WindowManager;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
-import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.utils.EventDecorator;
 import org.example.androidenterprise.utils.MySelectorDecorator;
 import org.example.androidenterprise.utils.OneDayDecorator;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -32,25 +34,21 @@ import java.util.List;
 import java.util.concurrent.Executors;
 
 @ContentView(R.layout.activity_course_calendar)
-public class CourseCalendarActivity extends AppCompatActivity implements OnDateSelectedListener, MainActivity.InitTopBar {
 
-    @ViewInject(R.id.ib_left)
-    ImageButton leftIb;
-    @ViewInject(R.id.tv_top_bar)
-    TextView topTv;
-    @ViewInject(R.id.ib_search)
-    ImageButton searchIb;
+public class CourseCalendarActivity extends AppCompatActivity implements OnDateSelectedListener {
+
     @ViewInject(R.id.mv_calendar)
     MaterialCalendarView calendarMv;
 
     private final OneDayDecorator oneDayDecorator = new OneDayDecorator();
-
+    @ViewInject(R.id.topbar_complain_suggest)
+    TopbarView topbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
-        initTopBar();
+        setTopbar();
         calendarMv.setOnDateChangedListener(this);
         calendarMv.setShowOtherDates(MaterialCalendarView.SHOW_ALL);
 
@@ -67,14 +65,37 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
                 .setMinimumDate(instance1.getTime())
                 .setMaximumDate(instance2.getTime())
                 .commit();
-
         calendarMv.addDecorators(
                 new MySelectorDecorator(this),
                 //new HighlightWeekendsDecorator(),
                 oneDayDecorator
         );
-
         new ApiSimulator().executeOnExecutor(Executors.newSingleThreadExecutor());
+    }
+
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        String title = "课程日历";
+        Resources res = getResources();
+        topbar.setTopbarTv(title);
+        Drawable ic_table = res.getDrawable(R.mipmap.ic_table);
+        topbar.setLeftIb(ic_table);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
+        topbar.setRight1Ib(ic_search);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), SearchActivity.class));
+            }
+        });
     }
 
     @Override
@@ -93,16 +114,10 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
         }
     }
 
-    @Override
-    public void initTopBar() {
-        topTv.setText(R.string.course_calendar_title);
-    }
-
     /**
      * Simulate an API call to show how to add decorators
      */
     private class ApiSimulator extends AsyncTask<Void, Void, List<CalendarDay>> {
-
         @Override
         protected List<CalendarDay> doInBackground(@NonNull Void... voids) {
             try {
@@ -118,7 +133,6 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
                 dates.add(day);
                 calendar.add(Calendar.DATE, 5);
             }
-
             return dates;
         }
 
@@ -129,10 +143,7 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
             if (isFinishing()) {
                 return;
             }
-
             calendarMv.addDecorator(new EventDecorator(Color.rgb(151, 200, 205), calendarDays));
         }
     }
-
-
 }

@@ -6,10 +6,10 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <include
-            android:layout_height="wrap_content"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_complain_suggest"
             android:layout_width="match_parent"
-            layout="@layout/top_bar_rl"/>
+            android:layout_height="wrap_content"/>
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
             android:id="@+id/mv_calendar"
             app:mcv_showOtherDates="all"

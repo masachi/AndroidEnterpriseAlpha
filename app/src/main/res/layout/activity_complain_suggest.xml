@@ -6,16 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.ComplainSuggestActivity">
-    <include
-            android:id="@+id/rl_topbar"
-            android:layout_height="wrap_content"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_complain_suggest"
             android:layout_width="match_parent"
-            layout="@layout/top_bar_rl"/>
+            android:layout_height="wrap_content"/>
     <RelativeLayout
             android:id="@+id/rl_choose_kinds"
             android:layout_width="match_parent"
             android:layout_height="@dimen/choose_suggest_height"
-            android:layout_below="@+id/rl_topbar"
+            android:layout_below="@+id/topbar_complain_suggest"
             android:background="@drawable/activity_suggest_complain_et_bg"
             android:layout_marginTop="@dimen/choose_suggest_top_dis"
             android:layout_marginLeft="@dimen/choose_suggest_left_dis"

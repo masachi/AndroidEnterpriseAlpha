@@ -1,6 +1,9 @@
 package org.example.androidenterprise.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -34,6 +37,9 @@ public class VideoRecordActivity extends BaseActivity {
 
     private int mTimeCount = 0;
 
+    private Handler handler;
+    private Timer mTimer = new Timer();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +70,8 @@ public class VideoRecordActivity extends BaseActivity {
                         recordRv.stop();
                         recordIb.setImageResource(R.mipmap.ic_video_pause);
                         recordTv.setText("暂停");
+                        mTimer.cancel();
+                        mTimer = null;
                     }
                 }
                 break;
@@ -71,7 +79,9 @@ public class VideoRecordActivity extends BaseActivity {
     }
 
     private void updateTimer(){
-        Timer mTimer = new Timer();
+        if(mTimer == null){
+            mTimer = new Timer();
+        }
         mTimeCount = 0;
         mTimer.schedule(new TimerTask() {
 
@@ -79,13 +89,32 @@ public class VideoRecordActivity extends BaseActivity {
             public void run() {
                 // TODO Auto-generated method stub
                 mTimeCount++;
-                if(mTimeCount < 60){
-                    //timeTv.setText("00"+":"+ String.valueOf(mTimeCount));
-                }
-                else{
-                    //timeTv.setText(String.valueOf(mTimeCount%60) + ":" + String.valueOf(mTimeCount - 60));
-                }
+                Looper looper = Looper.getMainLooper();
+                handler = new VideoRecordHandler(looper);
+                Message msg = handler.obtainMessage(1,1,1,String.valueOf(mTimeCount));
+                handler.sendMessage(msg);
+
             }
         }, 0, 1000);
+    }
+    class VideoRecordHandler extends Handler {
+        public VideoRecordHandler(Looper looper) {
+            super(looper);
+        }
+
+        public void handleMessage(Message msg){
+            super.handleMessage(msg);
+            if(Integer.parseInt((String)msg.obj) < 60){
+                if(Integer.parseInt((String)msg.obj) < 10) {
+                    timeTv.setText("00" + ":0" + String.valueOf(mTimeCount));
+                }
+                else{
+                    timeTv.setText("00" + ":" + String.valueOf(mTimeCount));
+                }
+            }
+            else{
+                timeTv.setText((mTimeCount/60 < 10 ? "0" + String.valueOf(mTimeCount/60) : String.valueOf(mTimeCount/60)) + ":" + ((mTimeCount - 60 < 10) ? "0" + String.valueOf(mTimeCount%60) : String.valueOf(mTimeCount%60)));
+            }
+        }
     }
 }

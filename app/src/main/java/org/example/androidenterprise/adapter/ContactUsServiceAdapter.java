@@ -7,10 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RadioButton;
-import android.widget.Toast;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.activity.ContactUsActivity;
-import org.example.androidenterprise.activity.CourseInfoActivity;
 import org.example.androidenterprise.activity.ServiceTalkActivity;
 
 import java.util.List;
