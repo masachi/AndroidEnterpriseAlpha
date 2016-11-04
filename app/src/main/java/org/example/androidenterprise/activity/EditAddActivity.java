@@ -5,17 +5,24 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import com.google.gson.Gson;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.EditAddressEntity;
 import org.example.androidenterprise.view.TopbarView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import static org.example.androidenterprise.utils.Constant.EDIT_ADDRESS_URL;
 
 /**
  * Created by yangxinghua ：编辑地址
@@ -75,7 +82,40 @@ public class EditAddActivity extends AppCompatActivity {
                 // TODO: 实现删除功能,上传到数据库
                 break;
             case R.id.btn_conserve:
-                // TODO: 实现按钮保存功能，上传到数据库
+
+                EditAddressEntity editAddressEntity=new EditAddressEntity();
+                editAddressEntity.setCode("2008");
+                editAddressEntity.setUser_id(9527);
+                editAddressEntity.setReceiver("张三");
+                editAddressEntity.setTel("13009856102");
+                editAddressEntity.setAddress("上海市闵行区");
+                RequestParams params = new RequestParams(EDIT_ADDRESS_URL);
+                params.setAsJsonContent(true);
+                params.setBodyContent(new Gson().toJson(editAddressEntity).toString());
+                x.http().post(params, new Callback.CommonCallback<String>() {
+
+                    @Override
+                    public void onSuccess(String result) {
+                        Log.i("info",result);
+                        startActivity(new Intent(EditAddActivity.this, SelectAddActivity.class));
+                    }
+
+                    @Override
+                    public void onError(Throwable ex, boolean isOnCallback) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(CancelledException cex) {
+
+                    }
+
+                    @Override
+                    public void onFinished() {
+
+                    }
+                });
+
                 break;
         }
     }

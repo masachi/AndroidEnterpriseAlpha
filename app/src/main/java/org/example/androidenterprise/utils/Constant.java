@@ -21,6 +21,7 @@ public class Constant {
     public static String ALBUM_URL = URL_HEAD + "/myapi/showalbum/api_showalbum";
     public static String INSANDDES_URL = URL_HEAD + "/myapi/showInsAndDes/api_insdes";
     public static String INSTRUNMET_URL = URL_HEAD + "/myapi/showinstrument/api_showinstrument";
+    public static String EDIT_ADDRESS_URL=URL_HEAD+"/myapi/receiverAddress/api_edictAddress";
 
     public static int STUDENT_NUMBER = 10;
     public static int MAX_STUDENT_NUMBER = 8;
