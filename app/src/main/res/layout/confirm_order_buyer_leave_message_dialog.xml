@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/confirm_order_message_board_rl_width"
+                android:layout_height="wrap_content">
+
+    <EditText
+            android:id="@+id/et_message_board_buyer"
+            android:layout_centerHorizontal="true"
+            android:hint="留言"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/confirm_order_message_board_str_size"
+            android:padding="@dimen/confirm_order_message_board_str_margin"
+            android:background="@drawable/confirm_order_message_board_edittext_bg"
+            android:layout_marginTop="@dimen/confirm_order_message_board_str_margin"
+            android:layout_width="@dimen/confirm_order_message_board_edittext_width"
+            android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

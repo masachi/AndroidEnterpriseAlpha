@@ -1,13 +1,15 @@
 package org.example.androidenterprise.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
-import android.view.WindowManager;
+import android.view.*;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
@@ -30,13 +32,43 @@ public class ConfirmOrderActivity extends Activity {
     @ViewInject(R.id.ib_right_arrow)
     ImageButton ib_right_arrow;
 
-    //TODO: click on this textview pop_up message board
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
+        tv_buyer_leave_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
+        });
+    }
+
+
+    public void showDialog() {
+        LayoutInflater factory = LayoutInflater.from(ConfirmOrderActivity.this);
+        final View view = factory.inflate(R.layout.confirm_order_buyer_leave_message_dialog, null);
+        final EditText edit = (EditText) view.findViewById(R.id.et_message_board_buyer);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("留言");
+        builder.setView(view);
+        builder.setNegativeButton("取消", null);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String input = edit.getText().toString();
+                if (input.equals("")) {
+                    tv_buyer_leave_message.setText("点击留言");
+                } else {
+                    tv_buyer_leave_message.setText(input);
+                }
+            }
+        });
+        AlertDialog dialog = builder.create();
+        Window mWindow=dialog.getWindow();
+        mWindow.setGravity(Gravity.BOTTOM);
+        dialog.show();
     }
 
     private void setTopbar() {
