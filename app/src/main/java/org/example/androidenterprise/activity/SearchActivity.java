@@ -3,6 +3,7 @@ package org.example.androidenterprise.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.CourseAdapter;
@@ -30,6 +31,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         CourseAdapter courseAdapter = new CourseAdapter(this, InitData.course.getList());
        // ItemAdapter itemAdapter = new ItemAdapter(this);
         SearchOrderAdapter searchOrderAdapter = new SearchOrderAdapter(this);

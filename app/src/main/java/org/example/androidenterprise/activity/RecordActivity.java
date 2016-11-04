@@ -1,38 +1,34 @@
 package org.example.androidenterprise.activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.view.WindowManager;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.adapter.RecordAdapter;
 import org.example.androidenterprise.model.RecordEntity;
 import org.example.androidenterprise.model.RecordRequestEntity;
-import org.example.androidenterprise.model.StudentsFeedBackEntity;
-import org.example.androidenterprise.model.StudentsFeedbackRequestEntity;
 import org.example.androidenterprise.view.RecordExpandableListView;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import static org.example.androidenterprise.utils.Constant.RECORD_URL;
-import static org.example.androidenterprise.utils.Constant.STUDENT_FEEDBACK_URL;
 
 @ContentView(R.layout.activity_record)
 
 public class RecordActivity extends BaseActivity {
 
-    @ViewInject(R.id.ib_return)
-    ImageButton returnIb;
-    @ViewInject(R.id.ib_search)
-    ImageButton searchIb;
+    @ViewInject(R.id.topbar_record)
+    TopbarView topbar;
     @ViewInject(R.id.explv_record)
     RecordExpandableListView recordExpLv;
 
@@ -41,7 +37,8 @@ public class RecordActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        x.view().inject(this);
+        setTopbar();
         RecordRequestEntity request = new RecordRequestEntity();
         request.setCode("2009");
         request.setRole("student");
@@ -78,19 +75,29 @@ public class RecordActivity extends BaseActivity {
 
             }
         });
-
-
     }
 
-    @Event(value = {R.id.ib_return, R.id.ib_search})
-    private void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.ib_return:
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("交易记录");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
-                break;
-            case R.id.ib_search:
-                startActivity(new Intent(this,SearchActivity.class));
-                break;
-        }
+            }
+        });
+        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
+        topbar.setRight1Ib(ic_search);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), SearchActivity.class));
+            }
+        });
     }
 }

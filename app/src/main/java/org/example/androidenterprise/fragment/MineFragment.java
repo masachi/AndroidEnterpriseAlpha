@@ -2,18 +2,21 @@ package org.example.androidenterprise.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.*;
-import org.example.androidenterprise.MainActivity;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.*;
 import org.example.androidenterprise.adapter.SettingAdapter;
 import org.example.androidenterprise.view.CircleImageView;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -36,13 +39,11 @@ import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
  * Use the {@link MineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener,MainActivity.InitTopBar{
+public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //    private static final String ARG_PARAM1 = "param1";
 //    private static final String ARG_PARAM2 = "param2";
-    @ViewInject(R.id.ib_search)
-    ImageButton searchIb;
     @ViewInject(R.id.civ_mine)
     CircleImageView mineCIv;
     @ViewInject(R.id.tv_mine_name)
@@ -51,12 +52,10 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     TextView phoneTv;
     @ViewInject(R.id.lv_mine_setting)
     ListView settingLv;
-    @ViewInject(R.id.ib_left)
-    ImageButton leftIb;
-    @ViewInject(R.id.tv_top_bar)
-    TextView topTv;
     @ViewInject(R.id.rl_mine_info)
     RelativeLayout circleloginRl;
+    @ViewInject(R.id.topbar_mine)
+    TopbarView topbar;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -102,14 +101,14 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        initTopBar();
+        setTopbar();
 
         settingLv = (ListView) view.findViewById(R.id.lv_mine_setting);
-        rlMineInfo=(RelativeLayout)view.findViewById(R.id.rl_mine_info);
+        rlMineInfo = (RelativeLayout) view.findViewById(R.id.rl_mine_info);
         rlMineInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isLogin){
+                if (!isLogin) {
                     startActivity(new Intent(getContext(), LoginActivity.class));
                 }
             }
@@ -139,7 +138,7 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
             circleloginRl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getActivity(),PersonalDataActivity.class));
+                    startActivity(new Intent(getActivity(), PersonalDataActivity.class));
                 }
             });
         }
@@ -173,31 +172,35 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent();
-        if(!isLogin && position != 4 && position != 5 && position != 6){
+        if (!isLogin && position != 4 && position != 5 && position != 6) {
             Toast.makeText(getContext(), "请先登录", Toast.LENGTH_LONG).show();
             intent.setClass(getContext(), LoginActivity.class);
-        }else{
+        } else {
             intent.setClass(getContext(), jumpActivityList.get(position));
         }
         startActivity(intent);
     }
+    private void setTopbar() {
+        Resources res = getResources();
+        topbar.setTopbarTv("个人中心");
+        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
+        topbar.setRight1Ib(ic_search);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),SearchActivity.class));
+            }
+        });
+    }
 
-    @Event(value = {R.id.ib_left, R.id.ib_search,R.id.civ_mine})
+    @Event(value = {R.id.civ_mine})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ib_search:
-                startActivity(new Intent(getContext(), SearchActivity.class));
-                break;
             case R.id.civ_mine:
                 startActivity(new Intent(getContext(), PortraitActivity.class));
                 break;
         }
-    }
-
-    @Override
-    public void initTopBar() {
-        topTv.setText(R.string.action_bar_mine);
-        leftIb.setVisibility(View.INVISIBLE);
     }
 
     @Override

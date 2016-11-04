@@ -39,7 +39,7 @@ public class ReleaseFeedBackPopupWindowAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         ViewHolder_ReleaseFeedBackPopupWindow holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.release_feed_back_popupwindow_listview_item, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.release_feed_back_popupwindow_lv_item, null);
             holder = new ViewHolder_ReleaseFeedBackPopupWindow();
             holder.lesson = (TextView) convertView.findViewById(R.id.tv_course_time_item);
             convertView.setTag(holder);

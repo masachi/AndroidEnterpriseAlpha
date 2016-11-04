@@ -5,56 +5,10 @@
               android:orientation="vertical"
               android:background="@color/color_ffffff"
               android:layout_height="match_parent">
-    <RelativeLayout
-            android:id="@+id/rl_students_head_list_title"
-            android:background="@color/color_97c8cd"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_student_head_list"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/action_bar_height">
-        <ImageButton
-                android:id="@+id/ib_students_head_list_return"
-                android:src="@mipmap/ic_return"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/action_bar_ib_margin_start"
-                android:background="@color/transparent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/tv_students_head_list_title"
-                android:text="@string/students_head_list_title_str"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/color_ffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/tv_right_bracket"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_students_head_list_title"
-                android:text="@string/students_head_list_title_right_bracket_str"
-                android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/color_ffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/tv_students_number"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_right_bracket"
-                android:text="12"
-                android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/color_ffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/tv_left_bracket"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_students_number"
-                android:text="@string/students_head_list_title_left_bracket_str"
-                android:textSize="@dimen/action_bar_text_size"
-                android:textColor="@color/color_ffffff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"/>
 
     <org.example.androidenterprise.view.CustomMeasureGridView
             android:id="@+id/gv_students_head_list"

@@ -74,7 +74,7 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
 
     private void showPopupWindow(View view) {
         int popupWindowWidth = et_please_input_thought.getMeasuredWidth();
-        View contentView = LayoutInflater.from(mContext).inflate(R.layout.activity_release_feed_back_popupwindow_listview, null);
+        View contentView = LayoutInflater.from(mContext).inflate(R.layout.release_feed_back_popupwindow_lv, null);
         ListView listview = (ListView) contentView.findViewById(R.id.lv_course);
         ReleaseFeedBackPopupWindowAdapter adapter = new ReleaseFeedBackPopupWindowAdapter(getApplicationContext(), course_time);
         listview.setAdapter(adapter);

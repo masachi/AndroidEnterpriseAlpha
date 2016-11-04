@@ -6,17 +6,16 @@
                 android:background="@color/color_d1d1d1"
                 android:scrollbars="vertical"
                 tools:context="org.example.androidenterprise.fragment.InstrumentFragment">
-    <include
-            android:id="@+id/rl_topbar"
-            android:layout_height="wrap_content"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_instrument"
             android:layout_width="match_parent"
-            layout="@layout/top_bar_rl"/>
+            android:layout_height="wrap_content"/>
 
     <org.example.androidenterprise.view.CustomScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            android:layout_below="@id/rl_topbar">
+            android:layout_below="@id/topbar_instrument">
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

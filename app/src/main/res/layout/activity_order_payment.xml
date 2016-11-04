@@ -7,30 +7,10 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <RelativeLayout
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_order_payment"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/order_payment_title_height"
-            android:background="@color/color_97c8cd">
-
-        <ImageView
-                android:id="@+id/iv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/order_payment_pay_margin"
-                android:src="@mipmap/ic_return"
-                android:paddingRight="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/activity_orderpayment_title_str"
-                android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/order_payment_title_text_size"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"/>
 
     <RelativeLayout
             android:layout_width="match_parent"

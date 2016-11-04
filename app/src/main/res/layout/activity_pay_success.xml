@@ -4,28 +4,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/pay_success_title_height"
-        android:background="@color/color_97c8cd">
-
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/pay_success_title_back_img_marginleft"
-            android:src="@mipmap/ic_orderpayment_back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/activity_pay_success_title_str"
-            android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/pay_success_title_textsize" />
-    </RelativeLayout>
-
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_pay_success"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

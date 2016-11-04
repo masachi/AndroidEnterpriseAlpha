@@ -2,6 +2,8 @@ package org.example.androidenterprise.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,20 +13,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import org.example.androidenterprise.List.CatagoryList;
 import org.example.androidenterprise.List.IntroductionList;
-import org.example.androidenterprise.activity.InstrumentDetailActivity;
-import org.example.androidenterprise.model.CatagoryEntity;
-import org.example.androidenterprise.model.IntroductionEntity;
-import org.example.androidenterprise.MainActivity;
-import org.example.androidenterprise.model.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.InstrumentDetailActivity;
 import org.example.androidenterprise.activity.InstrumentInfoActivity;
@@ -32,18 +30,16 @@ import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.AlbumAdapter;
 import org.example.androidenterprise.adapter.IntroAdapter;
 import org.example.androidenterprise.adapter.ItemAdapter;
-import org.example.androidenterprise.model.CatagoryEntity;
-import org.example.androidenterprise.model.IntroductionEntity;
-import org.example.androidenterprise.model.ViewPagerEntity;
+import org.example.androidenterprise.model.*;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.utils.Constant;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
 import org.example.androidenterprise.view.CustomMeasureGridView;
 import org.example.androidenterprise.view.CustomMeasureListView;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -61,7 +57,7 @@ import static org.example.androidenterprise.utils.Constant.*;
  * Use the {@link InstrumentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabSelectedListener, AdapterView.OnItemClickListener, MainActivity.InitTopBar {
+public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabSelectedListener, AdapterView.OnItemClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //    private static final String ARG_PARAM1 = "param1";
@@ -77,12 +73,8 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     CustomMeasureListView introLv;
     @ViewInject(R.id.gv_instrument)
     CustomMeasureGridView itemGv;
-    @ViewInject(R.id.ib_left)
-    ImageButton leftIb;
-    @ViewInject(R.id.tv_top_bar)
-    TextView topTv;
-    @ViewInject(R.id.ib_search)
-    ImageButton searchIb;
+    @ViewInject(R.id.topbar_instrument)
+    TopbarView topbar;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -96,7 +88,6 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     private List<AutoPlayInfo> mAutoPlayInfoList;
 
     private ViewPagerEntity response;
-
 
     private OnFragmentInteractionListener mListener;
 
@@ -137,8 +128,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     }
 
     @Override
-    public void onViewCreated(View view,
-                              Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
@@ -147,15 +137,13 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
 
         introLlist = IntroductionList.getData(getContext());
 
-
         imagesAlbum = new int[]{R.drawable.viewpage_4, R.drawable.viewpage_3, R.drawable.viewpage_2, R.drawable.viewpage_1};
 
         instrumentView = new ArrayList<>();
         albumView = new ArrayList<>();
         cataList = new ArrayList<>();
-        initTopBar();
+        setTopbar();
         getRequest();
-
 
 //        for(int image : imagesAlbum){
 //            ImageView tempIv = new ImageView(getContext());
@@ -163,24 +151,34 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
 //            albumView.add(tempIv);
 //        }
 
-
         itemGv.setOnItemClickListener(this);
 
 //        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(), imagesAlbum);
 //        IntroAdapter introAdapter = new IntroAdapter(getContext());
-
 
 //        ItemAdapter itemAdapter = new ItemAdapter(getContext());
 //        itemGv.setAdapter(itemAdapter);
 //        InstrumentAdapter instrumentAdapter = new InstrumentAdapter(getContext());
 //        itemGv.setAdapter(instrumentAdapter);
 
-
-
         MyAsyncTask myAsyncTask = new MyAsyncTask();
         myAsyncTask.execute();
 
         x.view().inject(this, view);
+    }
+
+    private void setTopbar() {
+        Resources res = getResources();
+        topbar.setTopbarTv("乐器");
+        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
+        topbar.setRight1Ib(ic_search);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), SearchActivity.class));
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -201,7 +199,6 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         mListener = null;
     }
 
-
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         int pos = tab.getPosition();
@@ -214,7 +211,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         Bundle bundle = new Bundle();
         ArrayList bundlelist = new ArrayList();
         bundlelist.add(cataList);
-        bundle.putParcelableArrayList("list",bundlelist);
+        bundle.putParcelableArrayList("list", bundlelist);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -236,11 +233,10 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         Bundle bundle = new Bundle();
         ArrayList bundlelist = new ArrayList();
         bundlelist.add(cataList);
-        bundle.putParcelableArrayList("list",bundlelist);
+        bundle.putParcelableArrayList("list", bundlelist);
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -250,15 +246,6 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
-
-
-    @Override
-    public void initTopBar() {
-        leftIb.setVisibility(View.INVISIBLE);
-        topTv.setText(R.string.action_bar_music);
-    }
-
 //    @Override
 //    public void injectView() {
 //        leftIb = (ImageButton) topView.findViewById(R.id.ib_left);
@@ -279,17 +266,6 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         return rootView;
     }
 
-    @Event(value = {R.id.ib_search})
-    private void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.ib_search:
-                startActivity(new Intent(getContext(), SearchActivity.class));
-                break;
-        }
-    }
-
-
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -304,7 +280,6 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
@@ -366,14 +341,14 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     /**
      * 网络请求
      */
-    public void getRequest(){
+    public void getRequest() {
         RequestParams params = new RequestParams(VIEWPAGER_URL);
         params.setAsJsonContent(true);
         params.setBodyContent("{\"code\":2004,\"id\":9527}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("VIEWPAGER",result);
+                Log.e("VIEWPAGER", result);
                 response = new Gson().fromJson(result, new TypeToken<ViewPagerEntity>() {
                 }.getType());
             }
@@ -400,11 +375,12 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         RequestParams paramsAlbum = new RequestParams(Constant.ALBUM_URL);
         paramsAlbum.setAsJsonContent(true);
         paramsAlbum.setBodyContent(new Gson().toJson(albumInfoEntity));
-        x.http().post(paramsAlbum,new Callback.CommonCallback<String>(){
+        x.http().post(paramsAlbum, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("专辑图片",result);
-                albumresponse = new Gson().fromJson(result,new TypeToken<AlbumEntity>(){}.getType());
+                Log.e("专辑图片", result);
+                albumresponse = new Gson().fromJson(result, new TypeToken<AlbumEntity>() {
+                }.getType());
                 getAlbumData();
             }
 
@@ -415,8 +391,8 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
 //        }
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e("专辑图片","FK");
-                Toast.makeText(getContext(),"请求失败",Toast.LENGTH_SHORT).show();
+                Log.e("专辑图片", "FK");
+                Toast.makeText(getContext(), "请求失败", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -439,14 +415,15 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         x.http().post(paramsIns, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("InsAndDes",result);
-                insanddesresponse = new Gson().fromJson(result,new TypeToken<InsAndDesEntity>(){}.getType());
+                Log.e("InsAndDes", result);
+                insanddesresponse = new Gson().fromJson(result, new TypeToken<InsAndDesEntity>() {
+                }.getType());
                 getInsAndDes();
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e("InsAndDes","FK");
+                Log.e("InsAndDes", "FK");
             }
 
             @Override
@@ -472,8 +449,9 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         x.http().post(paramsInstrument, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("所有乐器展示",result);
-                instrumentresponse = new Gson().fromJson(result,new TypeToken<InstrumentEntity>(){}.getType());
+                Log.e("所有乐器展示", result);
+                instrumentresponse = new Gson().fromJson(result, new TypeToken<InstrumentEntity>() {
+                }.getType());
                 getInstrumentData();
             }
 
@@ -493,38 +471,38 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
             }
         });
 
-
     }
+
     /**
      * 对从服务器获取的专辑数据进行处理
      */
-    public void getAlbumData(){
+    public void getAlbumData() {
         for (int i = 0; i < albumresponse.getAlbums().size(); i++) {
             ImageView tempIv = new ImageView(getContext());
             Glide.with(getContext()).load(albumresponse.getAlbums().get(i).getAlbum_url()).into(tempIv);
             albumView.add(tempIv);
         }
-        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(),albumresponse.getAlbums());
+        AlbumAdapter albumAdapter = new AlbumAdapter(getContext(), albumresponse.getAlbums());
         albumLv.setAdapter(albumAdapter);
     }
 
     /**
      * 对从服务器获取的图片描述数据进行处理
      */
-    public void getInsAndDes(){
-        IntroAdapter introAdapter = new IntroAdapter(getContext(),insanddesresponse);
+    public void getInsAndDes() {
+        IntroAdapter introAdapter = new IntroAdapter(getContext(), insanddesresponse);
         introLv.setAdapter(introAdapter);
     }
 
     /**
      * 对从服务器获取的所有乐器数据进行处理
      */
-    public void getInstrumentData(){
-        ItemAdapter itemAdapter = new ItemAdapter(getContext(),instrumentresponse);
+    public void getInstrumentData() {
+        ItemAdapter itemAdapter = new ItemAdapter(getContext(), instrumentresponse);
         itemGv.setAdapter(itemAdapter);
 
         cataList = instrumentresponse.getInsArr();
-        if (cataList.size()>5){
+        if (cataList.size() > 5) {
             typeTl.setTabMode(TabLayout.MODE_SCROLLABLE);
         }
         for (int i = 0; i < cataList.size(); i++) {

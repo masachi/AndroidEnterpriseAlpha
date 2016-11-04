@@ -1,8 +1,13 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -10,9 +15,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.StudentsFeedbackAdapter;
-import org.example.androidenterprise.model.CourseEntity;
 import org.example.androidenterprise.model.StudentsFeedBackEntity;
 import org.example.androidenterprise.model.StudentsFeedbackRequestEntity;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
@@ -25,8 +30,8 @@ import static org.example.androidenterprise.utils.Constant.STUDENT_FEEDBACK_URL;
 @ContentView(R.layout.activity_students_feed_back)
 public class StudentsFeedBackActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.ib_instrument_info_back1)
-    ImageButton ib_instrument_info_back1;
+    @ViewInject(R.id.topbar_student_feed_back)
+    TopbarView topbar;
     @ViewInject(R.id.ib_instrument_info_back2)
     ImageButton ib_instrument_info_back2;
     @ViewInject(R.id.ib_instrument_info_next)
@@ -40,8 +45,8 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_students_feed_back);
         x.view().inject(this);
+        setTopbar();
         StudentsFeedbackRequestEntity studentsFeedbackRequest = new StudentsFeedbackRequestEntity();
         studentsFeedbackRequest.setClass_id(1);
         studentsFeedbackRequest.setTime_id(1);
@@ -55,7 +60,7 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
                 Log.e("23333", result);
                 responseStudentsFeedBack = new Gson().fromJson(result, new TypeToken<StudentsFeedBackEntity>() {
                 }.getType());
-                Log.e("hhhh",responseStudentsFeedBack.toString());
+                Log.e("hhhh", responseStudentsFeedBack.toString());
                 studentsFeedbackAdapter = new StudentsFeedbackAdapter(getApplicationContext(), responseStudentsFeedBack.getTopic());
                 lv_th.setAdapter(studentsFeedbackAdapter);
             }
@@ -76,6 +81,21 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
             @Override
             public void onFinished() {
 
+            }
+        });
+    }
+
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("学员反馈");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

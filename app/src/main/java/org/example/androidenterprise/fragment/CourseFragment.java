@@ -2,6 +2,8 @@ package org.example.androidenterprise.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,12 +11,11 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.view.ViewGroup;
-import android.widget.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -29,10 +30,10 @@ import org.example.androidenterprise.model.ListRequestEntity;
 import org.example.androidenterprise.model.ViewPagerEntity;
 import org.example.androidenterprise.utils.AutoPlayInfo;
 import org.example.androidenterprise.view.AutoPlayingViewPager;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -40,8 +41,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.androidenterprise.utils.Constant.*;
-
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,12 +64,8 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     AutoPlayingViewPager courseAutoVP;
     @ViewInject(R.id.lv_course)
     ListView course_list;
-    @ViewInject(R.id.ib_left)
-    ImageButton leftIb;
-    @ViewInject(R.id.tv_top_bar)
-    TextView topTv;
-    @ViewInject(R.id.ib_search)
-    ImageButton searchIb;
+    @ViewInject(R.id.topbar_course)
+    TopbarView topbar;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -118,6 +113,7 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        setTopbar();
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getContext()));
 
@@ -227,18 +223,28 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         return rootView;
     }
 
-    @Event(value = {R.id.ib_left, R.id.ib_search})
-    private void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.ib_left:
+    private void setTopbar() {
+        Resources res = getResources();
+        topbar.setTopbarTv("课程");
+        Drawable ic_table = res.getDrawable(R.mipmap.ic_table);
+        topbar.setLeftIb(ic_table);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 startActivity(new Intent(getContext(), CourseCalendarActivity.class));
-                break;
-            case R.id.ib_search:
+            }
+        });
+        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
+        topbar.setRight1Ib(ic_search);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 startActivity(new Intent(getContext(), SearchActivity.class));
-                break;
-        }
+            }
+        });
     }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

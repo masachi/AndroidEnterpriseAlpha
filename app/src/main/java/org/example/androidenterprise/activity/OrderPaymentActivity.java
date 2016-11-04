@@ -1,12 +1,16 @@
 package org.example.androidenterprise.activity;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -20,9 +24,6 @@ import org.xutils.x;
 @ContentView(R.layout.activity_order_payment)
 public class OrderPaymentActivity extends Activity implements View.OnClickListener {
 
-
-    @ViewInject(R.id.iv_back)
-    ImageView backIv;
     @ViewInject(R.id.tv_courseInfo)
     TextView courseInfoTv;
     @ViewInject(R.id.tv_accout)
@@ -45,28 +46,38 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
     ImageView wechatpayselectedIv;
     @ViewInject(R.id.btn_payment)
     Button paymentBtn;
+    @ViewInject(R.id.topbar_order_payment)
+    TopbarView topbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_payment);
         x.view().inject(this);
-        backIv.setOnClickListener(this);
+        setTopbar();
         alipaytitleTv.setOnClickListener(this);
         wechatpaytitleTv.setOnClickListener(this);
         paymentBtn.setOnClickListener(this);
-
     }
 
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("订单支付");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
-    @Event(value = {R.id.iv_back, R.id.tv_alipay_title, R.id.tv_wechatpay_title, R.id.btn_payment})
+    @Event(value = {R.id.tv_alipay_title, R.id.tv_wechatpay_title, R.id.btn_payment})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_back:
-                //TODO 设置返回课程订购界面
-                finish();
-                break;
             case R.id.tv_alipay_title:
                 selectedalipayIv.setImageResource(R.mipmap.ic_payment_check_selected);
                 wechatpayselectedIv.setImageResource(R.mipmap.ic_payment_check_normal);

@@ -6,11 +6,16 @@
         android:layout_height="match_parent"
         android:background="@color/color_f0f0f0"
         tools:context="org.example.androidenterprise.activity.SearchActivity">
-
+    <TextView
+            android:id="@+id/tv_toptop"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/color_97c8cd"/>
     <RelativeLayout
             android:id="@+id/rl_search_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_height"
+            android:layout_below="@id/tv_toptop"
             android:background="#FF97C8CD">
 
         <ImageButton

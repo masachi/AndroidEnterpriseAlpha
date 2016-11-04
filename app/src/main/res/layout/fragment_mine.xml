@@ -7,10 +7,10 @@
               tools:context="org.example.androidenterprise.fragment.MineFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <include
-            android:layout_height="wrap_content"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_mine"
             android:layout_width="match_parent"
-            layout="@layout/top_bar_rl"/>
+            android:layout_height="wrap_content"/>
 
     <RelativeLayout
             android:id="@+id/rl_mine_info"
