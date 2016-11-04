@@ -45,7 +45,7 @@ public class InstrumentDetailActivity extends BaseActivity {
     ListView instrumentDetailLv;
     //乐器参数
     @ViewInject(R.id.tv_buy)
-    TextView buyBtn;
+    TextView buyTv;
     @ViewInject(R.id.tv_price_with_line)
     TextView priceWithLineTv;
     @ViewInject(R.id.tv_buy_price)
@@ -111,7 +111,7 @@ public class InstrumentDetailActivity extends BaseActivity {
         buyNowPopup = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true);
         buyNowPopup.setTouchable(true);
         buyNowPopup.setOutsideTouchable(true);
-        buyNowPopup.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        buyNowPopup.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));//点击状态栏外部，状态栏能自己弹回去
         buyNowPopup.setAnimationStyle(R.style.anim_menu_buy);
 
         buyNowPopup.getContentView().setFocusableInTouchMode(true);
@@ -125,7 +125,7 @@ public class InstrumentDetailActivity extends BaseActivity {
             public void onClick(View v) {
 
                 buyNowPopup.dismiss();
-                startActivity(new Intent(getBaseContext(),ConfirmOrderActivity.class));
+                startActivity(new Intent(getBaseContext(), ConfirmOrderActivity.class));
             }
         });
 

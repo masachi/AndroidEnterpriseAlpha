@@ -1,12 +1,14 @@
 package org.example.androidenterprise.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.view.TopbarView;
@@ -25,6 +27,8 @@ public class ConfirmOrderActivity extends Activity {
     TextView tv_buyer_leave_message;
     @ViewInject(R.id.topbar_confirm_order)
     TopbarView topbar;
+    @ViewInject(R.id.ib_right_arrow)
+    ImageButton ib_right_arrow;
 
     //TODO: click on this textview pop_up message board
 
@@ -50,10 +54,13 @@ public class ConfirmOrderActivity extends Activity {
         });
     }
 
-    @Event(R.id.tv_buyer_leave_message)
+    @Event(value = {R.id.tv_buyer_leave_message, R.id.ib_right_arrow})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_buyer_leave_message:
+                break;
+            case R.id.ib_right_arrow:
+                startActivity(new Intent(this, SelectAddActivity.class));
                 break;
         }
     }
