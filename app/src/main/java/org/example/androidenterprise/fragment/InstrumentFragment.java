@@ -524,6 +524,9 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         itemGv.setAdapter(itemAdapter);
 
         cataList = instrumentresponse.getInsArr();
+        if (cataList.size()>5){
+            typeTl.setTabMode(TabLayout.MODE_SCROLLABLE);
+        }
         for (int i = 0; i < cataList.size(); i++) {
             typeTl.addTab(typeTl.newTab().setText(cataList.get(i).getType()), false);
         }

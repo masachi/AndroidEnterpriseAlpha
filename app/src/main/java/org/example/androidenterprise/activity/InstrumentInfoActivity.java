@@ -65,6 +65,9 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
         adapter_list = ItemList.getData(this);
         instrumentInfoAdapter = new InstrumentInfoAdapter(this, adapter_list);
         instrinfoGv.setAdapter(instrumentInfoAdapter);
+        if (cataList.size()>5){
+            instrumentTL.setTabMode(TabLayout.MODE_SCROLLABLE);
+        }
         //提取出pos
         for (int i = 0; i < cataList.size(); i++) {
             if(!cataList.get(i).getPos().equals("")){
