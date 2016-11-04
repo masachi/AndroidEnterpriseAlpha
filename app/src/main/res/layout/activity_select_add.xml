@@ -5,19 +5,25 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_ffffff"
         tools:context="org.example.androidenterprise.activity.SelectAddActivity">
     <org.example.androidenterprise.view.TopbarView
             android:id="@+id/topbar_select_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <RadioGroup
-            android:id="@+id/rg_address"
+    <ListView
+            android:id="@+id/lv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_top">
-        <!--TODO: select_add_rg_item-->
-    </RadioGroup>
-
+            android:layout_below="@id/topbar_select_add"
+            android:divider="@color/color_d1d1d1"
+            android:dividerHeight="@dimen/storke_all">
+    </ListView>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/storke_all"
+            android:layout_below="@id/lv_address"
+            android:background="@color/color_d1d1d1"/>
     <Button
             android:id="@+id/btn_increase"
             android:layout_width="match_parent"

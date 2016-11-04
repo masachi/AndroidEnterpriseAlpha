@@ -1,14 +1,17 @@
 package org.example.androidenterprise.activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.MyWorksAdapter;
+import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -21,52 +24,57 @@ import java.util.List;
  */
 
 @ContentView(R.layout.activity_my_works)
-public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
+public class MyWorksActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-
-    @ViewInject(R.id.ib_reback)
-    ImageButton ib_reback;
-    @ViewInject(R.id.ib_delete)
-    ImageButton ib_delete;
     @ViewInject(R.id.gv_myworks)
     GridView gv_myworks;
+    @ViewInject(R.id.topbar_my_works)
+    TopbarView topbar;
 
-    private int works_data[] = {R.drawable.ic_shoot,R.drawable.ic_works,R.drawable.ic_works,R.drawable.ic_works,
-            R.drawable.ic_works,R.drawable.ic_works};
+    private int works_data[] = {R.drawable.ic_shoot, R.drawable.ic_works, R.drawable.ic_works, R.drawable.ic_works,
+            R.drawable.ic_works, R.drawable.ic_works};
     private List<Integer> list_works;
+
     // TODO get works_data
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_my_works);
         x.view().inject(this);
+        setTopbar();
 
         list_works = getWorksData();
-        MyWorksAdapter myWorksAdapter = new MyWorksAdapter(getApplicationContext(),list_works);
+        MyWorksAdapter myWorksAdapter = new MyWorksAdapter(getApplicationContext(), list_works);
         gv_myworks.setAdapter(myWorksAdapter);
-
-        ib_reback.setOnClickListener(this);
-        ib_delete.setOnClickListener(this);
         gv_myworks.setOnItemClickListener(this);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.ib_reback:
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("我的作品");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
-                break;
-            case R.id.ib_delete:
-                Intent intent_delete = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
-                startActivity(intent_delete);
-                break;
-            default:
-                break;
-        }
+            }
+        });
+        Drawable ic_delete = res.getDrawable(R.mipmap.ic_myworks_delete);
+        topbar.setRight1Ib(ic_delete);
+        topbar.getRight1Ib().setVisibility(View.VISIBLE);
+        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class));
+            }
+        });
     }
-    private List<Integer> getWorksData(){
+
+    private List<Integer> getWorksData() {
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i< works_data.length; i++){
+        for (int i = 0; i < works_data.length; i++) {
             list.add(works_data[i]);
         }
         return list;
@@ -74,10 +82,9 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if(position == 0){
-            startActivity(new Intent(this,VideoRecordActivity.class));
-        }
-        else{
+        if (position == 0) {
+            startActivity(new Intent(this, VideoRecordActivity.class));
+        } else {
             // TODO: 2016/11/2 video play
         }
     }

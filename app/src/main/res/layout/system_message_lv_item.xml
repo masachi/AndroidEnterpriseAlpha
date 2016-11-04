@@ -2,13 +2,11 @@
 <!--Created by yangxinghua on 2016/10/13 ：我的留言=》系统消息页面listview布局-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color_f0f0f0">
+                android:layout_height="wrap_content">
 
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/system_message_margin_top"
             android:paddingTop="@dimen/system_message_lv_margin_many"
             android:paddingBottom="@dimen/system_message_lv_margin_many"
             android:paddingLeft="@dimen/system_message_lv_margin_many"

@@ -53,10 +53,9 @@ public class ContactUsActivity extends AppCompatActivity {
     @ViewInject(R.id.tv_dial_telephone)
     TextView dialTelephoneTv;
     @ViewInject(R.id.topbar_contact_us)
-    TopbarView contactusTopbar;
+    TopbarView topbar;
 
     List<String> listServiceName = new ArrayList<>();
-    TopbarView topbar;
 
 //    TODO get data
 

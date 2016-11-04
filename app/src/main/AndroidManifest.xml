@@ -37,13 +37,6 @@
         <activity android:name=".activity.InstrumentInfoActivity">
         </activity>
         <activity android:name=".activity.CourseInfoActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN"/> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".activity.LogisticsInfoActivity">
         </activity>
@@ -54,11 +47,6 @@
         <activity android:name=".activity.HelpCenterActivity">
         </activity>
         <activity android:name=".activity.ContactUsActivity">
-            <!--<intent-filter>-->
-                 <!--<action android:name="android.intent.action.MAIN"/>-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.ConfirmOrderActivity">
         </activity>
@@ -69,11 +57,6 @@
         <activity android:name=".activity.OrderActivity">
         </activity>
         <activity android:name=".activity.InstrumentDetailActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.StudentsFeedBackActivity">
         </activity>
@@ -100,11 +83,6 @@
         <activity android:name=".activity.OrderInfoActivity">
         </activity>
         <activity android:name=".activity.PortraitActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.OrderPaymentActivity">
         </activity>

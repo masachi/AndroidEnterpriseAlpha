@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.adapter.SelectAddressAdapter;
 import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -23,8 +26,8 @@ import org.xutils.x;
 
 public class SelectAddActivity extends AppCompatActivity {
 
-    @ViewInject(R.id.rg_address)
-    RadioGroup radioGroup;
+    @ViewInject(R.id.lv_address)
+    ListView addressLv;
     @ViewInject(R.id.btn_increase)
     Button increaseBtn;
     @ViewInject(R.id.topbar_select_add)
@@ -35,6 +38,15 @@ public class SelectAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
+        final SelectAddressAdapter selectAddressAdapter = new SelectAddressAdapter(this);
+        addressLv.setAdapter(selectAddressAdapter);
+
+        addressLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectAddressAdapter.setCheckedPosition(position);
+            }
+        });
     }
 
     private void setTopbar() {
@@ -52,13 +64,9 @@ public class SelectAddActivity extends AppCompatActivity {
         });
     }
 
-    @Event(value = {R.id.rg_address, R.id.btn_increase})
+    @Event(value = {R.id.btn_increase})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.rg_address:
-                //TODO: 实现单选功能
-                break;
-            // TODO: “编辑” 跳到编辑页面
             case R.id.btn_increase:
                 // TODO: 跳到编辑地址页面（增加地址形式）
                 Intent intent = new Intent().setClass(SelectAddActivity.this, EditAddActivity.class);

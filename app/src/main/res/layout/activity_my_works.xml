@@ -7,38 +7,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="org.example.androidenterprise.activity.MyWorksActivity">
-    <RelativeLayout
-            android:id="@+id/rl_top"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_my_works"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/top_height"
-            android:background="@color/color_97c8cd">
-        <ImageButton
-                android:id="@+id/ib_reback"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/ic_return"
-                android:background="@color/transparent"
-                android:layout_marginLeft="@dimen/top_ib_left"
-                android:paddingRight="@dimen/top_imagebutton_padding_right"
-                android:paddingTop="@dimen/top_imagebutton_padding_top"
-                android:paddingBottom="@dimen/top_imagebutton_padding_bottom"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/myworks_str"
-                android:textSize="@dimen/top_text_size"
-                android:textColor="@color/color_ffffff"/>
-        <ImageButton
-                android:id="@+id/ib_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/ic_myworks_delete"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/top_delete_ib_right_dis"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"/>
     <GridView
             android:id="@+id/gv_myworks"
             android:layout_width="match_parent"

@@ -6,34 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="org.example.androidenterprise.activity.MyWorksDeleteActivity">
-    <RelativeLayout
-            android:id="@+id/rl_top"
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_my_works_delete"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/top_height"
-            android:background="@color/color_97c8cd">
-        <ImageButton
-                android:id="@+id/ib_reback"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/ic_return"
-                android:background="@color/transparent"
-                android:layout_marginLeft="@dimen/top_ib_left"
-                android:paddingRight="@dimen/top_imagebutton_padding_right"
-                android:paddingTop="@dimen/top_imagebutton_padding_top"
-                android:paddingBottom="@dimen/top_imagebutton_padding_bottom"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/myworks_delete_str"
-                android:textSize="@dimen/top_text_size"
-                android:textColor="@color/color_ffffff"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"/>
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/rl_top">
+            android:layout_below="@+id/topbar_my_works_delete">
         <org.example.androidenterprise.view.CustomMeasureGridView
                 android:id="@+id/gv_myworks"
                 android:layout_width="match_parent"

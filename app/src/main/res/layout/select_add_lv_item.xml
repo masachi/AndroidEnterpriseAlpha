@@ -6,16 +6,15 @@
                 android:paddingTop="@dimen/select_add_margin_many"
                 android:paddingBottom="@dimen/select_add_margin_many"
                 android:paddingLeft="@dimen/select_add_margin_many"
-                android:paddingRight="@dimen/select_add_margin_many"
-                android:background="@drawable/select_add">
+                android:paddingRight="@dimen/select_add_margin_many">
     <RadioButton
             android:id="@+id/rb_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:checked="false"
-            android:src="@drawable/select_add_rg_selector"/>
-    <!--android:button="@null"-->
+            android:focusable="false"
+            android:button="@drawable/select_add_rg_selector"/>
     <TextView
             android:text="收货人：XXX"
             android:id="@+id/tv_consignee"
@@ -45,22 +44,26 @@
             android:layout_alignLeft="@id/tv_consignee"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/select_add_text_size"/>
-    <TextView
-            android:id="@+id/tv_edit"
+    <RelativeLayout
+            android:id="@+id/rl_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_below="@id/tv_address"
-            android:text="@string/select_add_edit"
-            android:textColor="@color/color_999999"
-            android:textSize="@dimen/select_add_text_size"/>
-    <ImageView
-            android:id="@+id/iv_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/tv_edit"
-            android:layout_marginRight="@dimen/select_add_img_margin_textview"
-            android:layout_alignTop="@id/tv_edit"
-            android:src="@mipmap/ic_add_edit"/>
+            android:layout_alignParentRight="true">
+        <ImageView
+                android:id="@+id/iv_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_add_edit"/>
+        <TextView
+                android:id="@+id/tv_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_edit"
+                android:layout_marginLeft="@dimen/select_add_img_margin_textview"
+                android:text="@string/select_add_edit"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/select_add_text_size"/>
+    </RelativeLayout>
 
 </RelativeLayout>

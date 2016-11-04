@@ -24,7 +24,6 @@ import org.example.androidenterprise.activity.InstrumentDetailActivity;
 import org.example.androidenterprise.model.CatagoryEntity;
 import org.example.androidenterprise.model.IntroductionEntity;
 import org.example.androidenterprise.MainActivity;
-import org.example.androidenterprise.adapter.InstrumentAdapter;
 import org.example.androidenterprise.model.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.InstrumentDetailActivity;

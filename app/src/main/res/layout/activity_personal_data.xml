@@ -3,30 +3,10 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical" android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <RelativeLayout
-        android:id="@+id/order_title"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/title_height"
-        android:background="@color/color_97c8cd">
-        <ImageButton
-            android:id="@+id/ib_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_return"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="#97c8cd"
-            android:paddingRight="20dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/activity_personal_data_title_text"
-            android:textSize="@dimen/personal_data_title_text_size"
-            android:textColor="@color/color_ffffff"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_personal_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

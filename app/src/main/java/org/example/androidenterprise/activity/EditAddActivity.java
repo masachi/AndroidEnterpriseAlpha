@@ -48,9 +48,9 @@ public class EditAddActivity extends AppCompatActivity {
             phonenumEt.setText("");
             detailEt.setText("");
         } else {// TODO: setText(从List获取)
-            consigneeEt.setText("收货人XXX");
-            phonenumEt.setText("1334876630");
-            detailEt.setText("山东省枣庄市XXX");
+            consigneeEt.setText("某某某");
+            phonenumEt.setText("13366668888");
+            detailEt.setText("山东省威海市山东省威海市山东省威海市山东省威海市山东省威海市");
         }
     }
     private void setTopbar() {
