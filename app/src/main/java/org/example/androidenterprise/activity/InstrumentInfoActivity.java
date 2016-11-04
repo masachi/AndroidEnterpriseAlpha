@@ -59,7 +59,7 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         ArrayList list = bundle.getParcelableArrayList("list");
-        cataList = (List<InstrumentEntity.InstrumentMsgEntity>) list.get(0);
+       cataList = (ArrayList)list.get(0);
 
         InitTabDatas();
         adapter_list = ItemList.getData(this);
@@ -67,7 +67,7 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
         instrinfoGv.setAdapter(instrumentInfoAdapter);
         //提取出pos
         for (int i = 0; i < cataList.size(); i++) {
-            if (cataList.get(i).getPos() != null) {
+            if(!cataList.get(i).getPos().equals("")){
                 pos = Integer.parseInt(cataList.get(i).getPos());
                 break;
             }
@@ -87,8 +87,8 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
         instrumentTL.setOnTabSelectedListener(this);
         mPullToRefreshView.setOnHeaderRefreshListener(this);
 //        mPullToRefreshView.setOnFooterRefreshListener(this);
+//        returnIb.setOnClickListener(this);
     }
-
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         Resources res = getResources();
@@ -102,45 +102,38 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
                 finish();
             }
         });
-        Drawable ic_search = res.getDrawable(R.mipmap.ic_search);
-        topbar.setRight1Ib(ic_search);
-        topbar.getRight1Ib().setVisibility(View.VISIBLE);
-        topbar.setRight1IbOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), SearchActivity.class));
-            }
-        });
     }
 
-    private void InitTabDatas() {
-        for (int i = 0; i < cataList.size(); i++) {
-            if (i == pos) {
-                instrumentTL.addTab(instrumentTL.newTab().setText(cataList.get(i).getType()), true);
-            } else {
+    private void InitTabDatas(){
+        for(int i=0;i<cataList.size();i++){
+            if(i == pos){
+                instrumentTL.addTab(instrumentTL.newTab().setText(cataList.get(i).getType()),true);
+            }
+            else {
                 instrumentTL.addTab(instrumentTL.newTab().setText(cataList.get(i).getType()), false);
             }
         }
     }
 
-    private void InitSelectedGvDatas() {
+    private void InitSelectedGvDatas(){
         adapter_list.clear();
         ilist = ItemList.getData(this);
-        if (pos == 0) {
-            for (int i = 0; i < ilist.size(); i++) {
-                if (ilist.get(i).getFresh() == 0) {
+        if(pos == 0){
+            for(int i=0;i<ilist.size();i++){
+                if(ilist.get(i).getFresh() == 0){
                     adapter_list.add(ilist.get(i));
                 }
             }
-        } else {
+        }
+        else{
             AddAdapter();
         }
         instrumentInfoAdapter.notifyDataSetChanged();
     }
 
-    private void AddAdapter() {
-        for (int i = 0; i < ilist.size(); i++) {
-            if (ilist.get(i).getFresh() == 0 && ilist.get(i).getType() == pos) {
+    private void AddAdapter(){
+        for(int i=0;i<ilist.size();i++){
+            if(ilist.get(i).getFresh() == 0 && ilist.get(i).getType() == pos){
                 adapter_list.add(ilist.get(i));
             }
         }
@@ -184,8 +177,8 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
             public void run() {
                 // 设置更新时间
                 // mPullToRefreshView.onHeaderRefreshComplete("最近更新:01-23 12:01");
-                for (int i = 0; i < ilist.size(); i++) {
-                    if (ilist.get(i).getFresh() == 1 && ilist.get(i).getType() == pos) {
+                for(int i=0;i<ilist.size();i++){
+                    if(ilist.get(i).getFresh() == 1 && ilist.get(i).getType() == pos){
                         adapter_list.add(ilist.get(i));
                     }
                 }
@@ -193,6 +186,10 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
                 mPullToRefreshView.onHeaderRefreshComplete();
             }
         }, 1000);
+    }
+
+    public void onClick(View v) {
+        finish();
     }
 
     private int calculateScrollXForTab(int position, float positionOffset) {

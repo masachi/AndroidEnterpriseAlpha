@@ -152,7 +152,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
 
         instrumentView = new ArrayList<>();
         albumView = new ArrayList<>();
-
+        cataList = new ArrayList<>();
         initTopBar();
         getRequest();
 
@@ -212,7 +212,9 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         Intent intent = new Intent();
         intent.setClass(getContext(), InstrumentInfoActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("tab_selected", String.valueOf(pos));
+        ArrayList bundlelist = new ArrayList();
+        bundlelist.add(cataList);
+        bundle.putParcelableArrayList("list",bundlelist);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -225,6 +227,10 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
         int pos = tab.getPosition();
+        for (int i = 0; i < cataList.size(); i++) {
+            cataList.get(i).setPos("");
+        }
+        cataList.get(pos).setPos(String.valueOf(pos));
         Intent intent = new Intent();
         intent.setClass(getContext(), InstrumentInfoActivity.class);
         Bundle bundle = new Bundle();

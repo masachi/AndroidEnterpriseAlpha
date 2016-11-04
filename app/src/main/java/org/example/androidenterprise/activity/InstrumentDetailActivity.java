@@ -2,7 +2,9 @@ package org.example.androidenterprise.activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -109,6 +111,7 @@ public class InstrumentDetailActivity extends BaseActivity {
         buyNowPopup = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true);
         buyNowPopup.setTouchable(true);
         buyNowPopup.setOutsideTouchable(true);
+        buyNowPopup.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
         buyNowPopup.setAnimationStyle(R.style.anim_menu_buy);
 
         buyNowPopup.getContentView().setFocusableInTouchMode(true);

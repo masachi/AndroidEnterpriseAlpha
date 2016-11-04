@@ -29,7 +29,7 @@ public class InstrumentEntity implements Serializable {
     public void setInsArr(List<InstrumentMsgEntity> insArr) {
         this.insArr = insArr;
     }
-    public static class InstrumentMsgEntity {
+    public static class InstrumentMsgEntity implements Serializable{
         private String name;
         private int pre_price;
         private int now_price;
