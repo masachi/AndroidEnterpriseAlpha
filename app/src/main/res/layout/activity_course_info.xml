@@ -295,72 +295,77 @@
                     android:background="@drawable/course_info_child"
                     android:layout_marginTop="@dimen/course_info_margin_top"
                     android:layout_below="@id/ll_all_stu">
-
-                <RelativeLayout
-                        android:layout_marginRight="@dimen/course_info_margin_left_right"
-                        android:layout_marginLeft="@dimen/course_info_margin_left_right"
-                        android:layout_marginTop="@dimen/course_info_schedule_margin"
-                        android:layout_marginBottom="@dimen/course_info_margin_top"
+                <org.example.androidenterprise.view.CustomMeasureListView
+                        android:id="@+id/cmlv"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent">
+                </org.example.androidenterprise.view.CustomMeasureListView>
 
-                    <TextView
-                            android:id="@+id/tv_course_info_schedule_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="课时1"
-                            android:textColor="@color/color_333333"
-                            android:textSize="@dimen/course_info_schedule_size"/>
+                <!--<RelativeLayout-->
+                <!--android:layout_marginRight="@dimen/course_info_margin_left_right"-->
+                <!--android:layout_marginLeft="@dimen/course_info_margin_left_right"-->
+                <!--android:layout_marginTop="@dimen/course_info_schedule_margin"-->
+                <!--android:layout_marginBottom="@dimen/course_info_margin_top"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <TextView
-                            android:id="@+id/tv_type"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:text="(已完成)"
-                            android:textColor="@color/color_999999"
-                            android:textSize="@dimen/course_info_schedule_size"
-                            android:layout_toEndOf="@id/tv_course_info_schedule_title"/>
+                <!--<TextView-->
+                <!--android:id="@+id/tv_course_info_schedule_title"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="课时1"-->
+                <!--android:textColor="@color/color_333333"-->
+                <!--android:textSize="@dimen/course_info_schedule_size"/>-->
 
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2016-05-05 14:00"
-                            android:textColor="@color/color_999999"
-                            android:textSize="@dimen/course_info_schedule_date_size"
-                            android:layout_alignParentEnd="true"/>
+                <!--<TextView-->
+                <!--android:id="@+id/tv_type"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:text="(已完成)"-->
+                <!--android:textColor="@color/color_999999"-->
+                <!--android:textSize="@dimen/course_info_schedule_size"-->
+                <!--android:layout_toEndOf="@id/tv_course_info_schedule_title"/>-->
 
-                    <TextView
-                            android:id="@+id/course_info_schedule_line"
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:background="@color/color_999999"
-                            android:layout_marginTop="5dp"
-                            android:layout_below="@id/tv_course_info_schedule_title"/>
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="2016-05-05 14:00"-->
+                <!--android:textColor="@color/color_999999"-->
+                <!--android:textSize="@dimen/course_info_schedule_date_size"-->
+                <!--android:layout_alignParentEnd="true"/>-->
 
-                    <TextView
-                            android:id="@+id/course_info_schedule_content_title"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginTop="@dimen/course_info_margin_top"
-                            android:text="内容 "
-                            android:textColor="@color/color_666666"
-                            android:textSize="@dimen/course_info_schedule_size"
-                            android:layout_below="@id/course_info_schedule_line"/>
+                <!--<TextView-->
+                <!--android:id="@+id/course_info_schedule_line"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:background="@color/color_999999"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_below="@id/tv_course_info_schedule_title"/>-->
 
-                    <TextView
-                            android:id="@+id/tv_schedule_info"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/course_info_margin_top"
-                            android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-                            android:layout_below="@id/course_info_schedule_line"
-                            android:textColor="@color/color_999999"
-                            android:textSize="@dimen/course_info_schedule_size"
-                            android:layout_toRightOf="@+id/course_info_schedule_content_title"/>
+                <!--<TextView-->
+                <!--android:id="@+id/course_info_schedule_content_title"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_marginTop="@dimen/course_info_margin_top"-->
+                <!--android:text="内容 "-->
+                <!--android:textColor="@color/color_666666"-->
+                <!--android:textSize="@dimen/course_info_schedule_size"-->
+                <!--android:layout_below="@id/course_info_schedule_line"/>-->
+
+                <!--<TextView-->
+                <!--android:id="@+id/tv_schedule_info"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="@dimen/course_info_margin_top"-->
+                <!--android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "-->
+                <!--android:layout_below="@id/course_info_schedule_line"-->
+                <!--android:textColor="@color/color_999999"-->
+                <!--android:textSize="@dimen/course_info_schedule_size"-->
+                <!--android:layout_toRightOf="@+id/course_info_schedule_content_title"/>-->
 
 
-                </RelativeLayout>
+                <!--</RelativeLayout>-->
 
             </RelativeLayout>
 

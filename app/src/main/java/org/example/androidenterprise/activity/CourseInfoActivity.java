@@ -1,6 +1,5 @@
 package org.example.androidenterprise.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -16,8 +15,10 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.adapter.CourseInfoAdapter;
 import org.example.androidenterprise.model.CourseInfoEntity;
 import org.example.androidenterprise.view.CircleImageView;
+import org.example.androidenterprise.view.CustomMeasureListView;
 import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -25,6 +26,10 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.example.androidenterprise.utils.Constant.*;
 
@@ -53,8 +58,9 @@ public class CourseInfoActivity extends BaseActivity {
     private TextView scheduleInfoTv;
     private TextView feedbackNumTv;
     private Button chooseBtn;
+    private CustomMeasureListView courseInfoListview;
 
-    private Context context;
+//    private Context context;
 
 
 //    public final static int STUDENT_NUMBER = 10;
@@ -62,9 +68,11 @@ public class CourseInfoActivity extends BaseActivity {
 //    public final static int MAX_STUDENT_NUMBER_BACK = 7;
 
     private int id;
+//    private Map<String,Object> courseMap;
+//    private List<String> courseList;
+//    private String[] course;
 
     private CourseInfoEntity response;
-//    private SubjectDetails response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +90,6 @@ public class CourseInfoActivity extends BaseActivity {
 
         RequestParams params = new RequestParams(COURSE_INFO_URL);
         params.setAsJsonContent(true);
-//        params.setBodyContent("{\"Class_id\":\""+id+"\"}");
         params.setBodyContent("{\"Class_id\":\"1\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
@@ -90,7 +97,6 @@ public class CourseInfoActivity extends BaseActivity {
                 Log.e("233", result);
                 response = new Gson().fromJson(result, new TypeToken<CourseInfoEntity>() {
                 }.getType());
-//                    Log.e("hhhhh",response.toString());
                 getCourseInfoData();
             }
 
@@ -113,6 +119,9 @@ public class CourseInfoActivity extends BaseActivity {
 
             }
         });
+//        course = new String[]{response.getClass_name(),response.getClass_level(),response.getTeacher().get(0).getTeacher_name(),
+//                response.getClass_location(),String.valueOf(response.getClass_price())};
+
     }
 
     public void getCourseInfoData() {
@@ -129,6 +138,9 @@ public class CourseInfoActivity extends BaseActivity {
         teacherPhoneTv.setText("手机号 : " + response.getTeacher().get(0).getTeacher_telephone());
         studentNumberTv.setText("共" + String.valueOf(response.getTeacher().get(0).getStudent_number()) + "名学员");
         feedbackNumTv.setText(String.valueOf(response.getFeedback_number()) + "条学员反馈");
+        CourseInfoAdapter adapter = new CourseInfoAdapter(getApplicationContext(),response.getClass_detail());
+        courseInfoListview.setAdapter(adapter);
+
     }
 
     private void setTopbar() {
@@ -165,7 +177,18 @@ public class CourseInfoActivity extends BaseActivity {
                 startActivity(new Intent(this, StudentsFeedBackActivity.class));
                 break;
             case R.id.btn_choose:
-                startActivity(new Intent(this, CourseOrderActivity.class));
+                Intent intent = new Intent();
+                intent.setClass(this, CourseOrderActivity.class);
+                intent.putExtra("courseName",response.getClass_name());
+                intent.putExtra("courseLevel",response.getClass_level());
+                intent.putExtra("teacherName",response.getTeacher().get(0).getTeacher_name());
+                intent.putExtra("courseLocation",response.getClass_location());
+                intent.putExtra("coursePrice",String.valueOf(response.getClass_price()));
+
+//                intent.putExtra(response.getClass_name(),response.getClass_level(),response.getTeacher().get(0).getTeacher_name(),
+//                        response.getClass_location(),String.valueOf(response.getClass_price()));
+
+                startActivity(intent);
                 break;
         }
     }
@@ -193,6 +216,8 @@ public class CourseInfoActivity extends BaseActivity {
 
         ll = (LinearLayout) findViewById(R.id.ll_stu_info);
         feedbackLl = (LinearLayout) findViewById(R.id.ll_stu_feedback);
+
+        courseInfoListview = (CustomMeasureListView) findViewById(R.id.cmlv);
     }
 
     private void initLinearLayoutFeedback() {

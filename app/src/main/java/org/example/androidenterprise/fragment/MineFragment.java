@@ -39,7 +39,7 @@ import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
  * Use the {@link MineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class MineFragment extends BaseFragment implements AdapterView.OnItemClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //    private static final String ARG_PARAM1 = "param1";
@@ -194,11 +194,19 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
         });
     }
 
-    @Event(value = {R.id.civ_mine})
+    @Event(value = {R.id.ib_left, R.id.ib_search, R.id.civ_mine})
     private void onClick(View view) {
         switch (view.getId()) {
+            case R.id.ib_search:
+                startActivity(new Intent(getContext(), SearchActivity.class));
+                break;
             case R.id.civ_mine:
-                startActivity(new Intent(getContext(), PortraitActivity.class));
+                if (!isLogin) {
+                    Toast.makeText(getContext(), "请先登录", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getContext(),LoginActivity.class));
+                } else {
+                    startActivity(new Intent(getContext(), PortraitActivity.class));
+                }
                 break;
         }
     }

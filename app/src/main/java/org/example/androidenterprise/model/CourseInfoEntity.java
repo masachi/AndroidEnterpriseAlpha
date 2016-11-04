@@ -7,6 +7,10 @@ import java.util.List;
 /**
  * Created by chenguojiao : 课程详情model.
  */
+//{"Class_time":3,"Feedback_number":5,"Class_id":1,"Class_name":"弹钢琴",
+// "Class_detail":[{"Type":"true","Content":"aaa","Num":1,"Date":"2016-11-12 09:30"}],
+// "Class_price":2000,"Teacher":[{"Teacher_name":"aaa","Student_number":23,"Teacher_telephone":"aaa"}],
+// "Class_remark":"null","Class_level":"A","Class_number":2,"Class_location":"上海新东方"}
 public class CourseInfoEntity implements Serializable {
     private int Class_id;
     private String Class_name;
@@ -17,8 +21,16 @@ public class CourseInfoEntity implements Serializable {
     private String Class_location;
     private String Class_remark;
     private List<TeacherInfoEntity> Teacher;
-    //    private List<ClassDetailInfoEntity> Class_detail;
+    private List<ClassDetailInfoEntity> Class_detail;
     private int Feedback_number;
+
+    public List<ClassDetailInfoEntity> getClass_detail() {
+        return Class_detail;
+    }
+
+    public void setClass_detail(List<ClassDetailInfoEntity> class_detail) {
+        Class_detail = class_detail;
+    }
 
     public int getClass_id() {
         return Class_id;
@@ -191,12 +203,44 @@ public class CourseInfoEntity implements Serializable {
 //            Student_pic_url = student_pic_url;
 //        }
 //    }
-//
-//    public static class ClassDetailInfoEntity{
-//        private int Num;
-//        private boolean Type;
-//        private String Time;
-//        private String Content;
-//}
+// "Class_detail":[{"Type":"true","Content":"aaa","Num":1,"Date":"2016-11-12 09:30"}],
+    public static class ClassDetailInfoEntity{
+        private int Num;
+        private String Type;
+        private String Date;
+        private String Content;
+
+        public int getNum() {
+            return Num;
+        }
+
+        public void setNum(int num) {
+            Num = num;
+        }
+
+        public String getType() {
+            return Type;
+        }
+
+        public void setType(String type) {
+            Type = type;
+        }
+
+        public String getDate() {
+            return Date;
+        }
+
+        public void setDate(String date) {
+            Date = date;
+        }
+
+        public String getContent() {
+            return Content;
+        }
+
+        public void setContent(String content) {
+            Content = content;
+        }
+    }
 
 }

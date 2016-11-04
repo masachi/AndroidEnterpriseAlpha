@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="org.example.androidenterprise.activity.InstrumentPaySuccessActivity">
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_pay_success"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/tv_pay_success"
+                android:layout_marginTop="@dimen/pay_success_text_margintop"
+                android:textSize="@dimen/pay_success_textsize"
+                android:textStyle="bold"
+                android:textColor="@color/color_ff8000"
+                android:layout_centerHorizontal="true"
+                android:text="@string/activity_pay_success_title_str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        <!--<TextView-->
+                <!--android:id="@+id/tv_remind"-->
+                <!--android:layout_marginTop="@dimen/pay_success_text_remind_margintop"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_below="@id/tv_pay_success"-->
+                <!--android:text="@string/activity_pay_success_remind_text_str"-->
+                <!--android:textSize="@dimen/pay_success_textsize_remind"-->
+                <!--android:textColor="@color/color_999999"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+        <Button
+                android:id="@+id/btn_check"
+                android:background="@drawable/pay_success_btn_border"
+                android:layout_marginTop="@dimen/pay_success_check_btn_margintop"
+                android:layout_marginLeft="@dimen/pay_success_check_btn_marginleft"
+                android:layout_below="@id/tv_pay_success"
+                android:text="@string/instrument_pay_success_check_btn_str"
+                android:textSize="@dimen/pay_success_btn_textsize"
+                android:textColor="@color/color_97c8cd"
+                android:layout_width="@dimen/pay_success_btn_width"
+                android:layout_height="@dimen/pay_success_btn_height" />
+        <Button
+                android:id="@+id/btn_back"
+                android:background="@drawable/pay_success_btn_border"
+                android:layout_alignTop="@id/btn_check"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/pay_success_back_btn_marginright"
+                android:text="@string/instrument_pay_success_back_btn_str"
+                android:textSize="@dimen/pay_success_btn_textsize"
+                android:textColor="@color/color_97c8cd"
+                android:layout_width="@dimen/pay_success_btn_width"
+                android:layout_height="@dimen/pay_success_btn_height" />
+    </RelativeLayout>
+
+</LinearLayout>

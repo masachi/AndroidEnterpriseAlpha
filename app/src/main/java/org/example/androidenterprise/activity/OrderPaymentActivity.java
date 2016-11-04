@@ -1,6 +1,6 @@
 package org.example.androidenterprise.activity;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import org.xutils.x;
 
 
 @ContentView(R.layout.activity_order_payment)
-public class OrderPaymentActivity extends Activity implements View.OnClickListener {
+public class OrderPaymentActivity extends BaseActivity {
 
     @ViewInject(R.id.tv_courseInfo)
     TextView courseInfoTv;
@@ -53,11 +53,10 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_order_payment);
         x.view().inject(this);
         setTopbar();
-        alipaytitleTv.setOnClickListener(this);
-        wechatpaytitleTv.setOnClickListener(this);
-        paymentBtn.setOnClickListener(this);
+        getOrderData();
     }
 
     private void setTopbar() {
@@ -75,21 +74,29 @@ public class OrderPaymentActivity extends Activity implements View.OnClickListen
         });
     }
 
+    private void getOrderData(){
+        Intent intent = getIntent();
+        courseInfoTv.setText(intent.getStringExtra("courseName"));
+        attnTv.setText(intent.getStringExtra("name"));
+        attnphoneNumberTv.setText(intent.getStringExtra("phone"));
+        sumTv.setText(intent.getStringExtra("price"));
+    }
     @Event(value = {R.id.tv_alipay_title, R.id.tv_wechatpay_title, R.id.btn_payment})
-    public void onClick(View view) {
+    private void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_alipay_title:
                 selectedalipayIv.setImageResource(R.mipmap.ic_payment_check_selected);
                 wechatpayselectedIv.setImageResource(R.mipmap.ic_payment_check_normal);
-                //TODO 设置支付宝支付
+                //设置支付宝支付
                 break;
             case R.id.tv_wechatpay_title:
                 selectedalipayIv.setImageResource(R.mipmap.ic_payment_check_normal);
                 wechatpayselectedIv.setImageResource(R.mipmap.ic_payment_check_selected);
-                //TODO 设置微信支付
+                //设置微信支付
                 break;
             case R.id.btn_payment:
-                //TODO 设置跳转支付界面
+                startActivity(new Intent(this,CoursePaySuccessActivity.class));
+                //设置跳转支付界面
                 break;
         }
     }

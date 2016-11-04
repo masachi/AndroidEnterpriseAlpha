@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.*;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -26,23 +27,32 @@ import org.xutils.x;
  */
 public class ConfirmOrderActivity extends Activity {
     @ViewInject(R.id.tv_buyer_leave_message)
-    TextView tv_buyer_leave_message;
+    TextView buyerLeaveMessageTv;
     @ViewInject(R.id.topbar_confirm_order)
     TopbarView topbar;
     @ViewInject(R.id.ib_right_arrow)
-    ImageButton ib_right_arrow;
+    ImageButton rightArrowIb;
+    @ViewInject(R.id.btn_submit_order)
+    Button submitOrderBtn;
+    @ViewInject(R.id.tv_real_pay_money)
+    TextView realPayMoneyTv;
+    @ViewInject(R.id.tv_amount_money)
+    TextView amountMoneyTv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
-        tv_buyer_leave_message.setOnClickListener(new View.OnClickListener() {
+        buyerLeaveMessageTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog();
             }
         });
+        Intent intent = getIntent();
+        realPayMoneyTv.setText(intent.getStringExtra("price"));
+        amountMoneyTv.setText(intent.getStringExtra("price"));
     }
 
 
@@ -59,14 +69,14 @@ public class ConfirmOrderActivity extends Activity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 String input = edit.getText().toString();
                 if (input.equals("")) {
-                    tv_buyer_leave_message.setText("点击留言");
+                    buyerLeaveMessageTv.setText("点击留言");
                 } else {
-                    tv_buyer_leave_message.setText(input);
+                    buyerLeaveMessageTv.setText(input);
                 }
             }
         });
         AlertDialog dialog = builder.create();
-        Window mWindow=dialog.getWindow();
+        Window mWindow = dialog.getWindow();
         mWindow.setGravity(Gravity.BOTTOM);
         dialog.show();
     }
@@ -86,13 +96,16 @@ public class ConfirmOrderActivity extends Activity {
         });
     }
 
-    @Event(value = {R.id.tv_buyer_leave_message, R.id.ib_right_arrow})
+    @Event(value = {R.id.tv_buyer_leave_message, R.id.rl_ship_address, R.id.btn_submit_order})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_buyer_leave_message:
                 break;
             case R.id.ib_right_arrow:
                 startActivity(new Intent(this, SelectAddActivity.class));
+                break;
+            case R.id.btn_submit_order:
+                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
                 break;
         }
     }

@@ -5,12 +5,13 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
@@ -27,24 +28,54 @@ public class CourseOrderActivity extends AppCompatActivity {
 
     @ViewInject(R.id.tv_account_name)
     TextView accountTv;
-    @ViewInject(R.id.lv_course_order)
-    ListView courseorderLv;
-    @ViewInject(R.id.et_real_name)
-    EditText realnameEt;
-    @ViewInject(R.id.et_phonenum)
-    EditText phonenumEt;
     @ViewInject(R.id.tv_price)
     TextView priceTv;
     @ViewInject(R.id.btn_confirm)
     Button confirmBtn;
     @ViewInject(R.id.topbar_course_order)
     TopbarView topbar;
+    @ViewInject(R.id.tv_name)
+    TextView courseTv;
+    @ViewInject(R.id.tv_difficulty)
+    TextView difficultyTv;
+    @ViewInject(R.id.tv_teacher)
+    TextView teacherTv;
+    @ViewInject(R.id.tv_classroom)
+    TextView classroomTv;
+    @ViewInject(R.id.tv_price_sign)
+    TextView priceSignTv;
+    @ViewInject(R.id.et_real_name)
+    EditText realNameEt;
+    @ViewInject(R.id.tv_money)
+    TextView moneyTv;
+    @ViewInject(R.id.tv_price_bottom)
+    TextView priceBottomTv;
+    @ViewInject(R.id.et_phonenum)
+    EditText phoneNumberEt;
 
+    String courseName;
+    String coursePrice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
+        getCourseData();
+    }
+
+    private void getCourseData() {
+        Intent intent = getIntent();
+        courseName = intent.getStringExtra("courseName");
+        courseTv.setText(courseName);
+        String courseLevel = intent.getStringExtra("courseLevel");
+        difficultyTv.setText("难度等级:" + courseLevel);
+        String teacherName = intent.getStringExtra("teacherName");
+        teacherTv.setText("老师：" + teacherName);
+        String courseLocation = intent.getStringExtra("courseLocation");
+        classroomTv.setText(courseLocation);
+        coursePrice = intent.getStringExtra("coursePrice");
+        priceTv.setText(coursePrice);
+        priceBottomTv.setText(coursePrice);
     }
 
     private void setTopbar() {
@@ -66,8 +97,20 @@ public class CourseOrderActivity extends AppCompatActivity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_confirm:
-                //TODO: 上传订购信息
-                startActivity(new Intent(this, OrderPaymentActivity.class));
+                //上传订购信息
+                String realName = realNameEt.getText().toString();
+                String phoneNumber = phoneNumberEt.getText().toString();
+                if (TextUtils.isEmpty(realName) || phoneNumber.length() != 11) {
+                    Toast.makeText(this, "请输入信息", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent();
+                    intent.setClass(this, OrderPaymentActivity.class);
+                    intent.putExtra("courseName", courseName);
+                    intent.putExtra("name", realNameEt.getText().toString());
+                    intent.putExtra("phone",phoneNumberEt.getText().toString());
+                    intent.putExtra("price",coursePrice);
+                    startActivity(intent);
+                }
                 break;
         }
     }

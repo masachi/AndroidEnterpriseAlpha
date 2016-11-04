@@ -1,5 +1,6 @@
 package org.example.androidenterprise.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +22,8 @@ import org.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.example.androidenterprise.utils.Constant.JUMP;
 
 @ContentView(R.layout.activity_inside)
 
@@ -73,7 +76,15 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
         fragmentVp.setOnPageChangeListener(this);
 
         fragmentVp.setOffscreenPageLimit(3);
+        if ( JUMP != 1){
+            fragmentVp.setCurrentItem(2,false);
+            change(2);
+        }
         change(0);
+//        Intent intent = getIntent();
+//        int position =Integer.parseInt(intent.getStringExtra("position"));
+//        change(position);
+
     }
 
     @Override

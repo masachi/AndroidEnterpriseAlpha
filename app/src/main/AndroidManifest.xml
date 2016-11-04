@@ -10,11 +10,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
-    <!--短信验证-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 短信验证 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
             android:name=".MyApplication"
@@ -86,18 +86,20 @@
         </activity>
         <activity android:name=".activity.OrderPaymentActivity">
         </activity>
-        <activity android:name=".activity.PaySuccessActivity">
+        <activity android:name=".activity.CoursePaySuccessActivity">
         </activity>
         <activity android:name=".activity.PersonalDataActivity">
         </activity>
         <activity android:name=".activity.MessageInfoActivity">
         </activity>
 
-        <!--短信验证-->
-        <meta-data android:name="JPUSH_APPKEY" android:value="b7ca08d76b6397182dcc6167" /> <!--  </>值来自开发者平台取得的AppKey-->
+        <!-- 短信验证 -->
+        <meta-data
+                android:name="JPUSH_APPKEY"
+                android:value="b7ca08d76b6397182dcc6167"/>
+        <!-- </>值来自开发者平台取得的AppKey -->
 
-        <activity
-                android:name=".activity.ServiceTalkActivity">
+        <activity android:name=".activity.ServiceTalkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -109,7 +111,11 @@
                         android:scheme="rong"/>
             </intent-filter>
         </activity>
-        <activity android:name=".utils.com.lling.photopicker.PhotoPickerActivity" android:screenOrientation="portrait"></activity>
+        <activity
+                android:name=".utils.com.lling.photopicker.PhotoPickerActivity"
+                android:screenOrientation="portrait"/>
+        <activity android:name=".activity.InstrumentPaySuccessActivity">
+        </activity>
     </application>
 
 </manifest>

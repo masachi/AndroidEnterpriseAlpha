@@ -13,7 +13,7 @@ public class Constant {
     public static String COURSE_LIST_URL = URL_HEAD + "/regist/sc";
     public static String LOGIN_URL = URL_HEAD + "/music-stju-test/api_login";
     public static String REGISTER_URL = URL_HEAD + "/myapi/regist/api_regist";
-    public static String COURSE_INFO_URL = URL_HEAD + "/music/api_classdetail";
+    public static String COURSE_INFO_URL = URL_HEAD + "/music-stju-test/api_classdetail";
     public static String INSTRUMENT_DETAIL_URL = URL_HEAD + "/music-stju-test/api_insdetail";
     public static String STUDENT_FEEDBACK_URL = URL_HEAD + "/music-stju-test/api_feedback";
     public static String RECORD_URL = URL_HEAD + "/myapi/buyOrder/api_buyInsOrder";
@@ -57,4 +57,5 @@ public class Constant {
 
    public static String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
 
+    public static int JUMP = 1;
 }

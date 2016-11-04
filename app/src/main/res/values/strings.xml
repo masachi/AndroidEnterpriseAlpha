@@ -212,6 +212,8 @@
     <string name="activity_pay_success_remind_text_str">请关注上课时间按时上课</string>
     <string name="activity_pay_success_check_btn_str">查看课程详情</string>
     <string name="activity_pay_success_back_btn_str">返回课程中心</string>
+    <string name="instrument_pay_success_check_btn_str">查看乐器详情</string>
+    <string name="instrument_pay_success_back_btn_str">返回乐器中心</string>
 
     <!--activity_personal_data-->
     <string name="activity_personal_data_title_text">个人资料</string>

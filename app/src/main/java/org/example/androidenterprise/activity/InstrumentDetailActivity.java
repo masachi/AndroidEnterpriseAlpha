@@ -76,7 +76,7 @@ public class InstrumentDetailActivity extends BaseActivity {
         priceWithLineTv.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        //final int pos = Integer.parseInt(bundle.getString("instrument_selected"));
+        final int pos = Integer.parseInt(bundle.getString("instrument_selected"));
 
         RequestParams params = new RequestParams(INSTRUMENT_DETAIL_URL);
         params.setAsJsonContent(true);
@@ -125,7 +125,10 @@ public class InstrumentDetailActivity extends BaseActivity {
             public void onClick(View v) {
 
                 buyNowPopup.dismiss();
-                startActivity(new Intent(getBaseContext(), ConfirmOrderActivity.class));
+                Intent intent = new Intent();
+                intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
+                intent.putExtra("price",String.valueOf(response.getInstrument_now_price() + response.getFreight()));
+                startActivity(intent);
             }
         });
 

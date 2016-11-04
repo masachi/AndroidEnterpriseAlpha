@@ -25,7 +25,7 @@
             android:id="@+id/tv_account_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/tv_account"
+            android:layout_alignTop="@+id/tv_account"
             android:layout_toRightOf="@id/tv_account"
             android:layout_marginLeft="@dimen/course_order_account_margin_name"
             android:textColor="@color/color_333333"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_line1"
             android:layout_marginTop="@dimen/course_order_margin_many"
-            android:layout_alignLeft="@id/tv_account"
+            android:layout_alignLeft="@+id/tv_account"
             android:text="@string/course_information"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/course_order_text_size"/>
@@ -57,19 +57,86 @@
             android:layout_marginRight="@dimen/course_order_margin_many"
             android:background="@color/color_e0e0e0"/>
 
-    <ListView
-            android:id="@+id/lv_course_order"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <!--&lt;!&ndash;<ListView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/lv_course_order"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_below="@id/tv_line2"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:divider="@color/color_d1d1d1"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:dividerHeight="@dimen/storke_all"/>&ndash;&gt;-->
+    <ImageView
+            android:src="@drawable/img_example"
+            android:id="@+id/iv_course_order"
             android:layout_below="@id/tv_line2"
-            android:divider="@color/color_d1d1d1"
-            android:dividerHeight="@dimen/storke_all"/>
+            android:layout_marginTop="10dp"
+            android:layout_width="@dimen/course_order_img"
+            android:layout_height="@dimen/course_order_img"/>
+    <TextView
+            android:text="课程XXXXXX"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_course_order"
+            android:layout_marginLeft="@dimen/course_order_margin_many"
+            android:layout_alignTop="@id/iv_course_order"
+            android:layout_marginTop="@dimen/course_order_lv_name_margintop"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/course_order_lv_name_size"/>
+    <TextView
+            android:text="难度等级：A"
+            android:id="@+id/tv_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_name"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="@dimen/course_order_margin_many"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/course_order_text_size"/>
+    <TextView
+            android:text="老师：XXX"
+            android:id="@+id/tv_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_name"
+            android:layout_below="@id/tv_difficulty"
+            android:layout_marginTop="@dimen/course_order_lv_space"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/course_order_text_size"/>
+    <TextView
+            android:text="XX区XX大厦XX楼"
+            android:id="@+id/tv_classroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_name"
+            android:layout_below="@id/tv_teacher"
+            android:layout_marginTop="@dimen/course_order_lv_space"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/course_order_text_size"/>
+    <TextView
+            android:text="5000.00"
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/iv_course_order"
+            android:textColor="@color/color_f49c14"
+            android:textSize="@dimen/course_order_lv_price_size"/>
+    <TextView
+            android:id="@+id/tv_price_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_price"
+            android:layout_alignBaseline="@id/tv_price"
+            android:text="@string/price_sign"
+            android:textColor="@color/color_f49c14"
+            android:textSize="@dimen/course_order_lv_price_size"/>
 
     <TextView
             android:id="@+id/tv_line3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/storke_all"
-            android:layout_below="@id/lv_course_order"
+            android:layout_below="@id/iv_course_order"
+            android:layout_marginTop="10dp"
             android:background="@color/color_e0e0e0"/>
 
     <RelativeLayout
@@ -164,7 +231,7 @@
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/course_order_text_size"/>
         <TextView
-                android:id="@+id/tv_price_sign"
+                android:id="@+id/tv_price_sign_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/tv_money"
@@ -175,11 +242,11 @@
                 android:textSize="@dimen/course_order_text_size"/>
         <TextView
                 android:text="5000.00"
-                android:id="@+id/tv_price"
+                android:id="@+id/tv_price_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_price_sign"
-                android:layout_alignBaseline="@id/tv_price_sign"
+                android:layout_toRightOf="@id/tv_price_sign_bottom"
+                android:layout_alignBaseline="@id/tv_price_sign_bottom"
                 android:textColor="@color/color_f49c14"
                 android:textSize="@dimen/course_order_price_size"/>
         <Button

@@ -1,16 +1,15 @@
 package org.example.androidenterprise.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.view.CircleImageView;
 import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -18,36 +17,35 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 /**
- * Created by byyoung1 on 2016/10/23.:个人资料
+ * Created by byyoung1 on 2016/10/18.：支付成功界面
  */
-@ContentView(R.layout.activity_personal_data)
-public class PersonalDataActivity extends BaseActivity{
-    @ViewInject(R.id.civ_head)
-    CircleImageView headCiv;
-    @ViewInject(R.id.tv_account_mes)
-    TextView accountmesTv;
-    @ViewInject(R.id.tv_area_mes)
-    TextView areamesTv;
-    @ViewInject(R.id.tv_other_mes)
-    TextView othermesTv;
-    @ViewInject(R.id.tv_self_mes)
-    TextView selfmesTv;
-    @ViewInject(R.id.topbar_personal_data)
+
+
+@ContentView(R.layout.activity_course_pay_success)
+public class CoursePaySuccessActivity extends BaseActivity {
+
+    @ViewInject(R.id.btn_check_course)
+    Button checkcourseBtn;
+    @ViewInject(R.id.btn_back_course)
+    Button backcourseBtn;
+    @ViewInject(R.id.tv_pay_success)
+    TextView paysuccessTv;
+    @ViewInject(R.id.tv_remind)
+    TextView remindTv;
+    @ViewInject(R.id.topbar_pay_success)
     TopbarView topbar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
-        //TODO 从服务器端获取信息设置到相应的TextView中
-
     }
 
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         Resources res = getResources();
-        topbar.setTopbarTv("个人资料");
+        topbar.setTopbarTv("支付成功");
         Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
         topbar.setLeftIb(ic_return);
         topbar.getLeftIb().setVisibility(View.VISIBLE);
@@ -59,12 +57,19 @@ public class PersonalDataActivity extends BaseActivity{
         });
     }
 
-    @Event(value = {R.id.civ_head})
+    @Event(value = {R.id.btn_check_course, R.id.btn_back_course})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.civ_head:
-                //TODO 点击查看头像
-                startActivity(new Intent(this, PortraitActivity.class));
+            case R.id.btn_check_course:
+                Intent intent = new Intent();
+                intent.putExtra("course_selected","1");
+                intent.setClass(this,CourseInfoActivity.class);
+                startActivity(intent);
+                //点击此按钮实现查看课程详情
+                break;
+            case R.id.btn_back_course:
+                startActivity(new Intent(this,InsideActivity.class));
+                //点击此按钮实现返回课程中心
                 break;
         }
     }
