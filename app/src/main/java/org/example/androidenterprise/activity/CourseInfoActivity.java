@@ -171,7 +171,12 @@ public class CourseInfoActivity extends BaseActivity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_stu_info:
-                startActivity(new Intent(this, StudentsHeadListActivity.class));
+                Intent intentstu = new Intent();
+                intentstu.setClass(this,StudentsHeadListActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("number",String.valueOf(response.getTeacher().get(0).getStudent_number()));
+                intentstu.putExtras(bundle);
+                startActivity(intentstu);
                 break;
             case R.id.ll_stu_feedback:
                 startActivity(new Intent(this, StudentsFeedBackActivity.class));

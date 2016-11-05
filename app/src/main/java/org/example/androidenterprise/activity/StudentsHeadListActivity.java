@@ -8,9 +8,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.WindowManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.view.TopbarView;
+import org.example.androidenterprise.adapter.StudentHeadListAdapter;
+import org.example.androidenterprise.view.CustomMeasureGridView;
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -22,17 +30,22 @@ import org.xutils.x;
 public class StudentsHeadListActivity extends Activity {
     @ViewInject(R.id.topbar_student_head_list)
     TopbarView topbar;
+    @ViewInject(R.id.gv_students_head_list)
+    CustomMeasureGridView studentsheadlistGv;
+
+    private String number;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
+        initData();
         setTopbar();
     }
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         Resources res = getResources();
-        topbar.setTopbarTv("学员列表（"+"12"+"）");
+        topbar.setTopbarTv("学员列表（"+number+"）");
         Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
         topbar.setLeftIb(ic_return);
         topbar.getLeftIb().setVisibility(View.VISIBLE);
@@ -42,5 +55,15 @@ public class StudentsHeadListActivity extends Activity {
                 finish();
             }
         });
+
+    }
+
+
+    public void initData(){
+        Bundle bundle = this.getIntent().getExtras();
+        String num = bundle.getString("number");
+        number = num;
+        studentsheadlistGv.setAdapter(new StudentHeadListAdapter(this,Integer.valueOf(num)));
+
     }
 }

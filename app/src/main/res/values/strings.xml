@@ -232,4 +232,7 @@
     <string name="commit_num">确定(%1$d/%2$d)</string>
     <string name="selectimg">选择头像</string>
 
+    <!--item_student_head-->
+    <string name="student_name_text">名称名称</string>
+
 </resources>

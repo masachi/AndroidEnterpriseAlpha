@@ -497,4 +497,8 @@
     <dimen name="dimen_hundred_twenty">120dp</dimen>
     <dimen name="dimen_hundred">100dp</dimen>
 
+    <!--item_student_head-->
+    <dimen name="head_img_width_height">45dp</dimen>
+    <dimen name="head_name_margin">7dp</dimen>
+    <dimen name="student_name_text_size">12sp</dimen>
 </resources>
