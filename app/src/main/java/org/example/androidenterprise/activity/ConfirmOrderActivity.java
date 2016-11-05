@@ -96,7 +96,7 @@ public class ConfirmOrderActivity extends Activity {
         });
     }
 
-    @Event(value = {R.id.tv_buyer_leave_message, R.id.rl_ship_address, R.id.btn_submit_order})
+    @Event(value = {R.id.tv_buyer_leave_message, R.id.ib_right_arrow, R.id.btn_submit_order})
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_buyer_leave_message:

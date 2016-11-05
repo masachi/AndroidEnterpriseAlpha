@@ -10,6 +10,9 @@ import android.widget.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.EditAddActivity;
 import org.example.androidenterprise.activity.SelectAddActivity;
+import org.example.androidenterprise.model.SelectAddressEntity;
+
+import java.util.List;
 
 /**
  * Created by sdlds on 2016/11/4.
@@ -18,17 +21,19 @@ public class SelectAddressAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
     private int checkedPosition;
+    private List<SelectAddressEntity.ContentEntity> slist;
 
     // TODO: 2016/11/4 add list received from server
 
-    public SelectAddressAdapter(Context context) {
+    public SelectAddressAdapter(Context context, List<SelectAddressEntity.ContentEntity> select_list) {
         this.context = context;
         mLayoutInflate = LayoutInflater.from(context);
+        this.slist=select_list;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return slist.size();
     }
 
     @Override
@@ -57,9 +62,9 @@ public class SelectAddressAdapter extends BaseAdapter {
             holder = (ViewHolder_SelectAddress) convertView.getTag();
         }
         //// TODO: 数据.....2333333
-        holder.consigneeTv.setText("收货人：" + "某某某");
-        holder.phonenumTv.setText("13366668888");
-        holder.addressTv.setText("地址：" + "山东省威海市山东省威海市山东省威海市山东省威海市山东省威海市");
+        holder.consigneeTv.setText("收货人：" + slist.get(position).getRecipient());
+        holder.phonenumTv.setText(slist.get(position).getTelephone());
+        holder.addressTv.setText("地址：" + slist.get(position).getAddress());
         holder.editRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +72,7 @@ public class SelectAddressAdapter extends BaseAdapter {
                 Bundle bundle=new Bundle();
                 bundle.putString("add_addr","1");
                 intent.putExtras(bundle);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

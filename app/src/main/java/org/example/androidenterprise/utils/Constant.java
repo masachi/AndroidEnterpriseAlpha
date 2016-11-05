@@ -15,6 +15,7 @@ public class Constant {
     public static String REGISTER_URL = URL_HEAD + "/myapi/regist/api_regist";
     public static String COURSE_INFO_URL = URL_HEAD + "/music-stju-test/api_classdetail";
     public static String INSTRUMENT_DETAIL_URL = URL_HEAD + "/music-stju-test/api_insdetail";
+    public static String SELECT_ADDRESS_URL = URL_HEAD + "/music-stju-test/api_selectadd";
     public static String STUDENT_FEEDBACK_URL = URL_HEAD + "/music-stju-test/api_feedback";
     public static String RECORD_URL = URL_HEAD + "/myapi/buyOrder/api_buyInsOrder";
     public static String HELP_CENTER_URL=URL_HEAD+"/music-stju-test/api_helpcenter";

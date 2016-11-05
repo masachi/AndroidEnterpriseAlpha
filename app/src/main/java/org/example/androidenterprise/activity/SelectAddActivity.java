@@ -5,19 +5,26 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.RadioGroup;
+import android.widget.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.SelectAddressAdapter;
+import org.example.androidenterprise.model.SelectAddressEntity;
 import org.example.androidenterprise.view.TopbarView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.util.List;
+
+import static org.example.androidenterprise.utils.Constant.SELECT_ADDRESS_URL;
 
 /**
  * Created by yangxinghua ：选择地址
@@ -26,6 +33,9 @@ import org.xutils.x;
 
 public class SelectAddActivity extends AppCompatActivity {
 
+    //    final SelectAddressAdapter selectAddressAdapter=new SelectAddressAdapter(getBaseContext(),slist);
+    private List<SelectAddressEntity.ContentEntity> slist;
+    private SelectAddressEntity response;
     @ViewInject(R.id.lv_address)
     ListView addressLv;
     @ViewInject(R.id.btn_increase)
@@ -38,13 +48,48 @@ public class SelectAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
-        final SelectAddressAdapter selectAddressAdapter = new SelectAddressAdapter(this);
-        addressLv.setAdapter(selectAddressAdapter);
+//        final SelectAddressAdapter selectAddressAdapter = new SelectAddressAdapter(this);
+//        addressLv.setAdapter(selectAddressAdapter);
 
-        addressLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//        addressLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                selectAddressAdapter.setCheckedPosition(position);
+//            }
+//        });
+
+        RequestParams params = new RequestParams(SELECT_ADDRESS_URL);
+        params.setAsJsonContent(true);
+        params.setBodyContent("{\"User_id\":1,\"code\":\"1008\"}");
+        x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectAddressAdapter.setCheckedPosition(position);
+            public void onSuccess(String result) {
+                Log.e("选择地址", result);
+                response = new Gson().fromJson(result, new TypeToken<SelectAddressEntity>() {
+                }.getType());
+                final SelectAddressAdapter selectAddressAdapter = new SelectAddressAdapter(getBaseContext(), response.getContent());
+                addressLv.setAdapter(selectAddressAdapter);
+                addressLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        selectAddressAdapter.setCheckedPosition(position);
+                    }
+                });
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
             }
         });
     }
