@@ -230,6 +230,6 @@
     <string name="msg_maxi_capacity">已达到照片选择上限</string>
     <string name="commit">确定</string>
     <string name="commit_num">确定(%1$d/%2$d)</string>
-    <string name="selectimg">选择图片</string>
+    <string name="selectimg">选择头像</string>
 
 </resources>
