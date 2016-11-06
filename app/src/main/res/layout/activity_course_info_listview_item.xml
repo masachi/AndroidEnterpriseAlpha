@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_marginRight="@dimen/course_info_margin_left_right"
-                android:layout_marginLeft="@dimen/course_info_margin_left_right"
-                android:layout_marginTop="@dimen/course_info_schedule_margin"
-                android:layout_marginBottom="@dimen/course_info_margin_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -13,33 +9,50 @@
             android:layout_height="wrap_content"
             android:text="课时1"
             android:textColor="@color/color_333333"
+            android:layout_marginLeft="@dimen/course_info_margin_top"
+            android:layout_marginTop="@dimen/course_info_schedule_margin"
             android:textSize="@dimen/course_info_schedule_size"/>
 
     <TextView
             android:id="@+id/tv_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="@dimen/course_info_schedule_margin"
             android:text="(已完成)"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/course_info_schedule_size"
+            android:layout_alignTop="@+id/tv_course_info_schedule_title"
             android:layout_toEndOf="@id/tv_course_info_schedule_title"/>
+    <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9:00"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/course_info_schedule_date_size"
+            android:layout_alignTop="@+id/tv_course_info_schedule_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/course_info_margin_top"/>
 
     <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2016-05-05 14:00"
+            android:text="2016-05-05"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/course_info_schedule_date_size"
-            android:layout_alignParentEnd="true"/>
+            android:layout_toLeftOf="@+id/tv_time"
+            android:layout_alignTop="@+id/tv_course_info_schedule_title"
+            android:layout_marginRight="@dimen/course_info_schedule_margin"/>
 
     <TextView
             android:id="@+id/course_info_schedule_line"
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/color_999999"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/course_info_schedule_margin"
+            android:layout_marginLeft="@dimen/course_info_margin_top"
+            android:layout_marginRight="@dimen/course_info_margin_top"
             android:layout_below="@id/tv_course_info_schedule_title"/>
 
     <TextView
@@ -50,6 +63,7 @@
             android:text="内容 "
             android:textColor="@color/color_666666"
             android:textSize="@dimen/course_info_schedule_size"
+            android:layout_marginLeft="@dimen/course_info_margin_top"
             android:layout_below="@id/course_info_schedule_line"/>
 
     <TextView
@@ -61,6 +75,7 @@
             android:layout_below="@id/course_info_schedule_line"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/course_info_schedule_size"
+            android:layout_marginBottom="@dimen/course_info_margin_top"
             android:layout_toRightOf="@+id/course_info_schedule_content_title"/>
 
 

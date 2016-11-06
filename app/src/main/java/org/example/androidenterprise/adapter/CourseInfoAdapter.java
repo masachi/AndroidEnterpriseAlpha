@@ -49,6 +49,7 @@ public class CourseInfoAdapter extends BaseAdapter {
             holder.courseType = (TextView) convertView.findViewById(R.id.tv_type);
             holder.courseDate = (TextView) convertView.findViewById(R.id.tv_date);
             holder.courseContent = (TextView) convertView.findViewById(R.id.tv_schedule_info);
+            holder.courseTime = (TextView) convertView.findViewById(R.id.tv_time);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolderCourseInfo) convertView.getTag();
@@ -56,6 +57,7 @@ public class CourseInfoAdapter extends BaseAdapter {
         holder.courseNum.setText("课时" + mList.get(position).getNum());
         holder.courseContent.setText(mList.get(position).getContent());
         holder.courseDate.setText(mList.get(position).getDate());
+        holder.courseTime.setText(mList.get(position).getTime());
         if (mList.get(position).getType().equals("true")){
             holder.courseType.setText("（已完成）");
         }else {
@@ -69,4 +71,5 @@ final class ViewHolderCourseInfo{
     TextView courseType;
     TextView courseContent;
     TextView courseDate;
+    TextView courseTime;
 }

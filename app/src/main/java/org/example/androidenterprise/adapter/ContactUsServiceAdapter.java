@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RadioButton;
 import org.example.androidenterprise.R;
-import org.example.androidenterprise.activity.ServiceTalkActivity;
 
 import java.util.List;
 
@@ -53,24 +52,25 @@ public class ContactUsServiceAdapter extends BaseAdapter {
             holder_contactUsService = (ViewHolder_ContactUsService) view.getTag();
         }
         holder_contactUsService.serviceItemRb.setText(listServiceName.get(position));
-        if (position == 2 || position == 5) {
-            holder_contactUsService.serviceItemRb.setChecked(false);
+        if (position == 0) {
+            holder_contactUsService.serviceItemRb.setChecked(true);
             holder_contactUsService.serviceItemRb.setClickable(false);
         } else {
-            holder_contactUsService.serviceItemRb.setChecked(true);
-            holder_contactUsService.serviceItemRb.setClickable(true);
+            holder_contactUsService.serviceItemRb.setChecked(false);
+            holder_contactUsService.serviceItemRb.setClickable(false);
         }
-        if (holder_contactUsService.serviceItemRb.isChecked() == true) {
-            holder_contactUsService.serviceItemRb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, ServiceTalkActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-//                Toast.makeText(context, "hhhhh", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
+//        if (holder_contactUsService.serviceItemRb.isChecked() == true) {
+//            holder_contactUsService.serviceItemRb.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    c
+////                    Intent intent = new Intent(context, ServiceTalkActivity.class);
+////                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+////                    context.startActivity(intent);
+////                Toast.makeText(context, "hhhhh", Toast.LENGTH_LONG).show();
+//                }
+//            });
+//        }
         return view;
     }
 }

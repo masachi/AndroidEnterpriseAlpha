@@ -19,6 +19,8 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import static org.example.androidenterprise.activity.LoginActivity.isLogin;
+
 /**
  * Created by yangxinghua ：课程订购
  */
@@ -102,6 +104,9 @@ public class CourseOrderActivity extends AppCompatActivity {
                 String phoneNumber = phoneNumberEt.getText().toString();
                 if (TextUtils.isEmpty(realName) || phoneNumber.length() != 11) {
                     Toast.makeText(this, "请输入信息", Toast.LENGTH_LONG).show();
+                } else if (!isLogin){
+                    Toast.makeText(CourseOrderActivity.this, "请登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this,LoginActivity.class));
                 } else {
                     Intent intent = new Intent();
                     intent.setClass(this, OrderPaymentActivity.class);

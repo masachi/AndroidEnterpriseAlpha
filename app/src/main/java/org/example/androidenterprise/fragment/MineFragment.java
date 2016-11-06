@@ -25,6 +25,7 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.androidenterprise.activity.LoginActivity.PHONE;
 import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.ARG_PARAM1;
 import static org.example.androidenterprise.utils.Constant.ARG_PARAM2;
@@ -132,13 +133,16 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
             phoneTv.setVisibility(View.INVISIBLE);
         } else {
             mineCIv.setImageResource(R.drawable.img_example2);
-            nameTv.setText("2333333");
-            phoneTv.setText("23333333");
+            nameTv.setText("昵称" + PHONE.substring(7,11));
+            phoneTv.setText("手机:"+ PHONE);
             phoneTv.setVisibility(View.VISIBLE);
             circleloginRl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getActivity(), PersonalDataActivity.class));
+                    Intent intent = new Intent();
+                    intent.putExtra("phone",PHONE);
+                    intent.setClass(getActivity(), PersonalDataActivity.class);
+                    startActivity(intent);
                 }
             });
         }
@@ -197,9 +201,9 @@ public class MineFragment extends BaseFragment implements AdapterView.OnItemClic
     @Event(value = {R.id.ib_left, R.id.ib_search, R.id.civ_mine})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ib_search:
-                startActivity(new Intent(getContext(), SearchActivity.class));
-                break;
+//            case R.id.ib_search:
+//                startActivity(new Intent(getContext(), SearchActivity.class));
+//                break;
             case R.id.civ_mine:
                 if (!isLogin) {
                     Toast.makeText(getContext(), "请先登录", Toast.LENGTH_LONG).show();

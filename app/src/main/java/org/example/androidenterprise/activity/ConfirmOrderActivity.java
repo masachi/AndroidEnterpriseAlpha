@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.view.*;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.view.TopbarView;
@@ -30,26 +30,20 @@ public class ConfirmOrderActivity extends Activity {
     TextView buyerLeaveMessageTv;
     @ViewInject(R.id.topbar_confirm_order)
     TopbarView topbar;
-    @ViewInject(R.id.ib_right_arrow)
-    ImageButton rightArrowIb;
     @ViewInject(R.id.btn_submit_order)
     Button submitOrderBtn;
     @ViewInject(R.id.tv_real_pay_money)
     TextView realPayMoneyTv;
     @ViewInject(R.id.tv_amount_money)
     TextView amountMoneyTv;
+    @ViewInject(R.id.rl_ship_address)
+    RelativeLayout shipAddressRl;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
-        buyerLeaveMessageTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
         Intent intent = getIntent();
         realPayMoneyTv.setText(intent.getStringExtra("price"));
         amountMoneyTv.setText(intent.getStringExtra("price"));
@@ -100,8 +94,9 @@ public class ConfirmOrderActivity extends Activity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_buyer_leave_message:
+                showDialog();
                 break;
-            case R.id.ib_right_arrow:
+            case R.id.rl_ship_address:
                 startActivity(new Intent(this, SelectAddActivity.class));
                 break;
             case R.id.btn_submit_order:

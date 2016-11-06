@@ -45,6 +45,7 @@ import static org.example.androidenterprise.utils.Constant.TIME_INTERVAL;
 public class LoginActivity extends BaseActivity implements View.OnTouchListener {
 
     public static boolean isLogin = false;
+    public static String PHONE = null;
 
     @ViewInject(R.id.btn_login)
     Button loginBtn;
@@ -73,6 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
     private ProgressDialog progressDialog;
     //两次获取验证码的时间间隔
 //    private Long TIME_INTERVAL = 60000L;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -316,7 +318,9 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                                 }.getType());
                                 Toast.makeText(getBaseContext(),"登录成功", Toast.LENGTH_SHORT).show();
                                 isLogin = true;
+                                PHONE = usernameEt.getText().toString();
                                 startActivity(new Intent(getBaseContext(),InsideActivity.class));
+//                                finish();
                             }
                         }
 

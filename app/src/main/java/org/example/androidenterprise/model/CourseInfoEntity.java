@@ -209,6 +209,15 @@ public class CourseInfoEntity implements Serializable {
         private String Type;
         private String Date;
         private String Content;
+        private String Time;
+
+        public String getTime() {
+            return Time;
+        }
+
+        public void setTime(String time) {
+            Time = time;
+        }
 
         public int getNum() {
             return Num;

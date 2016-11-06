@@ -25,6 +25,7 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.INSTRUMENT_DETAIL_URL;
 
 @ContentView(R.layout.activity_instrument_detail)
@@ -125,10 +126,15 @@ public class InstrumentDetailActivity extends BaseActivity {
             public void onClick(View v) {
 
                 buyNowPopup.dismiss();
-                Intent intent = new Intent();
-                intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
-                intent.putExtra("price",String.valueOf(response.getInstrument_now_price() + response.getFreight()));
-                startActivity(intent);
+                if (!isLogin){
+                    Toast.makeText(getBaseContext(),"请登录",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getBaseContext(),LoginActivity.class));
+                }else {
+                    Intent intent = new Intent();
+                    intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
+                    intent.putExtra("price", String.valueOf(response.getInstrument_now_price() + response.getFreight()));
+                    startActivity(intent);
+                }
             }
         });
 

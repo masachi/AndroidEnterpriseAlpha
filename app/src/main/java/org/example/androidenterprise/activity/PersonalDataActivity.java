@@ -41,6 +41,8 @@ public class PersonalDataActivity extends BaseActivity{
         x.view().inject(this);
         setTopbar();
         //TODO 从服务器端获取信息设置到相应的TextView中
+        Intent intent = getIntent();
+        accountmesTv.setText(intent.getStringExtra("phone"));
 
     }
 
@@ -57,6 +59,8 @@ public class PersonalDataActivity extends BaseActivity{
                 finish();
             }
         });
+
+
     }
 
     @Event(value = {R.id.civ_head})

@@ -79,8 +79,9 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
         if ( JUMP != 1){
             fragmentVp.setCurrentItem(2,false);
             change(2);
+        }else {
+            change(0);
         }
-        change(0);
 //        Intent intent = getIntent();
 //        int position =Integer.parseInt(intent.getStringExtra("position"));
 //        change(position);

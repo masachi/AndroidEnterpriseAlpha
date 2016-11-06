@@ -80,7 +80,11 @@ public class ComplainSuggestActivity extends AppCompatActivity {
 
         popupWindow = new PopupWindow(contentView, popupWindowWidth, ActionBar.LayoutParams.WRAP_CONTENT, true);
         popupWindow.setTouchable(true);
+//        popupWindow.setOutsideTouchable(false);
         popupWindow.showAsDropDown(contentView, 30, -20);
+        if (popupWindow.isOutsideTouchable()){
+            chooseIv.setImageResource(R.mipmap.ic_complain_suggest_normal);
+        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
