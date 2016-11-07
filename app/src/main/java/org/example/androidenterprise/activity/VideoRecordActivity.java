@@ -115,7 +115,7 @@ public class VideoRecordActivity extends BaseActivity {
                 }
             }
             else{
-                timeTv.setText((mTimeCount/60 < 10 ? "0" + String.valueOf(mTimeCount/60) : String.valueOf(mTimeCount/60)) + ":" + ((mTimeCount - 60 < 10) ? "0" + String.valueOf(mTimeCount%60) : String.valueOf(mTimeCount%60)));
+                timeTv.setText((mTimeCount/60 < 10 ? "0" + String.valueOf(mTimeCount/60) : String.valueOf(mTimeCount/60)) + ":" + ((mTimeCount%60 < 10) ? "0" + String.valueOf(mTimeCount%60) : String.valueOf(mTimeCount%60)));
             }
         }
     }

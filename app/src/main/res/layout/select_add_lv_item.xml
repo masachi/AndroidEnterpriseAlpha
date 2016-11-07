@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:checked="false"
+            android:clickable="false"
             android:focusable="false"
             android:button="@drawable/select_add_rg_selector"/>
     <TextView

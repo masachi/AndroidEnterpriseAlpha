@@ -3,21 +3,32 @@ package org.example.androidenterprise.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ReleaseFeedBackPopupWindowAdapter;
+import org.example.androidenterprise.model.ReleaseFeedBackEntity;
+import org.example.androidenterprise.model.ReleaseRequstEntity;
 import org.example.androidenterprise.view.TopbarView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import static org.example.androidenterprise.utils.Constant.RELEASE_FEEDBACK_URL;
 
 //Created by caishuang:发布反馈
 @ContentView(R.layout.activity_release_feed_back)
@@ -28,16 +39,17 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
     @ViewInject(R.id.iv_down_qwe)
     ImageView iv_down_qwe;
     @ViewInject(R.id.et_please_input_thought)
-    EditText et_please_input_thought;
-    @ViewInject(R.id.iv_video)
-    ImageView iv_video;
-    @ViewInject(R.id.ib_delete)
-    ImageButton ib_delete;
+    EditText inputThoughtEt;
+//    @ViewInject(R.id.iv_video)
+//    ImageView iv_video;
+//    @ViewInject(R.id.ib_delete)
+//    ImageButton ib_delete;
     @ViewInject(R.id.iv_add_square)
     ImageView iv_add_square;
     @ViewInject(R.id.topbar_release_feed_back)
     TopbarView topbar;
 
+    private ReleaseFeedBackEntity response;
     private Context mContext = null;
     private String[] course_time = {"课时1", "课时2", "课时3"};
     PopupWindow popupWindow;
@@ -72,7 +84,43 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
         topbar.setRight1IbOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 发布 
+                if (inputThoughtEt.length() == 0) {
+                    Toast.makeText(getApplicationContext(),"感想内容不能为空",Toast.LENGTH_SHORT).show();
+                }else{
+                ReleaseRequstEntity releaseRequst = new ReleaseRequstEntity();
+                releaseRequst.setCode(2061);
+                releaseRequst.setUser_id(56);
+                releaseRequst.setClass_id(51);
+                releaseRequst.setFeedback("我喜欢");
+                releaseRequst.setTime_id(2);
+                releaseRequst.setDate("2016-11-3 9:00");
+                RequestParams params = new RequestParams(RELEASE_FEEDBACK_URL);
+                params.setAsJsonContent(true);
+                params.setBodyContent(new Gson().toJson(releaseRequst));
+                x.http().post(params, new Callback.CommonCallback<String>() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log.e("发布反馈", result);
+                        response = new Gson().fromJson(result, new TypeToken<ReleaseFeedBackEntity>() {
+                        }.getType());
+                    }
+
+                    @Override
+                    public void onError(Throwable ex, boolean isOnCallback) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(CancelledException cex) {
+
+                    }
+
+                    @Override
+                    public void onFinished() {
+
+                    }
+                });
+            }
             }
         });
     }
@@ -88,7 +136,7 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
     }
 
     private void showPopupWindow(View view) {
-        int popupWindowWidth = et_please_input_thought.getMeasuredWidth();
+        int popupWindowWidth = inputThoughtEt.getMeasuredWidth();
         View contentView = LayoutInflater.from(mContext).inflate(R.layout.release_feed_back_popupwindow_lv, null);
         ListView listview = (ListView) contentView.findViewById(R.id.lv_course);
         ReleaseFeedBackPopupWindowAdapter adapter = new ReleaseFeedBackPopupWindowAdapter(getApplicationContext(), course_time);
@@ -96,6 +144,8 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
 
         popupWindow = new PopupWindow(contentView, popupWindowWidth, ActionBar.LayoutParams.WRAP_CONTENT, true);
         popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));//点击状态栏外部，状态栏能自己弹回去
         popupWindow.showAsDropDown(contentView, 30, -10);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
