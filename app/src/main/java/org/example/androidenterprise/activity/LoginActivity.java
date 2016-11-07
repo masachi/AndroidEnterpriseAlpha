@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import cn.jpush.sms.SMSSDK;
+import cn.jpush.sms.listener.SmscheckListener;
 import cn.jpush.sms.listener.SmscodeListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -188,28 +189,28 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                 passwordEt.setText("");
                 break;
             case R.id.btn_verify:
-                //获取验证码
-                String phoneNum = usernameEt.getText().toString();
-                if(TextUtils.isEmpty(phoneNum)){
-                    Toast.makeText(LoginActivity.this, "请输入手机号码", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                verifyBtn.setClickable(false);
-                //开始倒计时
-                startTimer();
-                SMSSDK.getInstance().getSmsCodeAsyn(phoneNum,1+"", new SmscodeListener() {
-                    @Override
-                    public void getCodeSuccess(final String uuid) {
-                        Toast.makeText(LoginActivity.this,uuid,Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void getCodeFail(int errCode, final String errmsg) {
-                        //失败后停止计时
-                        stopTimer();
-                        Toast.makeText(LoginActivity.this,errmsg,Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                //获取验证码
+//                String phoneNum = usernameEt.getText().toString();
+//                if(TextUtils.isEmpty(phoneNum)){
+//                    Toast.makeText(LoginActivity.this, "请输入手机号码", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                verifyBtn.setClickable(false);
+//                //开始倒计时
+//                startTimer();
+//                SMSSDK.getInstance().getSmsCodeAsyn(phoneNum,1+"", new SmscodeListener() {
+//                    @Override
+//                    public void getCodeSuccess(final String uuid) {
+//                        Toast.makeText(LoginActivity.this,uuid,Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void getCodeFail(int errCode, final String errmsg) {
+//                        //失败后停止计时
+//                        stopTimer();
+//                        Toast.makeText(LoginActivity.this,errmsg,Toast.LENGTH_SHORT).show();
+//                    }
+//                });
                 Toast.makeText(this, "验证码已发送，注意查收", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_register_big:
@@ -220,21 +221,21 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
 
 
 //                            //开始验证
-                            String code = verifyEt.getText().toString();
-                            String phoneN = usernameEt.getText().toString();
-                            String password = passwordEt.getText().toString();
-                            if(TextUtils.isEmpty(code)){
-                                Toast.makeText(LoginActivity.this,"请输入验证码",Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            if(TextUtils.isEmpty(phoneN)){
-                                Toast.makeText(LoginActivity.this,"请输入手机号码",Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            if (TextUtils.isEmpty(password)){
-                                Toast.makeText(LoginActivity.this,"请输入密码",Toast.LENGTH_SHORT).show();
-                                return;
-                            }
+//                            String code = verifyEt.getText().toString();
+//                            String phoneN = usernameEt.getText().toString();
+//                            String password = passwordEt.getText().toString();
+//                            if(TextUtils.isEmpty(code)){
+//                                Toast.makeText(LoginActivity.this,"请输入验证码",Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//                            if(TextUtils.isEmpty(phoneN)){
+//                                Toast.makeText(LoginActivity.this,"请输入手机号码",Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//                            if (TextUtils.isEmpty(password)){
+//                                Toast.makeText(LoginActivity.this,"请输入密码",Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
 //                            progressDialog.setTitle("正在验证...");
 //                            progressDialog.show();
 //                            SMSSDK.getInstance().checkSmsCodeAsyn(phoneN, code, new SmscheckListener() {
