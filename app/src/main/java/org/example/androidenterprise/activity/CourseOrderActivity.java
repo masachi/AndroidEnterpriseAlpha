@@ -102,6 +102,7 @@ public class CourseOrderActivity extends AppCompatActivity {
                 //上传订购信息
                 String realName = realNameEt.getText().toString();
                 String phoneNumber = phoneNumberEt.getText().toString();
+                accountTv.setText(realName);
                 if (TextUtils.isEmpty(realName) || phoneNumber.length() != 11) {
                     Toast.makeText(this, "请输入信息", Toast.LENGTH_LONG).show();
                 } else if (!isLogin){
@@ -110,6 +111,7 @@ public class CourseOrderActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent();
                     intent.setClass(this, OrderPaymentActivity.class);
+                    intent.putExtra("account",realName);
                     intent.putExtra("courseName", courseName);
                     intent.putExtra("name", realNameEt.getText().toString());
                     intent.putExtra("phone",phoneNumberEt.getText().toString());

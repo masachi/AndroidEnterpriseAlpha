@@ -6,17 +6,26 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.ComplainSuggestPopupwindowAdapter;
+import org.example.androidenterprise.model.ComplainSuggestEntity;
+import org.example.androidenterprise.model.ComplainSuggestRequestEntity;
 import org.example.androidenterprise.view.TopbarView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import static org.example.androidenterprise.utils.Constant.COMPLAIN_SUGGEST_URL;
 
 /**
  * Created by chenguojiao : 投诉建议
@@ -29,16 +38,19 @@ public class ComplainSuggestActivity extends AppCompatActivity {
     @ViewInject(R.id.iv_choose)
     ImageView chooseIv;
     @ViewInject(R.id.et_suggest_context)
-    EditText et_suggest_context;
-    @ViewInject(R.id.tv_complain_telephone)
-    TextView tv_complain_telephone;
-    @ViewInject(R.id.tv_complain_telephone_number)
-    TextView tv_complain_telephone_number;
+    EditText suggestContextEt;
+//    @ViewInject(R.id.tv_complain_telephone)
+//    TextView tv_complain_telephone;
+//    @ViewInject(R.id.tv_complain_telephone_number)
+//    TextView tv_complain_telephone_number;
     @ViewInject(R.id.btn_commit)
-    Button btn_commit;
+    Button commitBtn;
     @ViewInject(R.id.topbar_complain_suggest)
     TopbarView topbar;
+    @ViewInject(R.id.rl_choose_kinds)
+    RelativeLayout chooseKindsRl;
 
+    int position = 0;
     private Context mContext = null;
     PopupWindow popupWindow;
     private String[] suggest_kinds = {"投诉", "操作建议", "其他"};
@@ -69,7 +81,7 @@ public class ComplainSuggestActivity extends AppCompatActivity {
     }
 
     private void showPopupWindow(View view) {
-        int popupWindowWidth = et_suggest_context.getMeasuredWidth();
+        int popupWindowWidth = suggestContextEt.getMeasuredWidth();
         // 一个自定义的布局，作为显示的内容
         View contentView = LayoutInflater.from(mContext).inflate(
                 R.layout.activity_suggest_complain_popupwindow_listview, null);
@@ -82,7 +94,7 @@ public class ComplainSuggestActivity extends AppCompatActivity {
         popupWindow.setTouchable(true);
 //        popupWindow.setOutsideTouchable(false);
         popupWindow.showAsDropDown(contentView, 30, -20);
-        if (popupWindow.isOutsideTouchable()){
+        if (popupWindow.isOutsideTouchable()) {
             chooseIv.setImageResource(R.mipmap.ic_complain_suggest_normal);
         }
 
@@ -94,19 +106,60 @@ public class ComplainSuggestActivity extends AppCompatActivity {
                 TextView textView = (TextView) view.findViewById(R.id.tv_item);
                 tv_choose_title.setText(textView.getText());
                 chooseIv.setImageResource(R.mipmap.ic_complain_suggest_normal);
+                position = i + 1;
                 popupWindow.dismiss();
             }
         });
     }
 
-    @Event(value = {R.id.iv_choose, R.id.btn_commit})
+    @Event(value = {R.id.rl_choose_kinds, R.id.btn_commit})
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_choose:
+            case R.id.rl_choose_kinds:
                 chooseIv.setImageResource(R.mipmap.ic_complain_suggest_selected);
                 showPopupWindow(view);
                 break;
             case R.id.btn_commit: // TODO commit suggest
+                ComplainSuggestRequestEntity request = new ComplainSuggestRequestEntity();
+                request.setUser_id("1");
+                request.setType(position);
+                request.setContent(suggestContextEt.getText().toString());
+                RequestParams params = new RequestParams(COMPLAIN_SUGGEST_URL);
+                if (suggestContextEt.getText().length() == 0) {
+                    Toast.makeText(ComplainSuggestActivity.this, "请输入建议内容", Toast.LENGTH_LONG).show();
+                } else if (position == 0) {
+                    Toast.makeText(ComplainSuggestActivity.this, "请选择建议类型", Toast.LENGTH_LONG).show();
+                } else {
+                    params.setAsJsonContent(true);
+                    params.setBodyContent(new Gson().toJson(request));
+                    x.http().post(params, new Callback.CommonCallback<String>() {
+
+                        @Override
+                        public void onSuccess(String result) {
+                            ComplainSuggestEntity response = new Gson().fromJson(result, new TypeToken<ComplainSuggestEntity>() {
+                            }.getType());
+                            Log.e("result", response.getResult());
+                            Toast.makeText(ComplainSuggestActivity.this,"您的宝贵意见我们已收到",Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onError(Throwable ex, boolean isOnCallback) {
+                            ex.printStackTrace();
+                            Toast.makeText(ComplainSuggestActivity.this, "网络请求错误", Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onCancelled(CancelledException cex) {
+
+                        }
+
+                        @Override
+                        public void onFinished() {
+
+                        }
+                    });
+                }
+
                 break;
         }
     }

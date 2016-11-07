@@ -23,6 +23,8 @@ public class Constant {
     public static String INSANDDES_URL = URL_HEAD + "/myapi/showInsAndDes/api_insdes";
     public static String INSTRUNMET_URL = URL_HEAD + "/myapi/showinstrument/api_showinstrument";
     public static String EDIT_ADDRESS_URL=URL_HEAD+"/myapi/receiverAddress/api_edictAddress";
+    public static String ORDER_PAY_URL = URL_HEAD + "/music-stju-test/api_payorder";
+    public static String COMPLAIN_SUGGEST_URL = URL_HEAD + "/music-stju-test/api_complaint";
     public static String RELEASE_FEEDBACK_URL=URL_HEAD+"/myapi/feedback/api_feedBack";
 
     public static int STUDENT_NUMBER = 10;
@@ -60,4 +62,12 @@ public class Constant {
    public static String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
 
     public static int JUMP = 1;
+    public static boolean isClick = false;
+
+    public static int RESULT_CODE = 1;
+    public static int REQUEST_CODE = 1;
+
+//    public static String RECEIVERNAME = "陈陈";
+//    public static String RECEIVERPHONENUMBER = "18545751409";
+//    public static String RECEIVERADDRESS ="上海市闵行区七莘路2678号（上海交通大学七宝校区）";
 }

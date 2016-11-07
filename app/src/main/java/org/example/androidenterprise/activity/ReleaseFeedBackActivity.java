@@ -28,11 +28,15 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.RELEASE_FEEDBACK_URL;
 
 //Created by caishuang:发布反馈
 @ContentView(R.layout.activity_release_feed_back)
-public class ReleaseFeedBackActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReleaseFeedBackActivity extends BaseActivity {
 
     @ViewInject(R.id.tv_select_course_time)
     TextView tv_select_course_time;
@@ -40,19 +44,21 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
     ImageView iv_down_qwe;
     @ViewInject(R.id.et_please_input_thought)
     EditText inputThoughtEt;
-//    @ViewInject(R.id.iv_video)
-//    ImageView iv_video;
-//    @ViewInject(R.id.ib_delete)
-//    ImageButton ib_delete;
     @ViewInject(R.id.iv_add_square)
     ImageView iv_add_square;
     @ViewInject(R.id.topbar_release_feed_back)
     TopbarView topbar;
+    @ViewInject(R.id.rl_select_course_time)
+    RelativeLayout selectCourseTimeRl;
 
     private ReleaseFeedBackEntity response;
     private Context mContext = null;
     private String[] course_time = {"课时1", "课时2", "课时3"};
     PopupWindow popupWindow;
+
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss     ");
+    Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+    String date = formatter.format(curDate);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +68,6 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
         mContext = this;
         tv_select_course_time.setText("课时");
         iv_down_qwe.setImageResource(R.mipmap.ic_complain_suggest_normal);
-        iv_down_qwe.setOnClickListener(this);
     }
 
     private void setTopbar() {
@@ -84,51 +89,59 @@ public class ReleaseFeedBackActivity extends AppCompatActivity implements View.O
         topbar.setRight1IbOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (inputThoughtEt.length() == 0) {
-                    Toast.makeText(getApplicationContext(),"感想内容不能为空",Toast.LENGTH_SHORT).show();
-                }else{
-                ReleaseRequstEntity releaseRequst = new ReleaseRequstEntity();
-                releaseRequst.setCode(2061);
-                releaseRequst.setUser_id(56);
-                releaseRequst.setClass_id(51);
-                releaseRequst.setFeedback("我喜欢");
-                releaseRequst.setTime_id(2);
-                releaseRequst.setDate("2016-11-3 9:00");
-                RequestParams params = new RequestParams(RELEASE_FEEDBACK_URL);
-                params.setAsJsonContent(true);
-                params.setBodyContent(new Gson().toJson(releaseRequst));
-                x.http().post(params, new Callback.CommonCallback<String>() {
-                    @Override
-                    public void onSuccess(String result) {
-                        Log.e("发布反馈", result);
-                        response = new Gson().fromJson(result, new TypeToken<ReleaseFeedBackEntity>() {
-                        }.getType());
+                if (!isLogin) {
+                    Toast.makeText(ReleaseFeedBackActivity.this, "请登录", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(ReleaseFeedBackActivity.this, LoginActivity.class));
+                } else {
+                    if (inputThoughtEt.length() == 0) {
+                        Toast.makeText(getApplicationContext(), "感想内容不能为空", Toast.LENGTH_SHORT).show();
+                    } else {
+                        ReleaseRequstEntity releaseRequst = new ReleaseRequstEntity();
+                        releaseRequst.setCode(2061);
+                        releaseRequst.setUser_id(56);
+                        releaseRequst.setClass_id(51);
+                        releaseRequst.setFeedback(inputThoughtEt.getText().toString());
+                        releaseRequst.setTime_id(2);
+                        releaseRequst.setDate(date);
+                        RequestParams params = new RequestParams(RELEASE_FEEDBACK_URL);
+                        params.setAsJsonContent(true);
+                        params.setBodyContent(new Gson().toJson(releaseRequst));
+                        x.http().post(params, new Callback.CommonCallback<String>() {
+                            @Override
+                            public void onSuccess(String result) {
+                                Log.e("发布反馈", result);
+                                response = new Gson().fromJson(result, new TypeToken<ReleaseFeedBackEntity>() {
+                                }.getType());
+                                Toast.makeText(ReleaseFeedBackActivity.this, "发布成功", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(ReleaseFeedBackActivity.this, StudentsFeedBackActivity.class));
+                            }
+
+                            @Override
+                            public void onError(Throwable ex, boolean isOnCallback) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(CancelledException cex) {
+
+                            }
+
+                            @Override
+                            public void onFinished() {
+
+                            }
+                        });
                     }
-
-                    @Override
-                    public void onError(Throwable ex, boolean isOnCallback) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(CancelledException cex) {
-
-                    }
-
-                    @Override
-                    public void onFinished() {
-
-                    }
-                });
-            }
+                }
             }
         });
+
     }
 
-    @Event(value = {R.id.iv_down_qwe})
-    public void onClick(View view) {
+    @Event(value = {R.id.rl_select_course_time})
+   private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_down_qwe:
+            case R.id.rl_select_course_time:
                 iv_down_qwe.setImageResource(R.mipmap.ic_complain_suggest_selected);
                 showPopupWindow(view);
                 break;

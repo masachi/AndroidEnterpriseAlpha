@@ -27,6 +27,7 @@ import org.xutils.x;
 
 import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.INSTRUMENT_DETAIL_URL;
+import static org.example.androidenterprise.utils.Constant.isClick;
 
 @ContentView(R.layout.activity_instrument_detail)
 /**
@@ -121,29 +122,36 @@ public class InstrumentDetailActivity extends BaseActivity {
         GridView propertyGv = (GridView) popupView.findViewById(R.id.gv_property);
         propertyGv.setAdapter(propertyAdapter);
 
-        buyNowTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                buyNowPopup.dismiss();
-                if (!isLogin){
-                    Toast.makeText(getBaseContext(),"请登录",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(getBaseContext(),LoginActivity.class));
-                }else {
-                    Intent intent = new Intent();
-                    intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
-                    intent.putExtra("price", String.valueOf(response.getInstrument_now_price() + response.getFreight()));
-                    startActivity(intent);
-                }
-            }
-        });
-
         propertyGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 propertyAdapter.changeState(position);
+                isClick = true;
             }
         });
+
+        buyNowTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!isClick){
+                    Toast.makeText(getBaseContext(),"请选择属性",Toast.LENGTH_LONG).show();
+                }else {
+                    buyNowPopup.dismiss();
+                    if (!isLogin) {
+                        Toast.makeText(getBaseContext(), "请登录", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                    } else {
+                        Intent intent = new Intent();
+                        intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
+                        intent.putExtra("price", String.valueOf(response.getInstrument_now_price() + response.getFreight()));
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
+
+
     }
 
     public void getInstrumentDetailData() {
@@ -180,7 +188,16 @@ public class InstrumentDetailActivity extends BaseActivity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_buy:
-                buyNowPopup.showAtLocation(findViewById(R.id.layout_instrument_detail), Gravity.BOTTOM, 0, 0);
+//                buyNowPopup.showAtLocation(findViewById(R.id.layout_instrument_detail), Gravity.BOTTOM, 0, 0);
+                if (!isLogin) {
+                    Toast.makeText(getBaseContext(), "请登录", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                } else {
+                    Intent intent = new Intent();
+                    intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
+                    intent.putExtra("price", String.valueOf(response.getInstrument_now_price() + response.getFreight()));
+                    startActivity(intent);
+                }
                 break;
         }
     }

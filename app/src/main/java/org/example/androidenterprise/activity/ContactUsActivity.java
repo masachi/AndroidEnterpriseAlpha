@@ -99,7 +99,7 @@ public class ContactUsActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.tv_dial_telephone:
 //              拔打电话
-                String data = "tel:10010";
+                String data = "tel:400000000";
                 Uri uri = Uri.parse(data);
                 Intent intent=new Intent();
                 intent.setAction(Intent.ACTION_CALL);
