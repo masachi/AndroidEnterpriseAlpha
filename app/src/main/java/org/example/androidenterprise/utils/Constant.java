@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.widget.ImageView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  * Created by sdlds on 2016/10/26.
  */
@@ -18,15 +21,12 @@ public class Constant {
     public static String SELECT_ADDRESS_URL = URL_HEAD + "/music-stju-test/api_selectadd";
     public static String STUDENT_FEEDBACK_URL = URL_HEAD + "/music-stju-test/api_feedback";
     public static String RECORD_URL = URL_HEAD + "/myapi/buyOrder/api_buyInsOrder";
-    public static String HELP_CENTER_URL = URL_HEAD + "/music-stju-test/api_helpcenter";
+    public static String HELP_CENTER_URL=URL_HEAD+"/music-stju-test/api_helpcenter";
     public static String ALBUM_URL = URL_HEAD + "/myapi/showalbum/api_showalbum";
     public static String INSANDDES_URL = URL_HEAD + "/myapi/showInsAndDes/api_insdes";
     public static String INSTRUNMET_URL = URL_HEAD + "/myapi/showinstrument/api_showinstrument";
-    public static String RESERVATION_ORDER_URL = URL_HEAD + "/myapi/ReservationOrder/api_showReservationOrder";
-    public static String EDIT_ADDRESS_URL = URL_HEAD + "/myapi/receiverAddress/api_edictAddress";
-    public static String ORDER_PAY_URL = URL_HEAD + "/music-stju-test/api_payorder";
-    public static String COMPLAIN_SUGGEST_URL = URL_HEAD + "/music-stju-test/api_complaint";
-    public static String RELEASE_FEEDBACK_URL = URL_HEAD + "/myapi/feedback/api_feedBack";
+    public static String EDIT_ADDRESS_URL=URL_HEAD+"/myapi/receiverAddress/api_edictAddress";
+    public static String COURSE_CALENDAR_URL = URL_HEAD + "/music-stju-test/api_calendar";
 
     public static int STUDENT_NUMBER = 10;
     public static int MAX_STUDENT_NUMBER = 8;
@@ -37,14 +37,14 @@ public class Constant {
     public static int lastPosition = -1;
     public static int size = 10;
 
-    public static String ARG_PARAM1 = "param1";
-    public static String ARG_PARAM2 = "param2";
+    public static  String ARG_PARAM1 = "param1";
+    public static  String ARG_PARAM2 = "param2";
 
     public static float DEFAULT_RADIUS = 3;
 
     public static int TIME_INTERVALAUTOPLAYINGVIEWPAGER = 5;
 
-    public static ImageView.ScaleType SCALE_TYPE = ImageView.ScaleType.CENTER_CROP;
+    public static  ImageView.ScaleType SCALE_TYPE = ImageView.ScaleType.CENTER_CROP;
     public static Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
     public static int COLORDRAWABLE_DIMENSION = 2;
 
@@ -60,15 +60,9 @@ public class Constant {
     public static int PULL_UP_STATE = 0;
     public static int PULL_DOWN_STATE = 1;
 
-    public static String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
+   public static String serviceName[] = {"客服1", "客服2", "客服3", "客服4", "客服5", "客服6", "客服7"};
 
     public static int JUMP = 1;
-    public static boolean isClick = false;
 
-    public static int RESULT_CODE = 1;
-    public static int REQUEST_CODE = 1;
-
-//    public static String RECEIVERNAME = "陈陈";
-//    public static String RECEIVERPHONENUMBER = "18545751409";
-//    public static String RECEIVERADDRESS ="上海市闵行区七莘路2678号（上海交通大学七宝校区）";
+    public static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 }

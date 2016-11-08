@@ -235,4 +235,8 @@
     <!--item_student_head-->
     <string name="student_name_text">名称名称</string>
 
+    <!--item_course_calendar-->
+    <string name="course_title">课程：</string>
+    <string name="add_title">地址：</string>
+
 </resources>

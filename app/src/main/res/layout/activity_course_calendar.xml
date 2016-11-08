@@ -23,8 +23,14 @@
             android:layout_height="wrap_content">
 
     </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+    <View
+            android:layout_marginTop="30dp"
+            android:background="@color/color_d1d1d1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
 
     <org.example.androidenterprise.view.CustomMeasureListView
+            android:id="@+id/cmlv_course_msg"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

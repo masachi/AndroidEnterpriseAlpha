@@ -23,6 +23,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.CourseCalendarActivity;
 import org.example.androidenterprise.activity.CourseInfoActivity;
+import org.example.androidenterprise.activity.LoginActivity;
 import org.example.androidenterprise.activity.SearchActivity;
 import org.example.androidenterprise.adapter.CourseAdapter;
 import org.example.androidenterprise.model.CourseEntity;
@@ -40,6 +41,7 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.*;
 
 /**
@@ -232,7 +234,13 @@ public class CourseFragment extends BaseFragment implements AdapterView.OnItemCl
         topbar.setLeftIbOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), CourseCalendarActivity.class));
+                if (!isLogin){
+                    Toast.makeText(getContext(),"请登录",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getContext(),LoginActivity.class));
+                }else {
+                    startActivity(new Intent(getContext(), CourseCalendarActivity.class));
+                }
+
             }
         });
         Drawable ic_search = res.getDrawable(R.mipmap.ic_search);

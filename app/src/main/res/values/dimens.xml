@@ -501,4 +501,12 @@
     <dimen name="head_img_width_height">45dp</dimen>
     <dimen name="head_name_margin">7dp</dimen>
     <dimen name="student_name_text_size">12sp</dimen>
+
+    <!--item_course_calendar-->
+    <dimen name="course_time_text_size">17sp</dimen>
+    <dimen name="margin_left">15dp</dimen>
+    <dimen name="course_name_margin_top">12dp</dimen>
+    <dimen name="add_margin_top">10dp</dimen>
+    <dimen name="course_name_text_size">15sp</dimen>
+    <dimen name="add_text_size">12sp</dimen>
 </resources>
