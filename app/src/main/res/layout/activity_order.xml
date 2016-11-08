@@ -11,14 +11,17 @@
             android:id="@+id/topbar_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-    <org.example.androidenterprise.view.CustomMeasureListView
-            android:id="@+id/lv_order"
+    <org.example.androidenterprise.view.CustomScrollView
+            android:layout_below="@id/topbar_order"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/order_lv_margin_top"
-            android:layout_below="@id/topbar_order">
-
-    </org.example.androidenterprise.view.CustomMeasureListView>
+            android:layout_height="wrap_content">
+        <org.example.androidenterprise.view.CustomMeasureListView
+                android:id="@+id/lv_order"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/order_lv_margin_top"
+                android:layout_below="@id/topbar_order">
+        </org.example.androidenterprise.view.CustomMeasureListView>
+    </org.example.androidenterprise.view.CustomScrollView>
 
 </RelativeLayout>

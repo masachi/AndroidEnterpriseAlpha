@@ -15,7 +15,7 @@
             android:paddingRight="@dimen/order_lv_margin_many"
             android:background="@drawable/order">
         <TextView
-                android:text="订单时间 2016-05-06 14:00"
+                android:text="2016-05-06 14:00"
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                     android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_text_size"/>
             <TextView
-                    android:text="¥6000.00"
+                    android:text="6000.00"
                     android:id="@+id/tv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,22 +104,13 @@
                 android:layout_marginTop="@dimen/order_lv_margin_many"
                 android:layout_below="@id/tv_line2">
             <TextView
-                    android:text="¥6000.00"
+                    android:text="6000.00"
                     android:id="@+id/tv_total_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:textColor="@color/color_666666"
                     android:textSize="@dimen/order_price_size"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/tv_total_price"
-                    android:layout_centerVertical="true"
-                    android:text="@string/paid"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/order_state_size"/>
-
         </RelativeLayout>
 
     </RelativeLayout>

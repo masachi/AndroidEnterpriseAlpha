@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by cs：确认订单里面选择地址model
+ * Created by caishuang：确认订单里面选择地址model
  */
 public class SelectAddressEntity implements Serializable {
 

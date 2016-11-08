@@ -7,7 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.ReservationOrderEntity;
+
+import java.util.List;
 
 /**
  * Created by yangxinghua on 2016/10/13 : 预约订单页面listview适配器
@@ -15,17 +19,18 @@ import org.example.androidenterprise.R;
 public class OrderAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
-    // TODO:private List<___> ___list;
+    private List<ReservationOrderEntity.ListInfoEntity> slist;
+    private int checkedPosition;
 
-    public OrderAdapter(Context context) {
+    public OrderAdapter(Context context, List<ReservationOrderEntity.ListInfoEntity> list) {
         this.context = context;
         this.mLayoutInflate = LayoutInflater.from(context);
+        this.slist = list;
     }
 
     @Override
     public int getCount() {
-        //TODO:return ___List.getData(context).size();
-        return 3;
+        return slist.size();
     }
 
     @Override
@@ -56,16 +61,20 @@ public class OrderAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder_Order) convertView.getTag();
         }
-        //TODO:___list.get(position).get___
-        holder.date.setText("___list.get(position).get___");
-        holder.state.setText("___list.get(position).get___");
-        holder.img.setImageResource(R.drawable.img_example2);//将R.drawable.img_example换成___list.get(position).get___
-        holder.coursename.setText("___list.get(position).get___");
-        holder.classhour.setText("___list.get(position).get___");
-        holder.teacher.setText("___list.get(position).get___");
-        holder.price.setText("___list.get(position).get___");
-        holder.total_price.setText("___list.get(position).get___");
+        holder.date.setText("订单时间 "+slist.get(position).getDate());
+        holder.state.setText(String.valueOf(slist.get(position).getSituation()));
+        Glide.with(context).load(slist.get(position).getClass_pic_url()).into(holder.img);
+        holder.coursename.setText(slist.get(position).getClass_name());
+        holder.classhour.setText(String.valueOf(slist.get(position).getClass_time())+"课时");
+        holder.teacher.setText("老师:"+slist.get(position).getTeacher_name());
+        holder.price.setText("￥"+String.valueOf(slist.get(position).getClass_price()));
+        holder.total_price.setText("实付￥"+String.valueOf(slist.get(position).getClass_price()));
         return convertView;
+    }
+
+    public void setCheckedPosition(int position) {
+        this.checkedPosition = position;
+        notifyDataSetChanged();
     }
 }
 
