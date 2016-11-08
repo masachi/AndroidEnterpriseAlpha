@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="org.example.androidenterprise.activity.MessageInfoActivity">
+        tools:context=".activity.SystemMessageActivity">
 
     <org.example.androidenterprise.view.TopbarView
             android:id="@+id/topbar_message_info"

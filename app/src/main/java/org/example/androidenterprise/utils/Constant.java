@@ -33,6 +33,8 @@ public class Constant {
     public static String COMPLAIN_SUGGEST_URL = URL_HEAD + "/music-stju-test/api_complaint";
     public static String RELEASE_FEEDBACK_URL = URL_HEAD + "/myapi/feedback/api_feedBack";
     public static String CONFIRM_ORDER_URL = URL_HEAD + "/myapi/buyInstrument/api_buyinstrument";
+    public static String SYSTEM_MESSAGE_URL=URL_HEAD+"/myapi/showSystemMessage/api_showSystemMessage";
+    public static int systemMessageNum=2;
 
     public static int STUDENT_NUMBER = 10;
     public static int MAX_STUDENT_NUMBER = 8;
