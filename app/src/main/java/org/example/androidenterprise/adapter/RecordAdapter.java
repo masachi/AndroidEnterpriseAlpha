@@ -7,7 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.RecordEntity;
+
+import java.util.List;
 
 /**
  * Created by yangxinghua on 2016/10/13 ：交易记录页面适配器
@@ -15,36 +19,42 @@ import org.example.androidenterprise.R;
 public class RecordAdapter extends BaseExpandableListAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
+    private List<RecordEntity.OrderListEntity> mList;
 
-    public RecordAdapter(Context context) {
+    public RecordAdapter(Context context,List<RecordEntity.OrderListEntity> list) {
         mLayoutInflate = LayoutInflater.from(context);
         this.context = context;
+        this.mList = list;
     }
 
     @Override
     public int getGroupCount() {
         //TODO:return ___list.size();
         //return 0;
-        return 2;
+
+        return mList.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
         // TODO:return ___list.get(groupPosition).get___().size();
         //return 0;
-        return 1;
+
+        return  mList.get(groupPosition).getList().size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
         // TODO:return ___list.get(groupPosition);
-        return null;
+
+        return mList.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
         // TODO:return ___list.get(groupPosition).get___().get(childPosition);
-        return null;
+
+        return mList.get(groupPosition).getList().get(childPosition);
     }
 
     @Override
@@ -77,10 +87,11 @@ public class RecordAdapter extends BaseExpandableListAdapter {
             holderGroup = (ViewHolderGroup_Record) convertView.getTag();
         }
         // TODO:___list.get(groupPosition).get___()
-        holderGroup.date.setText("订单时间 " + "___list.get(groupPosition).get___()");
-        holderGroup.state.setText("___list.get(groupPosition).get___()");
-        holderGroup.count.setText("共" + "___list.get(groupPosition).get_商品数量_()" + "件商品（含运费" + "___list.get(groupPosition).get_运费_()" + "）实付 ");
-        holderGroup.count_price.setText("¥" + "___list.get(groupPosition).get___()");
+        holderGroup.date.setText("订单时间 :" +  mList.get(groupPosition).getDate());
+        holderGroup.state.setText(mList.get(groupPosition).getSituation());
+        holderGroup.count.setText("共" + mList.get(groupPosition).getList().size() + "件商品（含运费" + mList.get(groupPosition).getFreigh() + "）实付 ");
+        double price = (double) mList.get(groupPosition).getFreigh() + mList.get(groupPosition).getPrice();
+        holderGroup.count_price.setText("¥" + price);
         return convertView;
     }
 
@@ -99,10 +110,11 @@ public class RecordAdapter extends BaseExpandableListAdapter {
             holderChild = (ViewHolderChild_Record) convertView.getTag();
         }
         // TODO: ___list.get(groupPosition).get___().get(childPosition).get___()
-        holderChild.img.setImageResource(R.drawable.img_example);//将R.drawable.img_example换成___list.get(groupPosition).get___().get(childPosition).get___()
-        holderChild.name.setText("___list.get(groupPosition).get___().get(childPosition).get___()");
-        holderChild.property.setText("___list.get(groupPosition).get___().get(childPosition).get___()");
-        holderChild.price.setText("___list.get(groupPosition).get___().get(childPosition).get___()");
+//        holderChild.img.setImageResource(R.drawable.img_example);//将R.drawable.img_example换成___list.get(groupPosition).get___().get(childPosition).get___()
+        Glide.with(context).load(mList.get(groupPosition).getList().get(childPosition).getPic_url()).into(holderChild.img);
+        holderChild.name.setText( mList.get(groupPosition).getList().get(childPosition).getName());
+        holderChild.property.setText(mList.get(groupPosition).getList().get(childPosition).getType());
+        holderChild.price.setText(mList.get(groupPosition).getList().get(childPosition).getNow_price());
         return convertView;
     }
 

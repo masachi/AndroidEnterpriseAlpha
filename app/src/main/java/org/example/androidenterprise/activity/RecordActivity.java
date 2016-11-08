@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.adapter.RecordAdapter;
 import org.example.androidenterprise.model.RecordEntity;
 import org.example.androidenterprise.model.RecordRequestEntity;
 import org.example.androidenterprise.view.RecordExpandableListView;
@@ -40,8 +41,8 @@ public class RecordActivity extends BaseActivity {
         x.view().inject(this);
         setTopbar();
         RecordRequestEntity request = new RecordRequestEntity();
-        request.setCode("2009");
-        request.setRole("student");
+//        request.setCode("2009");
+//        request.setRole("student");
         request.setUser_id(1);
         RequestParams params = new RequestParams(RECORD_URL);
         params.setAsJsonContent(true);
@@ -53,8 +54,8 @@ public class RecordActivity extends BaseActivity {
                 Log.e("23333", result);
                 response = new Gson().fromJson(result, new TypeToken<RecordEntity>() {
                 }.getType());
-//                RecordAdapter recAdapter = new RecordAdapter(this);
-//                recordExpLv.setAdapter(recAdapter);
+                RecordAdapter recAdapter = new RecordAdapter(getApplicationContext(),response.getOrder_list());
+                recordExpLv.setAdapter(recAdapter);
             }
 
             @Override

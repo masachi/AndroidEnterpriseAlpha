@@ -25,10 +25,14 @@ public class Constant {
     public static String ALBUM_URL = URL_HEAD + "/myapi/showalbum/api_showalbum";
     public static String INSANDDES_URL = URL_HEAD + "/myapi/showInsAndDes/api_insdes";
     public static String INSTRUMENT_URL = URL_HEAD + "/myapi/showinstrument/api_showinstrument";
-    public static String RESERVATION_ORDER_URL = URL_HEAD + "/myapi/ReservationOrder/api_showReservationOrder";
+//    public static String RESERVATION_ORDER_URL = URL_HEAD + "/myapi/ReservationOrder/api_showReservationOrder";
     public static String INSTRUNMET_URL = URL_HEAD + "/myapi/showinstrument/api_showinstrument";
     public static String EDIT_ADDRESS_URL = URL_HEAD + "/myapi/receiverAddress/api_edictAddress";
     public static String COURSE_CALENDAR_URL = URL_HEAD + "/music-stju-test/api_calendar";
+//    public static String COMPLAIN_SUGGEST_URL = URL_HEAD + "/music-stju-test/api_complaint";
+    public static String RESERVATION_ORDER_URL = URL_HEAD + "/myapi/ReservationOrder/api_showReservationOrder";
+//    public static String ORDER_PAY_URL = URL_HEAD + "/music-stju-test/api_payorder";
+//    public static String RELEASE_FEEDBACK_URL = URL_HEAD + "/myapi/feedback/api_feedBack";
     public static String ORDER_PAY_URL = URL_HEAD + "/music-stju-test/api_payorder";
     public static String COMPLAIN_SUGGEST_URL = URL_HEAD + "/music-stju-test/api_complaint";
     public static String RELEASE_FEEDBACK_URL = URL_HEAD + "/myapi/feedback/api_feedBack";

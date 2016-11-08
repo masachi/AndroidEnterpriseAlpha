@@ -4,16 +4,16 @@ package org.example.androidenterprise.model;
  * Created by chenguojiao : 交易记录请求model.
  */
 public class RecordRequestEntity {
-    private int User_id;
+    private int user_id;
     private String code;
     private String role;
 
     public int getUser_id() {
-        return User_id;
+        return user_id;
     }
 
     public void setUser_id(int user_id) {
-        User_id = user_id;
+        this.user_id = user_id;
     }
 
     public String getCode() {

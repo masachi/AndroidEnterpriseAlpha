@@ -69,9 +69,6 @@ public class ConfirmOrderActivity extends Activity {
     }
 
     private void getInstrumentPrice() {
-        Intent intent = getIntent();
-
-    private void getInstrumentPrice() {
         intent = getIntent();
         realPayMoneyTv.setText(intent.getStringExtra("price"));
         amountMoneyTv.setText(intent.getStringExtra("price"));
@@ -82,7 +79,8 @@ public class ConfirmOrderActivity extends Activity {
         receiverNameTv.setText(data.getStringExtra("name"));
         receiverTeleNumberTv.setText(data.getStringExtra("phone"));
         detailsAddressTv.setText(data.getStringExtra("address"));
-        Log.e("hhhhhh",data.getStringExtra("name") + data.getStringExtra("phone") + data.getStringExtra("address"));
+        Log.e("hhhhhh", data.getStringExtra("name") + data.getStringExtra("phone") + data.getStringExtra("address"));
+    }
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (requestCode == RESULT_CODE && REQUEST_CODE == requestCode) {
@@ -157,8 +155,8 @@ public class ConfirmOrderActivity extends Activity {
             case R.id.btn_submit_order:
 //                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
 //                startActivityForResult(intent, REQUEST_CODE);
-                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
-                break;
+//                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
+//                break;
 //                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
 //                startActivityForResult(intent, REQUEST_CODE);
 //                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
