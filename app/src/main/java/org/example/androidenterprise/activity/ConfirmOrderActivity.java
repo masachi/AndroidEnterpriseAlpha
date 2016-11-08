@@ -17,10 +17,6 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import static org.example.androidenterprise.utils.Constant.REQUEST_CODE;
-import static org.example.androidenterprise.utils.Constant.RESULT_CODE;
-
-
 @ContentView(R.layout.activity_confirm_order)
 
 /**
@@ -129,7 +125,7 @@ public class ConfirmOrderActivity extends Activity {
                 break;
             case R.id.btn_submit_order:
                 Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivityForResult(intent, 0);
 //                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
                 break;
         }

@@ -11,6 +11,10 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     buildTypes {
         release {
@@ -18,11 +22,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
+        test.jniLibs.srcDirs = ['libs']
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:multidex:1.0.0'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:support-v4:23.3.0'
@@ -31,4 +45,10 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile files('libs/jsms_android-1.1.0.jar')
     compile project (':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable')
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.4'
+    compile 'com.google.dagger:dagger-compiler:2.0.1'
+    compile 'com.google.code.findbugs:jsr305:3.0.0'
+    compile project(':Qupaisdk-release')
+    compile project(':vitamio')
 }
