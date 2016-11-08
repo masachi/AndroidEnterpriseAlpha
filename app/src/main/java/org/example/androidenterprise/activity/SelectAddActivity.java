@@ -24,7 +24,7 @@ import org.xutils.x;
 
 import java.util.List;
 
-import static org.example.androidenterprise.utils.Constant.*;
+import static org.example.androidenterprise.utils.Constant.SELECT_ADDRESS_URL;
 
 /**
  * Created by yangxinghua ：选择地址

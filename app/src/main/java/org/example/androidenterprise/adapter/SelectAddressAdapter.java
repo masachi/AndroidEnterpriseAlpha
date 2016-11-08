@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.*;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.activity.EditAddActivity;
-import org.example.androidenterprise.activity.SelectAddActivity;
 import org.example.androidenterprise.model.SelectAddressEntity;
 
 import java.util.List;

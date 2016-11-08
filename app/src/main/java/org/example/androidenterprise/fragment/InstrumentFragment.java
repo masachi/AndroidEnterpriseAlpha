@@ -443,7 +443,7 @@ public class InstrumentFragment extends BaseFragment implements TabLayout.OnTabS
         infoEntity.setId(738);
         infoEntity.setRole("student");
         infoEntity.setMaxtime(0);
-        RequestParams paramsInstrument = new RequestParams(INSTRUNMET_URL);
+        RequestParams paramsInstrument = new RequestParams(INSTRUMENT_URL);
         paramsInstrument.setAsJsonContent(true);
         paramsInstrument.setBodyContent(new Gson().toJson(infoEntity));
         x.http().post(paramsInstrument, new Callback.CommonCallback<String>() {
