@@ -8,7 +8,6 @@ import java.util.List;
  * Created by caishuang：确认订单里面选择地址model
  */
 public class SelectAddressEntity implements Serializable {
-
     private List<ContentEntity> Content;
 
     public List<ContentEntity> getContent() {
@@ -20,13 +19,13 @@ public class SelectAddressEntity implements Serializable {
     }
 
     public SelectAddressEntity() {
-        setContent(new ArrayList<ContentEntity>());
+        Content = new ArrayList<ContentEntity>();
     }
 
     public static class ContentEntity {
-        private String Address;
-        private String Telephone;
         private String Recipient;
+        private String Telephone;
+        private String Address;
 
         public String getRecipient() {
             return Recipient;
@@ -51,7 +50,5 @@ public class SelectAddressEntity implements Serializable {
         public void setAddress(String address) {
             Address = address;
         }
-
     }
-
 }

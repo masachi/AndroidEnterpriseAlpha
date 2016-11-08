@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.SystemMessageEntity;
+
+import java.util.List;
 
 /**
  * Created by yangxinghua on 2016/10/13 ：我的留言=》系统消息页面适配器
@@ -14,17 +17,17 @@ import org.example.androidenterprise.R;
 public class SystemMessageAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflate;
     private Context context;
-    //TODO:private List<___> ___list;
+    private List<SystemMessageEntity.SystemMessageListEntity> list;
 
-    public SystemMessageAdapter(Context context) {
+    public SystemMessageAdapter(Context context,List<SystemMessageEntity.SystemMessageListEntity> list) {
         this.mLayoutInflate = LayoutInflater.from(context);
         this.context = context;
+        this.list=list;
     }
 
     @Override
     public int getCount() {
-        //TODO:return ___List.getData(context).size();
-        return 3;
+        return list.size();
     }
 
     @Override
@@ -50,10 +53,9 @@ public class SystemMessageAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder_SystemMessage) convertView.getTag();
         }
-        //TODO:___list.get(position).get___
-        holder.title.setText("___list.get(position).getTitle()");
-        holder.content.setText("___list.get(position).getContent()");
-        holder.time.setText("___list.get(position).getTime()");
+        holder.title.setText(list.get(position).getTitle());
+        holder.content.setText(list.get(position).getContent());
+        holder.time.setText(list.get(position).getDate());
         return convertView;
     }
 }

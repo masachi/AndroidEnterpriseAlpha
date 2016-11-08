@@ -15,6 +15,8 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import static org.example.androidenterprise.utils.Constant.systemMessageNum;
+
 @ContentView(R.layout.activity_message)
 
 public class MessageActivity extends BaseActivity {
@@ -30,7 +32,8 @@ public class MessageActivity extends BaseActivity {
         x.view().inject(this);
         setTopbar();
         BadgeView badgeView = (BadgeView) findViewById(R.id.badget_msg);
-        badgeView.setText("12");
+        String num=String.valueOf(systemMessageNum);
+        badgeView.setText(num);
     }
 
     private void setTopbar() {
@@ -52,7 +55,7 @@ public class MessageActivity extends BaseActivity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_sys_msg:
-                startActivity(new Intent(this, MessageInfoActivity.class));
+                startActivity(new Intent(this, SystemMessageActivity.class));
                 break;
         }
     }

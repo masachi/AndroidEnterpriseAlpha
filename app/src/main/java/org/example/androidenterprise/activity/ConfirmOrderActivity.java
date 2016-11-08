@@ -11,15 +11,22 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
+import com.google.gson.Gson;
 import org.example.androidenterprise.R;
+import org.example.androidenterprise.model.ConfirmOrderEntity;
 import org.example.androidenterprise.view.TopbarView;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import static org.example.androidenterprise.utils.Constant.REQUEST_CODE;
-import static org.example.androidenterprise.utils.Constant.RESULT_CODE;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import static org.example.androidenterprise.utils.Constant.CONFIRM_ORDER_URL;
 
 
 @ContentView(R.layout.activity_confirm_order)
@@ -46,6 +53,12 @@ public class ConfirmOrderActivity extends Activity {
     TextView receiverTeleNumberTv;
     @ViewInject(R.id.tv_details_address)
     TextView detailsAddressTv;
+    Intent intent;
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss     ");
+    Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+    String date = formatter.format(curDate);
+    ConfirmOrderEntity response;
+    String orderNum;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +70,9 @@ public class ConfirmOrderActivity extends Activity {
 
     private void getInstrumentPrice() {
         Intent intent = getIntent();
+
+    private void getInstrumentPrice() {
+        intent = getIntent();
         realPayMoneyTv.setText(intent.getStringExtra("price"));
         amountMoneyTv.setText(intent.getStringExtra("price"));
     }
@@ -67,6 +83,23 @@ public class ConfirmOrderActivity extends Activity {
         receiverTeleNumberTv.setText(data.getStringExtra("phone"));
         detailsAddressTv.setText(data.getStringExtra("address"));
         Log.e("hhhhhh",data.getStringExtra("name") + data.getStringExtra("phone") + data.getStringExtra("address"));
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode == RESULT_CODE && REQUEST_CODE == requestCode) {
+//            data = getIntent();
+//            receiverNameTv.setText(data.getStringExtra("name"));
+//            receiverTeleNumberTv.setText(data.getStringExtra("phone"));
+//            detailsAddressTv.setText(data.getStringExtra("address"));
+//        }
+////        super.onActivityResult(requestCode, resultCode, data);
+//    }
+
+    private void getReceiverData() {
+        intent = getIntent();
+        receiverNameTv.setText(intent.getStringExtra("name"));
+        receiverTeleNumberTv.setText(intent.getStringExtra("phone"));
+        detailsAddressTv.setText(intent.getStringExtra("address"));
+        buyerLeaveMessageTv.setText(intent.getStringExtra("message"));
     }
 
 
@@ -126,6 +159,48 @@ public class ConfirmOrderActivity extends Activity {
 //                startActivityForResult(intent, REQUEST_CODE);
                 startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
                 break;
+//                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
+//                startActivityForResult(intent, REQUEST_CODE);
+//                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
+//                break;
+                final ConfirmOrderEntity request = new ConfirmOrderEntity();
+                request.setUser_id(1);
+                request.setCode("2071");
+                request.setPrice(30);
+                request.setMethod("alipay");
+                request.setSituation("已支付");
+                request.setMessage("货物收到很满意");
+                request.setDate(date);
+                request.setOrdernum(1231231);
+                request.setReceiverAddressId(1);
+//                ArrayList<ConfirmOrderEntity.orderslistEntity> orderslist = new ArrayList<ConfirmOrderEntity.orderslistEntity>();
+//                request.setIns_id();
+//                request.setAttribute();
+
+                RequestParams params = new RequestParams(CONFIRM_ORDER_URL);
+                params.setAsJsonContent(true);
+                params.setBodyContent(new Gson().toJson(request));
+                x.http().post(params, new Callback.CommonCallback<String>() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log.e("确认订单", result);
+                        startActivity(new Intent(getBaseContext(), InstrumentPaySuccessActivity.class));
+                    }
+
+                    @Override
+                    public void onError(Throwable ex, boolean isOnCallback) {
+
+                    }
+
+                    public void onCancelled(CancelledException cex) {
+
+                    }
+
+                    @Override
+                    public void onFinished() {
+
+                    }
+                });
         }
     }
 }

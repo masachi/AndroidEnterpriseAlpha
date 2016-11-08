@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
+            android:background="@color/color_d3d3d3"
             android:horizontalSpacing="@dimen/myworks_gridview_spacing"
             android:verticalSpacing="@dimen/myworks_gridview_spacing"></GridView>
 

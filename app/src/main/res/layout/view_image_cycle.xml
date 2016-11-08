@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/viewpage_height"
             android:layout_alignParentBottom="true"
-            android:background="@color/color_000000_25">
+            android:background="@color/color_000000_40">
         <TextView
                 android:id="@+id/tv_text"
                 android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/color_000000_25">
+                android:background="@color/color_000000_40">
 
             <LinearLayout
                     android:id="@+id/ll_indication_group"

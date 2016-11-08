@@ -6,7 +6,7 @@
 
     <color name="transparent">#00FFFFFF</color>
 
-    <color name="color_000000_25">#65000000</color>
+    <color name="color_000000_40">#66000000</color>
 
     <color name="color_000000">#000000</color>
     <color name="color_333333">#333333</color>
@@ -15,6 +15,7 @@
     <color name="color_97c8cd">#97C8CD</color>
     <color name="color_cccccc">#CCCCCC</color>
     <color name="color_d1d1d1">#D1D1D1</color>
+    <color name="color_d3d3d3">#D3D3D3</color>
     <color name="color_dddddd">#DDDDDD</color>
     <color name="color_e0e0e0">#E0E0E0</color>
     <color name="color_e3e3e3">#E3E3E3</color>

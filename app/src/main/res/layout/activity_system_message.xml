@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.SystemMessageActivity">
+
+    <org.example.androidenterprise.view.TopbarView
+            android:id="@+id/topbar_message_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/color_f0f0f0"/>
+
+    <ListView
+            android:id="@+id/lv_msg_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/msg_lv_divider">
+
+    </ListView>
+
+</LinearLayout>

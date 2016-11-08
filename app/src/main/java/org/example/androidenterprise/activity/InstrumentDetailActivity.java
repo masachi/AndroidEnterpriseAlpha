@@ -27,7 +27,6 @@ import org.xutils.x;
 
 import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.INSTRUMENT_DETAIL_URL;
-import static org.example.androidenterprise.utils.Constant.isClick;
 
 @ContentView(R.layout.activity_instrument_detail)
 /**
@@ -108,6 +107,49 @@ public class InstrumentDetailActivity extends BaseActivity {
 
             }
         });
+//        final BuyPropertyAdapter propertyAdapter = new BuyPropertyAdapter(this);
+//
+//        View popupView = getLayoutInflater().inflate(R.layout.instrument_detail, null);
+//        buyNowPopup = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true);
+//        buyNowPopup.setTouchable(true);
+//        buyNowPopup.setOutsideTouchable(true);
+//        buyNowPopup.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));//点击状态栏外部，状态栏能自己弹回去
+//        buyNowPopup.setAnimationStyle(R.style.anim_menu_buy);
+//
+//        buyNowPopup.getContentView().setFocusableInTouchMode(true);
+//        buyNowPopup.getContentView().setFocusable(true);
+//        TextView buyNowTv = (TextView) popupView.findViewById(R.id.tv_right_now_buy);
+//        GridView propertyGv = (GridView) popupView.findViewById(R.id.gv_property);
+//        propertyGv.setAdapter(propertyAdapter);
+//
+//        propertyGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                propertyAdapter.changeState(position);
+//                isClick = true;
+//            }
+//        });
+//
+//        buyNowTv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (!isClick){
+//                    Toast.makeText(getBaseContext(),"请选择属性",Toast.LENGTH_LONG).show();
+//                }else {
+//                    buyNowPopup.dismiss();
+//                    if (!isLogin) {
+//                        Toast.makeText(getBaseContext(), "请登录", Toast.LENGTH_LONG).show();
+//                        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+//                    } else {
+//                        Intent intent = new Intent();
+//                        intent.setClass(getBaseContext(), ConfirmOrderActivity.class);
+//                        intent.putExtra("price", String.valueOf(response.getInstrument_now_price() + response.getFreight()));
+//                        startActivity(intent);
+//                    }
+//                }
+//            }
+//        });
 //        final BuyPropertyAdapter propertyAdapter = new BuyPropertyAdapter(this);
 //
 //        View popupView = getLayoutInflater().inflate(R.layout.instrument_detail, null);

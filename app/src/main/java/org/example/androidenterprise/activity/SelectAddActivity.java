@@ -25,7 +25,7 @@ import org.xutils.x;
 
 import java.util.List;
 
-import static org.example.androidenterprise.utils.Constant.*;
+import static org.example.androidenterprise.utils.Constant.SELECT_ADDRESS_URL;
 
 /**
  * Created by yangxinghua ：选择地址
@@ -34,8 +34,6 @@ import static org.example.androidenterprise.utils.Constant.*;
 
 public class SelectAddActivity extends AppCompatActivity {
 
-    //    final SelectAddressAdapter selectAddressAdapter=new SelectAddressAdapter(getBaseContext(),slist);
-    private List<SelectAddressEntity.ContentEntity> slist;
     private SelectAddressEntity response;
     @ViewInject(R.id.lv_address)
     CustomMeasureListView addressLv;
@@ -53,6 +51,7 @@ public class SelectAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
+
         RequestParams params = new RequestParams(SELECT_ADDRESS_URL);
         params.setAsJsonContent(true);
         params.setBodyContent("{\"User_id\":1,\"code\":\"1008\"}");

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_video_recoder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_000000"
+    tools:context=".activity.VideoPlayActivity">
+
+    <ImageButton
+        android:id="@+id/ib_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/video_play_margin_many"
+        android:layout_marginTop="@dimen/video_play_margin_many"
+        android:background="@color/transparent"
+        android:src="@mipmap/ic_return"/>
+
+
+    <io.vov.vitamio.widget.VideoView
+        android:id="@+id/vv_video_play"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/video_play_videoview_height"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

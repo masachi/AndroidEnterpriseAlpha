@@ -34,6 +34,7 @@ import java.util.Date;
 import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.RELEASE_FEEDBACK_URL;
 
+
 //Created by caishuang:发布反馈
 @ContentView(R.layout.activity_release_feed_back)
 public class ReleaseFeedBackActivity extends BaseActivity {

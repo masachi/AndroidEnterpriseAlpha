@@ -502,6 +502,9 @@
     <dimen name="head_name_margin">7dp</dimen>
     <dimen name="student_name_text_size">12sp</dimen>
 
+    <dimen name="video_play_videoview_height">200dp</dimen>
+    <dimen name="video_play_margin_many">20dp</dimen>
+
     <!--item_course_calendar-->
     <dimen name="course_time_text_size">17sp</dimen>
     <dimen name="margin_left">15dp</dimen>
