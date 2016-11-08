@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import org.example.androidenterprise.R;
@@ -52,31 +53,22 @@ public class ConfirmOrderActivity extends Activity {
         x.view().inject(this);
         setTopbar();
         getInstrumentPrice();
-        getReceiverData();
     }
-    private void getInstrumentPrice(){
+
+    private void getInstrumentPrice() {
         Intent intent = getIntent();
         realPayMoneyTv.setText(intent.getStringExtra("price"));
         amountMoneyTv.setText(intent.getStringExtra("price"));
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == RESULT_CODE && REQUEST_CODE == requestCode) {
-//            data = getIntent();
-//            receiverNameTv.setText(data.getStringExtra("name"));
-//            receiverTeleNumberTv.setText(data.getStringExtra("phone"));
-//            detailsAddressTv.setText(data.getStringExtra("address"));
-//        }
-////        super.onActivityResult(requestCode, resultCode, data);
-//    }
-
-    private void getReceiverData(){
-        Intent intent = getIntent();
-        receiverNameTv.setText(intent.getStringExtra("name"));
-        receiverTeleNumberTv.setText(intent.getStringExtra("phone"));
-        detailsAddressTv.setText(intent.getStringExtra("address"));
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        receiverNameTv.setText(data.getStringExtra("name"));
+        receiverTeleNumberTv.setText(data.getStringExtra("phone"));
+        detailsAddressTv.setText(data.getStringExtra("address"));
+        Log.e("hhhhhh",data.getStringExtra("name") + data.getStringExtra("phone") + data.getStringExtra("address"));
     }
+
 
     public void showDialog() {
         LayoutInflater factory = LayoutInflater.from(ConfirmOrderActivity.this);
@@ -125,12 +117,14 @@ public class ConfirmOrderActivity extends Activity {
                 showDialog();
                 break;
             case R.id.rl_ship_address:
-                startActivity(new Intent(this, SelectAddActivity.class));
+                Intent intent = new Intent();
+                intent.setClass(this, SelectAddActivity.class);
+                startActivityForResult(intent,0);
                 break;
             case R.id.btn_submit_order:
-                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
-//                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
+//                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
+//                startActivityForResult(intent, REQUEST_CODE);
+                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
                 break;
         }
     }

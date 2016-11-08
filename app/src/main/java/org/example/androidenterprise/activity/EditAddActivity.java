@@ -50,15 +50,18 @@ public class EditAddActivity extends AppCompatActivity {
         x.view().inject(this);
         setTopbar();
         Intent intent = getIntent();
-        if (intent.getExtras().get("add_addr").equals("0")) {
-            consigneeEt.setText("");
-            phonenumEt.setText("");
-            detailEt.setText("");
-        } else {// TODO: setText(从List获取)
-            consigneeEt.setText("某某某");
-            phonenumEt.setText("13366668888");
-            detailEt.setText("山东省威海市山东省威海市山东省威海市山东省威海市山东省威海市");
-        }
+        consigneeEt.setText(intent.getStringExtra("name"));
+        phonenumEt.setText(intent.getStringExtra("phone"));
+        detailEt.setText(intent.getStringExtra("address"));
+//        if (intent.getExtras().get("add_addr").equals("0")) {
+//            consigneeEt.setText("");
+//            phonenumEt.setText("");
+//            detailEt.setText("");
+//        } else {// TODO: setText(从List获取)
+//            consigneeEt.setText("某某某");
+//            phonenumEt.setText("13366668888");
+//            detailEt.setText("山东省威海市山东省威海市山东省威海市山东省威海市山东省威海市");
+//        }
     }
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
@@ -83,12 +86,12 @@ public class EditAddActivity extends AppCompatActivity {
                 break;
             case R.id.btn_conserve:
 
-                EditAddressEntity editAddressEntity=new EditAddressEntity();
+                EditAddressEntity editAddressEntity = new EditAddressEntity();
                 editAddressEntity.setCode("2008");
-                editAddressEntity.setUser_id(9527);
-                editAddressEntity.setReceiver("张三");
-                editAddressEntity.setTel("13009856102");
-                editAddressEntity.setAddress("上海市闵行区");
+                editAddressEntity.setUser_id(1);
+                editAddressEntity.setReceiver(consigneeEt.getText().toString());
+                editAddressEntity.setTel(phonenumEt.getText().toString());
+                editAddressEntity.setAddress(detailEt.getText().toString());
                 RequestParams params = new RequestParams(EDIT_ADDRESS_URL);
                 params.setAsJsonContent(true);
                 params.setBodyContent(new Gson().toJson(editAddressEntity).toString());

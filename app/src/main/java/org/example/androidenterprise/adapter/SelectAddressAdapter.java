@@ -47,8 +47,8 @@ public class SelectAddressAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder_SelectAddress holder;
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final ViewHolder_SelectAddress holder;
         if (convertView == null) {
             holder = new ViewHolder_SelectAddress();
             convertView = mLayoutInflate.inflate(R.layout.select_add_lv_item, null);
@@ -61,7 +61,7 @@ public class SelectAddressAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder_SelectAddress) convertView.getTag();
         }
-        //// TODO: 数据.....2333333
+        // 数据.....2333333
         holder.consigneeTv.setText("收货人：" + slist.get(position).getRecipient());
         holder.phonenumTv.setText(slist.get(position).getTelephone());
         holder.addressTv.setText("地址：" + slist.get(position).getAddress());
@@ -69,9 +69,12 @@ public class SelectAddressAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent().setClass(context,EditAddActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("add_addr","1");
-                intent.putExtras(bundle);
+//                Bundle bundle=new Bundle();
+//                bundle.putString("add_addr","1");
+//                intent.putExtras(bundle);
+                intent.putExtra("name",slist.get(position).getRecipient());
+                intent.putExtra("phone",slist.get(position).getTelephone());
+                intent.putExtra("address",slist.get(position).getAddress());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

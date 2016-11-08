@@ -48,7 +48,7 @@
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:id="@+id/tv_receiver_name"
-                        android:text="XXX"
+                        android:text="陈陈"
                         android:textSize="@dimen/confirm_order_receiver_name_size"
                         android:textColor="@color/color_666666"
                         android:layout_toRightOf="@id/tv_receiver"
@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"/>
                 <TextView
                         android:id="@+id/tv_details_address"
-                        android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                        android:text="上海市闵行区七莘路2678号（上海交通大学七宝校区）"
                         android:layout_toRightOf="@id/tv_address"
                         android:layout_below="@id/tv_receiver_name"
                         android:layout_toLeftOf="@id/ib_right_arrow"

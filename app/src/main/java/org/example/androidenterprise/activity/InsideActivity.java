@@ -19,6 +19,7 @@ import org.example.androidenterprise.utils.InitData;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,7 @@ public class InsideActivity extends BaseActivity implements ViewPager.OnPageChan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        x.view().inject(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         InitData.initData(this);
 

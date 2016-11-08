@@ -89,6 +89,7 @@ public class InstrumentInfoActivity extends AppCompatActivity implements TabLayo
 
         instrumentTL.setOnTabSelectedListener(this);
         mPullToRefreshView.setOnHeaderRefreshListener(this);
+        mPullToRefreshView.setEnablePullLoadMoreDataStatus(false);
 //        mPullToRefreshView.setOnFooterRefreshListener(this);
 //        returnIb.setOnClickListener(this);
     }

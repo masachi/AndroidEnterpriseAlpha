@@ -15,7 +15,7 @@ import org.example.androidenterprise.model.CourseInfoEntity;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/11/4.
+ * Created by chenguojiao on 2016/11/4 课程详情adapter
  */
 public class CourseInfoAdapter extends BaseAdapter {
     private Context mContext;

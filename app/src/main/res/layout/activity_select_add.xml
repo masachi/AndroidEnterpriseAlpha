@@ -11,19 +11,27 @@
             android:id="@+id/topbar_select_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    <ListView
-            android:id="@+id/lv_address"
+    <org.example.androidenterprise.view.CustomScrollView
+            android:layout_below="@+id/topbar_select_add"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/topbar_select_add"
-            android:divider="@color/color_d1d1d1"
-            android:dividerHeight="@dimen/storke_all">
-    </ListView>
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/storke_all"
-            android:layout_below="@id/lv_address"
-            android:background="@color/color_d1d1d1"/>
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btn_increase">
+        <org.example.androidenterprise.view.CustomMeasureListView
+                android:id="@+id/lv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/topbar_select_add"
+                android:divider="@color/color_d1d1d1"
+                android:dividerHeight="@dimen/storke_all">
+        </org.example.androidenterprise.view.CustomMeasureListView>
+    </org.example.androidenterprise.view.CustomScrollView>
+
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/storke_all"-->
+    <!--android:layout_below="@id/lv_address"-->
+    <!--android:background="@color/color_d1d1d1"/>-->
     <Button
             android:id="@+id/btn_increase"
             android:layout_width="match_parent"
@@ -37,5 +45,6 @@
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/select_add_btn_size"
             style="?android:attr/borderlessButtonStyle"/>
+
 
 </RelativeLayout>

@@ -65,4 +65,8 @@ public class Constant {
     public static int JUMP = 1;
 
     public static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
+    public static int RESULT_CODE = 1;
+    public static int REQUEST_CODE = 1;
+
+    public static int CLASS_TIME = 3;
 }

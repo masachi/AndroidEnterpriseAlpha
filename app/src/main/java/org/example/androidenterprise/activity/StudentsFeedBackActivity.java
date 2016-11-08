@@ -1,6 +1,5 @@
 package org.example.androidenterprise.activity;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,9 +21,11 @@ import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import static org.example.androidenterprise.utils.Constant.CLASS_TIME;
 import static org.example.androidenterprise.utils.Constant.STUDENT_FEEDBACK_URL;
 
 //Created by caishuang:学生反馈
@@ -33,27 +35,30 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
     @ViewInject(R.id.topbar_student_feed_back)
     TopbarView topbar;
     @ViewInject(R.id.ib_instrument_info_back2)
-    ImageButton ib_instrument_info_back2;
+    ImageButton instrumentInfoBack2Ib;
     @ViewInject(R.id.ib_instrument_info_next)
-    ImageButton ib_instrument_info_next;
+    ImageButton instrumentInfoNextIb;
     @ViewInject(R.id.lv_th)
     ListView lv_th;
+    @ViewInject(R.id.tv_class_time)
+    TextView classTimeTv;
 
     StudentsFeedBackEntity responseStudentsFeedBack;
     StudentsFeedbackAdapter studentsFeedbackAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
+
         StudentsFeedbackRequestEntity studentsFeedbackRequest = new StudentsFeedbackRequestEntity();
         studentsFeedbackRequest.setClass_id(1);
-        studentsFeedbackRequest.setTime_id(1);
+        studentsFeedbackRequest.setTime_id(CLASS_TIME);
         RequestParams params = new RequestParams(STUDENT_FEEDBACK_URL);
         params.setAsJsonContent(true);
         params.setBodyContent(new Gson().toJson(studentsFeedbackRequest));
-//        params.setBodyContent("{\"Class_id\":1,\"Time_id\":1\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -84,7 +89,6 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
             }
         });
     }
-
     private void setTopbar() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         Resources res = getResources();
@@ -99,4 +103,29 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Event(value = {R.id.ib_instrument_info_back2, R.id.ib_instrument_info_next})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ib_instrument_info_back2:
+                if (CLASS_TIME == 1) {
+                    instrumentInfoBack2Ib.setClickable(false);
+                }else {
+                    instrumentInfoBack2Ib.setClickable(true);
+                }
+                classTimeTv.setText("课时" + CLASS_TIME);
+                CLASS_TIME--;
+                break;
+            case R.id.ib_instrument_info_next:
+                if (CLASS_TIME == 3) {
+                    instrumentInfoNextIb.setClickable(false);
+                }else {
+                    instrumentInfoNextIb.setClickable(true);
+                }
+                classTimeTv.setText("课时" + CLASS_TIME);
+                CLASS_TIME++;
+                break;
+        }
+    }
+
 }

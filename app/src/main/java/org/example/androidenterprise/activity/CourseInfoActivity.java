@@ -77,6 +77,7 @@ public class CourseInfoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        x.view().inject(this);
         mInflater = LayoutInflater.from(this);
         setTopbar();
         Intent intent = getIntent();

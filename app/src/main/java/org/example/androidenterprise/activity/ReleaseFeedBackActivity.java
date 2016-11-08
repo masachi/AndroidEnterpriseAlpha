@@ -98,10 +98,10 @@ public class ReleaseFeedBackActivity extends BaseActivity {
                     } else {
                         ReleaseRequstEntity releaseRequst = new ReleaseRequstEntity();
                         releaseRequst.setCode(2061);
-                        releaseRequst.setUser_id(56);
-                        releaseRequst.setClass_id(51);
+                        releaseRequst.setUser_id(1);
+                        releaseRequst.setClass_id(1);
                         releaseRequst.setFeedback(inputThoughtEt.getText().toString());
-                        releaseRequst.setTime_id(2);
+                        releaseRequst.setTime_id(1);
                         releaseRequst.setDate(date);
                         RequestParams params = new RequestParams(RELEASE_FEEDBACK_URL);
                         params.setAsJsonContent(true);

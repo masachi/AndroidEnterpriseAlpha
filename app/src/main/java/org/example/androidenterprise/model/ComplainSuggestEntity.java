@@ -1,7 +1,7 @@
 package org.example.androidenterprise.model;
 
 /**
- * Created by Administrator on 2016/11/7.
+ * Created by chenguojiao on 2016/11/7.投诉建议
  */
 public class ComplainSuggestEntity {
     private String Result;

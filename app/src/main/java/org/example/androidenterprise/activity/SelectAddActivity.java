@@ -14,6 +14,7 @@ import com.google.gson.reflect.TypeToken;
 import org.example.androidenterprise.R;
 import org.example.androidenterprise.adapter.SelectAddressAdapter;
 import org.example.androidenterprise.model.SelectAddressEntity;
+import org.example.androidenterprise.view.CustomMeasureListView;
 import org.example.androidenterprise.view.TopbarView;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -37,7 +38,7 @@ public class SelectAddActivity extends AppCompatActivity {
     private List<SelectAddressEntity.ContentEntity> slist;
     private SelectAddressEntity response;
     @ViewInject(R.id.lv_address)
-    ListView addressLv;
+    CustomMeasureListView addressLv;
     @ViewInject(R.id.btn_increase)
     Button increaseBtn;
     @ViewInject(R.id.topbar_select_add)
@@ -106,7 +107,8 @@ public class SelectAddActivity extends AppCompatActivity {
                 intent.putExtra("name", name);
                 intent.putExtra("phone",phone);
                 intent.putExtra("address",address);
-//                setResult(RESULT_CODE, intent);
+                intent.setClass(getApplicationContext(),ConfirmOrderActivity.class);
+                setResult(0, intent);
                 finish();
             }
         });
@@ -116,7 +118,7 @@ public class SelectAddActivity extends AppCompatActivity {
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_increase:
-                // TODO: 跳到编辑地址页面（增加地址形式）
+                // : 跳到编辑地址页面（增加地址形式）
                 Intent intent = new Intent().setClass(SelectAddActivity.this, EditAddActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("add_addr", "0");

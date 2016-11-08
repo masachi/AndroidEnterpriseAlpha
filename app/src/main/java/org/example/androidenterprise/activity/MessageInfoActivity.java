@@ -11,6 +11,7 @@ import org.example.androidenterprise.adapter.SystemMessageAdapter;
 import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 @ContentView(R.layout.activity_message_info)
 
@@ -24,6 +25,7 @@ public class MessageInfoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        x.view().inject(this);
         setTopbar();
         SystemMessageAdapter sysMsgAdapter = new SystemMessageAdapter(this);
         sysInfoLv.setAdapter(sysMsgAdapter);

@@ -42,10 +42,9 @@ public class HelpCenterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_help_center);
         x.view().inject(this);
         setTopbar();
-//    TODO get use_article about
+//    get use_article about
 
         RequestParams params = new RequestParams(HELP_CENTER_URL);
         params.setAsJsonContent(true);

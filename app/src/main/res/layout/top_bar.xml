@@ -16,7 +16,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/action_bar_image_padding_start"
-                android:paddingRight="20dp"
+                android:paddingRight="40dp"
                 android:paddingTop="5dp"
                 android:layout_centerVertical="true"
                 android:background="@color/transparent"/>
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 android:layout_centerVertical="true"
-                android:paddingLeft="10dp"
+                android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:layout_marginEnd="@dimen/action_bar_image_margin_end"

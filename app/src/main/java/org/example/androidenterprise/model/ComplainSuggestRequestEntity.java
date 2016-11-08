@@ -3,7 +3,7 @@ package org.example.androidenterprise.model;
 import java.io.Serializable;
 
 /**
- * Created by Administrator on 2016/11/7.
+ * Created by chenguojiao on 2016/11/7.投诉建议请求
  */
 public class ComplainSuggestRequestEntity implements Serializable {
     private String User_id;

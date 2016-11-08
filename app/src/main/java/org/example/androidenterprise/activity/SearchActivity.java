@@ -11,6 +11,7 @@ import org.example.androidenterprise.adapter.ItemAdapter;
 import org.example.androidenterprise.adapter.SearchOrderAdapter;
 import org.example.androidenterprise.fragment.CourseFragment;
 import org.example.androidenterprise.utils.InitData;
+import org.xutils.x;
 
 import static org.example.androidenterprise.utils.InitData.course;
 import static org.example.androidenterprise.utils.InitData.olist;

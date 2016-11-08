@@ -17,6 +17,10 @@ import org.xutils.x;
 
 import static org.example.androidenterprise.utils.Constant.JUMP;
 
+/*
+Create by chenguojio : 乐器支付成功
+ */
+
 @ContentView(R.layout.activity_instrument_pay_success)
 public class InstrumentPaySuccessActivity extends BaseActivity {
 
@@ -57,16 +61,16 @@ public class InstrumentPaySuccessActivity extends BaseActivity {
             case R.id.btn_check:
                 Intent intent1 = new Intent();
                 intent1.putExtra("instrument_selected","1");
-                intent1.setClass(this,CourseInfoActivity.class);
+                intent1.setClass(this,InstrumentDetailActivity.class);
                 startActivity(intent1);
-                //点击此按钮实现查看课程详情
+                //点击此按钮实现查看乐器详情
                 break;
             case R.id.btn_back:
                 Intent intent = new Intent();
                 intent.setClass(this,InsideActivity.class);
                 JUMP = 2;
                 startActivity(intent);
-                //点击此按钮实现返回课程中心
+                //点击此按钮实现返回乐器中心
                 break;
         }
     }

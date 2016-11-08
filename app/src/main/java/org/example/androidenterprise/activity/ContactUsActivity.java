@@ -71,6 +71,7 @@ public class ContactUsActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
+                    Toast.makeText(ContactUsActivity.this,"请稍等",Toast.LENGTH_LONG).show();
                     connect("3xheWPjjmiPztJ8LTpVtMkxCmntzjCygMK8AxneEUJtzNiszBisNBbFuXv1ri4Vj1squkKQfjQ884vtuk8OuFg==");
                 }else {
                     Toast.makeText(ContactUsActivity.this, "小二休息了。。。", Toast.LENGTH_SHORT).show();

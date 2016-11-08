@@ -13,6 +13,7 @@ import org.example.androidenterprise.view.TopbarView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 @ContentView(R.layout.activity_message)
 
@@ -26,6 +27,7 @@ public class MessageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        x.view().inject(this);
         setTopbar();
         BadgeView badgeView = (BadgeView) findViewById(R.id.badget_msg);
         badgeView.setText("12");
