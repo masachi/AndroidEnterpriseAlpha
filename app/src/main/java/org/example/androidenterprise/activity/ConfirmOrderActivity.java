@@ -25,6 +25,7 @@ import org.xutils.x;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.example.androidenterprise.utils.Constant.CONFIRM_ORDER_URL;
 
@@ -150,7 +151,7 @@ public class ConfirmOrderActivity extends Activity {
             case R.id.rl_ship_address:
                 Intent intent = new Intent();
                 intent.setClass(this, SelectAddActivity.class);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
                 break;
             case R.id.btn_submit_order:
 //                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
@@ -170,10 +171,13 @@ public class ConfirmOrderActivity extends Activity {
                 request.setMessage("货物收到很满意");
                 request.setDate(date);
                 request.setOrdernum(1231231);
-                request.setReceiverAddressId(1);
-//                ArrayList<ConfirmOrderEntity.orderslistEntity> orderslist = new ArrayList<ConfirmOrderEntity.orderslistEntity>();
-//                request.setIns_id();
-//                request.setAttribute();
+                request.setReceiverAddressID(1);
+                List<ConfirmOrderEntity.OrderslistEntity> orderslist = new ArrayList<ConfirmOrderEntity.OrderslistEntity>();
+                ConfirmOrderEntity.OrderslistEntity orderslistEntity = new ConfirmOrderEntity.OrderslistEntity();
+                orderslistEntity.setIns_id(1);
+                orderslistEntity.setAttribute("yellow");
+                orderslist.add(orderslistEntity);
+                request.setorderslist(orderslist);
 
                 RequestParams params = new RequestParams(CONFIRM_ORDER_URL);
                 params.setAsJsonContent(true);

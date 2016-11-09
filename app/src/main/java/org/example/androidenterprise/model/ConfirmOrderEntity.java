@@ -16,11 +16,11 @@ public class ConfirmOrderEntity implements Serializable {
     private String message;
     private String date;
     private int ordernum;
-    private int receiverAddressId;
-    private List<orderslistEntity> orderslist;
+    private int receiverAddressID;
+    private List<OrderslistEntity> orderslist;
 
     public ConfirmOrderEntity() {
-        orderslist = new ArrayList<orderslistEntity>();
+        orderslist = new ArrayList<OrderslistEntity>();
     }
 
     public int getUser_id() {
@@ -87,24 +87,24 @@ public class ConfirmOrderEntity implements Serializable {
         this.ordernum = ordernum;
     }
 
-    public int getReceiverAddressId() {
-        return receiverAddressId;
+    public int getReceiverAddressID() {
+        return receiverAddressID;
     }
 
-    public void setReceiverAddressId(int receiverAddressId) {
-        this.receiverAddressId = receiverAddressId;
+    public void setReceiverAddressID(int receiverAddressID) {
+        this.receiverAddressID = receiverAddressID;
     }
 
-    public List<orderslistEntity> getOrderslist() {
+    public List<OrderslistEntity> getorderslist() {
         return orderslist;
     }
 
-    public void setOrderslist(List<orderslistEntity> orderslist) {
+    public void setorderslist(List<OrderslistEntity> orderslist) {
         this.orderslist = orderslist;
     }
 
 
-    public static class orderslistEntity {
+    public static class OrderslistEntity {
         private int ins_id;
         private String attribute;
 
