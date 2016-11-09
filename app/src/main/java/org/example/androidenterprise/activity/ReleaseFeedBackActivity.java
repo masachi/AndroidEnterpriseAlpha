@@ -33,6 +33,7 @@ import java.util.Date;
 
 import static org.example.androidenterprise.activity.LoginActivity.isLogin;
 import static org.example.androidenterprise.utils.Constant.RELEASE_FEEDBACK_URL;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 
 //Created by caishuang:发布反馈
@@ -56,8 +57,9 @@ public class ReleaseFeedBackActivity extends BaseActivity {
     private Context mContext = null;
     private String[] course_time = {"课时1", "课时2", "课时3"};
     PopupWindow popupWindow;
+    int feedBackCourseTime;
 
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss     ");
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy:MM:dd    HH:mm:ss     ");
     Date curDate = new Date(System.currentTimeMillis());//获取当前时间
     String date = formatter.format(curDate);
 
@@ -99,7 +101,7 @@ public class ReleaseFeedBackActivity extends BaseActivity {
                     } else {
                         ReleaseRequstEntity releaseRequst = new ReleaseRequstEntity();
                         releaseRequst.setCode(2061);
-                        releaseRequst.setUser_id(1);
+                        releaseRequst.setUser_id(USERID);
                         releaseRequst.setClass_id(1);
                         releaseRequst.setFeedback(inputThoughtEt.getText().toString());
                         releaseRequst.setTime_id(1);
@@ -169,6 +171,7 @@ public class ReleaseFeedBackActivity extends BaseActivity {
                 imageView.setVisibility(view.VISIBLE);
                 TextView textView = (TextView) view.findViewById(R.id.tv_course_time_item);
                 tv_select_course_time.setText(textView.getText());
+                feedBackCourseTime = i + 1;
                 iv_down_qwe.setImageResource(R.mipmap.ic_complain_suggest_normal);
                 popupWindow.dismiss();
             }

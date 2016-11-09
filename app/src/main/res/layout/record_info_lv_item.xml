@@ -5,12 +5,19 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/record_info_margin"
                 android:paddingBottom="@dimen/record_info_margin">
-
+    <RelativeLayout
+            android:id="@+id/rl_instrument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="8dp">
     <ImageView
             android:src="@drawable/img_example"
             android:id="@+id/iv_record"
             android:layout_width="@dimen/record_info_img"
-            android:layout_height="@dimen/record_info_img"/>
+            android:layout_height="@dimen/record_info_img"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
     <TextView
             android:text="乐器xxx乐器xxx乐器xxx乐器xxx乐器xxx乐器xxx"
             android:id="@+id/tv_name"
@@ -20,7 +27,8 @@
             android:layout_toRightOf="@id/iv_record"
             android:layout_marginLeft="@dimen/record_lv_margin_many"
             android:textColor="@color/color_666666"
-            android:textSize="@dimen/record_info_text_size"/>
+            android:textSize="@dimen/record_info_text_size"
+            android:layout_marginRight="10dp"/>
     <TextView
             android:text="XXX属性"
             android:id="@+id/tv_property"
@@ -30,7 +38,8 @@
             android:layout_marginTop="@dimen/record_lv_margin_many"
             android:layout_alignLeft="@id/tv_name"
             android:textColor="@color/color_cccccc"
-            android:textSize="@dimen/record_info_text_size"/>
+            android:textSize="@dimen/record_info_text_size"
+            android:layout_marginRight="10dp"/>
     <TextView
             android:text="¥6000.00"
             android:id="@+id/tv_price"
@@ -39,6 +48,56 @@
             android:layout_alignParentEnd="true"
             android:layout_alignBottom="@id/iv_record"
             android:textColor="@color/color_666666"
-            android:textSize="@dimen/record_info_text_size"/>
+            android:textSize="@dimen/record_info_text_size"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+    <TextView
+            android:id="@+id/tv_line2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/storke_all"
+            android:layout_below="@id/rl_instrument"
+            android:layout_marginTop="7dp"
+            android:background="@color/color_d1d1d1"
+            android:visibility="gone"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    <RelativeLayout
+            android:id="@+id/rl_final_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_line2"
+            android:layout_marginTop="@dimen/record_lv_margin_many"
+            android:visibility="gone"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+        <TextView
+                android:text="¥6000.00"
+                android:id="@+id/tv_final_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/record_count_size"/>
+        <TextView
+                android:text="共n件商品（含运费0.0）实付 "
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/tv_final_price"
+                android:layout_centerVertical="true"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/record_state_size"/>
+
+    </RelativeLayout>
+
+    <TextView
+            android:id="@+id/tv_line_final"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/storke_all"
+            android:layout_below="@id/rl_final_price"
+            android:layout_marginTop="10dp"
+            android:background="@color/color_d1d1d1"
+            android:visibility="gone"/>
 
 </RelativeLayout>

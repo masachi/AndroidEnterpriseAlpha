@@ -37,9 +37,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static org.example.androidenterprise.utils.Constant.LOGIN_URL;
-import static org.example.androidenterprise.utils.Constant.REGISTER_URL;
-import static org.example.androidenterprise.utils.Constant.TIME_INTERVAL;
+import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.activity_login)
 
@@ -268,6 +266,7 @@ public class LoginActivity extends BaseActivity implements View.OnTouchListener 
                         public void onSuccess(String result) {
                             Log.e("23333",result);
                             RegisterResponseEntity response = new Gson().fromJson(result, new TypeToken<RegisterResponseEntity>(){}.getType());
+                            USERID = response.getId();
                             if(response.getResult().equals("no")){
                                 Toast.makeText(getBaseContext(),"该手机号已经注册\n请登录",Toast.LENGTH_SHORT).show();
                             }

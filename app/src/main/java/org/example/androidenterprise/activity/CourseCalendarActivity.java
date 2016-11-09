@@ -44,6 +44,7 @@ import java.util.concurrent.Executors;
 
 import static org.example.androidenterprise.utils.Constant.COURSE_CALENDAR_URL;
 import static org.example.androidenterprise.utils.Constant.FORMATTER;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 @ContentView(R.layout.activity_course_calendar)
 
@@ -194,7 +195,7 @@ public class CourseCalendarActivity extends AppCompatActivity implements OnDateS
         //网络请求
         CourseCalendarInfoEntity ccine = new CourseCalendarInfoEntity();
         ccine.setCode("1004");
-        ccine.setUser_id(1);
+        ccine.setUser_id(USERID);
         RequestParams params = new RequestParams(COURSE_CALENDAR_URL);
         params.setAsJsonContent(true);
         params.setBodyContent(new Gson().toJson(ccine));

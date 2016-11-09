@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.example.androidenterprise.utils.Constant.ORDER_PAY_URL;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 /**
  * Created by byyoung1 2016/10/15.：订单支付界面
@@ -133,7 +134,7 @@ public class OrderPaymentActivity extends BaseActivity {
                 //设置跳转支付界面
                 OrderPayRequestEntity request = new OrderPayRequestEntity();
                 request.setClass_id(1);
-                request.setUser_id("1");
+                request.setUser_id(USERID);
                 request.setOrdernum(Integer.parseInt(orderNum));
                 request.setTelephone(intent.getStringExtra("phone"));
                 request.setName(intent.getStringExtra("name"));

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import org.example.androidenterprise.R;
@@ -89,9 +90,9 @@ public class RecordAdapter extends BaseExpandableListAdapter {
         // TODO:___list.get(groupPosition).get___()
         holderGroup.date.setText("订单时间 :" +  mList.get(groupPosition).getDate());
         holderGroup.state.setText(mList.get(groupPosition).getSituation());
-        holderGroup.count.setText("共" + mList.get(groupPosition).getList().size() + "件商品（含运费" + mList.get(groupPosition).getFreigh() + "）实付 ");
-        double price = (double) mList.get(groupPosition).getFreigh() + mList.get(groupPosition).getPrice();
-        holderGroup.count_price.setText("¥" + price);
+//        holderGroup.count.setText("共" + mList.get(groupPosition).getList().size() + "件商品（含运费" + mList.get(groupPosition).getFreigh() + "）实付 ");
+//        double price = (double) mList.get(groupPosition).getFreigh() + mList.get(groupPosition).getPrice();
+//        holderGroup.count_price.setText("¥" + price);
         return convertView;
     }
 
@@ -105,6 +106,8 @@ public class RecordAdapter extends BaseExpandableListAdapter {
             holderChild.name = (TextView) convertView.findViewById(R.id.tv_name);
             holderChild.property = (TextView) convertView.findViewById(R.id.tv_property);
             holderChild.price = (TextView) convertView.findViewById(R.id.tv_price);
+            holderChild.finalPrice = (TextView) convertView.findViewById(R.id.tv_final_price);
+            holderChild.count = (TextView) convertView.findViewById(R.id.tv_count);
             convertView.setTag(holderChild);
         } else {
             holderChild = (ViewHolderChild_Record) convertView.getTag();
@@ -114,7 +117,28 @@ public class RecordAdapter extends BaseExpandableListAdapter {
         Glide.with(context).load(mList.get(groupPosition).getList().get(childPosition).getPic_url()).into(holderChild.img);
         holderChild.name.setText( mList.get(groupPosition).getList().get(childPosition).getName());
         holderChild.property.setText(mList.get(groupPosition).getList().get(childPosition).getType());
-        holderChild.price.setText(mList.get(groupPosition).getList().get(childPosition).getNow_price());
+        holderChild.price.setText(String.valueOf(mList.get(groupPosition).getList().get(childPosition).getNow_price()));
+
+        holderChild.count = (TextView) convertView.findViewById(R.id.tv_count);
+        holderChild.finalPrice = (TextView) convertView.findViewById(R.id.tv_final_price);
+
+        holderChild.line = (TextView) convertView.findViewById(R.id.tv_line2);
+        holderChild.line_final = (TextView) convertView.findViewById(R.id.tv_line_final);
+        holderChild.priceRl = (RelativeLayout) convertView.findViewById(R.id.rl_final_price);
+
+        double finalPrice = (double) mList.get(groupPosition).getFreigh();
+
+        if(childPosition == mList.get(groupPosition).getList().size() -1) {
+            finalPrice = finalPrice + mList.get(groupPosition).getList().get(childPosition).getNow_price();
+            holderChild.count.setText("共" + mList.get(groupPosition).getList().size() + "件商品（含运费" + mList.get(groupPosition).getFreigh() + "）实付 ");
+            holderChild.finalPrice.setText("¥" + finalPrice);
+            holderChild.line.setVisibility(View.VISIBLE);
+            holderChild.priceRl.setVisibility(View.VISIBLE);
+            holderChild.line_final.setVisibility(View.VISIBLE);
+        }
+        else{
+            finalPrice = finalPrice + mList.get(groupPosition).getList().get(childPosition).getNow_price();
+        }
         return convertView;
     }
 
@@ -130,5 +154,8 @@ final class ViewHolderGroup_Record {
 
 final class ViewHolderChild_Record {
     ImageView img;
-    TextView name, property, price;
+    TextView name, property, price,finalPrice,count;
+
+    TextView line,line_final;
+    RelativeLayout priceRl;
 }

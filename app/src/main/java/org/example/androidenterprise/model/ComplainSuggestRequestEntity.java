@@ -6,15 +6,15 @@ import java.io.Serializable;
  * Created by chenguojiao on 2016/11/7.投诉建议请求
  */
 public class ComplainSuggestRequestEntity implements Serializable {
-    private String User_id;
+    private int User_id;
     private int Type;
     private String Content;
 
-    public String getUser_id() {
+    public int getUser_id() {
         return User_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(int user_id) {
         User_id = user_id;
     }
 

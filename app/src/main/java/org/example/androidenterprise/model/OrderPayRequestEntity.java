@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by chenguojiao on 2016/11/7.订单支付请求
  */
 public class OrderPayRequestEntity {
-    private String User_id;
+    private int User_id;
     private int Class_id;
     private int Ordernum;
     private String Telephone;
@@ -15,11 +15,11 @@ public class OrderPayRequestEntity {
     private int Method;
     private String Date;
 
-    public String getUser_id() {
+    public int getUser_id() {
         return User_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(int user_id) {
         User_id = user_id;
     }
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ExpandableListView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,6 +24,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import static org.example.androidenterprise.utils.Constant.RECORD_URL;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 @ContentView(R.layout.activity_record)
 
@@ -31,7 +33,7 @@ public class RecordActivity extends BaseActivity {
     @ViewInject(R.id.topbar_record)
     TopbarView topbar;
     @ViewInject(R.id.explv_record)
-    RecordExpandableListView recordExpLv;
+    ExpandableListView recordExpLv;
 
     RecordEntity response;
 
@@ -43,7 +45,7 @@ public class RecordActivity extends BaseActivity {
         RecordRequestEntity request = new RecordRequestEntity();
 //        request.setCode("2009");
 //        request.setRole("student");
-        request.setUser_id(1);
+        request.setUser_id(USERID);
         RequestParams params = new RequestParams(RECORD_URL);
         params.setAsJsonContent(true);
         params.setBodyContent(new Gson().toJson(request));
@@ -56,6 +58,9 @@ public class RecordActivity extends BaseActivity {
                 }.getType());
                 RecordAdapter recAdapter = new RecordAdapter(getApplicationContext(),response.getOrder_list());
                 recordExpLv.setAdapter(recAdapter);
+                for(int i = 0;i < response.getOrder_list().size();i++){
+                    recordExpLv.expandGroup(i);
+                }
             }
 
             @Override
@@ -76,6 +81,12 @@ public class RecordActivity extends BaseActivity {
 
             }
         });
+//        recordExpLv.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+//            @Override
+//            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+//                return true;
+//            }
+//        });
     }
 
     private void setTopbar() {

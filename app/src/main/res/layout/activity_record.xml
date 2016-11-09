@@ -12,13 +12,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <org.example.androidenterprise.view.RecordExpandableListView
+    <ExpandableListView
             android:id="@+id/explv_record"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/topbar_record"
-            android:layout_marginTop="@dimen/record_expand_lv_margin_top">
+            android:layout_marginTop="@dimen/record_expand_lv_margin_top"
+            android:childDivider="#00000000">
 
-    </org.example.androidenterprise.view.RecordExpandableListView>
+    </ExpandableListView>
 
 </RelativeLayout>

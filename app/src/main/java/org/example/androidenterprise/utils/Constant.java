@@ -113,12 +113,12 @@ public class Constant {
     public static String accessToken;//accessToken 通过调用授权接口得到
     //    public static String space = UUID.randomUUID().toString().replace("-",""); //存储目录 建议使用uid cid之类的信息,不要写死
     public static String space = null; //存储目录 建议使用uid cid之类的信息,不要写死
-    //开发者自定义RequestCode,避免重复
+
     public static int RECORDE_SHOW = 10001;
 
     public static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
-    public static int RESULT_CODE = 1;
-    public static int REQUEST_CODE = 1;
 
-    public static int CLASS_TIME = 3;
+    public static int CLASS_TIME = 1;
+
+    public static int USERID = 1;
 }

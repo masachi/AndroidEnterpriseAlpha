@@ -23,9 +23,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import static org.example.androidenterprise.utils.Constant.COURSE_LIST_URL;
-import static org.example.androidenterprise.utils.Constant.SYSTEM_MESSAGE_URL;
-import static org.example.androidenterprise.utils.Constant.systemMessageNum;
+import static org.example.androidenterprise.utils.Constant.*;
 
 @ContentView(R.layout.activity_system_message)
 
@@ -43,7 +41,7 @@ public class SystemMessageActivity extends BaseActivity {
         setTopbar();
         final SystemMessageRequestEntity request=new SystemMessageRequestEntity();
         request.setCode("2000");
-        request.setUse_id(56);
+        request.setUse_id(USERID);
         request.setRole("student");
         RequestParams params=new RequestParams(SYSTEM_MESSAGE_URL);
         params.setAsJsonContent(true);

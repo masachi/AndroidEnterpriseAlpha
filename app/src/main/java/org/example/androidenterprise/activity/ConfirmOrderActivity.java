@@ -28,6 +28,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.example.androidenterprise.utils.Constant.CONFIRM_ORDER_URL;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 
 @ContentView(R.layout.activity_confirm_order)
@@ -59,7 +60,9 @@ public class ConfirmOrderActivity extends Activity {
     Date curDate = new Date(System.currentTimeMillis());//获取当前时间
     String date = formatter.format(curDate);
     ConfirmOrderEntity response;
-    String orderNum;
+    int orderNum;
+    double price;
+    EditText messageBoardBuyerEt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class ConfirmOrderActivity extends Activity {
         intent = getIntent();
         realPayMoneyTv.setText(intent.getStringExtra("price"));
         amountMoneyTv.setText(intent.getStringExtra("price"));
+        price = Double.parseDouble(intent.getStringExtra("price"));
     }
 
     @Override
@@ -81,6 +85,7 @@ public class ConfirmOrderActivity extends Activity {
         receiverTeleNumberTv.setText(data.getStringExtra("phone"));
         detailsAddressTv.setText(data.getStringExtra("address"));
         Log.e("hhhhhh", data.getStringExtra("name") + data.getStringExtra("phone") + data.getStringExtra("address"));
+        orderNum = Integer.parseInt(data.getStringExtra("phone").substring(2, 11));
     }
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -93,19 +98,19 @@ public class ConfirmOrderActivity extends Activity {
 ////        super.onActivityResult(requestCode, resultCode, data);
 //    }
 
-    private void getReceiverData() {
-        intent = getIntent();
-        receiverNameTv.setText(intent.getStringExtra("name"));
-        receiverTeleNumberTv.setText(intent.getStringExtra("phone"));
-        detailsAddressTv.setText(intent.getStringExtra("address"));
-        buyerLeaveMessageTv.setText(intent.getStringExtra("message"));
-    }
+//    private void getReceiverData() {
+//        intent = getIntent();
+//        receiverNameTv.setText(intent.getStringExtra("name"));
+//        receiverTeleNumberTv.setText(intent.getStringExtra("phone"));
+//        detailsAddressTv.setText(intent.getStringExtra("address"));
+//        buyerLeaveMessageTv.setText(intent.getStringExtra("message"));
+//    }
 
 
     public void showDialog() {
         LayoutInflater factory = LayoutInflater.from(ConfirmOrderActivity.this);
         final View view = factory.inflate(R.layout.confirm_order_buyer_leave_message_dialog, null);
-        final EditText edit = (EditText) view.findViewById(R.id.et_message_board_buyer);
+        messageBoardBuyerEt = (EditText) view.findViewById(R.id.et_message_board_buyer);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("留言");
         builder.setView(view);
@@ -113,7 +118,7 @@ public class ConfirmOrderActivity extends Activity {
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String input = edit.getText().toString();
+                String input = messageBoardBuyerEt.getText().toString();
                 if (input.equals("")) {
                     buyerLeaveMessageTv.setText("点击留言");
                 } else {
@@ -154,30 +159,22 @@ public class ConfirmOrderActivity extends Activity {
                 startActivityForResult(intent, 0);
                 break;
             case R.id.btn_submit_order:
-//                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
-//                startActivityForResult(intent, REQUEST_CODE);
-//                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
-//                break;
-//                Intent intent = new Intent(this, InstrumentPaySuccessActivity.class);
-//                startActivityForResult(intent, REQUEST_CODE);
-//                startActivity(new Intent(this, InstrumentPaySuccessActivity.class));
-//                break;
                 final ConfirmOrderEntity request = new ConfirmOrderEntity();
-                request.setUser_id(1);
+                request.setUser_id(USERID);
                 request.setCode("2071");
-                request.setPrice(30);
+                request.setPrice(price);
                 request.setMethod("alipay");
                 request.setSituation("已支付");
-                request.setMessage("货物收到很满意");
+                request.setMessage(messageBoardBuyerEt.getText().toString());
                 request.setDate(date);
-                request.setOrdernum(1231231);
+                request.setOrdernum(orderNum);
                 request.setReceiverAddressID(1);
                 List<ConfirmOrderEntity.OrderslistEntity> orderslist = new ArrayList<ConfirmOrderEntity.OrderslistEntity>();
                 ConfirmOrderEntity.OrderslistEntity orderslistEntity = new ConfirmOrderEntity.OrderslistEntity();
                 orderslistEntity.setIns_id(1);
                 orderslistEntity.setAttribute("yellow");
                 orderslist.add(orderslistEntity);
-                request.setorderslist(orderslist);
+                request.setOrderslist(orderslist);
 
                 RequestParams params = new RequestParams(CONFIRM_ORDER_URL);
                 params.setAsJsonContent(true);

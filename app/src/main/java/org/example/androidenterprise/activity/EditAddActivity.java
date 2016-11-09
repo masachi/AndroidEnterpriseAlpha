@@ -23,6 +23,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import static org.example.androidenterprise.utils.Constant.EDIT_ADDRESS_URL;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 /**
  * Created by yangxinghua ：编辑地址
@@ -88,7 +89,7 @@ public class EditAddActivity extends AppCompatActivity {
 
                 EditAddressEntity editAddressEntity = new EditAddressEntity();
                 editAddressEntity.setCode("2008");
-                editAddressEntity.setUser_id(1);
+                editAddressEntity.setUser_id(USERID);
                 editAddressEntity.setReceiver(consigneeEt.getText().toString());
                 editAddressEntity.setTel(phonenumEt.getText().toString());
                 editAddressEntity.setAddress(detailEt.getText().toString());

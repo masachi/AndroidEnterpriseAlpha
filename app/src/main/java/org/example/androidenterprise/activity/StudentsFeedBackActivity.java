@@ -52,7 +52,55 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         setTopbar();
+        classTimeTv.setText("课时1");
+        if (classTimeTv.getText().toString().equals("课时1")) {
+            instrumentInfoBack2Ib.setClickable(false);
+        }
 
+
+
+    }
+
+    private void setTopbar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
+        Resources res = getResources();
+        topbar.setTopbarTv("学员反馈");
+        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
+        topbar.setLeftIb(ic_return);
+        topbar.getLeftIb().setVisibility(View.VISIBLE);
+        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    @Event(value = {R.id.ib_instrument_info_back2, R.id.ib_instrument_info_next})
+    private void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ib_instrument_info_back2:
+                CLASS_TIME = CLASS_TIME - 1;
+                classTimeTv.setText("课时" + CLASS_TIME);
+                instrumentInfoBack2Ib.setClickable(false);
+                instrumentInfoNextIb.setClickable(true);
+                if (classTimeTv.getText().toString().equals("课时1")) {
+                    instrumentInfoBack2Ib.setClickable(false);
+                    getInfo();
+                }
+
+                break;
+            case R.id.ib_instrument_info_next:
+                CLASS_TIME = CLASS_TIME + 1;
+                classTimeTv.setText("课时" + CLASS_TIME);
+                instrumentInfoBack2Ib.setClickable(true);
+                if (classTimeTv.getText().toString().equals("课时3")) {
+                    instrumentInfoNextIb.setClickable(false);
+                }
+                break;
+        }
+    }
+    private void getInfo(){
         StudentsFeedbackRequestEntity studentsFeedbackRequest = new StudentsFeedbackRequestEntity();
         studentsFeedbackRequest.setClass_id(1);
         studentsFeedbackRequest.setTime_id(CLASS_TIME);
@@ -88,44 +136,6 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
 
             }
         });
-    }
-    private void setTopbar() {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
-        Resources res = getResources();
-        topbar.setTopbarTv("学员反馈");
-        Drawable ic_return = res.getDrawable(R.mipmap.ic_return);
-        topbar.setLeftIb(ic_return);
-        topbar.getLeftIb().setVisibility(View.VISIBLE);
-        topbar.setLeftIbOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
-
-    @Event(value = {R.id.ib_instrument_info_back2, R.id.ib_instrument_info_next})
-    private void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.ib_instrument_info_back2:
-                if (CLASS_TIME == 1) {
-                    instrumentInfoBack2Ib.setClickable(false);
-                }else {
-                    instrumentInfoBack2Ib.setClickable(true);
-                }
-                classTimeTv.setText("课时" + CLASS_TIME);
-                CLASS_TIME--;
-                break;
-            case R.id.ib_instrument_info_next:
-                if (CLASS_TIME == 3) {
-                    instrumentInfoNextIb.setClickable(false);
-                }else {
-                    instrumentInfoNextIb.setClickable(true);
-                }
-                classTimeTv.setText("课时" + CLASS_TIME);
-                CLASS_TIME++;
-                break;
-        }
     }
 
 }

@@ -26,6 +26,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import static org.example.androidenterprise.utils.Constant.COMPLAIN_SUGGEST_URL;
+import static org.example.androidenterprise.utils.Constant.USERID;
 
 /**
  * Created by chenguojiao : 投诉建议
@@ -121,7 +122,7 @@ public class ComplainSuggestActivity extends AppCompatActivity {
                 break;
             case R.id.btn_commit: // TODO commit suggest
                 ComplainSuggestRequestEntity request = new ComplainSuggestRequestEntity();
-                request.setUser_id("1");
+                request.setUser_id(USERID);
                 request.setType(position);
                 request.setContent(suggestContextEt.getText().toString());
                 RequestParams params = new RequestParams(COMPLAIN_SUGGEST_URL);

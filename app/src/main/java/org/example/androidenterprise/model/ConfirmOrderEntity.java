@@ -19,6 +19,14 @@ public class ConfirmOrderEntity implements Serializable {
     private int receiverAddressID;
     private List<OrderslistEntity> orderslist;
 
+    public List<OrderslistEntity> getOrderslist() {
+        return orderslist;
+    }
+
+    public void setOrderslist(List<OrderslistEntity> orderslist) {
+        this.orderslist = orderslist;
+    }
+
     public ConfirmOrderEntity() {
         orderslist = new ArrayList<OrderslistEntity>();
     }
@@ -87,6 +95,10 @@ public class ConfirmOrderEntity implements Serializable {
         this.ordernum = ordernum;
     }
 
+    public int getOrdernum() {
+        return ordernum;
+    }
+
     public int getReceiverAddressID() {
         return receiverAddressID;
     }
@@ -94,15 +106,6 @@ public class ConfirmOrderEntity implements Serializable {
     public void setReceiverAddressID(int receiverAddressID) {
         this.receiverAddressID = receiverAddressID;
     }
-
-    public List<OrderslistEntity> getorderslist() {
-        return orderslist;
-    }
-
-    public void setorderslist(List<OrderslistEntity> orderslist) {
-        this.orderslist = orderslist;
-    }
-
 
     public static class OrderslistEntity {
         private int ins_id;

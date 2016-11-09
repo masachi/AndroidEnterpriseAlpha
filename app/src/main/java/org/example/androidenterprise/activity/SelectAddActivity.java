@@ -54,7 +54,7 @@ public class SelectAddActivity extends AppCompatActivity {
 
         RequestParams params = new RequestParams(SELECT_ADDRESS_URL);
         params.setAsJsonContent(true);
-        params.setBodyContent("{\"User_id\":1,\"code\":\"1008\"}");
+        params.setBodyContent("{\"User_id\":USERID,\"code\":\"1008\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

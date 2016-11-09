@@ -47,7 +47,7 @@ public class OrderActivity extends BaseActivity {
 //        orderLv.setAdapter(ordAdapter);
         RequestParams params = new RequestParams(RESERVATION_ORDER_URL);
         params.setAsJsonContent(true);
-        params.setBodyContent("{\"user_id\":1,\"code\":\"2010\"}");
+        params.setBodyContent("{\"user_id\":USERID,\"code\":\"2010\"}");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
