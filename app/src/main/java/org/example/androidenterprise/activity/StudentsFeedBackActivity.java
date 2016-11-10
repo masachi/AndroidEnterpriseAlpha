@@ -82,13 +82,14 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
             case R.id.ib_instrument_info_back2:
                 CLASS_TIME = CLASS_TIME - 1;
                 classTimeTv.setText("课时" + CLASS_TIME);
-                instrumentInfoBack2Ib.setClickable(false);
+//                instrumentInfoBack2Ib.setClickable(false);
                 instrumentInfoNextIb.setClickable(true);
                 if (classTimeTv.getText().toString().equals("课时1")) {
                     instrumentInfoBack2Ib.setClickable(false);
-                    getInfo();
-                }
 
+                }
+                Log.e("hhhhhh",String.valueOf(CLASS_TIME));
+                getInfo();
                 break;
             case R.id.ib_instrument_info_next:
                 CLASS_TIME = CLASS_TIME + 1;
@@ -97,13 +98,15 @@ public class StudentsFeedBackActivity extends AppCompatActivity {
                 if (classTimeTv.getText().toString().equals("课时3")) {
                     instrumentInfoNextIb.setClickable(false);
                 }
+                Log.e("hhhhhh",String.valueOf(CLASS_TIME));
+                getInfo();
                 break;
         }
     }
     private void getInfo(){
         StudentsFeedbackRequestEntity studentsFeedbackRequest = new StudentsFeedbackRequestEntity();
-        studentsFeedbackRequest.setClass_id(1);
-        studentsFeedbackRequest.setTime_id(CLASS_TIME);
+        studentsFeedbackRequest.setClass_id(CLASS_TIME);
+        studentsFeedbackRequest.setTime_id(1);
         RequestParams params = new RequestParams(STUDENT_FEEDBACK_URL);
         params.setAsJsonContent(true);
         params.setBodyContent(new Gson().toJson(studentsFeedbackRequest));

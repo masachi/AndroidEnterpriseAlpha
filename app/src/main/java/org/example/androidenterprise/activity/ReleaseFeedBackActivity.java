@@ -102,7 +102,7 @@ public class ReleaseFeedBackActivity extends BaseActivity {
                         ReleaseRequstEntity releaseRequst = new ReleaseRequstEntity();
                         releaseRequst.setCode(2061);
                         releaseRequst.setUser_id(USERID);
-                        releaseRequst.setClass_id(1);
+                        releaseRequst.setClass_id(feedBackCourseTime);
                         releaseRequst.setFeedback(inputThoughtEt.getText().toString());
                         releaseRequst.setTime_id(1);
                         releaseRequst.setDate(date);

@@ -52,7 +52,7 @@ public class StudentsFeedbackAdapter extends BaseAdapter{
             holder.student_name = (TextView) convertView.findViewById(R.id.item_students);
             holder.feedback_time = (TextView) convertView.findViewById(R.id.minutes_ago);
             holder.feedback_context = (TextView) convertView.findViewById(R.id.item_contact);
-            holder.feedback_video = (ImageView) convertView.findViewById(R.id.iv_video);
+//            holder.feedback_video = (ImageView) convertView.findViewById(R.id.iv_video);
             convertView.setTag(holder);
         }
         else {
@@ -70,5 +70,5 @@ final class ViewHolder_StudentsFeedBack{
     TextView student_name;
     TextView feedback_time;
     TextView feedback_context;
-    ImageView feedback_video;
+//    ImageView feedback_video;
 }
