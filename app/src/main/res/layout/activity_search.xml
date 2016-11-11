@@ -136,6 +136,7 @@
 
     </RelativeLayout>
     <org.example.androidenterprise.view.CustomScrollView
+            android:id="@+id/custom_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/rl_search_selector">
@@ -200,17 +201,23 @@
                         android:background="@color/color_d1d1d1"
                         android:layout_height="1px"/>
 
-                <org.example.androidenterprise.view.SearchExpandableListView
-                        android:id="@+id/explv_order"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:groupIndicator="@null"
-                        android:dividerHeight="1dp"
-                        android:divider="#FFD1D1D1"
-                        android:childDivider="#FFD1D1D1">
+                <!--<org.example.androidenterprise.view.SearchExpandableListView-->
+                        <!--android:id="@+id/explv_order"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:groupIndicator="@null"-->
+                        <!--android:dividerHeight="1dp"-->
+                        <!--android:divider="#FFD1D1D1"-->
+                        <!--android:childDivider="#FFD1D1D1">-->
 
-                </org.example.androidenterprise.view.SearchExpandableListView>
-
+                <!--</org.example.androidenterprise.view.SearchExpandableListView>-->
+                <org.example.androidenterprise.view.CustomMeasureListView
+                        android:id="@+id/lv_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/order_lv_margin_top"
+                        android:layout_below="@id/topbar_order">
+                </org.example.androidenterprise.view.CustomMeasureListView>
             </LinearLayout>
 
             <LinearLayout
@@ -237,15 +244,22 @@
                         android:layout_height="1px"
                         android:background="@color/color_d1d1d1"/>
 
-                <org.example.androidenterprise.view.CustomMeasureListView
-                        android:id="@+id/lv_record_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:dividerHeight="1dp"
-                        android:divider="#FFD1D1D1">
+                <!--<org.example.androidenterprise.view.CustomMeasureListView-->
+                        <!--android:id="@+id/lv_record_info"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:dividerHeight="1dp"-->
+                        <!--android:divider="#FFD1D1D1">-->
 
-                </org.example.androidenterprise.view.CustomMeasureListView>
+                <!--</org.example.androidenterprise.view.CustomMeasureListView>-->
+                <org.example.androidenterprise.view.SearchExpandableListView
+                        android:id="@+id/explv_record"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/record_expand_lv_margin_top"
+                        android:childDivider="#00000000">
 
+                </org.example.androidenterprise.view.SearchExpandableListView>
             </LinearLayout>
 
             <LinearLayout

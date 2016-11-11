@@ -62,7 +62,7 @@ public class ItemAdapter extends BaseAdapter {
         }
         holder.img.setImageResource(R.drawable.img_example2);
         //TODO 服务器没给出正确的图片URL地址
-       // Glide.with(context).load(ilist.getInsArr().get(position).getPic_url()).into(holder.img);
+        Glide.with(context).load(ilist.getInsArr().get(position).getPic_url()).into(holder.img);
         holder.title.setText(ilist.getInsArr().get(position).getName());
         holder.price.setText(String.valueOf(ilist.getInsArr().get(position).getNow_price()));
         holder.price_line.setText(String.valueOf(ilist.getInsArr().get(position).getPre_price()));

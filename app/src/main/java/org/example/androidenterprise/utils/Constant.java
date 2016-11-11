@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
  * Created by sdlds on 2016/10/26.
  */
 public class Constant {
-    private static String URL_HEAD = "http://128.199.137.227:8080";
+    private static String URL_HEAD = "https://128.199.74.192:443";
     public static String VIEWPAGER_URL = URL_HEAD + "/myapi/showslide/api_showslide";
     public static String COURSE_LIST_URL = URL_HEAD + "/regist/sc";
     public static String LOGIN_URL = URL_HEAD + "/music-stju-test/api_login";
