@@ -1,6 +1,5 @@
 package org.example.androidenterprise.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -42,6 +41,16 @@ public class SearchActivity extends AppCompatActivity implements RadioGroup.OnCh
     SearchExpandableListView recordExplv;
     @ViewInject(R.id.custom_scroll_view)
     CustomScrollView customScrollView;
+    @ViewInject(R.id.ll_course_info)
+    LinearLayout courseInfoLl;
+    @ViewInject(R.id.ll_order_info)
+    LinearLayout orderInfoLl;
+    @ViewInject(R.id.ll_record_info)
+    LinearLayout recordInfoLl;
+    @ViewInject(R.id.ll_instrument_info)
+    LinearLayout instrumentInfoLl;
+    @ViewInject(R.id.tv_instrument_search)
+    TextView instrumentSearchTv;
 
     private EditText mainWordEt;
     private TextView searchTv;
@@ -233,18 +242,18 @@ public class SearchActivity extends AppCompatActivity implements RadioGroup.OnCh
     private void onClick(View view) {
         switch (view.getId()) {
             case R.id.rdob_course:
-                customScrollView.scrollTo(0, 0);
+                customScrollView.scrollTo(0, courseInfoLl.getTop());
                 break;
             case R.id.rdob_order:
-                customScrollView.scrollTo(0, 1296);
+                customScrollView.scrollTo(0, orderInfoLl.getTop());
                 break;
             case R.id.rdob_record:
-                customScrollView.scrollTo(0, 1425);
+                customScrollView.scrollTo(0, recordInfoLl.getTop());
                 break;
             case R.id.rdob_instrument:
 //                Toast toast=Toast.makeText(getApplicationContext(),"yueqitoast",Toast.LENGTH_SHORT);
 //                toast.show();
-                customScrollView.scrollTo(0, 2754);
+                customScrollView.scrollTo(0, instrumentInfoLl.getTop());
                 break;
             case R.id.ib_return:
                 finish();

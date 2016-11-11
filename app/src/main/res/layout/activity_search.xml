@@ -272,6 +272,7 @@
                     android:background="@drawable/activity_search_child">
 
                 <TextView
+                        android:id="@+id/tv_instrument_search"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/search_margin_sides"
